@@ -1,0 +1,286 @@
+import { motion } from "framer-motion";
+import { ArrowRight, TrendingUp, BadgeCheck, Clock, Filter, Grid, List, Search } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { Button } from "@/components/ui/button";
+
+const allProjects = [
+  {
+    id: 1,
+    name: "The Oasis by Emaar",
+    developer: "Emaar Properties",
+    location: "Dubai",
+    price: "AED 2.5M",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    handover: "Q4 2026",
+    roi: "8.2%",
+    tags: ["New Launch", "Investor Pick"],
+    verified: true,
+  },
+  {
+    id: 2,
+    name: "Palm Views Residences",
+    developer: "Nakheel",
+    location: "Palm Jumeirah",
+    price: "AED 4.8M",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+    handover: "Q2 2025",
+    roi: "7.5%",
+    tags: ["Ready Soon", "Premium"],
+    verified: true,
+  },
+  {
+    id: 3,
+    name: "Marina Vista Tower",
+    developer: "Damac",
+    location: "Dubai Marina",
+    price: "AED 1.8M",
+    image: "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=800&q=80",
+    handover: "Q1 2027",
+    roi: "9.1%",
+    tags: ["10% Down", "High ROI"],
+    verified: true,
+  },
+  {
+    id: 4,
+    name: "Creek Harbour Views",
+    developer: "Emaar Properties",
+    location: "Dubai Creek",
+    price: "AED 3.2M",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    handover: "Q3 2026",
+    roi: "7.8%",
+    tags: ["Waterfront", "Luxury"],
+    verified: true,
+  },
+  {
+    id: 5,
+    name: "Business Bay Heights",
+    developer: "Sobha Realty",
+    location: "Business Bay",
+    price: "AED 1.5M",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    handover: "Q2 2027",
+    roi: "10.2%",
+    tags: ["Best Value", "High ROI"],
+    verified: true,
+  },
+  {
+    id: 6,
+    name: "Dubai Hills Estate",
+    developer: "Meraas",
+    location: "Dubai Hills",
+    price: "AED 3.8M",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    handover: "Q1 2026",
+    roi: "7.2%",
+    tags: ["Family", "Golf Course"],
+    verified: true,
+  },
+];
+
+export default function ProjectsPage() {
+  const [view, setView] = useState<"grid" | "list">("grid");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <main className="pt-24 pb-20">
+        <div className="container-luxury">
+          {/* Page Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-10"
+          >
+            <h1 className="text-display text-foreground mb-4">
+              Off-Plan Projects
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Explore our curated collection of verified off-plan properties 
+              from top developers across the UAE.
+            </p>
+          </motion.div>
+
+          {/* Filters Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 p-4 bg-card border border-border rounded-xl"
+          >
+            <div className="flex items-center gap-4 flex-1">
+              <div className="relative flex-1 max-w-md">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search projects..."
+                  className="w-full h-10 pl-10 pr-4 rounded-lg bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+              <Button variant="gold-outline" size="sm">
+                <Filter className="w-4 h-4 mr-2" />
+                Filters
+              </Button>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-muted-foreground">{allProjects.length} projects</span>
+              <div className="flex items-center border border-border rounded-lg overflow-hidden">
+                <button
+                  onClick={() => setView("grid")}
+                  className={`p-2 ${view === "grid" ? "bg-primary text-foreground" : "bg-card text-muted-foreground hover:text-foreground"}`}
+                >
+                  <Grid className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => setView("list")}
+                  className={`p-2 ${view === "list" ? "bg-primary text-foreground" : "bg-card text-muted-foreground hover:text-foreground"}`}
+                >
+                  <List className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Projects Grid */}
+          <div className={`grid gap-6 ${view === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"}`}>
+            {allProjects.map((project, index) => (
+              <motion.article
+                key={project.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="group card-luxury"
+              >
+                {view === "grid" ? (
+                  <>
+                    {/* Grid View */}
+                    <div className="relative overflow-hidden aspect-[4/3]">
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
+                      
+                      <div className="absolute top-3 left-3 flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span key={tag} className="badge-tag">{tag}</span>
+                        ))}
+                      </div>
+
+                      {project.verified && (
+                        <div className="absolute top-3 right-3 w-8 h-8 bg-background/90 rounded-full flex items-center justify-center">
+                          <BadgeCheck className="w-5 h-5 text-primary" />
+                        </div>
+                      )}
+
+                      <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-background/90 backdrop-blur-sm rounded-full">
+                        <TrendingUp className="w-3.5 h-3.5 text-primary" />
+                        <span className="text-xs font-semibold text-foreground">{project.roi} ROI</span>
+                      </div>
+                    </div>
+
+                    <div className="p-5">
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+                        <span>{project.developer}</span>
+                        <span>·</span>
+                        <span>{project.location}</span>
+                      </div>
+                      <h3 className="font-display text-lg font-medium text-foreground mb-3 group-hover:text-primary transition-colors">
+                        {project.name}
+                      </h3>
+                      
+                      <div className="flex items-center justify-between pt-3 border-t border-border">
+                        <div>
+                          <span className="text-xs text-muted-foreground block">Starting from</span>
+                          <span className="font-semibold text-foreground">{project.price}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                          <Clock className="w-3.5 h-3.5" />
+                          {project.handover}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="px-5 pb-5">
+                      <Button variant="gold-outline" size="sm" className="w-full" asChild>
+                        <Link to={`/projects/${project.id}`}>
+                          View Details
+                          <ArrowRight className="w-4 h-4 ml-1" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </>
+                ) : (
+                  /* List View */
+                  <div className="flex flex-col md:flex-row">
+                    <div className="relative w-full md:w-64 aspect-video md:aspect-auto">
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3 flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span key={tag} className="badge-tag">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="flex-1 p-5 flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+                          <span>{project.developer}</span>
+                          <span>·</span>
+                          <span>{project.location}</span>
+                          {project.verified && <BadgeCheck className="w-4 h-4 text-primary" />}
+                        </div>
+                        <h3 className="font-display text-xl font-medium text-foreground mb-2">
+                          {project.name}
+                        </h3>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-6">
+                          <div>
+                            <span className="text-xs text-muted-foreground block">From</span>
+                            <span className="font-semibold text-foreground">{project.price}</span>
+                          </div>
+                          <div className="flex items-center gap-1 text-primary">
+                            <TrendingUp className="w-4 h-4" />
+                            <span className="font-semibold">{project.roi} ROI</span>
+                          </div>
+                          <div className="flex items-center gap-1 text-muted-foreground text-sm">
+                            <Clock className="w-4 h-4" />
+                            {project.handover}
+                          </div>
+                        </div>
+                        <Button variant="gold" size="sm" asChild>
+                          <Link to={`/projects/${project.id}`}>
+                            View Details
+                            <ArrowRight className="w-4 h-4 ml-1" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+      <WhatsAppButton />
+    </div>
+  );
+}
