@@ -5,8 +5,23 @@ import { Button } from "@/components/ui/button";
 import breezHero from "@/assets/projects/breez-hero.jpg";
 import timezHero from "@/assets/projects/timez-hero.jpg";
 import sparklzInterior from "@/assets/projects/sparklz-interior.jpg";
+import shahrukhzLobby from "@/assets/projects/shahrukhz-lobby.jpg";
 
 const projects = [
+  {
+    id: "shahrukhz",
+    name: "Shahrukhz by Danube",
+    developer: "Danube Properties",
+    location: "Sheikh Zayed Road",
+    price: "AED 1.9M",
+    priceLabel: "Starting from",
+    image: shahrukhzLobby,
+    handover: "2029",
+    roi: "7-9%",
+    tags: ["Commercial", "Grade-A"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "sparklz",
     name: "Sparklz by Danube",

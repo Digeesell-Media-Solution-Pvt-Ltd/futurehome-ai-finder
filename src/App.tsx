@@ -10,6 +10,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import BreezProject from "./pages/projects/BreezProject";
 import TimezProject from "./pages/projects/TimezProject";
 import SparklzProject from "./pages/projects/SparklzProject";
+import ShahrukhzProject from "./pages/projects/ShahrukhzProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/projects/breez" element={<BreezProject />} />
           <Route path="/projects/timez" element={<TimezProject />} />
           <Route path="/projects/sparklz" element={<SparklzProject />} />
+          <Route path="/projects/shahrukhz" element={<ShahrukhzProject />} />
           <Route path="/projects/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />

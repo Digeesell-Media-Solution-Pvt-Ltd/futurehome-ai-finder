@@ -23,6 +23,18 @@ const filters = {
 
 const sampleResults = [
   {
+    id: "shahrukhz",
+    name: "Shahrukhz by Danube",
+    developer: "Danube Properties",
+    location: "Sheikh Zayed Road",
+    price: "AED 1.9M",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    handover: "2029",
+    roi: "7-9%",
+    matchScore: 94,
+    matchReason: "Premium match: Grade-A commercial offices on Dubai's iconic Sheikh Zayed Road with helipad, skypool, and 70/30 payment plan.",
+  },
+  {
     id: "sparklz",
     name: "Sparklz by Danube",
     developer: "Danube Properties",
