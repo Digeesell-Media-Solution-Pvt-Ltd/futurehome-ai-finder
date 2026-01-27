@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import AISearch from "./pages/AISearch";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
+import BreezProject from "./pages/projects/BreezProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/ai-search" element={<AISearch />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/breez" element={<BreezProject />} />
           <Route path="/projects/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />

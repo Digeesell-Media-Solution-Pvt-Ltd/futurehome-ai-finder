@@ -8,6 +8,16 @@ import { Button } from "@/components/ui/button";
 
 const developers = [
   {
+    id: 7,
+    name: "Danube Properties",
+    description: "We don't just build homes, we deliver trust, quality, and lifestyle.",
+    projects: 45,
+    trustScore: 4.7,
+    verified: true,
+    deliveryRate: "96%",
+    featured: true,
+  },
+  {
     id: 1,
     name: "Emaar Properties",
     description: "Dubai's largest developer, known for iconic projects like Burj Khalifa and Dubai Mall.",
@@ -15,6 +25,7 @@ const developers = [
     trustScore: 4.9,
     verified: true,
     deliveryRate: "99%",
+    featured: false,
   },
   {
     id: 2,
@@ -24,6 +35,7 @@ const developers = [
     trustScore: 4.7,
     verified: true,
     deliveryRate: "96%",
+    featured: false,
   },
   {
     id: 3,
@@ -33,6 +45,7 @@ const developers = [
     trustScore: 4.8,
     verified: true,
     deliveryRate: "98%",
+    featured: false,
   },
   {
     id: 4,
@@ -42,6 +55,7 @@ const developers = [
     trustScore: 4.6,
     verified: true,
     deliveryRate: "97%",
+    featured: false,
   },
   {
     id: 5,
@@ -51,6 +65,7 @@ const developers = [
     trustScore: 4.5,
     verified: true,
     deliveryRate: "95%",
+    featured: false,
   },
   {
     id: 6,
@@ -60,24 +75,27 @@ const developers = [
     trustScore: 4.8,
     verified: true,
     deliveryRate: "99%",
+    featured: false,
   },
   {
-    id: 7,
+    id: 8,
     name: "Azizi Developments",
     description: "Fast-growing developer with projects across Dubai's key locations.",
     projects: 67,
     trustScore: 4.4,
     verified: true,
     deliveryRate: "94%",
+    featured: false,
   },
   {
-    id: 8,
+    id: 9,
     name: "Ellington Properties",
     description: "Design-led developer focused on lifestyle and community.",
     projects: 18,
     trustScore: 4.6,
     verified: true,
     deliveryRate: "97%",
+    featured: false,
   },
 ];
 

@@ -23,6 +23,18 @@ const filters = {
 
 const sampleResults = [
   {
+    id: "breez",
+    name: "Breez by Danube",
+    developer: "Danube Properties",
+    location: "Dubai Maritime City",
+    price: "AED 700K",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    handover: "Q4 2028",
+    roi: "12-15%",
+    matchScore: 98,
+    matchReason: "Perfect match: Waterfront property with 40+ amenities, fully furnished, high ROI potential in emerging Dubai Maritime City location.",
+  },
+  {
     id: 1,
     name: "Marina Vista Tower",
     developer: "Damac",

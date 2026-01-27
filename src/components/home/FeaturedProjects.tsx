@@ -1,9 +1,24 @@
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingUp, BadgeCheck, Clock } from "lucide-react";
+import { ArrowRight, TrendingUp, BadgeCheck, Clock, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import breezHero from "@/assets/projects/breez-hero.jpg";
 
 const projects = [
+  {
+    id: "breez",
+    name: "Breez by Danube",
+    developer: "Danube Properties",
+    location: "Dubai Maritime City",
+    price: "AED 700K",
+    priceLabel: "Starting from",
+    image: breezHero,
+    handover: "Q4 2028",
+    roi: "12-15%",
+    tags: ["Featured", "Waterfront"],
+    verified: true,
+    featured: true,
+  },
   {
     id: 1,
     name: "The Oasis by Emaar",
@@ -16,6 +31,7 @@ const projects = [
     roi: "8.2%",
     tags: ["New Launch", "Investor Pick"],
     verified: true,
+    featured: false,
   },
   {
     id: 2,
@@ -29,6 +45,7 @@ const projects = [
     roi: "7.5%",
     tags: ["Ready Soon", "Premium"],
     verified: true,
+    featured: false,
   },
   {
     id: 3,
@@ -42,19 +59,7 @@ const projects = [
     roi: "9.1%",
     tags: ["10% Down", "High ROI"],
     verified: true,
-  },
-  {
-    id: 4,
-    name: "Creek Harbour Views",
-    developer: "Emaar Properties",
-    location: "Dubai Creek",
-    price: "AED 3.2M",
-    priceLabel: "Starting from",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-    handover: "Q3 2026",
-    roi: "7.8%",
-    tags: ["Waterfront", "Luxury"],
-    verified: true,
+    featured: false,
   },
 ];
 
@@ -145,7 +150,13 @@ export function FeaturedProjects() {
                 
                 {/* Tags - Bubble style */}
                 <div className="absolute top-3 left-3 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
+                  {project.featured && (
+                    <span className="badge-tag flex items-center gap-1">
+                      <Star className="w-3 h-3" />
+                      Featured
+                    </span>
+                  )}
+                  {project.tags.slice(0, 1).map((tag) => (
                     <span key={tag} className="badge-tag">
                       {tag}
                     </span>
