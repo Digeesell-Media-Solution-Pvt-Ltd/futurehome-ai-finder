@@ -4,8 +4,23 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import breezHero from "@/assets/projects/breez-hero.jpg";
 import timezHero from "@/assets/projects/timez-hero.jpg";
+import sparklzInterior from "@/assets/projects/sparklz-interior.jpg";
 
 const projects = [
+  {
+    id: "sparklz",
+    name: "Sparklz by Danube",
+    developer: "Danube Properties",
+    location: "Al Furjan, Dubai",
+    price: "AED 900K",
+    priceLabel: "Starting from",
+    image: sparklzInterior,
+    handover: "Q2 2028",
+    roi: "7-9%",
+    tags: ["New Launch", "Smart Living"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "timez",
     name: "Timez by Danube",
