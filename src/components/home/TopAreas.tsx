@@ -62,8 +62,22 @@ const areas = [
 
 export function TopAreas() {
   return (
-    <section className="section-padding bg-cream">
-      <div className="container-luxury">
+    <section className="section-padding bg-cream relative overflow-hidden">
+      {/* Background bubbles */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div
+          animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
+          transition={{ duration: 12, repeat: Infinity }}
+          className="absolute top-20 right-20 w-64 h-64 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-2xl"
+        />
+        <motion.div
+          animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
+          transition={{ duration: 10, repeat: Infinity }}
+          className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-2xl"
+        />
+      </div>
+
+      <div className="container-luxury relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,9 +86,14 @@ export function TopAreas() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">
+          <motion.span
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            className="inline-block text-sm font-medium text-primary tracking-wider uppercase mb-4 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20"
+          >
             Investment Hotspots
-          </span>
+          </motion.span>
           <h2 className="text-heading text-foreground mb-4">
             Top Areas to Invest
           </h2>
@@ -84,7 +103,7 @@ export function TopAreas() {
           </p>
         </motion.div>
 
-        {/* Areas Grid */}
+        {/* Areas Grid - Bubble cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {areas.map((area, index) => (
             <motion.article
@@ -93,7 +112,8 @@ export function TopAreas() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group relative overflow-hidden rounded-3xl aspect-[4/3] cursor-pointer"
             >
               {/* Background Image */}
               <img
@@ -101,37 +121,52 @@ export function TopAreas() {
                 alt={area.name}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent" />
+
+              {/* Glass overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/60 to-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Content */}
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <div className="flex items-center gap-2 text-primary mb-2">
-                  <MapPin className="w-4 h-4" />
-                  <span className="text-sm font-medium">{area.projects} Projects</span>
-                </div>
+                {/* Project count bubble */}
+                <motion.div
+                  initial={{ scale: 0.8 }}
+                  whileInView={{ scale: 1 }}
+                  className="absolute top-4 left-4 glass-panel px-3 py-1.5 rounded-full flex items-center gap-2"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-primary" />
+                  <span className="text-xs font-medium text-background">{area.projects} Projects</span>
+                </motion.div>
+
                 <h3 className="font-display text-2xl font-semibold text-background mb-2">
                   {area.name}
                 </h3>
+                
+                {/* Description - Revealed on hover */}
                 <p className="text-sm text-background/70 mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                   {area.description}
                 </p>
 
-                {/* Stats */}
-                <div className="flex items-center gap-4 text-sm">
-                  <div className="flex items-center gap-1.5 text-background/80">
-                    <Building className="w-4 h-4" />
-                    <span>From {area.avgPrice}</span>
+                {/* Stats - Glass bubbles */}
+                <div className="flex items-center gap-3">
+                  <div className="glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                    <Building className="w-3.5 h-3.5 text-primary" />
+                    <span className="text-xs font-medium text-background">From {area.avgPrice}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-primary">
-                    <TrendingUp className="w-4 h-4" />
-                    <span className="font-semibold">{area.roi} ROI</span>
+                  <div className="glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                    <TrendingUp className="w-3.5 h-3.5 text-primary" />
+                    <span className="text-xs font-semibold text-primary">{area.roi} ROI</span>
                   </div>
                 </div>
 
-                {/* Hover Arrow */}
-                <div className="absolute top-6 right-6 w-10 h-10 bg-background/10 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* Hover Arrow - Bubble style */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileHover={{ scale: 1.1 }}
+                  className="absolute top-4 right-4 w-12 h-12 glass-panel rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                >
                   <ArrowRight className="w-5 h-5 text-background" />
-                </div>
+                </motion.div>
               </div>
             </motion.article>
           ))}
@@ -143,9 +178,9 @@ export function TopAreas() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="text-center mt-10"
+          className="text-center mt-12"
         >
-          <Button variant="gold" size="lg" asChild>
+          <Button variant="gold" size="lg" className="rounded-full shadow-glow-gold" asChild>
             <Link to="/areas">
               Explore All Areas
               <ArrowRight className="w-4 h-4 ml-2" />

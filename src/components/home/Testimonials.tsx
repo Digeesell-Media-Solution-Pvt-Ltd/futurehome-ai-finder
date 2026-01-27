@@ -47,8 +47,22 @@ export function Testimonials() {
   };
 
   return (
-    <section className="section-padding bg-cream">
-      <div className="container-luxury">
+    <section className="section-padding bg-cream relative overflow-hidden">
+      {/* Floating bubbles */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div
+          animate={{ y: [0, -30, 0], x: [0, 15, 0] }}
+          transition={{ duration: 10, repeat: Infinity }}
+          className="absolute top-1/4 left-1/4 w-40 h-40 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-2xl"
+        />
+        <motion.div
+          animate={{ y: [0, 20, 0] }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute bottom-1/4 right-1/4 w-60 h-60 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-2xl"
+        />
+      </div>
+
+      <div className="container-luxury relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,9 +71,14 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">
+          <motion.span
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            className="inline-block text-sm font-medium text-primary tracking-wider uppercase mb-4 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20"
+          >
             Success Stories
-          </span>
+          </motion.span>
           <h2 className="text-heading text-foreground mb-4">
             What Our Investors Say
           </h2>
@@ -69,41 +88,71 @@ export function Testimonials() {
           </p>
         </motion.div>
 
-        {/* Testimonial Carousel */}
+        {/* Testimonial Carousel - Glass card */}
         <div className="relative max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: 50, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: -50, scale: 0.95 }}
               transition={{ duration: 0.4 }}
-              className="bg-card rounded-2xl p-8 md:p-12 shadow-luxury"
+              className="bubble-card p-8 md:p-12 relative overflow-hidden"
             >
-              {/* Quote Icon */}
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                <Quote className="w-6 h-6 text-primary" />
-              </div>
+              {/* Background glow */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-radial from-primary/10 to-transparent rounded-full blur-3xl" />
+              
+              {/* Quote Icon - Bubble style */}
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: "spring" }}
+                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 relative"
+                style={{
+                  background: "linear-gradient(135deg, rgba(214, 199, 161, 0.2) 0%, rgba(214, 199, 161, 0.1) 100%)",
+                  border: "1px solid rgba(214, 199, 161, 0.3)",
+                }}
+              >
+                <div className="absolute top-1 left-2 w-4 h-2 bg-white/40 rounded-full blur-sm" />
+                <Quote className="w-6 h-6 text-primary relative z-10" />
+              </motion.div>
 
-              {/* Rating */}
+              {/* Rating - Glass pills */}
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(testimonials[current].rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                  <motion.div
+                    key={i}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.3 + i * 0.05, type: "spring" }}
+                  >
+                    <Star className="w-5 h-5 fill-primary text-primary" />
+                  </motion.div>
                 ))}
               </div>
 
               {/* Text */}
-              <blockquote className="text-lg md:text-xl text-foreground leading-relaxed mb-8">
+              <blockquote className="text-lg md:text-xl text-foreground leading-relaxed mb-8 relative z-10">
                 "{testimonials[current].text}"
               </blockquote>
 
               {/* Author */}
-              <div className="flex items-center gap-4">
-                <img
-                  src={testimonials[current].image}
-                  alt={testimonials[current].name}
-                  className="w-14 h-14 rounded-full object-cover"
-                />
+              <div className="flex items-center gap-4 relative z-10">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="relative"
+                >
+                  <img
+                    src={testimonials[current].image}
+                    alt={testimonials[current].name}
+                    className="w-14 h-14 rounded-2xl object-cover"
+                  />
+                  <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-primary rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 text-charcoal" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </motion.div>
                 <div>
                   <div className="font-medium text-foreground">
                     {testimonials[current].name}
@@ -113,48 +162,55 @@ export function Testimonials() {
                   </div>
                 </div>
                 <div className="ml-auto hidden md:block">
-                  <div className="text-xs text-muted-foreground mb-1">Invested in</div>
-                  <div className="text-sm font-medium text-primary">
-                    {testimonials[current].project}
+                  <div className="glass-panel px-4 py-2 rounded-full">
+                    <div className="text-xs text-muted-foreground mb-0.5">Invested in</div>
+                    <div className="text-sm font-medium text-primary">
+                      {testimonials[current].project}
+                    </div>
                   </div>
                 </div>
               </div>
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation */}
+          {/* Navigation - Bubble buttons */}
           <div className="flex items-center justify-center gap-4 mt-8">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               onClick={prev}
-              className="w-12 h-12 rounded-full border border-border hover:border-primary hover:bg-primary/5 flex items-center justify-center transition-colors"
+              className="w-12 h-12 rounded-full bubble-interactive flex items-center justify-center"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5 text-foreground" />
-            </button>
+            </motion.button>
 
             {/* Dots */}
             <div className="flex items-center gap-2">
               {testimonials.map((_, index) => (
-                <button
+                <motion.button
                   key={index}
+                  whileHover={{ scale: 1.2 }}
                   onClick={() => setCurrent(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  className={`h-2 rounded-full transition-all duration-300 ${
                     index === current
-                      ? "w-6 bg-primary"
-                      : "bg-border hover:bg-primary/50"
+                      ? "w-8 bg-gradient-to-r from-primary to-gold-dark"
+                      : "w-2 bg-border hover:bg-primary/50"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
             </div>
 
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               onClick={next}
-              className="w-12 h-12 rounded-full border border-border hover:border-primary hover:bg-primary/5 flex items-center justify-center transition-colors"
+              className="w-12 h-12 rounded-full bubble-interactive flex items-center justify-center"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5 text-foreground" />
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
