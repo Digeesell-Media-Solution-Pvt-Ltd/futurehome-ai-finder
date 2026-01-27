@@ -7,8 +7,22 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import breezHero from "@/assets/projects/breez-hero.jpg";
+import timezHero from "@/assets/projects/timez-hero.jpg";
 
 const allProjects = [
+  {
+    id: "timez",
+    name: "Timez by Danube",
+    developer: "Danube Properties",
+    location: "Dubai Silicon Oasis",
+    price: "AED 550K",
+    image: timezHero,
+    handover: "Q4 2027",
+    roi: "8-10%",
+    tags: ["Convertible Units", "1% Monthly", "45+ Amenities"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "breez",
     name: "Breez by Danube",
