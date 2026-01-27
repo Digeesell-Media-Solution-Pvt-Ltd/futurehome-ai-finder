@@ -9,17 +9,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-gold-dark shadow-gold hover:shadow-gold-lg hover:scale-[1.02]",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        default: "bg-charcoal text-white hover:bg-charcoal-light shadow-md hover:shadow-lg hover:scale-[1.02]",
+        destructive: "bg-destructive text-white hover:bg-destructive/90",
+        outline: "border-2 border-charcoal text-charcoal bg-transparent hover:bg-charcoal hover:text-white font-medium",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        gold: "bg-primary text-foreground font-medium shadow-gold hover:bg-gold-dark hover:shadow-gold-lg hover:scale-[1.02]",
-        "gold-outline": "border-2 border-primary text-foreground bg-transparent hover:bg-primary hover:text-foreground font-medium",
-        hero: "bg-primary text-foreground font-medium px-8 py-4 text-base shadow-gold hover:bg-gold-dark hover:shadow-gold-lg hover:scale-[1.02] rounded-lg",
-        "hero-outline": "border-2 border-primary text-foreground bg-transparent hover:bg-primary/10 font-medium px-8 py-4 text-base rounded-lg",
-        dark: "bg-charcoal text-background font-medium hover:bg-charcoal-light hover:scale-[1.02]",
+        link: "text-charcoal underline-offset-4 hover:underline font-medium",
+        gold: "bg-gold-dark text-white font-semibold shadow-gold hover:bg-primary hover:shadow-gold-lg hover:scale-[1.02]",
+        "gold-outline": "border-2 border-gold-dark text-charcoal bg-transparent hover:bg-gold-dark hover:text-white font-semibold",
+        hero: "bg-charcoal text-white font-semibold px-8 py-4 text-base shadow-lg hover:bg-charcoal-light hover:shadow-xl hover:scale-[1.02] rounded-lg",
+        "hero-outline": "border-2 border-charcoal text-charcoal bg-transparent hover:bg-charcoal hover:text-white font-semibold px-8 py-4 text-base rounded-lg",
+        dark: "bg-charcoal text-white font-semibold hover:bg-charcoal-light hover:scale-[1.02]",
       },
       size: {
         default: "h-10 px-4 py-2",
