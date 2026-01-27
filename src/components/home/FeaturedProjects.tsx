@@ -79,8 +79,14 @@ const itemVariants = {
 
 export function FeaturedProjects() {
   return (
-    <section className="section-padding bg-background">
-      <div className="container-luxury">
+    <section className="section-padding bg-background relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-radial from-primary/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-radial from-primary/5 to-transparent rounded-full blur-3xl" />
+      </div>
+
+      <div className="container-luxury relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -90,9 +96,14 @@ export function FeaturedProjects() {
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12"
         >
           <div>
-            <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="inline-block text-sm font-medium text-primary tracking-wider uppercase mb-3 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20"
+            >
               Featured Properties
-            </span>
+            </motion.span>
             <h2 className="text-heading text-foreground">
               Handpicked Off-Plan Projects
             </h2>
@@ -101,7 +112,7 @@ export function FeaturedProjects() {
               verified by our experts and AI-analyzed for investment potential.
             </p>
           </div>
-          <Button variant="gold-outline" asChild>
+          <Button variant="gold-outline" className="rounded-full" asChild>
             <Link to="/projects">
               View All Projects
               <ArrowRight className="w-4 h-4 ml-2" />
@@ -121,7 +132,7 @@ export function FeaturedProjects() {
             <motion.article
               key={project.id}
               variants={itemVariants}
-              className="group card-luxury"
+              className="group bubble-card"
             >
               {/* Image */}
               <div className="relative overflow-hidden aspect-[4/3]">
@@ -130,9 +141,9 @@ export function FeaturedProjects() {
                   alt={project.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent" />
                 
-                {/* Tags */}
+                {/* Tags - Bubble style */}
                 <div className="absolute top-3 left-3 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span key={tag} className="badge-tag">
@@ -141,37 +152,40 @@ export function FeaturedProjects() {
                   ))}
                 </div>
 
-                {/* Verified Badge */}
+                {/* Verified Badge - Glass bubble */}
                 {project.verified && (
-                  <div className="absolute top-3 right-3 w-8 h-8 bg-background/90 rounded-full flex items-center justify-center">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    className="absolute top-3 right-3 w-10 h-10 glass-panel rounded-full flex items-center justify-center"
+                  >
                     <BadgeCheck className="w-5 h-5 text-primary" />
-                  </div>
+                  </motion.div>
                 )}
 
-                {/* ROI */}
-                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-background/90 backdrop-blur-sm rounded-full">
+                {/* ROI Badge - Glass panel */}
+                <div className="absolute bottom-3 left-3 glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5">
                   <TrendingUp className="w-3.5 h-3.5 text-primary" />
                   <span className="text-xs font-semibold text-foreground">{project.roi} ROI</span>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-5">
+              <div className="p-5 relative z-10">
                 <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
                   <span>{project.developer}</span>
-                  <span>·</span>
+                  <span className="w-1 h-1 rounded-full bg-primary" />
                   <span>{project.location}</span>
                 </div>
                 <h3 className="font-display text-lg font-medium text-foreground mb-3 group-hover:text-primary transition-colors">
                   {project.name}
                 </h3>
                 
-                <div className="flex items-center justify-between pt-3 border-t border-border">
+                <div className="flex items-center justify-between pt-3 border-t border-border/50">
                   <div>
                     <span className="text-xs text-muted-foreground block">{project.priceLabel}</span>
                     <span className="font-semibold text-foreground">{project.price}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground glass-panel px-2 py-1 rounded-full">
                     <Clock className="w-3.5 h-3.5" />
                     {project.handover}
                   </div>
@@ -180,7 +194,7 @@ export function FeaturedProjects() {
 
               {/* Hover CTA */}
               <div className="px-5 pb-5">
-                <Button variant="gold-outline" size="sm" className="w-full opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" asChild>
+                <Button variant="gold-outline" size="sm" className="w-full rounded-full opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" asChild>
                   <Link to={`/projects/${project.id}`}>
                     View Details
                     <ArrowRight className="w-4 h-4 ml-1" />
@@ -191,18 +205,21 @@ export function FeaturedProjects() {
           ))}
         </motion.div>
 
-        {/* Live Activity */}
+        {/* Live Activity - Glass panel */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="flex items-center justify-center gap-3 mt-10 text-sm text-muted-foreground"
+          className="flex items-center justify-center mt-12"
         >
-          <span className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            1,234 investors browsing right now
-          </span>
+          <div className="glass-panel px-6 py-3 rounded-full flex items-center gap-3">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+            </span>
+            <span className="text-sm text-muted-foreground">1,234 investors browsing right now</span>
+          </div>
         </motion.div>
       </div>
     </section>

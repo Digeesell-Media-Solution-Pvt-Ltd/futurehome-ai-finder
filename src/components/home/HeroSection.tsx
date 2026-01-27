@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Search, Sparkles, ArrowRight, TrendingUp, Shield, Users } from "lucide-react";
+import { Search, Sparkles, ArrowRight, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-dubai.jpg";
@@ -21,21 +21,60 @@ export function HeroSection() {
           alt="Dubai luxury real estate skyline"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/70 to-charcoal/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/95 via-charcoal/70 to-charcoal/30" />
+        
+        {/* Animated light effects */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            animate={{
+              x: [0, 100, 0],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] rounded-full bg-gradient-radial from-primary/20 to-transparent blur-3xl"
+          />
+          <motion.div
+            animate={{
+              y: [0, -50, 0],
+              opacity: [0.2, 0.4, 0.2],
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-radial from-primary/15 to-transparent blur-3xl"
+          />
+        </div>
+      </div>
+
+      {/* Floating Decorative Bubbles */}
+      <div className="absolute inset-0 z-5 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
+          transition={{ duration: 6, repeat: Infinity }}
+          className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm border border-white/10"
+        />
+        <motion.div
+          animate={{ y: [0, 15, 0], rotate: [0, -3, 0] }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute top-1/3 right-1/6 w-20 h-20 rounded-full bg-gradient-to-br from-primary/10 to-transparent backdrop-blur-sm border border-primary/20"
+        />
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 5, repeat: Infinity }}
+          className="absolute bottom-1/3 right-1/3 w-16 h-16 rounded-full bg-gradient-to-br from-white/10 to-transparent backdrop-blur-sm border border-white/10"
+        />
       </div>
 
       {/* Content */}
       <div className="container-luxury relative z-10 pt-32 pb-20">
         <div className="max-w-3xl">
-          {/* Trust Badge */}
+          {/* Trust Badge - Glass style */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-background/10 backdrop-blur-sm rounded-full border border-primary/30 mb-8"
+            className="inline-flex items-center gap-2 px-5 py-2.5 glass-panel mb-8"
           >
             <Shield className="w-4 h-4 text-primary" />
-            <span className="text-sm text-background/90">RERA Licensed · DLD Verified Listings</span>
+            <span className="text-sm text-background/90 font-medium">RERA Licensed · DLD Verified Listings</span>
           </motion.div>
 
           {/* Headline */}
@@ -46,7 +85,15 @@ export function HeroSection() {
             className="text-display text-background mb-6"
           >
             Where Your{" "}
-            <span className="text-primary">Future Home</span>{" "}
+            <span className="relative inline-block">
+              <span className="text-primary">Future Home</span>
+              <motion.span
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+                className="absolute bottom-2 left-0 h-1 bg-primary/50 rounded-full"
+              />
+            </span>{" "}
             Begins
           </motion.h1>
 
@@ -61,19 +108,29 @@ export function HeroSection() {
             across all 7 Emirates of the UAE.
           </motion.p>
 
-          {/* AI Search Box */}
+          {/* AI Search Box - Glass Card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-background/10 backdrop-blur-md border border-primary/20 rounded-2xl p-6 mb-10"
+            className="glass-card p-6 mb-10"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center animate-pulse-glow">
-                <Sparkles className="w-5 h-5 text-primary" />
-              </div>
+              <motion.div
+                animate={{
+                  boxShadow: [
+                    "0 0 15px rgba(214, 199, 161, 0.4)",
+                    "0 0 30px rgba(214, 199, 161, 0.6)",
+                    "0 0 15px rgba(214, 199, 161, 0.4)",
+                  ],
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="w-12 h-12 bg-gradient-to-br from-primary to-gold-dark rounded-full flex items-center justify-center"
+              >
+                <Sparkles className="w-6 h-6 text-charcoal" />
+              </motion.div>
               <div>
-                <p className="text-sm font-medium text-background">AI Property Matching</p>
+                <p className="text-sm font-semibold text-background">AI Property Matching</p>
                 <p className="text-xs text-background/60">Tell us what you're looking for</p>
               </div>
             </div>
@@ -82,8 +139,8 @@ export function HeroSection() {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 <input
                   type="text"
-                  placeholder="e.g., 2BR apartment in Dubai Marina under 2M with sea view..."
-                  className="w-full h-14 pl-12 pr-4 rounded-xl bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="e.g., 2BR apartment in Dubai Marina under 2M..."
+                  className="w-full h-14 pl-12 pr-4 rounded-xl bg-background/90 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-shadow"
                 />
               </div>
               <Button variant="hero" size="xl" className="sm:w-auto" asChild>
@@ -102,12 +159,12 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-wrap gap-4"
           >
-            <Button variant="hero-outline" asChild>
+            <Button variant="hero-outline" className="backdrop-blur-soft" asChild>
               <Link to="/projects">
                 Browse All Projects
               </Link>
             </Button>
-            <Button variant="hero-outline" asChild>
+            <Button variant="hero-outline" className="backdrop-blur-soft" asChild>
               <Link to="/contact">
                 Book Free Consultation
               </Link>
@@ -115,12 +172,12 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Stats */}
+        {/* Stats - Glass panels */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-10 border-t border-background/10"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -128,11 +185,16 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
-              className="text-center"
+              className="glass-panel p-5 text-center"
             >
-              <div className="text-3xl md:text-4xl font-display font-semibold text-primary mb-1">
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 1 + index * 0.1, type: "spring" }}
+                className="text-3xl md:text-4xl font-display font-semibold text-primary mb-1"
+              >
                 {stat.value}
-              </div>
+              </motion.div>
               <div className="text-sm text-background/60">{stat.label}</div>
             </motion.div>
           ))}
@@ -149,9 +211,13 @@ export function HeroSection() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-8 h-12 border-2 border-background/30 rounded-full flex items-start justify-center p-2"
+          className="w-8 h-12 glass-panel rounded-full flex items-start justify-center p-2"
         >
-          <div className="w-1.5 h-3 bg-primary rounded-full" />
+          <motion.div
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-1.5 h-3 bg-primary rounded-full"
+          />
         </motion.div>
       </motion.div>
     </section>
