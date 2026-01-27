@@ -1,13 +1,27 @@
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingUp, BadgeCheck, Clock, Filter, Grid, List, Search } from "lucide-react";
+import { ArrowRight, TrendingUp, BadgeCheck, Clock, Filter, Grid, List, Search, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import breezHero from "@/assets/projects/breez-hero.jpg";
 
 const allProjects = [
+  {
+    id: "breez",
+    name: "Breez by Danube",
+    developer: "Danube Properties",
+    location: "Dubai Maritime City",
+    price: "AED 700K",
+    image: breezHero,
+    handover: "Q4 2028",
+    roi: "12-15%",
+    tags: ["Waterfront", "Fully Furnished", "40+ Amenities"],
+    verified: true,
+    featured: true,
+  },
   {
     id: 1,
     name: "The Oasis by Emaar",
@@ -19,6 +33,7 @@ const allProjects = [
     roi: "8.2%",
     tags: ["New Launch", "Investor Pick"],
     verified: true,
+    featured: false,
   },
   {
     id: 2,
@@ -31,6 +46,7 @@ const allProjects = [
     roi: "7.5%",
     tags: ["Ready Soon", "Premium"],
     verified: true,
+    featured: false,
   },
   {
     id: 3,
@@ -43,6 +59,7 @@ const allProjects = [
     roi: "9.1%",
     tags: ["10% Down", "High ROI"],
     verified: true,
+    featured: false,
   },
   {
     id: 4,
@@ -55,6 +72,7 @@ const allProjects = [
     roi: "7.8%",
     tags: ["Waterfront", "Luxury"],
     verified: true,
+    featured: false,
   },
   {
     id: 5,
@@ -67,6 +85,7 @@ const allProjects = [
     roi: "10.2%",
     tags: ["Best Value", "High ROI"],
     verified: true,
+    featured: false,
   },
   {
     id: 6,
@@ -79,6 +98,7 @@ const allProjects = [
     roi: "7.2%",
     tags: ["Family", "Golf Course"],
     verified: true,
+    featured: false,
   },
 ];
 
@@ -173,7 +193,13 @@ export default function ProjectsPage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
                       
                       <div className="absolute top-3 left-3 flex flex-wrap gap-2">
-                        {project.tags.map((tag) => (
+                        {project.featured && (
+                          <span className="badge-tag flex items-center gap-1">
+                            <Star className="w-3 h-3" />
+                            Featured
+                          </span>
+                        )}
+                        {project.tags.slice(0, 2).map((tag) => (
                           <span key={tag} className="badge-tag">{tag}</span>
                         ))}
                       </div>
