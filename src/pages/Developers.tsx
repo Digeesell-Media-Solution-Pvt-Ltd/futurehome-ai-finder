@@ -10,8 +10,9 @@ const developers = [
   {
     id: 7,
     name: "Danube Properties",
-    description: "We don't just build homes, we deliver trust, quality, and lifestyle.",
-    projects: 45,
+    description: "Architects of tomorrow's dreams, building today's legacies with 1% payment plans.",
+    projects: 47,
+    currentProjects: ["Breez", "Timez"],
     trustScore: 4.7,
     verified: true,
     deliveryRate: "96%",

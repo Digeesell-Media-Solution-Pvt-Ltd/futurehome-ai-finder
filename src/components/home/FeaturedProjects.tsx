@@ -3,8 +3,23 @@ import { ArrowRight, TrendingUp, BadgeCheck, Clock, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import breezHero from "@/assets/projects/breez-hero.jpg";
+import timezHero from "@/assets/projects/timez-hero.jpg";
 
 const projects = [
+  {
+    id: "timez",
+    name: "Timez by Danube",
+    developer: "Danube Properties",
+    location: "Dubai Silicon Oasis",
+    price: "AED 550K",
+    priceLabel: "Starting from",
+    image: timezHero,
+    handover: "Q4 2027",
+    roi: "8-10%",
+    tags: ["New Launch", "Convertible"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "breez",
     name: "Breez by Danube",

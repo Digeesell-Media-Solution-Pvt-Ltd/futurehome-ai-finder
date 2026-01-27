@@ -23,6 +23,18 @@ const filters = {
 
 const sampleResults = [
   {
+    id: "timez",
+    name: "Timez by Danube",
+    developer: "Danube Properties",
+    location: "Dubai Silicon Oasis",
+    price: "AED 550K",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+    handover: "Q4 2027",
+    roi: "8-10%",
+    matchScore: 97,
+    matchReason: "Excellent match: Affordable entry point with convertible layouts, 1% monthly payment plan perfect for first-time investors in DSO's growing tech hub.",
+  },
+  {
     id: "breez",
     name: "Breez by Danube",
     developer: "Danube Properties",
