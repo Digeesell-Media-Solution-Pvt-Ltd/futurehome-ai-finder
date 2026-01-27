@@ -8,8 +8,22 @@ import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import breezHero from "@/assets/projects/breez-hero.jpg";
 import timezHero from "@/assets/projects/timez-hero.jpg";
+import sparklzInterior from "@/assets/projects/sparklz-interior.jpg";
 
 const allProjects = [
+  {
+    id: "sparklz",
+    name: "Sparklz by Danube",
+    developer: "Danube Properties",
+    location: "Al Furjan, Dubai",
+    price: "AED 900K",
+    image: sparklzInterior,
+    handover: "Q2 2028",
+    roi: "7-9%",
+    tags: ["Smart Living", "Convertible", "30+ Amenities"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "timez",
     name: "Timez by Danube",

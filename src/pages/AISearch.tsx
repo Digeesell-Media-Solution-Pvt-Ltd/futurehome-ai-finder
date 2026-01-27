@@ -23,6 +23,18 @@ const filters = {
 
 const sampleResults = [
   {
+    id: "sparklz",
+    name: "Sparklz by Danube",
+    developer: "Danube Properties",
+    location: "Al Furjan, Dubai",
+    price: "AED 900K",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    handover: "Q2 2028",
+    roi: "7-9%",
+    matchScore: 96,
+    matchReason: "Great match: Smart convertible apartments in family-friendly Al Furjan with 30+ amenities and excellent metro connectivity.",
+  },
+  {
     id: "timez",
     name: "Timez by Danube",
     developer: "Danube Properties",
