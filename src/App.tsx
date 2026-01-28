@@ -29,6 +29,7 @@ import BurjAziziProject from "./pages/projects/BurjAziziProject";
 import AliyahProject from "./pages/projects/AliyahProject";
 import CreekViewsProject from "./pages/projects/CreekViewsProject";
 import AuraProject from "./pages/projects/AuraProject";
+import BinghattiLuxuriaProject from "./pages/projects/BinghattiLuxuriaProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -73,6 +74,7 @@ const App = () => (
           <Route path="/projects/azizi/aliyah" element={<AliyahProject />} />
           <Route path="/projects/azizi/creek-views" element={<CreekViewsProject />} />
           <Route path="/projects/azizi/aura" element={<AuraProject />} />
+          <Route path="/projects/binghatti/binghatti-luxuria" element={<BinghattiLuxuriaProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />
