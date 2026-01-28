@@ -35,8 +35,22 @@ import binghattiTitaniaHero from "@/assets/projects/binghatti-titania-hero.jpg";
 import binghattiVintageHero from "@/assets/projects/binghatti-vintage-hero.jpg";
 import samanaBoulevardHero from "@/assets/projects/samana-boulevard-hero.jpg";
 import samanaHillsSouth3Hero from "@/assets/projects/samana-hills-south3-hero.jpg";
+import samanaImperialHero from "@/assets/projects/samana-imperial-hero.jpg";
 
 const allProjects = [
+  {
+    id: "samana-imperial",
+    name: "Samana Imperial Garden",
+    developer: "Samana Developers",
+    location: "Arjan, Dubai",
+    price: "AED 1.2M",
+    image: samanaImperialHero,
+    handover: "2028",
+    roi: "8-10%",
+    tags: ["Imperial Living", "Nature Inspired", "Wellness"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "samana-hills-south-3",
     name: "Samana Hills South 3",
