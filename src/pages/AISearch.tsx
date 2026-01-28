@@ -23,6 +23,18 @@ const filters = {
 
 const sampleResults = [
   {
+    id: "oasiz2",
+    name: "Oasiz 2 by Danube",
+    developer: "Danube Properties",
+    location: "Dubai Silicon Oasis",
+    price: "AED 699K",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    handover: "Nov 2027",
+    roi: "8-10%",
+    matchScore: 97,
+    matchReason: "Excellent match: Modern 31-storey tower with 483 units in DSO tech hub. Private pool options, skyline views, and 1% monthly payment plan. Ideal for investors seeking high ROI.",
+  },
+  {
     id: "oasiz",
     name: "Oasiz by Danube",
     developer: "Danube Properties",
