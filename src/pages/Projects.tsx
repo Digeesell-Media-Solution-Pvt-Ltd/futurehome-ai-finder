@@ -37,8 +37,22 @@ import samanaBoulevardHero from "@/assets/projects/samana-boulevard-hero.jpg";
 import samanaHillsSouth3Hero from "@/assets/projects/samana-hills-south3-hero.jpg";
 import samanaHillsSouth2Hero from "@/assets/projects/samana-hills-south2-hero.jpg";
 import samanaImperialHero from "@/assets/projects/samana-imperial-hero.jpg";
+import samanaSkyViewsHero from "@/assets/projects/samana-skyviews-hero.jpg";
 
 const allProjects = [
+  {
+    id: "samana-sky-views",
+    name: "Samana Sky Views",
+    developer: "Samana Developers",
+    location: "Arjan, Dubai",
+    price: "AED 1.5M",
+    image: samanaSkyViewsHero,
+    handover: "2028",
+    roi: "9-11%",
+    tags: ["Smart Architecture", "Rooftop Pool", "Sky Deck"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "samana-imperial",
     name: "Samana Imperial Garden",

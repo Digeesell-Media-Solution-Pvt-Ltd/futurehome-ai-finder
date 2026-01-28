@@ -47,4 +47,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'samana-hills-south-3': 'samana',
   'samana-hills-south-2': 'samana',
   'samana-imperial': 'samana',
+  'samana-sky-views': 'samana',
 };
