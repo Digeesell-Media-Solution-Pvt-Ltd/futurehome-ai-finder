@@ -32,8 +32,22 @@ import binghattiLuxuriaHero from "@/assets/projects/binghatti-luxuria-hero.jpg";
 import binghattiCullinanHero from "@/assets/projects/binghatti-cullinan-hero.jpg";
 import binghattiHillcrestHero from "@/assets/projects/binghatti-hillcrest-hero.jpg";
 import binghattiTitaniaHero from "@/assets/projects/binghatti-titania-hero.jpg";
+import binghattiVintageHero from "@/assets/projects/binghatti-vintage-hero.jpg";
 
 const allProjects = [
+  {
+    id: "binghatti-vintage",
+    name: "Binghatti Vintage",
+    developer: "Binghatti Developers",
+    location: "Majan, Dubailand",
+    price: "AED 675K",
+    image: binghattiVintageHero,
+    handover: "2027",
+    roi: "8-10%",
+    tags: ["Retro Modern", "Urban Chic", "Majan"],
+    verified: true,
+    featured: false,
+  },
   {
     id: "binghatti-titania",
     name: "Binghatti Titania",
