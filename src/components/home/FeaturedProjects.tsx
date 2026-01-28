@@ -15,8 +15,23 @@ import damacIslands2Hero from "@/assets/projects/damac-islands2-hero.jpg";
 import damacDistrictHero from "@/assets/projects/damac-district-hero.jpg";
 import chelseaResidencesHero from "@/assets/projects/chelsea-residences-hero.jpg";
 import safaGateHero from "@/assets/projects/safa-gate-hero.jpg";
+import riversideViewsHero from "@/assets/projects/riverside-views-hero.jpg";
 
 const projects = [
+  {
+    id: "riverside-views",
+    name: "DAMAC Riverside Views",
+    developer: "DAMAC Properties",
+    location: "DAMAC Riverside",
+    price: "AED 650K",
+    priceLabel: "Starting from",
+    image: riversideViewsHero,
+    handover: "Q1 2029",
+    roi: "7-9%",
+    tags: ["Waterfront", "First Riverside"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "safa-gate",
     name: "Safa Gate",

@@ -28,4 +28,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'damac-district': 'damac',
   'chelsea-residences': 'damac',
   'safa-gate': 'damac',
+  'riverside-views': 'damac',
 };

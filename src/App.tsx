@@ -19,6 +19,7 @@ import DamacIslands2Project from "./pages/projects/DamacIslands2Project";
 import DamacDistrictProject from "./pages/projects/DamacDistrictProject";
 import ChelseaResidencesProject from "./pages/projects/ChelseaResidencesProject";
 import SafaGateProject from "./pages/projects/SafaGateProject";
+import RiversideViewsProject from "./pages/projects/RiversideViewsProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -53,6 +54,7 @@ const App = () => (
           <Route path="/projects/damac/damac-district" element={<DamacDistrictProject />} />
           <Route path="/projects/damac/chelsea-residences" element={<ChelseaResidencesProject />} />
           <Route path="/projects/damac/safa-gate" element={<SafaGateProject />} />
+          <Route path="/projects/damac/riverside-views" element={<RiversideViewsProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />
