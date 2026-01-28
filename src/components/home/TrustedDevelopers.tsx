@@ -1,63 +1,11 @@
 import { motion } from "framer-motion";
-import { BadgeCheck, Building2, Award, Star } from "lucide-react";
+import { BadgeCheck, Building2, Award, Star, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { featuredDevelopers } from "@/data/developers";
 
-const developers = [
-  {
-    id: 1,
-    name: "Emaar Properties",
-    logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&q=80",
-    projects: 124,
-    trustScore: 4.9,
-    verified: true,
-    featured: true,
-  },
-  {
-    id: 2,
-    name: "Damac Properties",
-    logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&q=80",
-    projects: 86,
-    trustScore: 4.7,
-    verified: true,
-    featured: true,
-  },
-  {
-    id: 3,
-    name: "Nakheel",
-    logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&q=80",
-    projects: 52,
-    trustScore: 4.8,
-    verified: true,
-    featured: true,
-  },
-  {
-    id: 4,
-    name: "Meraas",
-    logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&q=80",
-    projects: 38,
-    trustScore: 4.6,
-    verified: true,
-    featured: false,
-  },
-  {
-    id: 5,
-    name: "Dubai Properties",
-    logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&q=80",
-    projects: 44,
-    trustScore: 4.5,
-    verified: true,
-    featured: false,
-  },
-  {
-    id: 6,
-    name: "Sobha Realty",
-    logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&q=80",
-    projects: 29,
-    trustScore: 4.8,
-    verified: true,
-    featured: true,
-  },
-];
+// Show top 6 featured developers on homepage
+const homepageDevelopers = featuredDevelopers.slice(0, 6);
 
 export function TrustedDevelopers() {
   return (
@@ -104,7 +52,7 @@ export function TrustedDevelopers() {
 
         {/* Developers Grid - Bubble cards with ripple */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {developers.map((developer, index) => (
+          {homepageDevelopers.map((developer, index) => (
             <motion.div
               key={developer.id}
               initial={{ opacity: 0, y: 20 }}
@@ -114,7 +62,7 @@ export function TrustedDevelopers() {
               whileHover={{ y: -5, scale: 1.02 }}
             >
               <Link
-                to={`/developers/${developer.id}`}
+                to={`/projects?developer=${encodeURIComponent(developer.nameEn)}`}
                 className="group block p-6 bubble-card relative overflow-hidden"
               >
                 {/* Ripple effect on hover */}
@@ -136,14 +84,14 @@ export function TrustedDevelopers() {
 
                 {/* Name */}
                 <h3 className="font-medium text-sm text-center text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {developer.name}
+                  {developer.nameEn}
                 </h3>
 
                 {/* Stats - Glass pills */}
                 <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1 glass-panel px-2 py-1 rounded-full">
                     <Award className="w-3 h-3" />
-                    {developer.projects}
+                    {developer.projectCount}
                   </span>
                   <span className="flex items-center gap-1 glass-panel px-2 py-1 rounded-full">
                     <Star className="w-3 h-3 fill-primary text-primary" />
@@ -152,20 +100,34 @@ export function TrustedDevelopers() {
                 </div>
 
                 {/* Verified Badge */}
-                {developer.verified && (
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    className="flex items-center justify-center gap-1 mt-3"
-                  >
-                    <BadgeCheck className="w-3.5 h-3.5 text-primary" />
-                    <span className="text-xs text-primary font-medium">Verified</span>
-                  </motion.div>
-                )}
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  className="flex items-center justify-center gap-1 mt-3"
+                >
+                  <BadgeCheck className="w-3.5 h-3.5 text-primary" />
+                  <span className="text-xs text-primary font-medium">Verified</span>
+                </motion.div>
               </Link>
             </motion.div>
           ))}
         </div>
+
+        {/* View All Developers Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="text-center mt-8"
+        >
+          <Button variant="gold-outline" size="lg" asChild>
+            <Link to="/developers">
+              View All 2,200+ Developers
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
+          </Button>
+        </motion.div>
 
         {/* Trust Stats - Glass panels */}
         <motion.div
@@ -177,7 +139,7 @@ export function TrustedDevelopers() {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { value: "50+", label: "Verified Developers" },
+              { value: "2,200+", label: "Registered Developers" },
               { value: "98%", label: "On-Time Delivery" },
               { value: "4.7", label: "Avg. Trust Score" },
               { value: "500+", label: "Active Projects" },
