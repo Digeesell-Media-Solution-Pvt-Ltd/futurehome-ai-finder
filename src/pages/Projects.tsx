@@ -11,8 +11,22 @@ import timezHero from "@/assets/projects/timez-hero.jpg";
 import sparklzInterior from "@/assets/projects/sparklz-interior.jpg";
 import shahrukhzLobby from "@/assets/projects/shahrukhz-lobby.jpg";
 import aspirzPool from "@/assets/projects/aspirz-pool.jpg";
+import bayz102Hero from "@/assets/projects/bayz102-hero.jpg";
 
 const allProjects = [
+  {
+    id: "bayz102",
+    name: "Bayz 102 by Danube",
+    developer: "Danube Properties",
+    location: "Business Bay",
+    price: "AED 1.38M",
+    image: bayz102Hero,
+    handover: "June 2029",
+    roi: "7-9%",
+    tags: ["Business Bay", "Luxury", "Burj Views"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "shahrukhz",
     name: "Shahrukhz by Danube",

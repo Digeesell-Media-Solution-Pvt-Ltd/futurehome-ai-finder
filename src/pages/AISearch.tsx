@@ -23,6 +23,18 @@ const filters = {
 
 const sampleResults = [
   {
+    id: "bayz102",
+    name: "Bayz 102 by Danube",
+    developer: "Danube Properties",
+    location: "Business Bay",
+    price: "AED 1.38M",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    handover: "June 2029",
+    roi: "7-9%",
+    matchScore: 97,
+    matchReason: "Premium match: Luxury residential tower in Business Bay with Burj Khalifa views, helipad, Italian furnishings, and 1% monthly payment plan.",
+  },
+  {
     id: "shahrukhz",
     name: "Shahrukhz by Danube",
     developer: "Danube Properties",
