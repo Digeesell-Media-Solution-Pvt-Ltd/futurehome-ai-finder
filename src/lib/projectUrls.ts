@@ -25,4 +25,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'oasiz': 'danube',
   'oasiz2': 'danube',
   'damac-islands-2': 'damac',
+  'damac-district': 'damac',
 };

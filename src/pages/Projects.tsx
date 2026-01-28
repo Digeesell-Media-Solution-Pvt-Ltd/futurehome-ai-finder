@@ -16,8 +16,22 @@ import bayz102Hero from "@/assets/projects/bayz102-hero.jpg";
 import oasizHero from "@/assets/projects/oasiz-hero.jpg";
 import oasiz2Hero from "@/assets/projects/oasiz2-hero.jpg";
 import damacIslands2Hero from "@/assets/projects/damac-islands2-hero.jpg";
+import damacDistrictHero from "@/assets/projects/damac-district-hero.jpg";
 
 const allProjects = [
+  {
+    id: "damac-district",
+    name: "DAMAC District",
+    developer: "DAMAC Properties",
+    location: "DAMAC Hills, Dubai",
+    price: "AED 1.59M",
+    image: damacDistrictHero,
+    handover: "Q3 2029",
+    roi: "7-9%",
+    tags: ["Mixed-Use", "DAMAC Hills", "Golf Community"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "damac-islands-2",
     name: "DAMAC Islands 2",
