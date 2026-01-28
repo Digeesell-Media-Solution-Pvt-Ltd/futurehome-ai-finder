@@ -12,7 +12,7 @@ const developers = [
     name: "Danube Properties",
     description: "Architects of tomorrow's dreams, building today's legacies with 1% payment plans.",
     projects: 50,
-    currentProjects: ["Oasiz", "Bayz 102", "Breez", "Timez", "Sparklz", "Shahrukhz", "Aspirz"],
+    currentProjects: ["Oasiz 2", "Oasiz", "Bayz 102", "Breez", "Timez", "Sparklz", "Shahrukhz", "Aspirz"],
     trustScore: 4.7,
     verified: true,
     deliveryRate: "96%",
