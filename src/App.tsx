@@ -20,6 +20,7 @@ import DamacDistrictProject from "./pages/projects/DamacDistrictProject";
 import ChelseaResidencesProject from "./pages/projects/ChelseaResidencesProject";
 import SafaGateProject from "./pages/projects/SafaGateProject";
 import RiversideViewsProject from "./pages/projects/RiversideViewsProject";
+import Violet4Project from "./pages/projects/Violet4Project";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -55,6 +56,7 @@ const App = () => (
           <Route path="/projects/damac/chelsea-residences" element={<ChelseaResidencesProject />} />
           <Route path="/projects/damac/safa-gate" element={<SafaGateProject />} />
           <Route path="/projects/damac/riverside-views" element={<RiversideViewsProject />} />
+          <Route path="/projects/damac/violet-4" element={<Violet4Project />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />
