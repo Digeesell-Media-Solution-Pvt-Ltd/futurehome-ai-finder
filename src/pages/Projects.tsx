@@ -24,6 +24,7 @@ import violet4Hero from "@/assets/projects/violet4-hero.jpg";
 import sunCityHero from "@/assets/projects/sun-city-hero.jpg";
 import damacIslandsHero from "@/assets/projects/damac-islands-hero.jpg";
 import shorelineHero from "@/assets/projects/shoreline-hero.jpg";
+import elo3Hero from "@/assets/projects/elo3-hero.jpg";
 
 const allProjects = [
   {
@@ -244,6 +245,19 @@ const allProjects = [
     handover: "Q3 2027",
     roi: "6-8%",
     tags: ["Family Community", "Suburban Living", "Townhouses"],
+    verified: true,
+    featured: false,
+  },
+  {
+    id: "elo-3",
+    name: "ELO 3",
+    developer: "DAMAC Properties",
+    location: "DAMAC Hills 2",
+    price: "AED 580K",
+    image: elo3Hero,
+    handover: "Q4 2027",
+    roi: "7-9%",
+    tags: ["Affordable Luxury", "Vertical Living", "Smart Homes"],
     verified: true,
     featured: false,
   },
