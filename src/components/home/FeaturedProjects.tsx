@@ -19,8 +19,23 @@ import riversideViewsHero from "@/assets/projects/riverside-views-hero.jpg";
 import sunCityHero from "@/assets/projects/sun-city-hero.jpg";
 import damacIslandsHero from "@/assets/projects/damac-islands-hero.jpg";
 import shorelineHero from "@/assets/projects/shoreline-hero.jpg";
+import rukanTowerHero from "@/assets/projects/rukan-tower-hero.jpg";
 
 const projects = [
+  {
+    id: "rukan-tower",
+    name: "Rukan Tower",
+    developer: "Reportage Properties",
+    location: "Dubai Land",
+    price: "AED 550K",
+    priceLabel: "Starting from",
+    image: rukanTowerHero,
+    handover: "2026",
+    roi: "8-10%",
+    tags: ["Green Living", "Dubai Land"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "shoreline",
     name: "Shoreline by DAMAC",
