@@ -28,8 +28,22 @@ import elo3Hero from "@/assets/projects/elo3-hero.jpg";
 import burjAziziHero from "@/assets/projects/burj-azizi-hero.jpg";
 import creekViewsHero from "@/assets/projects/creek-views-hero.jpg";
 import auraHero from "@/assets/projects/aura-hero.jpg";
+import binghattiLuxuriaHero from "@/assets/projects/binghatti-luxuria-hero.jpg";
 
 const allProjects = [
+  {
+    id: "binghatti-luxuria",
+    name: "Binghatti Luxuria",
+    developer: "Binghatti Developers",
+    location: "Jumeirah Village Triangle",
+    price: "AED 767K",
+    image: binghattiLuxuriaHero,
+    handover: "2027",
+    roi: "8-10%",
+    tags: ["Luxury", "High-Rise", "Prime Location"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "aura",
     name: "Aura by Azizi",
