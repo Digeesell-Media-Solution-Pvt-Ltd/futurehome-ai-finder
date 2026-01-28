@@ -15,6 +15,7 @@ import AspirzProject from "./pages/projects/AspirzProject";
 import Bayz102Project from "./pages/projects/Bayz102Project";
 import OasizProject from "./pages/projects/OasizProject";
 import Oasiz2Project from "./pages/projects/Oasiz2Project";
+import DamacIslands2Project from "./pages/projects/DamacIslands2Project";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/projects/danube/bayz102" element={<Bayz102Project />} />
           <Route path="/projects/danube/oasiz" element={<OasizProject />} />
           <Route path="/projects/danube/oasiz2" element={<Oasiz2Project />} />
+          <Route path="/projects/damac/damac-islands-2" element={<DamacIslands2Project />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />

@@ -15,8 +15,22 @@ import aspirzPool from "@/assets/projects/aspirz-pool.jpg";
 import bayz102Hero from "@/assets/projects/bayz102-hero.jpg";
 import oasizHero from "@/assets/projects/oasiz-hero.jpg";
 import oasiz2Hero from "@/assets/projects/oasiz2-hero.jpg";
+import damacIslands2Hero from "@/assets/projects/damac-islands2-hero.jpg";
 
 const allProjects = [
+  {
+    id: "damac-islands-2",
+    name: "DAMAC Islands 2",
+    developer: "DAMAC Properties",
+    location: "DAMAC Islands 2 Community",
+    price: "AED 2.75M",
+    image: damacIslands2Hero,
+    handover: "2028",
+    roi: "10-12%",
+    tags: ["Waterfront Villas", "Island Living", "Eco-Luxury"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "oasiz2",
     name: "Oasiz 2 by Danube",
