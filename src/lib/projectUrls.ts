@@ -40,4 +40,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'aura': 'azizi',
   'binghatti-luxuria': 'binghatti',
   'binghatti-cullinan': 'binghatti',
+  'binghatti-hillcrest': 'binghatti',
 };
