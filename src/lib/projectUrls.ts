@@ -37,4 +37,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'burj-azizi': 'azizi',
   'aliyah': 'azizi',
   'creek-views': 'azizi',
+  'aura': 'azizi',
 };
