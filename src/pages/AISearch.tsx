@@ -23,6 +23,18 @@ const filters = {
 
 const sampleResults = [
   {
+    id: "oasiz",
+    name: "Oasiz by Danube",
+    developer: "Danube Properties",
+    location: "Dubai Silicon Oasis",
+    price: "AED 699K",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    handover: "Nov 2027",
+    roi: "8-10%",
+    matchScore: 96,
+    matchReason: "Excellent match: Affordable luxury apartments in DSO tech hub with 1% monthly payment plan. Private pool units available. Ideal for first-time investors and families.",
+  },
+  {
     id: "bayz102",
     name: "Bayz 102 by Danube",
     developer: "Danube Properties",
