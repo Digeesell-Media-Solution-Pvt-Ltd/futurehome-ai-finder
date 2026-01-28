@@ -36,4 +36,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'elo-3': 'damac',
   'burj-azizi': 'azizi',
   'aliyah': 'azizi',
+  'creek-views': 'azizi',
 };

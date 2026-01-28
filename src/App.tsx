@@ -27,6 +27,7 @@ import ShorelineProject from "./pages/projects/ShorelineProject";
 import Elo3Project from "./pages/projects/Elo3Project";
 import BurjAziziProject from "./pages/projects/BurjAziziProject";
 import AliyahProject from "./pages/projects/AliyahProject";
+import CreekViewsProject from "./pages/projects/CreekViewsProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -69,6 +70,7 @@ const App = () => (
           <Route path="/projects/damac/elo-3" element={<Elo3Project />} />
           <Route path="/projects/azizi/burj-azizi" element={<BurjAziziProject />} />
           <Route path="/projects/azizi/aliyah" element={<AliyahProject />} />
+          <Route path="/projects/azizi/creek-views" element={<CreekViewsProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />
