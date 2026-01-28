@@ -13,8 +13,23 @@ import oasizHero from "@/assets/projects/oasiz-hero.jpg";
 import oasiz2Hero from "@/assets/projects/oasiz2-hero.jpg";
 import damacIslands2Hero from "@/assets/projects/damac-islands2-hero.jpg";
 import damacDistrictHero from "@/assets/projects/damac-district-hero.jpg";
+import chelseaResidencesHero from "@/assets/projects/chelsea-residences-hero.jpg";
 
 const projects = [
+  {
+    id: "chelsea-residences",
+    name: "Chelsea Residences",
+    developer: "DAMAC Properties",
+    location: "Dubai Maritime City",
+    price: "AED 2.92M",
+    priceLabel: "Starting from",
+    image: chelseaResidencesHero,
+    handover: "Q4 2028",
+    roi: "8-10%",
+    tags: ["Branded Living", "Waterfront"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "damac-district",
     name: "DAMAC District",
