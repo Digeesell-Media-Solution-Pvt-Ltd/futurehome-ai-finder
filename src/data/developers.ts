@@ -172,6 +172,7 @@ export function getInitials(name: string): string {
 // Parse CSV data into Developer objects
 export function parseDevelopersFromCSV(csvContent: string): Developer[] {
   const lines = csvContent.split('\n');
+  const seenNames = new Set<string>();
   const developers: Developer[] = [];
   
   // Skip header row
@@ -188,12 +189,16 @@ export function parseDevelopersFromCSV(csvContent: string): Developer[] {
     
     if (!nameEn) continue;
     
+    // Skip duplicates (case-insensitive)
+    const nameKey = nameEn.toLowerCase();
+    if (seenNames.has(nameKey)) continue;
+    seenNames.add(nameKey);
+    
     const slug = generateSlug(nameEn);
     
     // Check if this is a featured developer
     const featured = featuredDevelopers.find(
-      f => f.nameEn.toLowerCase() === nameEn.toLowerCase() || 
-           nameEn.toLowerCase().includes(f.nameEn.toLowerCase().split(' ')[0])
+      f => f.nameEn.toLowerCase() === nameEn.toLowerCase()
     );
     
     if (featured) {
@@ -209,9 +214,11 @@ export function parseDevelopersFromCSV(csvContent: string): Developer[] {
     }
   }
   
-  // Add featured developers that might not be in CSV
+  // Add featured developers that are not in CSV
   featuredDevelopers.forEach(featured => {
-    if (!developers.some(d => d.id === featured.id)) {
+    const nameKey = featured.nameEn.toLowerCase();
+    if (!seenNames.has(nameKey)) {
+      seenNames.add(nameKey);
       developers.push(featured);
     }
   });
