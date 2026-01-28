@@ -40,8 +40,22 @@ import samanaImperialHero from "@/assets/projects/samana-imperial-hero.jpg";
 import samanaSkyViewsHero from "@/assets/projects/samana-skyviews-hero.jpg";
 import rukanTowerHero from "@/assets/projects/rukan-tower-hero.jpg";
 import perlaPrimeHero from "@/assets/projects/perla-prime-hero.jpg";
+import rHillsHero from "@/assets/projects/r-hills-hero.jpg";
 
 const allProjects = [
+  {
+    id: "r-hills",
+    name: "R. Hills",
+    developer: "Reportage Properties",
+    location: "Dubailand, Dubai",
+    price: "AED 1.8M",
+    image: rHillsHero,
+    handover: "2026",
+    roi: "8-10%",
+    tags: ["Townhouses", "Gated Community", "Dubailand"],
+    verified: true,
+    featured: false,
+  },
   {
     id: "perla-prime",
     name: "Perla Prime",
