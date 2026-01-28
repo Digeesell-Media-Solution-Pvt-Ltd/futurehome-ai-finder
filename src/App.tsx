@@ -13,6 +13,7 @@ import SparklzProject from "./pages/projects/SparklzProject";
 import ShahrukhzProject from "./pages/projects/ShahrukhzProject";
 import AspirzProject from "./pages/projects/AspirzProject";
 import Bayz102Project from "./pages/projects/Bayz102Project";
+import OasizProject from "./pages/projects/OasizProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/projects/shahrukhz" element={<ShahrukhzProject />} />
           <Route path="/projects/aspirz" element={<AspirzProject />} />
           <Route path="/projects/bayz102" element={<Bayz102Project />} />
+          <Route path="/projects/oasiz" element={<OasizProject />} />
           <Route path="/projects/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />

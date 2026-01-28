@@ -8,8 +8,23 @@ import sparklzInterior from "@/assets/projects/sparklz-interior.jpg";
 import shahrukhzLobby from "@/assets/projects/shahrukhz-lobby.jpg";
 import aspirzPool from "@/assets/projects/aspirz-pool.jpg";
 import bayz102Hero from "@/assets/projects/bayz102-hero.jpg";
+import oasizHero from "@/assets/projects/oasiz-hero.jpg";
 
 const projects = [
+  {
+    id: "oasiz",
+    name: "Oasiz by Danube",
+    developer: "Danube Properties",
+    location: "Dubai Silicon Oasis",
+    price: "AED 699K",
+    priceLabel: "Starting from",
+    image: oasizHero,
+    handover: "Nov 2027",
+    roi: "8-10%",
+    tags: ["Affordable Luxury", "DSO"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "bayz102",
     name: "Bayz 102 by Danube",
