@@ -39,6 +39,7 @@ import SamanaHillsSouth3Project from "./pages/projects/SamanaHillsSouth3Project"
 import SamanaHillsSouth2Project from "./pages/projects/SamanaHillsSouth2Project";
 import SamanaImperialProject from "./pages/projects/SamanaImperialProject";
 import SamanaSkyViewsProject from "./pages/projects/SamanaSkyViewsProject";
+import RukanTowerProject from "./pages/projects/RukanTowerProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -93,6 +94,7 @@ const App = () => (
           <Route path="/projects/samana/samana-hills-south-2" element={<SamanaHillsSouth2Project />} />
           <Route path="/projects/samana/samana-imperial" element={<SamanaImperialProject />} />
           <Route path="/projects/samana/samana-sky-views" element={<SamanaSkyViewsProject />} />
+          <Route path="/projects/reportage/rukan-tower" element={<RukanTowerProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />

@@ -38,8 +38,22 @@ import samanaHillsSouth3Hero from "@/assets/projects/samana-hills-south3-hero.jp
 import samanaHillsSouth2Hero from "@/assets/projects/samana-hills-south2-hero.jpg";
 import samanaImperialHero from "@/assets/projects/samana-imperial-hero.jpg";
 import samanaSkyViewsHero from "@/assets/projects/samana-skyviews-hero.jpg";
+import rukanTowerHero from "@/assets/projects/rukan-tower-hero.jpg";
 
 const allProjects = [
+  {
+    id: "rukan-tower",
+    name: "Rukan Tower",
+    developer: "Reportage Properties",
+    location: "Dubai Land, Dubai",
+    price: "AED 550K",
+    image: rukanTowerHero,
+    handover: "2026",
+    roi: "8-10%",
+    tags: ["Green Living", "Dubai Land", "Off-Plan"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "samana-sky-views",
     name: "Samana Sky Views",
