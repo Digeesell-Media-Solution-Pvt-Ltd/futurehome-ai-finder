@@ -34,4 +34,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'damac-islands': 'damac',
   'shoreline': 'damac',
   'elo-3': 'damac',
+  'burj-azizi': 'azizi',
 };

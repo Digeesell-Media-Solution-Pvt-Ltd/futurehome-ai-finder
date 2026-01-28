@@ -25,8 +25,22 @@ import sunCityHero from "@/assets/projects/sun-city-hero.jpg";
 import damacIslandsHero from "@/assets/projects/damac-islands-hero.jpg";
 import shorelineHero from "@/assets/projects/shoreline-hero.jpg";
 import elo3Hero from "@/assets/projects/elo3-hero.jpg";
+import burjAziziHero from "@/assets/projects/burj-azizi-hero.jpg";
 
 const allProjects = [
+  {
+    id: "burj-azizi",
+    name: "Burj Azizi",
+    developer: "Azizi Developments",
+    location: "Sheikh Zayed Road, Dubai",
+    price: "On Request",
+    image: burjAziziHero,
+    handover: "2029",
+    roi: "Premium",
+    tags: ["Tallest Residential", "Burj Azizi", "Iconic"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "shoreline",
     name: "Shoreline by DAMAC",
