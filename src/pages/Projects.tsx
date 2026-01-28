@@ -34,8 +34,22 @@ import binghattiHillcrestHero from "@/assets/projects/binghatti-hillcrest-hero.j
 import binghattiTitaniaHero from "@/assets/projects/binghatti-titania-hero.jpg";
 import binghattiVintageHero from "@/assets/projects/binghatti-vintage-hero.jpg";
 import samanaBoulevardHero from "@/assets/projects/samana-boulevard-hero.jpg";
+import samanaHillsSouth3Hero from "@/assets/projects/samana-hills-south3-hero.jpg";
 
 const allProjects = [
+  {
+    id: "samana-hills-south-3",
+    name: "Samana Hills South 3",
+    developer: "Samana Developers",
+    location: "Arjan, Dubai",
+    price: "AED 988K",
+    image: samanaHillsSouth3Hero,
+    handover: "2028",
+    roi: "7-9%",
+    tags: ["Affordable Luxury", "Green Community", "Arjan"],
+    verified: true,
+    featured: false,
+  },
   {
     id: "samana-boulevard",
     name: "Samana Boulevard Heights",
