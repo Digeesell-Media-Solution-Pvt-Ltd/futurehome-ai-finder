@@ -29,8 +29,22 @@ import burjAziziHero from "@/assets/projects/burj-azizi-hero.jpg";
 import creekViewsHero from "@/assets/projects/creek-views-hero.jpg";
 import auraHero from "@/assets/projects/aura-hero.jpg";
 import binghattiLuxuriaHero from "@/assets/projects/binghatti-luxuria-hero.jpg";
+import binghattiCullinanHero from "@/assets/projects/binghatti-cullinan-hero.jpg";
 
 const allProjects = [
+  {
+    id: "binghatti-cullinan",
+    name: "Binghatti Cullinan",
+    developer: "Binghatti Developers",
+    location: "Al Jaddaf, Dubai",
+    price: "AED 820K",
+    image: binghattiCullinanHero,
+    handover: "2027",
+    roi: "8-10%",
+    tags: ["Iconic Design", "Modern Living", "Al Jaddaf"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "binghatti-luxuria",
     name: "Binghatti Luxuria",
