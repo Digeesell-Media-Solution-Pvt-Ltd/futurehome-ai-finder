@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { getProjectUrl } from "@/lib/projectUrls";
 import breezHero from "@/assets/projects/breez-hero.jpg";
 import timezHero from "@/assets/projects/timez-hero.jpg";
 import sparklzInterior from "@/assets/projects/sparklz-interior.jpg";
@@ -338,7 +339,7 @@ export default function ProjectsPage() {
 
                     <div className="px-5 pb-5">
                       <Button variant="gold-outline" size="sm" className="w-full" asChild>
-                        <Link to={`/projects/${project.id}`}>
+                        <Link to={getProjectUrl(String(project.id), project.developer)}>
                           View Details
                           <ArrowRight className="w-4 h-4 ml-1" />
                         </Link>
@@ -388,7 +389,7 @@ export default function ProjectsPage() {
                           </div>
                         </div>
                         <Button variant="gold" size="sm" asChild>
-                          <Link to={`/projects/${project.id}`}>
+                          <Link to={getProjectUrl(String(project.id), project.developer)}>
                             View Details
                             <ArrowRight className="w-4 h-4 ml-1" />
                           </Link>

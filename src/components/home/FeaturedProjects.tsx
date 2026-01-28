@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, TrendingUp, BadgeCheck, Clock, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { getProjectUrl } from "@/lib/projectUrls";
 import breezHero from "@/assets/projects/breez-hero.jpg";
 import timezHero from "@/assets/projects/timez-hero.jpg";
 import sparklzInterior from "@/assets/projects/sparklz-interior.jpg";
@@ -311,7 +312,7 @@ export function FeaturedProjects() {
               {/* Hover CTA */}
               <div className="px-5 pb-5">
                 <Button variant="gold-outline" size="sm" className="w-full rounded-full opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" asChild>
-                  <Link to={`/projects/${project.id}`}>
+                  <Link to={getProjectUrl(String(project.id), project.developer)}>
                     View Details
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
