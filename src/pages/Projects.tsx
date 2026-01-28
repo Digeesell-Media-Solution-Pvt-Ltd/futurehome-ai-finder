@@ -23,8 +23,22 @@ import riversideViewsHero from "@/assets/projects/riverside-views-hero.jpg";
 import violet4Hero from "@/assets/projects/violet4-hero.jpg";
 import sunCityHero from "@/assets/projects/sun-city-hero.jpg";
 import damacIslandsHero from "@/assets/projects/damac-islands-hero.jpg";
+import shorelineHero from "@/assets/projects/shoreline-hero.jpg";
 
 const allProjects = [
+  {
+    id: "shoreline",
+    name: "Shoreline by DAMAC",
+    developer: "DAMAC Properties",
+    location: "Al Marjan Island, RAK",
+    price: "On Request",
+    image: shorelineHero,
+    handover: "2028",
+    roi: "8-10%",
+    tags: ["Seafront", "Coastal Living", "Premium Views"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "damac-islands",
     name: "DAMAC Islands",

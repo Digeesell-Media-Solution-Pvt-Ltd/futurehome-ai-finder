@@ -18,8 +18,23 @@ import safaGateHero from "@/assets/projects/safa-gate-hero.jpg";
 import riversideViewsHero from "@/assets/projects/riverside-views-hero.jpg";
 import sunCityHero from "@/assets/projects/sun-city-hero.jpg";
 import damacIslandsHero from "@/assets/projects/damac-islands-hero.jpg";
+import shorelineHero from "@/assets/projects/shoreline-hero.jpg";
 
 const projects = [
+  {
+    id: "shoreline",
+    name: "Shoreline by DAMAC",
+    developer: "DAMAC Properties",
+    location: "Al Marjan Island",
+    price: "On Request",
+    priceLabel: "Starting from",
+    image: shorelineHero,
+    handover: "2028",
+    roi: "8-10%",
+    tags: ["Seafront", "Coastal Living"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "damac-islands",
     name: "DAMAC Islands",
