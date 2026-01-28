@@ -37,15 +37,15 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/ai-search" element={<AISearch />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/breez" element={<BreezProject />} />
-          <Route path="/projects/timez" element={<TimezProject />} />
-          <Route path="/projects/sparklz" element={<SparklzProject />} />
-          <Route path="/projects/shahrukhz" element={<ShahrukhzProject />} />
-          <Route path="/projects/aspirz" element={<AspirzProject />} />
-          <Route path="/projects/bayz102" element={<Bayz102Project />} />
-          <Route path="/projects/oasiz" element={<OasizProject />} />
-          <Route path="/projects/oasiz2" element={<Oasiz2Project />} />
-          <Route path="/projects/:projectId" element={<ProjectDetail />} />
+          <Route path="/projects/danube/breez" element={<BreezProject />} />
+          <Route path="/projects/danube/timez" element={<TimezProject />} />
+          <Route path="/projects/danube/sparklz" element={<SparklzProject />} />
+          <Route path="/projects/danube/shahrukhz" element={<ShahrukhzProject />} />
+          <Route path="/projects/danube/aspirz" element={<AspirzProject />} />
+          <Route path="/projects/danube/bayz102" element={<Bayz102Project />} />
+          <Route path="/projects/danube/oasiz" element={<OasizProject />} />
+          <Route path="/projects/danube/oasiz2" element={<Oasiz2Project />} />
+          <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />
           <Route path="/developers" element={<Developers />} />

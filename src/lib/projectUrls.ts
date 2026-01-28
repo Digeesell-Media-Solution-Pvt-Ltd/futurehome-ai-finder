@@ -1,0 +1,27 @@
+// Helper to create slugs from developer names
+export function createDeveloperSlug(developerName: string): string {
+  return developerName
+    .toLowerCase()
+    .replace(/\s+properties$/i, '')
+    .replace(/\s+realty$/i, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '');
+}
+
+// Generate project URL in format: /projects/{developer-slug}/{project-id}
+export function getProjectUrl(projectId: string | number, developer: string): string {
+  const developerSlug = createDeveloperSlug(developer);
+  return `/projects/${developerSlug}/${projectId}`;
+}
+
+// Map of known projects to their developers for routing
+export const projectDeveloperMap: Record<string, string> = {
+  'breez': 'danube',
+  'timez': 'danube',
+  'sparklz': 'danube',
+  'shahrukhz': 'danube',
+  'aspirz': 'danube',
+  'bayz102': 'danube',
+  'oasiz': 'danube',
+  'oasiz2': 'danube',
+};
