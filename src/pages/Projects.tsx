@@ -31,8 +31,22 @@ import auraHero from "@/assets/projects/aura-hero.jpg";
 import binghattiLuxuriaHero from "@/assets/projects/binghatti-luxuria-hero.jpg";
 import binghattiCullinanHero from "@/assets/projects/binghatti-cullinan-hero.jpg";
 import binghattiHillcrestHero from "@/assets/projects/binghatti-hillcrest-hero.jpg";
+import binghattiTitaniaHero from "@/assets/projects/binghatti-titania-hero.jpg";
 
 const allProjects = [
+  {
+    id: "binghatti-titania",
+    name: "Binghatti Titania",
+    developer: "Binghatti Developers",
+    location: "Majan, Dubailand",
+    price: "AED 680K",
+    image: binghattiTitaniaHero,
+    handover: "2027",
+    roi: "8-10%",
+    tags: ["Premium Living", "New Launch", "Majan"],
+    verified: true,
+    featured: false,
+  },
   {
     id: "binghatti-hillcrest",
     name: "Binghatti Hillcrest",
