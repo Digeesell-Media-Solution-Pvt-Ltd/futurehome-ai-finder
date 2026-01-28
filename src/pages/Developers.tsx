@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Building2, Users, TrendingUp, Award, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Building2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -150,42 +150,6 @@ export default function DevelopersPage() {
             </motion.div>
           )}
 
-          {/* Trust Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-16 p-10 bg-charcoal rounded-2xl text-background"
-          >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-10">
-              <div>
-                <div className="text-4xl font-display font-semibold text-primary mb-1">
-                  {totalCount.toLocaleString()}+
-                </div>
-                <div className="text-sm text-background/70">Registered Developers</div>
-              </div>
-              <div>
-                <div className="text-4xl font-display font-semibold text-primary mb-1">98%</div>
-                <div className="text-sm text-background/70">On-Time Delivery</div>
-              </div>
-              <div>
-                <div className="text-4xl font-display font-semibold text-primary mb-1">4.7</div>
-                <div className="text-sm text-background/70">Avg. Trust Score</div>
-              </div>
-              <div>
-                <div className="text-4xl font-display font-semibold text-primary mb-1">500+</div>
-                <div className="text-sm text-background/70">Active Projects</div>
-              </div>
-            </div>
-            <div className="text-center">
-              <Button variant="gold" size="lg" asChild>
-                <Link to="/projects">
-                  Browse All Projects
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
-            </div>
-          </motion.div>
         </div>
       </main>
 
