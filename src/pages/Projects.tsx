@@ -30,8 +30,22 @@ import creekViewsHero from "@/assets/projects/creek-views-hero.jpg";
 import auraHero from "@/assets/projects/aura-hero.jpg";
 import binghattiLuxuriaHero from "@/assets/projects/binghatti-luxuria-hero.jpg";
 import binghattiCullinanHero from "@/assets/projects/binghatti-cullinan-hero.jpg";
+import binghattiHillcrestHero from "@/assets/projects/binghatti-hillcrest-hero.jpg";
 
 const allProjects = [
+  {
+    id: "binghatti-hillcrest",
+    name: "Binghatti Hillcrest",
+    developer: "Binghatti Developers",
+    location: "Arjan, Dubailand",
+    price: "AED 800K",
+    image: binghattiHillcrestHero,
+    handover: "2027",
+    roi: "7-9%",
+    tags: ["Family Living", "Suburban Community", "Dubailand"],
+    verified: true,
+    featured: false,
+  },
   {
     id: "binghatti-cullinan",
     name: "Binghatti Cullinan",
