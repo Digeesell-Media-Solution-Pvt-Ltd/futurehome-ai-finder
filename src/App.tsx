@@ -22,6 +22,7 @@ import SafaGateProject from "./pages/projects/SafaGateProject";
 import RiversideViewsProject from "./pages/projects/RiversideViewsProject";
 import Violet4Project from "./pages/projects/Violet4Project";
 import SunCityProject from "./pages/projects/SunCityProject";
+import DamacIslandsProject from "./pages/projects/DamacIslandsProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -59,6 +60,7 @@ const App = () => (
           <Route path="/projects/damac/riverside-views" element={<RiversideViewsProject />} />
           <Route path="/projects/damac/violet-4" element={<Violet4Project />} />
           <Route path="/projects/damac/sun-city" element={<SunCityProject />} />
+          <Route path="/projects/damac/damac-islands" element={<DamacIslandsProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />
