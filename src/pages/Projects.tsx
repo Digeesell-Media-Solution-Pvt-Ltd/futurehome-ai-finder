@@ -21,8 +21,22 @@ import chelseaResidencesHero from "@/assets/projects/chelsea-residences-hero.jpg
 import safaGateHero from "@/assets/projects/safa-gate-hero.jpg";
 import riversideViewsHero from "@/assets/projects/riverside-views-hero.jpg";
 import violet4Hero from "@/assets/projects/violet4-hero.jpg";
+import sunCityHero from "@/assets/projects/sun-city-hero.jpg";
 
 const allProjects = [
+  {
+    id: "sun-city",
+    name: "DAMAC Sun City",
+    developer: "DAMAC Properties",
+    location: "Dubai South",
+    price: "On Request",
+    image: sunCityHero,
+    handover: "2028",
+    roi: "7-9%",
+    tags: ["Resort Style", "Sunny Community", "Family Living"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "riverside-views",
     name: "DAMAC Riverside Views",
