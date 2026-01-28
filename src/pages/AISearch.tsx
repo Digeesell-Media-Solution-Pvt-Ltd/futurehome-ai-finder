@@ -47,6 +47,18 @@ const sampleResults = [
     matchReason: "Great match: Smart convertible apartments in family-friendly Al Furjan with 30+ amenities and excellent metro connectivity.",
   },
   {
+    id: "aspirz",
+    name: "Aspirz by Danube",
+    developer: "Danube Properties",
+    location: "Dubai Sports City",
+    price: "AED 850K",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    handover: "Q4 2028",
+    roi: "8-10%",
+    matchScore: 95,
+    matchReason: "Great match: Mixed-use tower with convertible apartments and office spaces in Dubai Sports City. Ideal for investors seeking diversified rental income.",
+  },
+  {
     id: "timez",
     name: "Timez by Danube",
     developer: "Danube Properties",

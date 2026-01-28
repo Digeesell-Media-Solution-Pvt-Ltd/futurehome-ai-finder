@@ -10,6 +10,7 @@ import breezHero from "@/assets/projects/breez-hero.jpg";
 import timezHero from "@/assets/projects/timez-hero.jpg";
 import sparklzInterior from "@/assets/projects/sparklz-interior.jpg";
 import shahrukhzLobby from "@/assets/projects/shahrukhz-lobby.jpg";
+import aspirzPool from "@/assets/projects/aspirz-pool.jpg";
 
 const allProjects = [
   {
@@ -48,6 +49,19 @@ const allProjects = [
     handover: "Q4 2027",
     roi: "8-10%",
     tags: ["Convertible Units", "1% Monthly", "45+ Amenities"],
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "aspirz",
+    name: "Aspirz by Danube",
+    developer: "Danube Properties",
+    location: "Dubai Sports City",
+    price: "AED 850K",
+    image: aspirzPool,
+    handover: "Q4 2028",
+    roi: "8-10%",
+    tags: ["Mixed-Use", "Convertible", "30+ Amenities"],
     verified: true,
     featured: true,
   },
