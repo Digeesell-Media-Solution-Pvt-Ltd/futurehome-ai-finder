@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Star, Award, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Developer, getInitials } from "@/data/developers";
 import { cn } from "@/lib/utils";
@@ -64,36 +64,6 @@ export function DeveloperCard({ developer, index = 0, variant = "default" }: Dev
           </p>
         )}
 
-        {/* Description for featured */}
-        {developer.featured && developer.description && variant !== "compact" && (
-          <p className="text-sm text-muted-foreground text-center mb-4 line-clamp-2">
-            {developer.description}
-          </p>
-        )}
-
-        {/* Stats for featured developers */}
-        {developer.featured && developer.projectCount && variant !== "compact" && (
-          <div className="grid grid-cols-3 gap-2 pt-4 border-t border-border/50">
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-1">
-                <Award className="w-3 h-3 text-primary" />
-                <span className="text-sm font-semibold text-foreground">{developer.projectCount}</span>
-              </div>
-              <span className="text-xs text-muted-foreground">Projects</span>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-1">
-                <Star className="w-3 h-3 fill-primary text-primary" />
-                <span className="text-sm font-semibold text-foreground">{developer.trustScore}</span>
-              </div>
-              <span className="text-xs text-muted-foreground">Rating</span>
-            </div>
-            <div className="text-center">
-              <span className="text-sm font-semibold text-foreground">{developer.deliveryRate}</span>
-              <span className="text-xs text-muted-foreground block">Delivery</span>
-            </div>
-          </div>
-        )}
 
         {/* View Projects Button */}
         <div className={cn(
