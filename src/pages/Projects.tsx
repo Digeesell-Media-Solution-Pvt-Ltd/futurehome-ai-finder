@@ -35,6 +35,7 @@ import binghattiTitaniaHero from "@/assets/projects/binghatti-titania-hero.jpg";
 import binghattiVintageHero from "@/assets/projects/binghatti-vintage-hero.jpg";
 import samanaBoulevardHero from "@/assets/projects/samana-boulevard-hero.jpg";
 import samanaHillsSouth3Hero from "@/assets/projects/samana-hills-south3-hero.jpg";
+import samanaHillsSouth2Hero from "@/assets/projects/samana-hills-south2-hero.jpg";
 import samanaImperialHero from "@/assets/projects/samana-imperial-hero.jpg";
 
 const allProjects = [
@@ -50,6 +51,19 @@ const allProjects = [
     tags: ["Imperial Living", "Nature Inspired", "Wellness"],
     verified: true,
     featured: true,
+  },
+  {
+    id: "samana-hills-south-2",
+    name: "Samana Hills South 2",
+    developer: "Samana Developers",
+    location: "Arjan, Dubai",
+    price: "AED 750K",
+    image: samanaHillsSouth2Hero,
+    handover: "2027",
+    roi: "7-9%",
+    tags: ["Family Friendly", "Affordable Living", "Suburban"],
+    verified: true,
+    featured: false,
   },
   {
     id: "samana-hills-south-3",
