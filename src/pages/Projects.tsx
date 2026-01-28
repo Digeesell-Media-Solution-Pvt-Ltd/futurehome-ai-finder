@@ -27,8 +27,22 @@ import shorelineHero from "@/assets/projects/shoreline-hero.jpg";
 import elo3Hero from "@/assets/projects/elo3-hero.jpg";
 import burjAziziHero from "@/assets/projects/burj-azizi-hero.jpg";
 import creekViewsHero from "@/assets/projects/creek-views-hero.jpg";
+import auraHero from "@/assets/projects/aura-hero.jpg";
 
 const allProjects = [
+  {
+    id: "aura",
+    name: "Aura by Azizi",
+    developer: "Azizi Developments",
+    location: "Jebel Ali, Dubai",
+    price: "AED 1.33M",
+    image: auraHero,
+    handover: "Ready",
+    roi: "7-9%",
+    tags: ["Ready Property", "Metro Access", "Investment"],
+    verified: true,
+    featured: false,
+  },
   {
     id: "creek-views",
     name: "Creek Views",
