@@ -26,8 +26,22 @@ import damacIslandsHero from "@/assets/projects/damac-islands-hero.jpg";
 import shorelineHero from "@/assets/projects/shoreline-hero.jpg";
 import elo3Hero from "@/assets/projects/elo3-hero.jpg";
 import burjAziziHero from "@/assets/projects/burj-azizi-hero.jpg";
+import creekViewsHero from "@/assets/projects/creek-views-hero.jpg";
 
 const allProjects = [
+  {
+    id: "creek-views",
+    name: "Creek Views",
+    developer: "Azizi Developments",
+    location: "Dubai Healthcare City",
+    price: "AED 873K",
+    image: creekViewsHero,
+    handover: "Ready",
+    roi: "8-10%",
+    tags: ["Creek Views", "Modern Tower", "Investment"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "burj-azizi",
     name: "Burj Azizi",
