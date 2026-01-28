@@ -17,8 +17,23 @@ import chelseaResidencesHero from "@/assets/projects/chelsea-residences-hero.jpg
 import safaGateHero from "@/assets/projects/safa-gate-hero.jpg";
 import riversideViewsHero from "@/assets/projects/riverside-views-hero.jpg";
 import sunCityHero from "@/assets/projects/sun-city-hero.jpg";
+import damacIslandsHero from "@/assets/projects/damac-islands-hero.jpg";
 
 const projects = [
+  {
+    id: "damac-islands",
+    name: "DAMAC Islands",
+    developer: "DAMAC Properties",
+    location: "Dubai Islands",
+    price: "AED 2.75M",
+    priceLabel: "Starting from",
+    image: damacIslandsHero,
+    handover: "2027",
+    roi: "10-12%",
+    tags: ["Island Villas", "Tropical Living"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "sun-city",
     name: "DAMAC Sun City",

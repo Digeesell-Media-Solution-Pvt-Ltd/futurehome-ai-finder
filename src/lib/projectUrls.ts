@@ -31,4 +31,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'riverside-views': 'damac',
   'violet-4': 'damac',
   'sun-city': 'damac',
+  'damac-islands': 'damac',
 };
