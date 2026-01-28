@@ -14,8 +14,23 @@ import oasiz2Hero from "@/assets/projects/oasiz2-hero.jpg";
 import damacIslands2Hero from "@/assets/projects/damac-islands2-hero.jpg";
 import damacDistrictHero from "@/assets/projects/damac-district-hero.jpg";
 import chelseaResidencesHero from "@/assets/projects/chelsea-residences-hero.jpg";
+import safaGateHero from "@/assets/projects/safa-gate-hero.jpg";
 
 const projects = [
+  {
+    id: "safa-gate",
+    name: "Safa Gate",
+    developer: "DAMAC Properties",
+    location: "Sheikh Zayed Road",
+    price: "AED 1.41M",
+    priceLabel: "Starting from",
+    image: safaGateHero,
+    handover: "Q4 2028",
+    roi: "8-10%",
+    tags: ["Park Views", "Luxury Tower"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "chelsea-residences",
     name: "Chelsea Residences",
