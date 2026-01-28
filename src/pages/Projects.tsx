@@ -39,8 +39,22 @@ import samanaHillsSouth2Hero from "@/assets/projects/samana-hills-south2-hero.jp
 import samanaImperialHero from "@/assets/projects/samana-imperial-hero.jpg";
 import samanaSkyViewsHero from "@/assets/projects/samana-skyviews-hero.jpg";
 import rukanTowerHero from "@/assets/projects/rukan-tower-hero.jpg";
+import perlaPrimeHero from "@/assets/projects/perla-prime-hero.jpg";
 
 const allProjects = [
+  {
+    id: "perla-prime",
+    name: "Perla Prime",
+    developer: "Reportage Properties",
+    location: "Yas Island, Abu Dhabi",
+    price: "AED 750K",
+    image: perlaPrimeHero,
+    handover: "2027",
+    roi: "8-10%",
+    tags: ["Waterfront", "Yas Island", "Beach Access"],
+    verified: true,
+    featured: false,
+  },
   {
     id: "rukan-tower",
     name: "Rukan Tower",

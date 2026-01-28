@@ -49,4 +49,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'samana-imperial': 'samana',
   'samana-sky-views': 'samana',
   'rukan-tower': 'reportage',
+  'perla-prime': 'reportage',
 };
