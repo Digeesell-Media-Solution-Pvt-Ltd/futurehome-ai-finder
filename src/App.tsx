@@ -34,6 +34,7 @@ import BinghattiCullinanProject from "./pages/projects/BinghattiCullinanProject"
 import BinghattiHillcrestProject from "./pages/projects/BinghattiHillcrestProject";
 import BinghattiTitaniaProject from "./pages/projects/BinghattiTitaniaProject";
 import BinghattiVintageProject from "./pages/projects/BinghattiVintageProject";
+import SamanaBoulevardProject from "./pages/projects/SamanaBoulevardProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -83,6 +84,7 @@ const App = () => (
           <Route path="/projects/binghatti/binghatti-hillcrest" element={<BinghattiHillcrestProject />} />
           <Route path="/projects/binghatti/binghatti-titania" element={<BinghattiTitaniaProject />} />
           <Route path="/projects/binghatti/binghatti-vintage" element={<BinghattiVintageProject />} />
+          <Route path="/projects/samana/samana-boulevard" element={<SamanaBoulevardProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />

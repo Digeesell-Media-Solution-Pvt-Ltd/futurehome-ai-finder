@@ -33,8 +33,22 @@ import binghattiCullinanHero from "@/assets/projects/binghatti-cullinan-hero.jpg
 import binghattiHillcrestHero from "@/assets/projects/binghatti-hillcrest-hero.jpg";
 import binghattiTitaniaHero from "@/assets/projects/binghatti-titania-hero.jpg";
 import binghattiVintageHero from "@/assets/projects/binghatti-vintage-hero.jpg";
+import samanaBoulevardHero from "@/assets/projects/samana-boulevard-hero.jpg";
 
 const allProjects = [
+  {
+    id: "samana-boulevard",
+    name: "Samana Boulevard Heights",
+    developer: "Samana Developers",
+    location: "Arjan, Dubai",
+    price: "AED 893K",
+    image: samanaBoulevardHero,
+    handover: "2028",
+    roi: "8-10%",
+    tags: ["Smart Living", "Balcony Pools", "Wellness"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "binghatti-vintage",
     name: "Binghatti Vintage",
