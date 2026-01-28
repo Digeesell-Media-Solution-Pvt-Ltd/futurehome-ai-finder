@@ -51,4 +51,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'rukan-tower': 'reportage',
   'perla-prime': 'reportage',
   'r-hills': 'reportage',
+  'via': 'reportage',
 };

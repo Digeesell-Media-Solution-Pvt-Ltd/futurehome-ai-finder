@@ -42,6 +42,7 @@ import SamanaSkyViewsProject from "./pages/projects/SamanaSkyViewsProject";
 import RukanTowerProject from "./pages/projects/RukanTowerProject";
 import PerlaPrimeProject from "./pages/projects/PerlaPrimeProject";
 import RHillsProject from "./pages/projects/RHillsProject";
+import ViaProject from "./pages/projects/ViaProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -99,6 +100,7 @@ const App = () => (
           <Route path="/projects/reportage/rukan-tower" element={<RukanTowerProject />} />
           <Route path="/projects/reportage/perla-prime" element={<PerlaPrimeProject />} />
           <Route path="/projects/reportage/r-hills" element={<RHillsProject />} />
+          <Route path="/projects/reportage/via" element={<ViaProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />

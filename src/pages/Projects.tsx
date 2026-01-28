@@ -41,8 +41,22 @@ import samanaSkyViewsHero from "@/assets/projects/samana-skyviews-hero.jpg";
 import rukanTowerHero from "@/assets/projects/rukan-tower-hero.jpg";
 import perlaPrimeHero from "@/assets/projects/perla-prime-hero.jpg";
 import rHillsHero from "@/assets/projects/r-hills-hero.jpg";
+import viaHero from "@/assets/projects/via-hero.jpg";
 
 const allProjects = [
+  {
+    id: "via",
+    name: "VIA - Montenapoleone",
+    developer: "Reportage Properties",
+    location: "Mostakbal City, New Cairo, Egypt",
+    price: "On Request",
+    image: viaHero,
+    handover: "2026",
+    roi: "10-12%",
+    tags: ["Commercial", "Mixed-Use", "New Cairo"],
+    verified: true,
+    featured: false,
+  },
   {
     id: "r-hills",
     name: "R. Hills",
