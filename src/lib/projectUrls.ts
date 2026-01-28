@@ -35,4 +35,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'shoreline': 'damac',
   'elo-3': 'damac',
   'burj-azizi': 'azizi',
+  'aliyah': 'azizi',
 };
