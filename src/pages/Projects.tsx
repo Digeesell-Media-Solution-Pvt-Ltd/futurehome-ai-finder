@@ -20,6 +20,7 @@ import damacDistrictHero from "@/assets/projects/damac-district-hero.jpg";
 import chelseaResidencesHero from "@/assets/projects/chelsea-residences-hero.jpg";
 import safaGateHero from "@/assets/projects/safa-gate-hero.jpg";
 import riversideViewsHero from "@/assets/projects/riverside-views-hero.jpg";
+import violet4Hero from "@/assets/projects/violet4-hero.jpg";
 
 const allProjects = [
   {
@@ -192,7 +193,19 @@ const allProjects = [
     featured: true,
   },
   {
-    id: 1,
+    id: "violet-4",
+    name: "Violet 4",
+    developer: "DAMAC Properties",
+    location: "DAMAC Hills 2, Dubai",
+    price: "On Request",
+    image: violet4Hero,
+    handover: "Q3 2027",
+    roi: "6-8%",
+    tags: ["Family Community", "Suburban Living", "Townhouses"],
+    verified: true,
+    featured: false,
+  },
+  {
     name: "The Oasis by Emaar",
     developer: "Emaar Properties",
     location: "Dubai",
