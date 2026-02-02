@@ -49,6 +49,7 @@ import thePinnacleHero from "@/assets/projects/the-pinnacle-hero.jpg";
 import skyvueAltierHero from "@/assets/projects/skyvue-altier-hero.jpg";
 import cityWalkCrestlaneHero from "@/assets/projects/city-walk-crestlane-hero.jpg";
 import theEditD3Hero from "@/assets/projects/the-edit-d3-hero.jpg";
+import nadAlShebaGardensHero from "@/assets/projects/nad-al-sheba-gardens-hero.jpg";
 
 const allProjects = [
   {
@@ -141,6 +142,19 @@ const allProjects = [
     tags: ["Design District", "Apartments", "Creative Living"],
     verified: true,
     featured: true,
+  },
+  {
+    id: "nad-al-sheba-gardens",
+    name: "Nad Al Sheba Gardens",
+    developer: "Meraas",
+    location: "Nad Al Sheba, Dubai",
+    price: "Sold Out",
+    image: nadAlShebaGardensHero,
+    handover: "2025",
+    roi: "7-9%",
+    tags: ["Villas", "Nad Al Sheba", "Family Living"],
+    verified: true,
+    featured: false,
   },
   {
     name: "VIA - Montenapoleone",

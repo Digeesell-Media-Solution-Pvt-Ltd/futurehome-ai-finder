@@ -50,6 +50,7 @@ import ThePinnacleProject from "./pages/projects/ThePinnacleProject";
 import SkyvueAltierProject from "./pages/projects/SkyvueAltierProject";
 import CityWalkCrestlaneProject from "./pages/projects/CityWalkCrestlaneProject";
 import TheEditD3Project from "./pages/projects/TheEditD3Project";
+import NadAlShebaGardensProject from "./pages/projects/NadAlShebaGardensProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -115,6 +116,7 @@ const App = () => (
           <Route path="/projects/sobha/skyvue-altier" element={<SkyvueAltierProject />} />
           <Route path="/projects/meraas/city-walk-crestlane" element={<CityWalkCrestlaneProject />} />
           <Route path="/projects/meraas/the-edit-d3" element={<TheEditD3Project />} />
+          <Route path="/projects/meraas/nad-al-sheba-gardens" element={<NadAlShebaGardensProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />
