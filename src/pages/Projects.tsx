@@ -48,6 +48,7 @@ import theBrooksHero from "@/assets/projects/the-brooks-hero.jpg";
 import thePinnacleHero from "@/assets/projects/the-pinnacle-hero.jpg";
 import skyvueAltierHero from "@/assets/projects/skyvue-altier-hero.jpg";
 import cityWalkCrestlaneHero from "@/assets/projects/city-walk-crestlane-hero.jpg";
+import theEditD3Hero from "@/assets/projects/the-edit-d3-hero.jpg";
 
 const allProjects = [
   {
@@ -129,7 +130,19 @@ const allProjects = [
     featured: true,
   },
   {
-    id: "via",
+    id: "the-edit-d3",
+    name: "The Edit at d3",
+    developer: "Meraas",
+    location: "Dubai Design District (d3)",
+    price: "AED 2.00M",
+    image: theEditD3Hero,
+    handover: "2026",
+    roi: "7-9%",
+    tags: ["Design District", "Apartments", "Creative Living"],
+    verified: true,
+    featured: true,
+  },
+  {
     name: "VIA - Montenapoleone",
     developer: "Reportage Properties",
     location: "Mostakbal City, New Cairo, Egypt",
