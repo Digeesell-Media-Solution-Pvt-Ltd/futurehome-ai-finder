@@ -20,8 +20,23 @@ import sunCityHero from "@/assets/projects/sun-city-hero.jpg";
 import damacIslandsHero from "@/assets/projects/damac-islands-hero.jpg";
 import shorelineHero from "@/assets/projects/shoreline-hero.jpg";
 import rukanTowerHero from "@/assets/projects/rukan-tower-hero.jpg";
+import theGroveHero from "@/assets/projects/the-grove-hero.jpg";
 
 const projects = [
+  {
+    id: "the-grove",
+    name: "The Grove",
+    developer: "Sobha Realty",
+    location: "Sobha Sanctuary",
+    price: "AED 9.32M",
+    priceLabel: "Starting from",
+    image: theGroveHero,
+    handover: "2027",
+    roi: "7-9%",
+    tags: ["Luxury Villas", "New Launch"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "rukan-tower",
     name: "Rukan Tower",

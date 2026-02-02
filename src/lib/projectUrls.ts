@@ -52,4 +52,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'perla-prime': 'reportage',
   'r-hills': 'reportage',
   'via': 'reportage',
+  'the-grove': 'sobha',
 };
