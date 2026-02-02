@@ -21,6 +21,7 @@ import damacIslandsHero from "@/assets/projects/damac-islands-hero.jpg";
 import shorelineHero from "@/assets/projects/shoreline-hero.jpg";
 import rukanTowerHero from "@/assets/projects/rukan-tower-hero.jpg";
 import theGroveHero from "@/assets/projects/the-grove-hero.jpg";
+import theGreensHero from "@/assets/projects/the-greens-hero.jpg";
 
 const projects = [
   {
@@ -34,6 +35,20 @@ const projects = [
     handover: "2027",
     roi: "7-9%",
     tags: ["Luxury Villas", "New Launch"],
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "the-greens",
+    name: "The Greens",
+    developer: "Sobha Realty",
+    location: "Sobha Sanctuary",
+    price: "AED 3.99M",
+    priceLabel: "Starting from",
+    image: theGreensHero,
+    handover: "2027",
+    roi: "7-9%",
+    tags: ["Townhouses", "Family Living"],
     verified: true,
     featured: true,
   },

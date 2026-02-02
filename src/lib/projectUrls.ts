@@ -53,4 +53,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'r-hills': 'reportage',
   'via': 'reportage',
   'the-grove': 'sobha',
+  'the-greens': 'sobha',
 };

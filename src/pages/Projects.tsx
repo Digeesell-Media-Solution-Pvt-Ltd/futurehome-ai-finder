@@ -43,6 +43,7 @@ import perlaPrimeHero from "@/assets/projects/perla-prime-hero.jpg";
 import rHillsHero from "@/assets/projects/r-hills-hero.jpg";
 import viaHero from "@/assets/projects/via-hero.jpg";
 import theGroveHero from "@/assets/projects/the-grove-hero.jpg";
+import theGreensHero from "@/assets/projects/the-greens-hero.jpg";
 
 const allProjects = [
   {
@@ -55,6 +56,19 @@ const allProjects = [
     handover: "2027",
     roi: "7-9%",
     tags: ["Luxury Villas", "Sobha Sanctuary", "New Launch"],
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "the-greens",
+    name: "The Greens",
+    developer: "Sobha Realty",
+    location: "Sobha Sanctuary, Dubai",
+    price: "AED 3.99M",
+    image: theGreensHero,
+    handover: "2027",
+    roi: "7-9%",
+    tags: ["Townhouses", "Sobha Sanctuary", "Family Living"],
     verified: true,
     featured: true,
   },

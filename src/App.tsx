@@ -44,6 +44,7 @@ import PerlaPrimeProject from "./pages/projects/PerlaPrimeProject";
 import RHillsProject from "./pages/projects/RHillsProject";
 import ViaProject from "./pages/projects/ViaProject";
 import TheGroveProject from "./pages/projects/TheGroveProject";
+import TheGreensProject from "./pages/projects/TheGreensProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -103,6 +104,7 @@ const App = () => (
           <Route path="/projects/reportage/r-hills" element={<RHillsProject />} />
           <Route path="/projects/reportage/via" element={<ViaProject />} />
           <Route path="/projects/sobha/the-grove" element={<TheGroveProject />} />
+          <Route path="/projects/sobha/the-greens" element={<TheGreensProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />
