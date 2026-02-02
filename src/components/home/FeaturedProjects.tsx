@@ -23,6 +23,7 @@ import rukanTowerHero from "@/assets/projects/rukan-tower-hero.jpg";
 import theGroveHero from "@/assets/projects/the-grove-hero.jpg";
 import theGreensHero from "@/assets/projects/the-greens-hero.jpg";
 import theBrooksHero from "@/assets/projects/the-brooks-hero.jpg";
+import thePinnacleHero from "@/assets/projects/the-pinnacle-hero.jpg";
 
 const projects = [
   {
@@ -64,6 +65,20 @@ const projects = [
     handover: "2027",
     roi: "7-9%",
     tags: ["Wellness Villas", "Featured"],
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "the-pinnacle",
+    name: "The Pinnacle",
+    developer: "Sobha Realty",
+    location: "Sobha Central",
+    price: "AED 1.78M",
+    priceLabel: "Starting from",
+    image: thePinnacleHero,
+    handover: "2027",
+    roi: "8-10%",
+    tags: ["Apartments", "New Launch"],
     verified: true,
     featured: true,
   },
