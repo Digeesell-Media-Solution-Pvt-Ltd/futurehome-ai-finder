@@ -44,6 +44,7 @@ import rHillsHero from "@/assets/projects/r-hills-hero.jpg";
 import viaHero from "@/assets/projects/via-hero.jpg";
 import theGroveHero from "@/assets/projects/the-grove-hero.jpg";
 import theGreensHero from "@/assets/projects/the-greens-hero.jpg";
+import theBrooksHero from "@/assets/projects/the-brooks-hero.jpg";
 
 const allProjects = [
   {
@@ -69,6 +70,19 @@ const allProjects = [
     handover: "2027",
     roi: "7-9%",
     tags: ["Townhouses", "Sobha Sanctuary", "Family Living"],
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "the-brooks",
+    name: "The Brooks",
+    developer: "Sobha Realty",
+    location: "Sobha Sanctuary, Dubai",
+    price: "AED 5.83M",
+    image: theBrooksHero,
+    handover: "2027",
+    roi: "7-9%",
+    tags: ["Villas", "Sobha Sanctuary", "Wellness Living"],
     verified: true,
     featured: true,
   },
