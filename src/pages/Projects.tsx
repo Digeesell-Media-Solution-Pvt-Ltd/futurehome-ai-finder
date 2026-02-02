@@ -42,8 +42,22 @@ import rukanTowerHero from "@/assets/projects/rukan-tower-hero.jpg";
 import perlaPrimeHero from "@/assets/projects/perla-prime-hero.jpg";
 import rHillsHero from "@/assets/projects/r-hills-hero.jpg";
 import viaHero from "@/assets/projects/via-hero.jpg";
+import theGroveHero from "@/assets/projects/the-grove-hero.jpg";
 
 const allProjects = [
+  {
+    id: "the-grove",
+    name: "The Grove",
+    developer: "Sobha Realty",
+    location: "Sobha Sanctuary, Dubai",
+    price: "AED 9.32M",
+    image: theGroveHero,
+    handover: "2027",
+    roi: "7-9%",
+    tags: ["Luxury Villas", "Sobha Sanctuary", "New Launch"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "via",
     name: "VIA - Montenapoleone",
