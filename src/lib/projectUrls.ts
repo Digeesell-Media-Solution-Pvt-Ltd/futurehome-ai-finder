@@ -57,4 +57,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'the-brooks': 'sobha',
   'the-pinnacle': 'sobha',
   'skyvue-altier': 'sobha',
+  'city-walk-crestlane': 'meraas',
 };

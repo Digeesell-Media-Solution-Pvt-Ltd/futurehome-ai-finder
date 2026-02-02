@@ -47,6 +47,7 @@ import theGreensHero from "@/assets/projects/the-greens-hero.jpg";
 import theBrooksHero from "@/assets/projects/the-brooks-hero.jpg";
 import thePinnacleHero from "@/assets/projects/the-pinnacle-hero.jpg";
 import skyvueAltierHero from "@/assets/projects/skyvue-altier-hero.jpg";
+import cityWalkCrestlaneHero from "@/assets/projects/city-walk-crestlane-hero.jpg";
 
 const allProjects = [
   {
@@ -111,6 +112,19 @@ const allProjects = [
     handover: "2027",
     roi: "8-10%",
     tags: ["Waterfront", "Sobha Hartland 2", "Apartments"],
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "city-walk-crestlane",
+    name: "City Walk Crestlane",
+    developer: "Meraas",
+    location: "City Walk, Dubai",
+    price: "AED 2.70M",
+    image: cityWalkCrestlaneHero,
+    handover: "2027",
+    roi: "7-9%",
+    tags: ["City Walk", "Apartments", "Urban Living"],
     verified: true,
     featured: true,
   },
