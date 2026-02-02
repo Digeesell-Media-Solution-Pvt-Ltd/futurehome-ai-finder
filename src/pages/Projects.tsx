@@ -46,6 +46,7 @@ import theGroveHero from "@/assets/projects/the-grove-hero.jpg";
 import theGreensHero from "@/assets/projects/the-greens-hero.jpg";
 import theBrooksHero from "@/assets/projects/the-brooks-hero.jpg";
 import thePinnacleHero from "@/assets/projects/the-pinnacle-hero.jpg";
+import skyvueAltierHero from "@/assets/projects/skyvue-altier-hero.jpg";
 
 const allProjects = [
   {
@@ -97,6 +98,19 @@ const allProjects = [
     handover: "2027",
     roi: "8-10%",
     tags: ["Apartments", "Sobha Central", "New Launch"],
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "skyvue-altier",
+    name: "Skyvue Altier",
+    developer: "Sobha Realty",
+    location: "Sobha Hartland 2, Dubai",
+    price: "AED 1.84M",
+    image: skyvueAltierHero,
+    handover: "2027",
+    roi: "8-10%",
+    tags: ["Waterfront", "Sobha Hartland 2", "Apartments"],
     verified: true,
     featured: true,
   },
