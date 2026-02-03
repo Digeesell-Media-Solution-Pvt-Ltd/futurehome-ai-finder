@@ -61,4 +61,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'the-edit-d3': 'meraas',
   'nad-al-sheba-gardens': 'meraas',
   'mjl-nourelle': 'meraas',
+  'jumeirah-emirates-tower': 'meraas',
 };
