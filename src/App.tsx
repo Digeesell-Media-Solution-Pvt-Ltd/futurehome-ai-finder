@@ -52,6 +52,7 @@ import CityWalkCrestlaneProject from "./pages/projects/CityWalkCrestlaneProject"
 import TheEditD3Project from "./pages/projects/TheEditD3Project";
 import NadAlShebaGardensProject from "./pages/projects/NadAlShebaGardensProject";
 import MJLNourelleProject from "./pages/projects/MJLNourelleProject";
+import JumeirahEmiratesTowerProject from "./pages/projects/JumeirahEmiratesTowerProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import Developers from "./pages/Developers";
@@ -119,6 +120,7 @@ const App = () => (
           <Route path="/projects/meraas/the-edit-d3" element={<TheEditD3Project />} />
           <Route path="/projects/meraas/nad-al-sheba-gardens" element={<NadAlShebaGardensProject />} />
           <Route path="/projects/meraas/mjl-nourelle" element={<MJLNourelleProject />} />
+          <Route path="/projects/meraas/jumeirah-emirates-tower" element={<JumeirahEmiratesTowerProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />

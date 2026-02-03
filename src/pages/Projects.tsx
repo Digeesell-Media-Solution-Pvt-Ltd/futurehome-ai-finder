@@ -51,6 +51,7 @@ import cityWalkCrestlaneHero from "@/assets/projects/city-walk-crestlane-hero.jp
 import theEditD3Hero from "@/assets/projects/the-edit-d3-hero.jpg";
 import nadAlShebaGardensHero from "@/assets/projects/nad-al-sheba-gardens-hero.jpg";
 import mjlNourelleHero from "@/assets/projects/mjl-nourelle-hero.jpg";
+import jumeirahEmiratesTowerHero from "@/assets/projects/jumeirah-emirates-tower-hero.jpg";
 
 const allProjects = [
   {
@@ -167,6 +168,19 @@ const allProjects = [
     handover: "2027",
     roi: "7-9%",
     tags: ["Apartments", "Madinat Jumeirah Living", "Skybridge"],
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "jumeirah-emirates-tower",
+    name: "Jumeirah Emirates Tower Residences",
+    developer: "Meraas",
+    location: "Trade Centre 2, Dubai",
+    price: "AED 3.51M",
+    image: jumeirahEmiratesTowerHero,
+    handover: "2027",
+    roi: "7-9%",
+    tags: ["Branded Residences", "Trade Centre", "Jumeirah"],
     verified: true,
     featured: true,
   },
