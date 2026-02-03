@@ -50,6 +50,7 @@ import skyvueAltierHero from "@/assets/projects/skyvue-altier-hero.jpg";
 import cityWalkCrestlaneHero from "@/assets/projects/city-walk-crestlane-hero.jpg";
 import theEditD3Hero from "@/assets/projects/the-edit-d3-hero.jpg";
 import nadAlShebaGardensHero from "@/assets/projects/nad-al-sheba-gardens-hero.jpg";
+import mjlNourelleHero from "@/assets/projects/mjl-nourelle-hero.jpg";
 
 const allProjects = [
   {
@@ -155,6 +156,19 @@ const allProjects = [
     tags: ["Villas", "Nad Al Sheba", "Family Living"],
     verified: true,
     featured: false,
+  },
+  {
+    id: "mjl-nourelle",
+    name: "MJL Nourelle",
+    developer: "Meraas",
+    location: "Madinat Jumeirah Living, Umm Suqeim",
+    price: "Sold Out",
+    image: mjlNourelleHero,
+    handover: "2027",
+    roi: "7-9%",
+    tags: ["Apartments", "Madinat Jumeirah Living", "Skybridge"],
+    verified: true,
+    featured: true,
   },
   {
     name: "VIA - Montenapoleone",
