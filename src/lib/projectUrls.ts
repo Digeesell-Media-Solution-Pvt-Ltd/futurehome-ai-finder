@@ -60,4 +60,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'city-walk-crestlane': 'meraas',
   'the-edit-d3': 'meraas',
   'nad-al-sheba-gardens': 'meraas',
+  'mjl-nourelle': 'meraas',
 };
