@@ -62,4 +62,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'nad-al-sheba-gardens': 'meraas',
   'mjl-nourelle': 'meraas',
   'jumeirah-emirates-tower': 'meraas',
+  'meriden-beach': 'green-horizon',
 };
