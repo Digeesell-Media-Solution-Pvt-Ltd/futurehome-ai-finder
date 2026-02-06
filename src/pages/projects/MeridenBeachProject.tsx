@@ -78,10 +78,6 @@ const MeridenBeachProject = () => {
           name="description"
           content="Experience spacious beachfront apartments at Meriden Beach Residences by Green Horizon on Dubai Islands. 1-3 BR from AED 1.8M, Q1 2028 handover."
         />
-        <meta
-          name="description"
-          content="Experience spacious beachfront apartments at Meriden Beach Residences by Green Horizon on Dubai Islands. 1-3 BR from AED 1.8M, Q1 2028 handover."
-        />
         <meta name="keywords" content="Meriden Beach Residences, Green Horizon, Dubai Islands, beachfront apartments, off-plan Dubai, waterfront living" />
       </Helmet>
 
