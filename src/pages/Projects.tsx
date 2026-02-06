@@ -52,8 +52,22 @@ import theEditD3Hero from "@/assets/projects/the-edit-d3-hero.jpg";
 import nadAlShebaGardensHero from "@/assets/projects/nad-al-sheba-gardens-hero.jpg";
 import mjlNourelleHero from "@/assets/projects/mjl-nourelle-hero.jpg";
 import jumeirahEmiratesTowerHero from "@/assets/projects/jumeirah-emirates-tower-hero.jpg";
+import meridenBeachHero from "@/assets/projects/meriden-beach-hero.jpg";
 
 const allProjects = [
+  {
+    id: "meriden-beach",
+    name: "Meriden Beach Residences",
+    developer: "Green Horizon",
+    location: "Dubai Islands, Dubai",
+    price: "AED 1.8M",
+    image: meridenBeachHero,
+    handover: "Q1 2028",
+    roi: "8-10%",
+    tags: ["Dubai Islands", "Waterfront", "Beachfront", "Luxury Apartments"],
+    verified: true,
+    featured: true,
+  },
   {
     id: "the-grove",
     name: "The Grove",
