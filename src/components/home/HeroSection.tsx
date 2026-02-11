@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Search, Sparkles, ArrowRight, Shield } from "lucide-react";
+import { Search, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-dubai.jpg";
@@ -7,7 +7,7 @@ import heroImage from "@/assets/hero-dubai.jpg";
 const stats = [
   { value: "500+", label: "Projects Listed" },
   { value: "AED 2B+", label: "Portfolio Value" },
-  { value: "15K+", label: "Happy Investors" },
+  { value: "15K+", label: "Active Users" },
   { value: "7", label: "Emirates Covered" },
 ];
 
@@ -73,8 +73,8 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 px-5 py-2.5 glass-panel mb-8"
           >
-            <Shield className="w-4 h-4 text-primary" />
-            <span className="text-sm text-background/90 font-medium">RERA Licensed · DLD Verified Listings</span>
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm text-background/90 font-medium">AI-Powered Property Discovery Platform</span>
           </motion.div>
 
           {/* Headline */}
@@ -84,17 +84,16 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-display text-background mb-6"
           >
-            Where Your{" "}
+            Discover UAE's Upcoming Projects with{" "}
             <span className="relative inline-block">
-              <span className="text-primary">Future Home</span>
+              <span className="text-primary">AI Precision</span>
               <motion.span
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ delay: 0.8, duration: 0.6 }}
                 className="absolute bottom-2 left-0 h-1 bg-primary/50 rounded-full"
               />
-            </span>{" "}
-            Begins
+            </span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -104,8 +103,8 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-background/80 mb-10 font-body leading-relaxed"
           >
-            Discover AI-powered property matching for off-plan investments 
-            across all 7 Emirates of the UAE.
+            We are an AI-powered platform showcasing new developments across the UAE.
+            Explore, compare, and connect — directly with official sales teams. No middlemen, no brokerage.
           </motion.p>
 
           {/* AI Search Box - Glass Card */}
@@ -166,7 +165,7 @@ export function HeroSection() {
             </Button>
             <Button variant="hero-outline" className="backdrop-blur-soft" asChild>
               <Link to="/contact">
-                Book Free Consultation
+                Request Details
               </Link>
             </Button>
           </motion.div>

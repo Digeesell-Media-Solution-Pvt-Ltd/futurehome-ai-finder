@@ -56,8 +56,8 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-background/70 mb-6 max-w-sm leading-relaxed">
-              Where your future home begins. Discover AI-powered property matching 
-              for off-plan investments across the UAE.
+              An AI-powered digital property discovery platform. Browse upcoming
+              developments and connect directly with official sales teams.
             </p>
             <div className="space-y-3 text-sm text-background/70">
               <a href="tel:+97144000000" className="flex items-center gap-3 hover:text-primary transition-colors">
@@ -141,22 +141,30 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Trust Bar */}
+      {/* Disclaimer & Legal Bar */}
       <div className="border-t border-background/10">
         <div className="container-luxury py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Platform Disclaimer */}
+          <div className="text-xs text-background/50 space-y-1.5 mb-5">
+            <p>We are an AI-powered digital property discovery platform.</p>
+            <p>We do not act as real estate brokers or agents. We are not RERA licensed.</p>
+            <p>Listings are provided for informational purposes only and may not be verified.</p>
+            <p>All enquiries are forwarded to official developer teams or authorized agents.</p>
+          </div>
+
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-4 border-t border-background/10">
             <div className="flex flex-wrap items-center gap-4 text-xs text-background/50">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary rounded-full"></span>
-                Licensed by RERA
+                AI-Powered Discovery
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary rounded-full"></span>
-                DLD Approved Listings
+                Informational Platform
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-primary rounded-full"></span>
-                AI-Verified Properties
+                Independent &amp; Unbiased
               </span>
             </div>
             <div className="flex flex-wrap items-center gap-4 text-xs text-background/50">

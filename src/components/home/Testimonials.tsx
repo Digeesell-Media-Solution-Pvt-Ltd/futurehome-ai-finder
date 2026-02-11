@@ -10,7 +10,7 @@ const testimonials = [
     location: "Dubai, UAE",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
     rating: 5,
-    text: "OffPlanProjects made finding my investment property effortless. Their AI matched me with a project in Dubai Marina that perfectly fit my budget and ROI expectations. Already seeing 18% appreciation!",
+    text: "OffPlanProjects made discovering investment opportunities effortless. The AI matched me with a project in Dubai Marina that fit my budget and goals. Great platform for research!",
     project: "Marina Vista Tower",
   },
   {
@@ -20,7 +20,7 @@ const testimonials = [
     location: "London, UK",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
     rating: 5,
-    text: "As a first-time off-plan investor from abroad, I was nervous. The team at OffPlanProjects guided me through every step, from property selection to payment plans. Highly recommend!",
+    text: "As a first-time off-plan investor from abroad, I found OffPlanProjects incredibly helpful for researching projects and understanding payment plans. The platform connected me with the right sales teams!",
     project: "Creek Harbour Views",
   },
   {
@@ -30,7 +30,7 @@ const testimonials = [
     location: "Mumbai, India",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
     rating: 5,
-    text: "I've invested in 4 properties through OffPlanProjects. Their AI insights and developer verification saved me from two potentially bad investments. Trustworthy and professional.",
+    text: "I've discovered multiple investment opportunities through OffPlanProjects. The AI insights and project comparisons helped me make more informed decisions. A great discovery tool.",
     project: "The Oasis by Emaar",
   },
 ];
@@ -80,11 +80,11 @@ export function Testimonials() {
             Success Stories
           </motion.span>
           <h2 className="text-heading text-foreground mb-4">
-            What Our Investors Say
+            What Our Users Say
           </h2>
           <p className="text-muted-foreground">
-            Join thousands of satisfied investors who found their perfect 
-            off-plan property through our platform.
+            Join thousands of users who discovered their next investment
+            opportunity through our platform.
           </p>
         </motion.div>
 
