@@ -50,7 +50,7 @@ export default function AreasPage() {
                 transition={{ duration: 0.4, delay: index * 0.03 }}
               >
                 <Link
-                  to={{"Dubai Marina": "/areas/dubai-marina", "Downtown Dubai": "/areas/downtown-dubai", "Palm Jumeirah": "/areas/palm-jumeirah", "Business Bay": "/areas/business-bay", "Dubai Hills": "/areas/dubai-hills", "Jumeirah Village Circle": "/areas/jvc", "Dubai Creek Harbour": "/areas/dubai-creek-harbour", "Meydan": "/areas/meydan", "Al Marjan Island": "/areas/al-marjan-island", "Dubai South": "/areas/dubai-south", "Dubai Sports City": "/areas/dubai-sports-city", "Al Furjan": "/areas/al-furjan", "Dubai Silicon Oasis": "/areas/dubai-silicon-oasis", "DAMAC Hills": "/areas/damac-hills"}[area] || `/projects?area=${encodeURIComponent(area)}`}
+                  to={{"Dubai Marina": "/areas/dubai-marina", "Downtown Dubai": "/areas/downtown-dubai", "Palm Jumeirah": "/areas/palm-jumeirah", "Business Bay": "/areas/business-bay", "Dubai Hills": "/areas/dubai-hills", "Jumeirah Village Circle": "/areas/jvc", "Dubai Creek Harbour": "/areas/dubai-creek-harbour", "Meydan": "/areas/meydan", "Al Marjan Island": "/areas/al-marjan-island", "Dubai South": "/areas/dubai-south", "Dubai Sports City": "/areas/dubai-sports-city", "Al Furjan": "/areas/al-furjan", "Dubai Silicon Oasis": "/areas/dubai-silicon-oasis", "DAMAC Hills": "/areas/damac-hills", "Sheikh Zayed Road": "/areas/sheikh-zayed-road"}[area] || `/projects?area=${encodeURIComponent(area)}`}
                   className="group block p-6 rounded-2xl border border-border bg-card hover:border-primary/30 hover:shadow-luxury transition-all duration-300"
                 >
                   <div className="flex items-center gap-3">
