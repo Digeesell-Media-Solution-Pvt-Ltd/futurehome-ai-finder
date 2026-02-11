@@ -44,15 +44,14 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="font-display text-xl font-semibold text-charcoal">O</span>
-                </div>
-                <div>
-                  <span className="font-display text-2xl font-semibold tracking-tight">
-                    OffPlanProjects
-                  </span>
-                </div>
+              <div className="flex flex-col items-start leading-none">
+                <span className="text-[1.5rem] font-bold tracking-[0.15em] uppercase text-primary" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  OFFPLAN
+                </span>
+                <div className="w-full h-[2px] bg-primary my-[3px]" />
+                <span className="text-[0.7rem] font-medium tracking-[0.35em] uppercase text-primary" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  PROJECTS
+                </span>
               </div>
             </Link>
             <p className="text-background/70 mb-6 max-w-sm leading-relaxed">

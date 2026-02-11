@@ -50,12 +50,13 @@ export function Header() {
               transition={{ duration: 0.5 }}
               className="flex items-center gap-3"
             >
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="font-display text-lg font-semibold text-foreground">O</span>
-              </div>
-              <div className="hidden sm:block">
-                <span className="font-display text-xl font-semibold tracking-tight text-foreground">
-                  OffPlanProjects
+              <div className="flex flex-col items-start leading-none">
+                <span className="text-[1.25rem] font-bold tracking-[0.15em] uppercase text-foreground" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  OFFPLAN
+                </span>
+                <div className="w-full h-[2px] bg-primary my-[2px]" />
+                <span className="text-[0.6rem] font-medium tracking-[0.35em] uppercase text-foreground" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  PROJECTS
                 </span>
               </div>
             </motion.div>
