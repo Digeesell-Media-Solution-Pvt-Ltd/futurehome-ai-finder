@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Instagram, Linkedin, Facebook, Twitter } from "lucide-react";
+import { Instagram, Linkedin, Facebook, Twitter } from "lucide-react";
 
 const footerLinks = {
   projects: [
@@ -58,20 +58,6 @@ export function Footer() {
               Where your future home begins. Discover AI-powered property matching 
               for off-plan investments across the UAE.
             </p>
-            <div className="space-y-3 text-sm text-background/70">
-              <a href="tel:+97144000000" className="flex items-center gap-3 hover:text-primary transition-colors">
-                <Phone className="w-4 h-4" />
-                +971 4 400 0000
-              </a>
-              <a href="mailto:info@offplanprojects.com" className="flex items-center gap-3 hover:text-primary transition-colors">
-                <Mail className="w-4 h-4" />
-                info@offplanprojects.com
-              </a>
-              <div className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 flex-shrink-0" />
-                Downtown Dubai, UAE
-              </div>
-            </div>
           </div>
 
           {/* Links Columns */}
