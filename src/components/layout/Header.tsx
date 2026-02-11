@@ -51,11 +51,11 @@ export function Header() {
               className="flex items-center gap-3"
             >
               <div className="flex flex-col items-start leading-none">
-                <span className="text-[1.25rem] font-bold tracking-[0.15em] uppercase text-foreground" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <span className="text-[1.25rem] font-bold tracking-[0.15em] uppercase text-primary" style={{ fontFamily: "'Inter', sans-serif" }}>
                   OFFPLAN
                 </span>
                 <div className="w-full h-[2px] bg-primary my-[2px]" />
-                <span className="text-[0.6rem] font-medium tracking-[0.35em] uppercase text-foreground" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <span className="text-[0.6rem] font-medium tracking-[0.35em] uppercase text-primary" style={{ fontFamily: "'Inter', sans-serif" }}>
                   PROJECTS
                 </span>
               </div>
