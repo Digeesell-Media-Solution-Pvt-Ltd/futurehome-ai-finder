@@ -66,6 +66,7 @@ import Disclaimer from "./pages/Disclaimer";
 import AdvertisingPolicy from "./pages/AdvertisingPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
+import CookiePolicy from "./pages/CookiePolicy";
 import Saved from "./pages/Saved";
 import NotFound from "./pages/NotFound";
 
@@ -141,6 +142,7 @@ const App = () => (
           <Route path="/advertising-policy" element={<AdvertisingPolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-use" element={<TermsOfUse />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
