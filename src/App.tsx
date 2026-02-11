@@ -62,6 +62,7 @@ import DeveloperDetail from "./pages/DeveloperDetail";
 import Insights from "./pages/Insights";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Disclaimer from "./pages/Disclaimer";
 import Saved from "./pages/Saved";
 import NotFound from "./pages/NotFound";
 
@@ -133,6 +134,7 @@ const App = () => (
           <Route path="/insights" element={<Insights />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
