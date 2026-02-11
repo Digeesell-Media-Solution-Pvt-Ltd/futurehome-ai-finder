@@ -57,6 +57,7 @@ import JumeirahEmiratesTowerProject from "./pages/projects/JumeirahEmiratesTower
 import MeridenBeachProject from "./pages/projects/MeridenBeachProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
+import DubaiMarinaArea from "./pages/areas/DubaiMarinaArea";
 import Developers from "./pages/Developers";
 import DeveloperDetail from "./pages/DeveloperDetail";
 import Insights from "./pages/Insights";
@@ -132,6 +133,7 @@ const App = () => (
           <Route path="/projects/green-horizon/meriden-beach" element={<MeridenBeachProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
+          <Route path="/areas/dubai-marina" element={<DubaiMarinaArea />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />
           <Route path="/developers" element={<Developers />} />
           <Route path="/developers/:developerId" element={<DeveloperDetail />} />
