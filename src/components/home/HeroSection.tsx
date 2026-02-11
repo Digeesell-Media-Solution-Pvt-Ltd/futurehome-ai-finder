@@ -4,12 +4,6 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-dubai.jpg";
 
-const stats = [
-  { value: "500+", label: "Projects Listed" },
-  { value: "AED 2B+", label: "Portfolio Value" },
-  { value: "15K+", label: "Active Users" },
-  { value: "7", label: "Emirates Covered" },
-];
 
 export function HeroSection() {
   return (
@@ -171,33 +165,6 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Stats - Glass panels */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16"
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
-              className="glass-panel p-5 text-center"
-            >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 1 + index * 0.1, type: "spring" }}
-                className="text-3xl md:text-4xl font-display font-semibold text-primary mb-1"
-              >
-                {stat.value}
-              </motion.div>
-              <div className="text-sm text-background/60">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Scroll Indicator */}
