@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { 
-  ArrowLeft, Download, Phone, MessageCircle, MapPin, Building, 
+  ArrowLeft, ArrowRight, Download, Phone, MessageCircle, MapPin, Building, 
   Calendar, Bed, TrendingUp, BadgeCheck, Heart, Share2, Play,
   Waves, Dumbbell, Film, Utensils, TreePalm, Baby, Gamepad2, Car,
   Sparkles, Coffee, Wifi
@@ -433,33 +433,17 @@ export default function BreezProjectPage() {
           </div>
         </div>
 
-        {/* Similar Projects */}
+        {/* Browse More CTA */}
         <section className="bg-cream section-padding">
-          <div className="container-luxury">
-            <h2 className="text-heading text-foreground mb-8 text-center">Similar Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { id: 1, name: "The Oasis by Emaar", location: "Dubai", price: "AED 2.5M", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" },
-                { id: 2, name: "Palm Views Residences", location: "Palm Jumeirah", price: "AED 4.8M", image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80" },
-                { id: 3, name: "Marina Vista Tower", location: "Dubai Marina", price: "AED 1.8M", image: "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=800&q=80" },
-              ].map((project) => (
-                <Link key={project.id} to={`/projects/${project.id}`}>
-                  <motion.article
-                    whileHover={{ y: -5 }}
-                    className="bubble-card overflow-hidden"
-                  >
-                    <div className="aspect-video relative">
-                      <img src={project.image} alt={project.name} className="w-full h-full object-cover" />
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-display font-medium text-foreground mb-1">{project.name}</h3>
-                      <p className="text-sm text-muted-foreground mb-2">{project.location}</p>
-                      <p className="font-semibold text-foreground">From {project.price}</p>
-                    </div>
-                  </motion.article>
-                </Link>
-              ))}
-            </div>
+          <div className="container-luxury text-center">
+            <h2 className="text-heading text-foreground mb-4">Explore More Projects</h2>
+            <p className="text-muted-foreground mb-6">Discover other off-plan opportunities from top developers.</p>
+            <Button variant="gold" asChild>
+              <Link to="/projects">
+                Browse All Projects
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
           </div>
         </section>
       </main>

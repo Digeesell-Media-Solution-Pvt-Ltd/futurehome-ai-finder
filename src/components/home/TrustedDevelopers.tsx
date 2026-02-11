@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BadgeCheck, Building2, Award, Star, ArrowRight } from "lucide-react";
+import { BadgeCheck, Building2, Award, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { featuredDevelopers } from "@/data/developers";
@@ -91,11 +91,7 @@ export function TrustedDevelopers() {
                 <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1 glass-panel px-2 py-1 rounded-full">
                     <Award className="w-3 h-3" />
-                    {developer.projectCount}
-                  </span>
-                  <span className="flex items-center gap-1 glass-panel px-2 py-1 rounded-full">
-                    <Star className="w-3 h-3 fill-primary text-primary" />
-                    {developer.trustScore}
+                    {developer.projectCount} projects
                   </span>
                 </div>
 
@@ -129,35 +125,7 @@ export function TrustedDevelopers() {
           </Button>
         </motion.div>
 
-        {/* Trust Stats - Glass panels */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-12"
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { value: "2,200+", label: "Registered Developers" },
-              { value: "98%", label: "On-Time Delivery" },
-              { value: "4.7", label: "Avg. Trust Score" },
-              { value: "500+", label: "Active Projects" },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 + index * 0.1 }}
-                className="glass-panel p-6 rounded-2xl text-center"
-              >
-                <div className="text-3xl font-display font-semibold text-foreground mb-1">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );
