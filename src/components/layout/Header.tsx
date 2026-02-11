@@ -50,12 +50,13 @@ export function Header() {
               transition={{ duration: 0.5 }}
               className="flex items-center gap-3"
             >
-              <div className="flex flex-col items-start leading-none">
-                <span className={cn("text-[1.25rem] font-bold tracking-[0.15em] uppercase transition-colors duration-500", isScrolled ? "text-charcoal" : "text-primary")} style={{ fontFamily: "'Inter', sans-serif" }}>
+              <div className="relative flex flex-col items-start leading-none">
+                <div className="absolute -inset-3 rounded-lg bg-primary/10 blur-xl pointer-events-none" />
+                <span className={cn("relative text-[1.25rem] font-bold tracking-[0.15em] uppercase transition-colors duration-500", isScrolled ? "text-charcoal" : "text-primary")} style={{ fontFamily: "'Inter', sans-serif" }}>
                   OFFPLAN
                 </span>
-                <div className={cn("w-full h-[2px] my-[2px] transition-colors duration-500", isScrolled ? "bg-charcoal" : "bg-primary")} />
-                <span className={cn("text-[0.6rem] font-medium tracking-[0.35em] uppercase transition-colors duration-500", isScrolled ? "text-charcoal" : "text-primary")} style={{ fontFamily: "'Inter', sans-serif" }}>
+                <div className={cn("relative w-full h-[2px] my-[2px] transition-colors duration-500", isScrolled ? "bg-charcoal" : "bg-primary")} />
+                <span className={cn("relative text-[0.6rem] font-medium tracking-[0.35em] uppercase transition-colors duration-500", isScrolled ? "text-charcoal" : "text-primary")} style={{ fontFamily: "'Inter', sans-serif" }}>
                   PROJECTS
                 </span>
               </div>
