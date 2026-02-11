@@ -50,7 +50,7 @@ export default function AreasPage() {
                 transition={{ duration: 0.4, delay: index * 0.03 }}
               >
                 <Link
-                  to={area === "Dubai Marina" ? "/areas/dubai-marina" : area === "Downtown Dubai" ? "/areas/downtown-dubai" : area === "Palm Jumeirah" ? "/areas/palm-jumeirah" : area === "Business Bay" ? "/areas/business-bay" : `/projects?area=${encodeURIComponent(area)}`}
+                  to={{"Dubai Marina": "/areas/dubai-marina", "Downtown Dubai": "/areas/downtown-dubai", "Palm Jumeirah": "/areas/palm-jumeirah", "Business Bay": "/areas/business-bay", "Dubai Hills": "/areas/dubai-hills"}[area] || `/projects?area=${encodeURIComponent(area)}`}
                   className="group block p-6 rounded-2xl border border-border bg-card hover:border-primary/30 hover:shadow-luxury transition-all duration-300"
                 >
                   <div className="flex items-center gap-3">
