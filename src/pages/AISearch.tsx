@@ -6,6 +6,15 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { getProjectUrl } from "@/lib/projectUrls";
+import oasiz2Hero from "@/assets/projects/oasiz2-hero.jpg";
+import oasizHero from "@/assets/projects/oasiz-hero.jpg";
+import bayz102Hero from "@/assets/projects/bayz102-hero.jpg";
+import shahrukhzLobby from "@/assets/projects/shahrukhz-lobby.jpg";
+import sparklzInterior from "@/assets/projects/sparklz-interior.jpg";
+import aspirzHero from "@/assets/projects/aspirz-hero.jpg";
+import timezHero from "@/assets/projects/timez-hero.jpg";
+import breezHero from "@/assets/projects/breez-hero.jpg";
 
 const suggestedQueries = [
   "2BR apartment in Dubai Marina under 2M",
@@ -28,7 +37,7 @@ const sampleResults = [
     developer: "Danube Properties",
     location: "Dubai Silicon Oasis",
     price: "AED 699K",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    image: oasiz2Hero,
     handover: "Nov 2027",
     roi: "8-10%",
     matchScore: 97,
@@ -40,7 +49,7 @@ const sampleResults = [
     developer: "Danube Properties",
     location: "Dubai Silicon Oasis",
     price: "AED 699K",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    image: oasizHero,
     handover: "Nov 2027",
     roi: "8-10%",
     matchScore: 96,
@@ -52,7 +61,7 @@ const sampleResults = [
     developer: "Danube Properties",
     location: "Business Bay",
     price: "AED 1.38M",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    image: bayz102Hero,
     handover: "June 2029",
     roi: "7-9%",
     matchScore: 97,
@@ -64,7 +73,7 @@ const sampleResults = [
     developer: "Danube Properties",
     location: "Sheikh Zayed Road",
     price: "AED 1.9M",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    image: shahrukhzLobby,
     handover: "2029",
     roi: "7-9%",
     matchScore: 94,
@@ -76,7 +85,7 @@ const sampleResults = [
     developer: "Danube Properties",
     location: "Al Furjan, Dubai",
     price: "AED 900K",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    image: sparklzInterior,
     handover: "Q2 2028",
     roi: "7-9%",
     matchScore: 96,
@@ -88,7 +97,7 @@ const sampleResults = [
     developer: "Danube Properties",
     location: "Dubai Sports City",
     price: "AED 850K",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    image: aspirzHero,
     handover: "Q4 2028",
     roi: "8-10%",
     matchScore: 95,
@@ -100,7 +109,7 @@ const sampleResults = [
     developer: "Danube Properties",
     location: "Dubai Silicon Oasis",
     price: "AED 550K",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+    image: timezHero,
     handover: "Q4 2027",
     roi: "8-10%",
     matchScore: 97,
@@ -112,35 +121,11 @@ const sampleResults = [
     developer: "Danube Properties",
     location: "Dubai Maritime City",
     price: "AED 700K",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    image: breezHero,
     handover: "Q4 2028",
     roi: "12-15%",
     matchScore: 98,
     matchReason: "Perfect match: Waterfront property with 40+ amenities, fully furnished, high ROI potential in emerging Dubai Maritime City location.",
-  },
-  {
-    id: 1,
-    name: "Marina Vista Tower",
-    developer: "Damac",
-    location: "Dubai Marina",
-    price: "AED 1.8M",
-    image: "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=800&q=80",
-    handover: "Q1 2027",
-    roi: "9.1%",
-    matchScore: 95,
-    matchReason: "Perfect match: 2BR in Dubai Marina, within budget, high ROI potential",
-  },
-  {
-    id: 2,
-    name: "The Oasis by Emaar",
-    developer: "Emaar Properties",
-    location: "Dubai",
-    price: "AED 2.5M",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-    handover: "Q4 2026",
-    roi: "8.2%",
-    matchScore: 87,
-    matchReason: "Great match: Premium developer, slightly above budget but excellent appreciation potential",
   },
 ];
 
@@ -433,7 +418,7 @@ export default function AISearchPage() {
                           </div>
 
                           <Button variant="gold" size="sm" className="rounded-full" asChild>
-                            <Link to={`/projects/${result.id}`}>
+                            <Link to={getProjectUrl(String(result.id), result.developer)}>
                               View Details
                               <ArrowRight className="w-4 h-4 ml-1" />
                             </Link>

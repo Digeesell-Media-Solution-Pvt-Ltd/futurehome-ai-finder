@@ -4,10 +4,8 @@ import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { FloatingAIButton } from "@/components/layout/FloatingAIButton";
 import { HeroSection } from "@/components/home/HeroSection";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
-import { TopAreas } from "@/components/home/TopAreas";
 import { TrustedDevelopers } from "@/components/home/TrustedDevelopers";
 import { WhyOffPlan } from "@/components/home/WhyOffPlan";
-import { Testimonials } from "@/components/home/Testimonials";
 import { CTASection } from "@/components/home/CTASection";
 
 const Index = () => {
@@ -17,10 +15,8 @@ const Index = () => {
       <main>
         <HeroSection />
         <FeaturedProjects />
-        <TopAreas />
         <TrustedDevelopers />
         <WhyOffPlan />
-        <Testimonials />
         <CTASection />
       </main>
       <Footer />
