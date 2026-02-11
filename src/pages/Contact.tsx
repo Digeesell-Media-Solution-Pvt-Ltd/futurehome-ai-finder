@@ -48,8 +48,8 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-lg text-muted-foreground">
-              Have questions about off-plan investments? Our expert team is here to help 
-              you make informed decisions.
+              Have questions about a project? We'll connect you with official developer
+              sales teams or authorized representatives.
             </p>
           </motion.div>
 
@@ -211,18 +211,18 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Book Consultation CTA */}
+              {/* Connect CTA */}
               <div className="p-8 bg-charcoal rounded-xl text-background">
                 <Calendar className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-xl font-display font-medium mb-2">
-                  Book a Free Consultation
+                  Connect with a Sales Team
                 </h3>
                 <p className="text-background/70 text-sm mb-6">
-                  Schedule a one-on-one session with our property experts to discuss 
-                  your investment goals and get personalized recommendations.
+                  Tell us which project interests you and we'll connect you directly
+                  with the official developer or their authorized sales representative.
                 </p>
                 <Button variant="gold" className="w-full">
-                  Schedule Consultation
+                  Request Details
                 </Button>
               </div>
             </motion.div>

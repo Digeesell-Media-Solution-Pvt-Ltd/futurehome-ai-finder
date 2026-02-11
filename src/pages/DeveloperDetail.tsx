@@ -137,7 +137,7 @@ export default function DeveloperDetail() {
                 </h1>
                 <Badge className="bg-green-100 text-green-700">
                   <CheckCircle className="w-3 h-3 mr-1" />
-                  Verified
+                  Listed
                 </Badge>
               </div>
               <div className="flex flex-wrap gap-4 text-muted-foreground mb-4">

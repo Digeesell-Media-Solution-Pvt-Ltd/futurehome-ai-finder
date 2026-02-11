@@ -45,7 +45,7 @@ export function TrustedDevelopers() {
             UAE's Top Developers
           </h2>
           <p className="text-muted-foreground">
-            We partner exclusively with verified developers known for quality construction, 
+            Browse projects from leading UAE developers known for quality construction,
             on-time delivery, and exceptional project handovers.
           </p>
         </motion.div>
@@ -99,14 +99,14 @@ export function TrustedDevelopers() {
                   </span>
                 </div>
 
-                {/* Verified Badge */}
+                {/* Listed Badge */}
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   className="flex items-center justify-center gap-1 mt-3"
                 >
                   <BadgeCheck className="w-3.5 h-3.5 text-primary" />
-                  <span className="text-xs text-primary font-medium">Verified</span>
+                  <span className="text-xs text-primary font-medium">Listed</span>
                 </motion.div>
               </Link>
             </motion.div>

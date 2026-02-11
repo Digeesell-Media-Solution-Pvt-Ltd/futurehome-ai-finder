@@ -93,9 +93,9 @@ export function CTASection() {
               transition={{ delay: 0.3 }}
               className="text-heading text-foreground mb-6 relative z-10"
             >
-              Ready to Find Your{" "}
+              Explore Your Next{" "}
               <span className="relative inline-block">
-                <span className="text-primary">Perfect Investment</span>
+                <span className="text-primary">Investment Opportunity</span>
                 <motion.span
                   initial={{ width: 0 }}
                   whileInView={{ width: "100%" }}
@@ -103,7 +103,7 @@ export function CTASection() {
                   transition={{ delay: 0.8, duration: 0.5 }}
                   className="absolute bottom-1 left-0 h-1 bg-primary/40 rounded-full"
                 />
-              </span>?
+              </span>
             </motion.h2>
 
             {/* Description */}
@@ -114,8 +114,8 @@ export function CTASection() {
               transition={{ delay: 0.4 }}
               className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto relative z-10"
             >
-              Let our AI analyze your preferences, budget, and investment goals 
-              to match you with the perfect off-plan property in the UAE.
+              Use our AI-powered tools to discover projects that match your
+              preferences and connect directly with official sales teams.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -136,7 +136,7 @@ export function CTASection() {
               <Button variant="hero-outline" size="xl" className="rounded-full" asChild>
                 <Link to="/contact">
                   <Calendar className="w-5 h-5 mr-2" />
-                  Book Consultation
+                  Connect with Sales Team
                 </Link>
               </Button>
             </motion.div>
@@ -151,11 +151,11 @@ export function CTASection() {
             >
               <div className="glass-panel inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm text-muted-foreground">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                Free consultation
+                Discovery platform
                 <span className="w-1 h-1 rounded-full bg-muted-foreground/30" />
                 No obligations
                 <span className="w-1 h-1 rounded-full bg-muted-foreground/30" />
-                Expert guidance
+                Connect directly
               </div>
             </motion.div>
           </div>

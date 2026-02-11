@@ -98,7 +98,7 @@ export function Header() {
               </Link>
             </Button>
             <Button variant="gold" size="sm" asChild>
-              <Link to="/contact">Book Consultation</Link>
+              <Link to="/contact">Request Details</Link>
             </Button>
           </motion.div>
 
@@ -156,7 +156,7 @@ export function Header() {
                   </Link>
                 </Button>
                 <Button variant="gold-outline" className="w-full" asChild>
-                  <Link to="/contact">Book Consultation</Link>
+                  <Link to="/contact">Request Details</Link>
                 </Button>
               </div>
             </div>

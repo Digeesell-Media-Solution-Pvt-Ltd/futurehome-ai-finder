@@ -19,10 +19,10 @@ const benefits = [
   },
   {
     icon: Shield,
-    title: "RERA Protected",
+    title: "Regulatory Framework",
     stat: "100%",
     statLabel: "Escrow account protection",
-    description: "All payments held in regulated escrow accounts until handover.",
+    description: "UAE regulations require payments to be held in escrow accounts until handover.",
   },
   {
     icon: Clock,
