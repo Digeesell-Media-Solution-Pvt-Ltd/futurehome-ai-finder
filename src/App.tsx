@@ -68,6 +68,7 @@ import MeydanArea from "./pages/areas/MeydanArea";
 import AlMarjanIslandArea from "./pages/areas/AlMarjanIslandArea";
 import DubaiSouthArea from "./pages/areas/DubaiSouthArea";
 import DubaiSportsCityArea from "./pages/areas/DubaiSportsCityArea";
+import AlFurjanArea from "./pages/areas/AlFurjanArea";
 import Developers from "./pages/Developers";
 import DeveloperDetail from "./pages/DeveloperDetail";
 import Insights from "./pages/Insights";
@@ -154,6 +155,7 @@ const App = () => (
           <Route path="/areas/al-marjan-island" element={<AlMarjanIslandArea />} />
           <Route path="/areas/dubai-south" element={<DubaiSouthArea />} />
           <Route path="/areas/dubai-sports-city" element={<DubaiSportsCityArea />} />
+          <Route path="/areas/al-furjan" element={<AlFurjanArea />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />
           <Route path="/developers" element={<Developers />} />
           <Route path="/developers/:developerId" element={<DeveloperDetail />} />
