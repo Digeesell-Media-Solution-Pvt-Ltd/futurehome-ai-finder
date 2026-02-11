@@ -147,7 +147,7 @@ export function Footer() {
           {/* Platform Disclaimer */}
           <div className="text-xs text-background/50 space-y-1.5 mb-5">
             <p>We are an AI-powered digital property discovery platform.</p>
-            <p>We do not act as real estate brokers or agents. We are not RERA licensed.</p>
+            
             <p>Listings are provided for informational purposes only and may not be verified.</p>
             <p>All enquiries are forwarded to official developer teams or authorized agents.</p>
           </div>
