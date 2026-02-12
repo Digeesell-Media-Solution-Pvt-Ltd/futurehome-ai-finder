@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { 
-  ArrowRight, Download, Phone, BadgeCheck, TrendingUp, 
+  ArrowRight, Download, Phone, TrendingUp, 
   MapPin, Building, Calendar, Briefcase, Layers, Users,
   Plane, Building2, Wifi, Car, Coffee, Award,
   Star, Check, Crown
@@ -110,10 +110,6 @@ export default function ShahrukhzProject() {
               <p className="text-xl text-white/80 max-w-2xl mb-6">
                 Premium 55-Storey Commercial Tower — Where Every Office Tells a Story of Success
               </p>
-              <div className="flex items-center gap-3">
-                <BadgeCheck className="w-6 h-6 text-primary" />
-                <span className="text-white/90">Verified by OffPlanProjects</span>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -444,10 +440,6 @@ export default function ShahrukhzProject() {
                     </div>
                     <div>
                       <div className="font-medium text-foreground">Danube Properties</div>
-                      <div className="flex items-center gap-1 text-xs text-primary">
-                        <BadgeCheck className="w-3 h-3" />
-                        Verified Developer
-                      </div>
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground italic mb-3">

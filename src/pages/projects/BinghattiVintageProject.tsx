@@ -123,10 +123,6 @@ export default function BinghattiVintageProject() {
                   </span>
                   <span className="badge-tag">Urban Chic</span>
                   <span className="badge-tag">Majan</span>
-                  <div className="flex items-center gap-1 px-3 py-1 bg-primary/20 backdrop-blur-sm rounded-full">
-                    <BadgeCheck className="w-4 h-4 text-primary" />
-                    <span className="text-sm text-primary font-medium">Verified</span>
-                  </div>
                 </div>
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-white mb-4">
@@ -363,20 +359,6 @@ export default function BinghattiVintageProject() {
                     </div>
                   </motion.div>
 
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.5 }}
-                    className="bg-muted/50 rounded-xl p-4 text-center"
-                  >
-                    <p className="text-sm text-muted-foreground">
-                      This project is verified by our team
-                    </p>
-                    <div className="flex items-center justify-center gap-2 mt-2">
-                      <BadgeCheck className="w-5 h-5 text-primary" />
-                      <span className="text-sm font-medium text-foreground">Binghatti Certified</span>
-                    </div>
-                  </motion.div>
                 </div>
               </div>
             </div>

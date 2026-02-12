@@ -129,10 +129,6 @@ export default function DamacIslands2Project() {
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="badge-tag flex items-center gap-1">
-                  <BadgeCheck className="w-3.5 h-3.5" />
-                  Verified
-                </span>
                 <span className="badge-tag">Waterfront Villas</span>
                 <span className="badge-tag">Island Living</span>
                 <span className="badge-tag">Eco-Community</span>
@@ -246,11 +242,6 @@ export default function DamacIslands2Project() {
                 <div className="flex items-center gap-2">
                   <Building2 className="w-5 h-5 text-primary" />
                   <span className="text-foreground font-medium">DAMAC Properties</span>
-                </div>
-                <div className="w-px h-6 bg-border" />
-                <div className="flex items-center gap-2">
-                  <BadgeCheck className="w-5 h-5 text-primary" />
-                  <span className="text-muted-foreground">DLD Approved</span>
                 </div>
               </div>
             </motion.div>

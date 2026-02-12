@@ -117,10 +117,6 @@ export default function Violet4Project() {
                   <span className="badge-tag">Family Community</span>
                   <span className="badge-tag">Suburban Living</span>
                   <span className="badge-tag">Townhouses</span>
-                  <div className="flex items-center gap-1 px-3 py-1 bg-primary/20 backdrop-blur-sm rounded-full">
-                    <BadgeCheck className="w-4 h-4 text-primary" />
-                    <span className="text-sm text-primary font-medium">Verified</span>
-                  </div>
                 </div>
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-white mb-4">

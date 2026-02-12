@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { 
-  ArrowRight, Download, Phone, BadgeCheck, TrendingUp, 
+  ArrowRight, Download, Phone, TrendingUp, 
   MapPin, Building, Calendar, Home, Waves, Dumbbell, 
   Baby, Gamepad2, Utensils, Heart, Briefcase,
   Star, Check, Sparkles, Mountain
@@ -121,10 +121,6 @@ export default function Bayz102Project() {
               <p className="text-xl text-white/80 max-w-2xl mb-6">
                 Your Home in the Sky — Luxury Living with Burj Khalifa & Dubai Canal Views
               </p>
-              <div className="flex items-center gap-3">
-                <BadgeCheck className="w-6 h-6 text-primary" />
-                <span className="text-white/90">Verified by OffPlanProjects</span>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -459,10 +455,6 @@ export default function Bayz102Project() {
                     </div>
                     <div>
                       <div className="font-medium text-foreground">Danube Properties</div>
-                      <div className="flex items-center gap-1 text-xs text-primary">
-                        <BadgeCheck className="w-3.5 h-3.5" />
-                        Verified Developer
-                      </div>
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">

@@ -124,10 +124,6 @@ export default function DamacDistrictProject() {
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="badge-tag flex items-center gap-1">
-                  <BadgeCheck className="w-3.5 h-3.5" />
-                  Verified
-                </span>
                 <span className="badge-tag">Mixed-Use</span>
                 <span className="badge-tag">DAMAC Hills</span>
                 <span className="badge-tag">Golf Community</span>
@@ -241,11 +237,6 @@ export default function DamacDistrictProject() {
                 <div className="flex items-center gap-2">
                   <Building2 className="w-5 h-5 text-primary" />
                   <span className="text-foreground font-medium">DAMAC Properties</span>
-                </div>
-                <div className="w-px h-6 bg-border" />
-                <div className="flex items-center gap-2">
-                  <BadgeCheck className="w-5 h-5 text-primary" />
-                  <span className="text-muted-foreground">60/40 Payment Plan</span>
                 </div>
               </div>
             </motion.div>

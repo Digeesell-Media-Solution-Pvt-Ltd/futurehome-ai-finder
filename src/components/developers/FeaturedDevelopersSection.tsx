@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BadgeCheck } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Developer } from "@/data/developers";
 import { DeveloperCard } from "./DeveloperCard";
 
@@ -16,7 +16,7 @@ export function FeaturedDevelopersSection({ developers }: FeaturedDevelopersSect
         transition={{ duration: 0.5 }}
         className="flex items-center justify-center gap-2 mb-8"
       >
-        <BadgeCheck className="w-5 h-5 text-primary" />
+        <Sparkles className="w-5 h-5 text-primary" />
         <h2 className="text-xl font-display font-semibold text-foreground">
           Featured Developers
         </h2>

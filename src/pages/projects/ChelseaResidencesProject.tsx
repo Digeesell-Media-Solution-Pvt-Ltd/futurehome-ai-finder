@@ -66,10 +66,6 @@ export default function ChelseaResidencesProject() {
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="badge-gold">Featured Project</span>
-                <span className="badge-tag flex items-center gap-1">
-                  <BadgeCheck className="w-3 h-3" />
-                  Verified
-                </span>
                 <span className="badge-tag">Chelsea FC Branded</span>
               </div>
               
