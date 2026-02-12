@@ -128,10 +128,6 @@ export default function BreezProjectPage() {
                     <Building className="w-5 h-5 text-primary" />
                     Danube Properties
                   </span>
-                  <span className="flex items-center gap-2">
-                    <BadgeCheck className="w-5 h-5 text-primary" />
-                    Verified Developer
-                  </span>
                 </div>
               </motion.div>
             </div>
@@ -302,10 +298,6 @@ export default function BreezProjectPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-display font-medium text-foreground">Danube Properties</h3>
-                      <div className="flex items-center gap-2 mt-1">
-                        <BadgeCheck className="w-4 h-4 text-primary" />
-                        <span className="text-sm text-primary">Verified Developer</span>
-                      </div>
                     </div>
                   </div>
                   <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground mb-4">

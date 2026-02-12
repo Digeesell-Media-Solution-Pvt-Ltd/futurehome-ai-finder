@@ -9,7 +9,6 @@ const testimonials = [
     role: "Property Investor",
     location: "Dubai, UAE",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-    rating: 5,
     text: "OffPlanProjects made discovering investment opportunities effortless. The AI matched me with a project in Dubai Marina that fit my budget and goals. Great platform for research!",
     project: "Marina Vista Tower",
   },
@@ -19,7 +18,6 @@ const testimonials = [
     role: "First-time Investor",
     location: "London, UK",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-    rating: 5,
     text: "As a first-time off-plan investor from abroad, I found OffPlanProjects incredibly helpful for researching projects and understanding payment plans. The platform connected me with the right sales teams!",
     project: "Creek Harbour Views",
   },
@@ -29,7 +27,7 @@ const testimonials = [
     role: "Serial Investor",
     location: "Mumbai, India",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
-    rating: 5,
+    
     text: "I've discovered multiple investment opportunities through OffPlanProjects. The AI insights and project comparisons helped me make more informed decisions. A great discovery tool.",
     project: "The Oasis by Emaar",
   },
@@ -117,19 +115,6 @@ export function Testimonials() {
                 <Quote className="w-6 h-6 text-primary relative z-10" />
               </motion.div>
 
-              {/* Rating - Glass pills */}
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(testimonials[current].rating)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.3 + i * 0.05, type: "spring" }}
-                  >
-                    <Star className="w-5 h-5 fill-primary text-primary" />
-                  </motion.div>
-                ))}
-              </div>
 
               {/* Text */}
               <blockquote className="text-lg md:text-xl text-foreground leading-relaxed mb-8 relative z-10">

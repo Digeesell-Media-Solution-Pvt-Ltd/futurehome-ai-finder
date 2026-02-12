@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingUp, BadgeCheck, Clock, Star } from "lucide-react";
+import { ArrowRight, TrendingUp, Clock, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { getProjectUrl } from "@/lib/projectUrls";
@@ -38,7 +38,6 @@ const projects = [
     handover: "2027",
     roi: "7-9%",
     tags: ["Luxury Villas", "New Launch"],
-    verified: true,
     featured: true,
   },
   {
@@ -52,7 +51,6 @@ const projects = [
     handover: "2027",
     roi: "7-9%",
     tags: ["Townhouses", "Family Living"],
-    verified: true,
     featured: true,
   },
   {
@@ -66,7 +64,6 @@ const projects = [
     handover: "2027",
     roi: "7-9%",
     tags: ["Wellness Villas", "Featured"],
-    verified: true,
     featured: true,
   },
   {
@@ -80,7 +77,6 @@ const projects = [
     handover: "2027",
     roi: "8-10%",
     tags: ["Apartments", "New Launch"],
-    verified: true,
     featured: true,
   },
   {
@@ -94,7 +90,6 @@ const projects = [
     handover: "2027",
     roi: "8-10%",
     tags: ["Waterfront", "Featured"],
-    verified: true,
     featured: true,
   },
   {
@@ -108,7 +103,6 @@ const projects = [
     handover: "2026",
     roi: "8-10%",
     tags: ["Green Living", "Dubai Land"],
-    verified: true,
     featured: true,
   },
   {
@@ -122,7 +116,6 @@ const projects = [
     handover: "2028",
     roi: "8-10%",
     tags: ["Seafront", "Coastal Living"],
-    verified: true,
     featured: true,
   },
   {
@@ -136,7 +129,6 @@ const projects = [
     handover: "2027",
     roi: "10-12%",
     tags: ["Island Villas", "Tropical Living"],
-    verified: true,
     featured: true,
   },
   {
@@ -150,7 +142,6 @@ const projects = [
     handover: "2028",
     roi: "7-9%",
     tags: ["Resort Style", "Wellness Living"],
-    verified: true,
     featured: true,
   },
   {
@@ -164,7 +155,6 @@ const projects = [
     handover: "Q1 2029",
     roi: "7-9%",
     tags: ["Waterfront", "First Riverside"],
-    verified: true,
     featured: true,
   },
   {
@@ -178,7 +168,6 @@ const projects = [
     handover: "Q4 2028",
     roi: "8-10%",
     tags: ["Park Views", "Luxury Tower"],
-    verified: true,
     featured: true,
   },
   {
@@ -192,7 +181,6 @@ const projects = [
     handover: "Q4 2028",
     roi: "8-10%",
     tags: ["Branded Living", "Waterfront"],
-    verified: true,
     featured: true,
   },
   {
@@ -206,7 +194,6 @@ const projects = [
     handover: "Q3 2029",
     roi: "7-9%",
     tags: ["Mixed-Use", "Golf Community"],
-    verified: true,
     featured: true,
   },
   {
@@ -220,7 +207,6 @@ const projects = [
     handover: "2028",
     roi: "10-12%",
     tags: ["Waterfront Villas", "Island Living"],
-    verified: true,
     featured: true,
   },
   {
@@ -234,7 +220,6 @@ const projects = [
     handover: "Nov 2027",
     roi: "8-10%",
     tags: ["New Launch", "DSO"],
-    verified: true,
     featured: true,
   },
   {
@@ -248,7 +233,6 @@ const projects = [
     handover: "Nov 2027",
     roi: "8-10%",
     tags: ["Affordable Luxury", "DSO"],
-    verified: true,
     featured: true,
   },
   {
@@ -262,7 +246,6 @@ const projects = [
     handover: "June 2029",
     roi: "7-9%",
     tags: ["Business Bay", "Luxury"],
-    verified: true,
     featured: true,
   },
   {
@@ -276,7 +259,6 @@ const projects = [
     handover: "2029",
     roi: "7-9%",
     tags: ["Commercial", "Grade-A"],
-    verified: true,
     featured: true,
   },
   {
@@ -290,7 +272,6 @@ const projects = [
     handover: "Q2 2028",
     roi: "7-9%",
     tags: ["New Launch", "Smart Living"],
-    verified: true,
     featured: true,
   },
   {
@@ -304,7 +285,6 @@ const projects = [
     handover: "Q4 2027",
     roi: "8-10%",
     tags: ["New Launch", "Convertible"],
-    verified: true,
     featured: true,
   },
   {
@@ -318,7 +298,6 @@ const projects = [
     handover: "Q4 2028",
     roi: "8-10%",
     tags: ["New Launch", "Mixed-Use"],
-    verified: true,
     featured: true,
   },
   {
@@ -332,7 +311,6 @@ const projects = [
     handover: "Q4 2028",
     roi: "12-15%",
     tags: ["Featured", "Waterfront"],
-    verified: true,
     featured: true,
   },
 ];
@@ -437,15 +415,6 @@ export function FeaturedProjects() {
                   ))}
                 </div>
 
-                {/* Verified Badge - Glass bubble */}
-                {project.verified && (
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className="absolute top-3 right-3 w-10 h-10 glass-panel rounded-full flex items-center justify-center"
-                  >
-                    <BadgeCheck className="w-5 h-5 text-primary" />
-                  </motion.div>
-                )}
 
                 {/* ROI Badge - Glass panel */}
                 <div className="absolute bottom-3 left-3 glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5">

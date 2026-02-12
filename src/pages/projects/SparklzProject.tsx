@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { 
-  ArrowRight, Download, Phone, BadgeCheck, TrendingUp, 
+  ArrowRight, Download, Phone, TrendingUp, 
   MapPin, Building, Calendar, Home, Waves, Dumbbell, 
   Baby, Gamepad2, Utensils, Heart, BookOpen, Briefcase,
   Star, Check, Sparkles
@@ -112,10 +112,6 @@ export default function SparklzProject() {
               <p className="text-xl text-white/80 max-w-2xl mb-6">
                 Live Brilliantly — Smart Living with 30+ Premium Amenities in Al Furjan
               </p>
-              <div className="flex items-center gap-3">
-                <BadgeCheck className="w-6 h-6 text-primary" />
-                <span className="text-white/90">Verified by OffPlanProjects</span>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -397,10 +393,6 @@ export default function SparklzProject() {
                     </div>
                     <div>
                       <div className="font-medium text-foreground">Danube Properties</div>
-                      <div className="flex items-center gap-1 text-xs text-primary">
-                        <BadgeCheck className="w-3 h-3" />
-                        Verified Developer
-                      </div>
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground italic mb-3">

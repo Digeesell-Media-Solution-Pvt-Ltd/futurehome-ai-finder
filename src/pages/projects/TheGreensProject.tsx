@@ -297,10 +297,6 @@ const TheGreensProject = () => {
                     <span className="font-medium text-gold-light">Off-Plan</span>
                   </div>
                 </div>
-                <div className="flex items-center justify-center gap-2 text-gold-light">
-                  <Shield className="w-4 h-4" />
-                  <span className="text-sm">Verified by FutureHome</span>
-                </div>
               </Card>
 
               {/* CTA Buttons */}

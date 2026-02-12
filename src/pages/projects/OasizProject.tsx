@@ -114,10 +114,6 @@ export default function OasizProject() {
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="badge-tag flex items-center gap-1">
-                  <BadgeCheck className="w-3.5 h-3.5" />
-                  Verified
-                </span>
                 <span className="badge-tag">New Launch</span>
                 <span className="badge-tag">Affordable Luxury</span>
               </div>
@@ -205,11 +201,6 @@ export default function OasizProject() {
                 <div className="flex items-center gap-2">
                   <Building2 className="w-5 h-5 text-primary" />
                   <span className="text-foreground font-medium">Danube Properties</span>
-                </div>
-                <div className="w-px h-6 bg-border" />
-                <div className="flex items-center gap-2">
-                  <BadgeCheck className="w-5 h-5 text-primary" />
-                  <span className="text-muted-foreground">DLD Approved</span>
                 </div>
               </div>
             </motion.div>
