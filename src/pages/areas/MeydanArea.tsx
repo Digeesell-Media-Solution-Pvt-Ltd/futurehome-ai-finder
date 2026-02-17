@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, TrendingUp, Home, Cpu, ArrowRight, Sparkles } from "lucide-react";
+import { MapPin, TrendingUp, Home, Shield, Car, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/layout/Header";
@@ -8,17 +8,17 @@ import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 
 const investmentPoints = [
-  { icon: Cpu, title: "Upcoming Smart Communities", desc: "Next-generation smart homes and connected communities with cutting-edge infrastructure and technology integration." },
-  { icon: Home, title: "Branded Villas & Waterfront Homes", desc: "Premium branded residences and waterfront villas from renowned developers — exclusivity meets lifestyle." },
-  { icon: MapPin, title: "Easy Access to Downtown & SZR", desc: "Strategic location with direct connectivity to Downtown Dubai and Sheikh Zayed Road for seamless commuting." },
-  { icon: TrendingUp, title: "Strong Long-Term Appreciation", desc: "An emerging suburb with significant infrastructure investment, driving strong capital growth for early investors." },
+  { icon: Shield, title: "Premium Gated Communities", desc: "Exclusive gated villa developments and branded residences offering privacy, security, and a refined suburban lifestyle." },
+  { icon: Car, title: "Short Drive to Downtown Dubai", desc: "Enjoy the calm of suburban living while staying connected — Downtown Dubai is just minutes away via Al Khail Road." },
+  { icon: TrendingUp, title: "Strong Appreciation Potential", desc: "Significant infrastructure investment and growing demand are driving long-term capital growth across Meydan's master-planned communities." },
+  { icon: Home, title: "Low-Density Luxury Living", desc: "Spacious villas, townhouses, and boutique low-rise developments designed for families seeking quality over quantity." },
 ];
 
 const nearbyAreas = [
   { name: "Business Bay", slug: "business-bay" },
   { name: "Downtown Dubai", slug: "downtown-dubai" },
   { name: "Dubai Creek Harbour", slug: "dubai-creek-harbour" },
-  { name: "Dubai Land", slug: "dubai-land" },
+  { name: "Dubai Hills", slug: "dubai-hills" },
 ];
 
 const fadeUp = {
@@ -31,13 +31,14 @@ export default function MeydanArea() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Meydan Area Guide - Off-Plan Projects & Investments</title>
-        <meta name="description" content="Explore off-plan projects in Meydan. Branded villas, smart communities, and luxury gated developments ideal for mid-to-high end investors." />
+        <title>Meydan Area Guide | Luxury Villas & Off-Plan Projects</title>
+        <meta name="description" content="Discover off-plan villas and apartments in Meydan. Explore new launches and investment-ready communities." />
       </Helmet>
 
       <Header />
 
       <main className="pt-24 pb-20">
+        {/* Hero */}
         <section className="relative overflow-hidden bg-charcoal text-white py-20 lg:py-28">
           <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal-light/80 to-charcoal" />
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/10 blur-[120px]" />
@@ -49,10 +50,11 @@ export default function MeydanArea() {
                 <span className="text-sm font-medium text-primary tracking-wider uppercase">Area Guide</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold leading-tight mb-6">
-                <span className="text-primary">Meydan</span> — Modern Suburban Living
+                Meydan –{" "}
+                <span className="text-primary">Modern Suburban Luxury</span>
               </h1>
               <p className="text-lg text-white/70 max-w-2xl">
-                Known for luxury gated communities, Meydan is emerging as a hotspot for branded homes and smart villas.
+                Home to elegant villa communities and high-end low-rise developments minutes from Downtown.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button variant="gold" size="lg" asChild>
@@ -72,23 +74,25 @@ export default function MeydanArea() {
           </div>
         </section>
 
+        {/* About */}
         <section className="py-16 lg:py-20">
           <div className="container-luxury">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="max-w-3xl mx-auto text-center">
               <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">About the Area</span>
               <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-6">About Meydan</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Meydan is a growing suburb home to lush villas, the Meydan Racecourse, and a range of premium off-plan developments catering to families and professionals. With its expansive master plan and proximity to central Dubai, Meydan is rapidly evolving into one of the city's most promising residential destinations.
+                Meydan is a growing premium suburb featuring branded residences, canal-facing projects, and gated villa communities popular with families and long-term investors.
               </p>
             </motion.div>
           </div>
         </section>
 
+        {/* Why Consider Meydan */}
         <section className="py-16 lg:py-20 bg-cream">
           <div className="container-luxury">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
               <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">Investment Potential</span>
-              <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground">Why Invest in Meydan?</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground">Why Consider Meydan?</h2>
             </motion.div>
             <div className="grid md:grid-cols-2 gap-6">
               {investmentPoints.map((point, i) => (
@@ -104,12 +108,13 @@ export default function MeydanArea() {
           </div>
         </section>
 
+        {/* Project Listing */}
         <section className="py-16 lg:py-20">
           <div className="container-luxury">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-8">
               <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">Projects</span>
-              <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-4">Meydan Projects Listed Here</h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">Browse verified off-plan projects in Meydan from leading developers.</p>
+              <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-4">New Launches in Meydan</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">Browse off-plan villas and apartments in Meydan from leading developers.</p>
             </motion.div>
             <div className="text-center">
               <Button variant="hero" asChild>
@@ -122,6 +127,7 @@ export default function MeydanArea() {
           </div>
         </section>
 
+        {/* Nearby Areas */}
         <section className="py-16 lg:py-20 bg-cream">
           <div className="container-luxury">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
@@ -143,17 +149,18 @@ export default function MeydanArea() {
           </div>
         </section>
 
+        {/* CTA */}
         <section className="py-16 lg:py-20">
           <div className="container-luxury">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center p-10 md:p-16 bg-charcoal rounded-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary/10 blur-[100px]" />
               <div className="relative z-10">
-                <h2 className="text-2xl md:text-3xl font-display font-medium text-white mb-4">Find Your Future Villa in Meydan</h2>
-                <p className="text-white/60 mb-8 max-w-xl mx-auto">Use AI search to narrow down your investment options in Meydan.</p>
+                <h2 className="text-2xl md:text-3xl font-display font-medium text-white mb-4">Explore Meydan Developments</h2>
+                <p className="text-white/60 mb-8 max-w-xl mx-auto">Use AI to shortlist villas and apartments based on your goals.</p>
                 <Button variant="gold" size="lg" asChild>
                   <Link to="/ai-search">
                     <Sparkles className="w-5 h-5 mr-2" />
-                    Launch Search
+                    Use Smart Search
                   </Link>
                 </Button>
               </div>
