@@ -84,9 +84,7 @@ The mall consists of 6 main buildings featuring administrative offices, retail s
 };
 
 export default function ViaProject() {
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/971502441078?text=Hi, I'm interested in VIA Montenapoleone by Reportage Properties", "_blank");
-  };
+  const { openLeadCapture } = useLeadCapture();
 
   return (
     <div className="min-h-screen bg-background">

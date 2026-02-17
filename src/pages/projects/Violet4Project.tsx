@@ -78,9 +78,7 @@ With private gardens and rooftop retreats, they are designed for family living a
 };
 
 export default function Violet4Project() {
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/971000000000?text=Hi, I'm interested in Violet 4 at DAMAC Hills 2", "_blank");
-  };
+  const { openLeadCapture } = useLeadCapture();
 
   return (
     <div className="min-h-screen bg-background">
