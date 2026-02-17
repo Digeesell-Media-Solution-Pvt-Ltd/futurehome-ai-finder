@@ -21,8 +21,8 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/samana-skyviews-hero.jpg";
 import interiorImage from "@/assets/projects/samana-skyviews-interior.jpg";
@@ -82,9 +82,7 @@ Tailored for high-end tenants and premium buyers, Sky Views offers an exclusive 
 };
 
 export default function SamanaSkyViewsProject() {
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/971565204129?text=Hi, I'm interested in Samana Sky Views in Arjan", "_blank");
-  };
+  const { openLeadCapture } = useLeadCapture();
 
   return (
     <div className="min-h-screen bg-background">
@@ -314,49 +312,17 @@ export default function SamanaSkyViewsProject() {
                     <h3 className="text-lg font-semibold text-foreground mb-4">Interested in Sky Views?</h3>
                     
                     <div className="space-y-3">
-                      <Button variant="gold" className="w-full" asChild>
-                        <a href="tel:+971800726262">
-                          <Phone className="w-4 h-4 mr-2" />
-                          Book Tour
-                        </a>
-                      </Button>
-                      
-                      <Button variant="gold-outline" className="w-full" onClick={handleWhatsApp}>
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        WhatsApp
-                      </Button>
+                      <Button variant="gold" className="w-full" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Book a Consultation" })}>Book Tour</Button>
+                      <Button variant="gold-outline" className="w-full" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Request Details" })}>Request Details</Button>
                     </div>
                   </motion.div>
 
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 }}
-                    className="bg-card border border-border rounded-xl p-6"
-                  >
+                  <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="bg-card border border-border rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-foreground mb-4">Downloads</h3>
-                    
                     <div className="space-y-3">
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Floor Plan
-                        </a>
-                      </Button>
-                      
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Brochure
-                        </a>
-                      </Button>
-                      
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Price List
-                        </a>
-                      </Button>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Download Floor Plan" })}><Download className="w-4 h-4 mr-2" />Floor Plan</Button>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Download Brochure" })}><Download className="w-4 h-4 mr-2" />Brochure</Button>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Get Pricing" })}><Download className="w-4 h-4 mr-2" />Price List</Button>
                     </div>
                   </motion.div>
 
@@ -382,7 +348,6 @@ export default function SamanaSkyViewsProject() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }

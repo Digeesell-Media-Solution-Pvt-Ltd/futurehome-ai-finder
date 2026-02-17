@@ -20,8 +20,8 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/r-hills-hero.jpg";
 import interiorImage from "@/assets/projects/r-hills-interior.jpg";
@@ -83,9 +83,7 @@ With a warm touch of wood on the aesthetic facades, bold patterns, and a unique 
 };
 
 export default function RHillsProject() {
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/971502441078?text=Hi, I'm interested in R. Hills by Reportage Properties", "_blank");
-  };
+  const { openLeadCapture } = useLeadCapture();
 
   return (
     <div className="min-h-screen bg-background">
@@ -316,56 +314,17 @@ export default function RHillsProject() {
                     <h3 className="text-lg font-semibold text-foreground mb-4">Interested in R. Hills?</h3>
                     
                     <div className="space-y-3">
-                      <Button variant="gold" className="w-full" asChild>
-                        <a href="tel:+97180077552">
-                          <Phone className="w-4 h-4 mr-2" />
-                          Enquire Now
-                        </a>
-                      </Button>
-                      
-                      <Button variant="gold-outline" className="w-full" onClick={handleWhatsApp}>
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        WhatsApp
-                      </Button>
+                      <Button variant="gold" className="w-full" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Book a Consultation" })}>Enquire Now</Button>
+                      <Button variant="gold-outline" className="w-full" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Request Details" })}>Request Details</Button>
                     </div>
                   </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 }}
-                    className="bg-card border border-border rounded-xl p-6"
-                  >
+                  <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="bg-card border border-border rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-foreground mb-4">Downloads</h3>
-                    
                     <div className="space-y-3">
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="https://reportageuae.com/pdf/r-hills/brochure" target="_blank" rel="noopener noreferrer">
-                          <Download className="w-4 h-4 mr-2" />
-                          Brochure
-                        </a>
-                      </Button>
-                      
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="https://reportageuae.com/pdf/r-hills/factsheet" target="_blank" rel="noopener noreferrer">
-                          <Download className="w-4 h-4 mr-2" />
-                          Factsheet
-                        </a>
-                      </Button>
-                      
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="https://reportageuae.com/pdf/r-hills/unit-type" target="_blank" rel="noopener noreferrer">
-                          <Download className="w-4 h-4 mr-2" />
-                          Unit Types
-                        </a>
-                      </Button>
-                      
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="https://reportageuae.com/pdf/r-hills/master-plan" target="_blank" rel="noopener noreferrer">
-                          <Download className="w-4 h-4 mr-2" />
-                          Master Plan
-                        </a>
-                      </Button>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Download Brochure" })}><Download className="w-4 h-4 mr-2" />Brochure</Button>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Download Floor Plan" })}><Download className="w-4 h-4 mr-2" />Factsheet</Button>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Download Floor Plan" })}><Download className="w-4 h-4 mr-2" />Unit Types</Button>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Download Floor Plan" })}><Download className="w-4 h-4 mr-2" />Master Plan</Button>
                     </div>
                   </motion.div>
 
@@ -391,7 +350,6 @@ export default function RHillsProject() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }

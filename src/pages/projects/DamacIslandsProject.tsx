@@ -21,8 +21,8 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/damac-islands-hero.jpg";
 import lagoonImage from "@/assets/projects/damac-islands-lagoon.jpg";
@@ -84,9 +84,7 @@ Inspired by 6 of the world's best tropical island destinations, DAMAC Islands br
 };
 
 export default function DamacIslandsProject() {
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/971000000000?text=Hi, I'm interested in DAMAC Islands waterfront villas", "_blank");
-  };
+  const { openLeadCapture } = useLeadCapture();
 
   return (
     <div className="min-h-screen bg-background">
@@ -316,16 +314,11 @@ export default function DamacIslandsProject() {
                     <h3 className="text-lg font-semibold text-foreground mb-4">Interested in DAMAC Islands?</h3>
                     
                     <div className="space-y-3">
-                      <Button variant="gold" className="w-full" asChild>
-                        <a href="tel:+971000000000">
-                          <Phone className="w-4 h-4 mr-2" />
-                          Book a Call
-                        </a>
+                      <Button variant="gold" className="w-full" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Book a Consultation" })}>
+                        Book a Consultation
                       </Button>
-                      
-                      <Button variant="gold-outline" className="w-full" onClick={handleWhatsApp}>
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        WhatsApp
+                      <Button variant="gold-outline" className="w-full" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Request Details" })}>
+                        Request Details
                       </Button>
                     </div>
                   </motion.div>
@@ -339,25 +332,17 @@ export default function DamacIslandsProject() {
                     <h3 className="text-lg font-semibold text-foreground mb-4">Downloads</h3>
                     
                     <div className="space-y-3">
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Download Floor Plans
-                        </a>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Download Floor Plan" })}>
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Floor Plans
                       </Button>
-                      
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Download Price Plan
-                        </a>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Get Pricing" })}>
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Price Plan
                       </Button>
-                      
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Download Brochure
-                        </a>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Download Brochure" })}>
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Brochure
                       </Button>
                     </div>
                   </motion.div>
@@ -370,7 +355,6 @@ export default function DamacIslandsProject() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }

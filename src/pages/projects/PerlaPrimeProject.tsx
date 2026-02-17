@@ -20,8 +20,8 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/perla-prime-hero.jpg";
 import interiorImage from "@/assets/projects/perla-prime-interior.jpg";
@@ -82,9 +82,7 @@ With world-class amenities including a rooftop infinity pool, state-of-the-art g
 };
 
 export default function PerlaPrimeProject() {
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/971502441078?text=Hi, I'm interested in Perla Prime on Yas Island", "_blank");
-  };
+  const { openLeadCapture } = useLeadCapture();
 
   return (
     <div className="min-h-screen bg-background">
@@ -315,17 +313,8 @@ export default function PerlaPrimeProject() {
                     <h3 className="text-lg font-semibold text-foreground mb-4">Interested in Perla Prime?</h3>
                     
                     <div className="space-y-3">
-                      <Button variant="gold" className="w-full" asChild>
-                        <a href="tel:+97180077552">
-                          <Phone className="w-4 h-4 mr-2" />
-                          Enquire Now
-                        </a>
-                      </Button>
-                      
-                      <Button variant="gold-outline" className="w-full" onClick={handleWhatsApp}>
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        WhatsApp
-                      </Button>
+                      <Button variant="gold" className="w-full" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Book a Consultation" })}>Enquire Now</Button>
+                      <Button variant="gold-outline" className="w-full" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Request Details" })}>Request Details</Button>
                     </div>
                   </motion.div>
 
@@ -338,26 +327,9 @@ export default function PerlaPrimeProject() {
                     <h3 className="text-lg font-semibold text-foreground mb-4">Downloads</h3>
                     
                     <div className="space-y-3">
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Floor Plan
-                        </a>
-                      </Button>
-                      
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Brochure
-                        </a>
-                      </Button>
-                      
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Price List
-                        </a>
-                      </Button>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Download Floor Plan" })}><Download className="w-4 h-4 mr-2" />Floor Plan</Button>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Download Brochure" })}><Download className="w-4 h-4 mr-2" />Brochure</Button>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Get Pricing" })}><Download className="w-4 h-4 mr-2" />Price List</Button>
                     </div>
                   </motion.div>
 
@@ -383,7 +355,6 @@ export default function PerlaPrimeProject() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }
