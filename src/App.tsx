@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import AISearch from "./pages/AISearch";
+// AI Search page removed for now
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import BreezProject from "./pages/projects/BreezProject";
@@ -77,9 +77,7 @@ import AlFurjanArea from "./pages/areas/AlFurjanArea";
 import DubaiSiliconOasisArea from "./pages/areas/DubaiSiliconOasisArea";
 import DamacHillsArea from "./pages/areas/DamacHillsArea";
 import SheikhZayedRoadArea from "./pages/areas/SheikhZayedRoadArea";
-import Developers from "./pages/Developers";
-import DeveloperDetail from "./pages/DeveloperDetail";
-import Insights from "./pages/Insights";
+// Developers, DeveloperDetail, Insights pages removed for now
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Disclaimer from "./pages/Disclaimer";
@@ -101,7 +99,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/ai-search" element={<AISearch />} />
+          {/* AI Search route removed */}
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/danube/breez" element={<BreezProject />} />
           <Route path="/projects/danube/timez" element={<TimezProject />} />
@@ -173,9 +171,7 @@ const App = () => (
           <Route path="/areas/damac-hills" element={<DamacHillsArea />} />
           <Route path="/areas/sheikh-zayed-road" element={<SheikhZayedRoadArea />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />
-          <Route path="/developers" element={<Developers />} />
-          <Route path="/developers/:developerId" element={<DeveloperDetail />} />
-          <Route path="/insights" element={<Insights />} />
+          {/* Developers and Insights routes removed */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/disclaimer" element={<Disclaimer />} />

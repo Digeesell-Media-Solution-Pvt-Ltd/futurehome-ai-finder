@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Search, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navigation = [
   { name: "Projects", href: "/projects" },
-  { name: "AI Search", href: "/ai-search" },
   { name: "Areas", href: "/areas" },
-  { name: "Developers", href: "/developers" },
-  { name: "Insights", href: "/insights" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -95,12 +92,6 @@ export function Header() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="hidden lg:flex items-center gap-4"
           >
-            <Button variant="gold-outline" size="sm" asChild>
-              <Link to="/ai-search">
-                <Search className="w-4 h-4 mr-1" />
-                AI Search
-              </Link>
-            </Button>
             <Button variant="gold" size="sm" asChild>
               <Link to="/contact">Request Details</Link>
             </Button>
@@ -154,12 +145,6 @@ export function Header() {
               ))}
               <div className="pt-4 space-y-3 border-t border-border">
                 <Button variant="gold" className="w-full" asChild>
-                  <Link to="/ai-search">
-                    <Search className="w-4 h-4 mr-2" />
-                    AI Property Search
-                  </Link>
-                </Button>
-                <Button variant="gold-outline" className="w-full" asChild>
                   <Link to="/contact">Request Details</Link>
                 </Button>
               </div>
