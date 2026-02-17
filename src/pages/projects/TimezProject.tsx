@@ -405,7 +405,7 @@ export default function TimezProject() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
+      
     </div>
   );
 }

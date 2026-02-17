@@ -415,7 +415,7 @@ export default function SafaGateProject() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
+      
     </div>
   );
 }

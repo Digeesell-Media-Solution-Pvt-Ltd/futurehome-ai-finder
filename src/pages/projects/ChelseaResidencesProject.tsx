@@ -427,7 +427,7 @@ export default function ChelseaResidencesProject() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
+      
     </div>
   );
 }
