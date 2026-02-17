@@ -642,7 +642,7 @@ export default function Oasiz2Project() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
+      
     </div>
   );
 }

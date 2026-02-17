@@ -586,7 +586,7 @@ export default function CanalHeightsProject() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
+      
     </div>
   );
 }

@@ -436,7 +436,7 @@ export default function SparklzProject() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
+      
     </div>
   );
 }
