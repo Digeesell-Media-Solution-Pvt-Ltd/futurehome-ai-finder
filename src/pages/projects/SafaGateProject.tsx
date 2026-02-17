@@ -3,8 +3,8 @@ import { ArrowLeft, TrendingUp, Building2, MapPin, Calendar, Download, Phone, Me
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/safa-gate-hero.jpg";
 import poolImage from "@/assets/projects/safa-gate-pool.jpg";

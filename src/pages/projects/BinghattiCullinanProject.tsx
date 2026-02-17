@@ -6,8 +6,7 @@ import {
   TrendingUp, 
   BadgeCheck, 
   Download, 
-  Phone, 
-  MessageCircle,
+  Send,
   Building2,
   Sparkles,
   Dumbbell,
@@ -21,8 +20,8 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/binghatti-cullinan-hero.jpg";
 import interiorImage from "@/assets/projects/binghatti-cullinan-interior.jpg";
@@ -82,9 +81,7 @@ Perfect for young professionals and digital nomads, Binghatti Cullinan offers a 
 };
 
 export default function BinghattiCullinanProject() {
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/971000000000?text=Hi, I'm interested in Binghatti Cullinan in Al Jaddaf", "_blank");
-  };
+  const { openLeadCapture } = useLeadCapture();
 
   return (
     <div className="min-h-screen bg-background">
@@ -184,11 +181,7 @@ export default function BinghattiCullinanProject() {
               {/* Left Column - Content */}
               <div className="lg:col-span-2 space-y-12">
                 {/* Overview */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                   <h2 className="text-2xl font-display text-foreground mb-4">The Architectural Gem</h2>
                   <div className="prose prose-lg text-muted-foreground">
                     {projectData.overview.split('\n\n').map((paragraph, index) => (
@@ -198,11 +191,7 @@ export default function BinghattiCullinanProject() {
                 </motion.div>
 
                 {/* Highlights */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                   <h2 className="text-2xl font-display text-foreground mb-6">Key Highlights</h2>
                   <div className="grid sm:grid-cols-2 gap-4">
                     {projectData.highlights.map((highlight, index) => (
@@ -215,20 +204,12 @@ export default function BinghattiCullinanProject() {
                 </motion.div>
 
                 {/* Gallery */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                   <h2 className="text-2xl font-display text-foreground mb-6">Gallery</h2>
                   <div className="grid grid-cols-2 gap-4">
                     {projectData.gallery.map((image, index) => (
                       <div key={index} className="relative aspect-[4/3] rounded-xl overflow-hidden group">
-                        <img 
-                          src={image.src} 
-                          alt={image.alt}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
+                        <img src={image.src} alt={image.alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                           <p className="absolute bottom-3 left-3 text-white text-sm">{image.alt}</p>
                         </div>
@@ -238,11 +219,7 @@ export default function BinghattiCullinanProject() {
                 </motion.div>
 
                 {/* Amenities */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                   <h2 className="text-2xl font-display text-foreground mb-6">Premium Amenities</h2>
                   <div className="grid sm:grid-cols-2 gap-4">
                     {projectData.amenities.map((amenity, index) => (
@@ -260,15 +237,11 @@ export default function BinghattiCullinanProject() {
                 </motion.div>
 
                 {/* Location */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                   <h2 className="text-2xl font-display text-foreground mb-6">Location & Connectivity</h2>
                   <div className="bg-card border border-border rounded-xl p-6">
                     <p className="text-muted-foreground mb-6">
-                      Strategically positioned in Al Jaddaf, Binghatti Cullinan offers exceptional connectivity with direct metro access and proximity to major highways. The location provides easy access to Downtown Dubai, Business Bay, and the Dubai Creek while maintaining a sense of community living.
+                      Strategically positioned in Al Jaddaf, Binghatti Cullinan offers exceptional connectivity with direct metro access and proximity to major highways.
                     </p>
                     <div className="space-y-3">
                       {projectData.connectivity.map((item, index) => (
@@ -282,12 +255,7 @@ export default function BinghattiCullinanProject() {
                 </motion.div>
 
                 {/* AI Insight */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-xl p-6"
-                >
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-xl p-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <Sparkles className="w-6 h-6 text-primary" />
@@ -295,7 +263,7 @@ export default function BinghattiCullinanProject() {
                     <div>
                       <h3 className="text-lg font-semibold text-foreground mb-2">AI Investment Insight</h3>
                       <p className="text-muted-foreground">
-                        Binghatti Cullinan is design-forward living ideal for young professionals and digital nomads. The co-working amenities and smart home features attract remote workers, while the iconic architecture ensures strong resale appeal. Al Jaddaf's developing infrastructure and metro connectivity make it an excellent value proposition compared to neighboring areas.
+                        Binghatti Cullinan is design-forward living ideal for young professionals and digital nomads. The co-working amenities and smart home features attract remote workers, while the iconic architecture ensures strong resale appeal.
                       </p>
                     </div>
                   </div>
@@ -305,54 +273,32 @@ export default function BinghattiCullinanProject() {
               {/* Right Column - CTA Sidebar */}
               <div className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="bg-card border border-border rounded-xl p-6"
-                  >
+                  <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="bg-card border border-border rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-foreground mb-4">Interested in Binghatti Cullinan?</h3>
-                    
                     <div className="space-y-3">
-                      <Button variant="gold" className="w-full" asChild>
-                        <a href="tel:+971000000000">
-                          <Phone className="w-4 h-4 mr-2" />
-                          Schedule Viewing
-                        </a>
+                      <Button variant="gold" className="w-full" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Book a Consultation" })}>
+                        <Send className="w-4 h-4 mr-2" />
+                        Book a Consultation
                       </Button>
-                      
-                      <Button variant="gold-outline" className="w-full" onClick={handleWhatsApp}>
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        WhatsApp
+                      <Button variant="gold-outline" className="w-full" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Request Details" })}>
+                        Request Details
                       </Button>
                     </div>
                   </motion.div>
 
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 }}
-                    className="bg-card border border-border rounded-xl p-6"
-                  >
+                  <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="bg-card border border-border rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-foreground mb-4">Downloads</h3>
-                    
                     <div className="space-y-3">
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Download Floor Plan
-                        </a>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Download Floor Plan" })}>
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Floor Plan
                       </Button>
-                      
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Download Price Plan
-                        </a>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: projectData.name, ctaType: "Get Pricing" })}>
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Price Plan
                       </Button>
                     </div>
                   </motion.div>
-
                 </div>
               </div>
             </div>
@@ -361,7 +307,6 @@ export default function BinghattiCullinanProject() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }
