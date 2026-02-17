@@ -5,8 +5,6 @@ import { ArrowLeft, MapPin, Building2, Shield, Download, Phone, MessageSquare, M
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -20,11 +18,6 @@ import rooftopImage from "@/assets/projects/skyvue-altier-rooftop.jpg";
 const SkyvueAltierProject = () => {
   const { openLeadCapture } = useLeadCapture();
   const [activeImage, setActiveImage] = useState(0);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    whatsapp: "",
-  });
 
   const images = [
     { src: heroImage, alt: "Skyvue Altier at Sobha Hartland 2 - Waterfront Tower" },
@@ -72,10 +65,6 @@ const SkyvueAltierProject = () => {
     { icon: Building, destination: "Burj Khalifa & Dubai Mall", time: "15 min" },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -455,47 +444,6 @@ const SkyvueAltierProject = () => {
                   Request Details
                 </Button>
               </div>
-
-              {/* Contact Form */}
-              <Card className="p-6">
-                <h3 className="text-lg font-bold text-charcoal mb-4">Request More Info</h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input 
-                      id="name" 
-                      placeholder="Your name" 
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input 
-                      id="email" 
-                      type="email" 
-                      placeholder="your@email.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="whatsapp">WhatsApp Number</Label>
-                    <Input 
-                      id="whatsapp" 
-                      placeholder="+971 50 123 4567"
-                      value={formData.whatsapp}
-                      onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                    />
-                  </div>
-                  <Button type="submit" className="w-full" variant="dark">
-                    <Mail className="w-4 h-4 mr-2" />
-                    Submit Enquiry
-                  </Button>
-                </form>
-              </Card>
 
               {/* Developer Info */}
               <Card className="p-4 bg-cream/50">
