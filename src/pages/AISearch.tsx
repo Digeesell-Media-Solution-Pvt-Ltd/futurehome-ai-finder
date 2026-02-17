@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Sparkles, Search, Sliders, ArrowRight, Filter, TrendingUp, MapPin, Building, Clock, BadgeCheck } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -130,10 +131,28 @@ const sampleResults = [
 ];
 
 export default function AISearchPage() {
-  const [query, setQuery] = useState("");
+  const [searchParams] = useSearchParams();
+  const initialQuery = searchParams.get("q") || "";
+  const [query, setQuery] = useState(initialQuery);
   const [isSearching, setIsSearching] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({});
+
+  useEffect(() => {
+    if (initialQuery) {
+      setQuery(initialQuery);
+      handleSearchWithQuery(initialQuery);
+    }
+  }, []);
+
+  const handleSearchWithQuery = (q: string) => {
+    if (!q.trim()) return;
+    setIsSearching(true);
+    setTimeout(() => {
+      setIsSearching(false);
+      setShowResults(true);
+    }, 1500);
+  };
 
   const handleSearch = () => {
     if (!query.trim()) return;
