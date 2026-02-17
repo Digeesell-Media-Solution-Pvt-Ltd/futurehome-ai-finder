@@ -27,8 +27,8 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import oasizHero from "@/assets/projects/oasiz-hero.jpg";
 import oasizPool from "@/assets/projects/oasiz-pool.jpg";
 import oasizLobby from "@/assets/projects/oasiz-lobby.jpg";

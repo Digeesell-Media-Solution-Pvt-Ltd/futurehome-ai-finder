@@ -8,8 +8,8 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import timezHero from "@/assets/projects/timez-hero.jpg";
 import timezPool from "@/assets/projects/timez-pool.jpg";
 import timezInterior from "@/assets/projects/timez-interior.jpg";

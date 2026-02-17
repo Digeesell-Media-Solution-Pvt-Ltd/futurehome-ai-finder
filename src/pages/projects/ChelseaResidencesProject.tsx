@@ -3,8 +3,8 @@ import { ArrowRight, Download, Phone, MessageCircle, MapPin, Building2, Calendar
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import heroImage from "@/assets/projects/chelsea-residences-hero.jpg";
 import poolImage from "@/assets/projects/chelsea-residences-pool.jpg";
 import interiorImage from "@/assets/projects/chelsea-residences-interior.jpg";

@@ -8,8 +8,8 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import aspirzHero from "@/assets/projects/aspirz-hero.jpg";
 import aspirzPool from "@/assets/projects/aspirz-pool.jpg";
 import aspirzLobby from "@/assets/projects/aspirz-lobby.jpg";
@@ -84,6 +84,7 @@ const unitTypes = [
 ];
 
 export default function AspirzProject() {
+  const { openLeadCapture } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -385,27 +386,12 @@ export default function AspirzProject() {
                   <h3 className="font-display text-xl font-medium text-foreground mb-4">
                     Request Information
                   </h3>
-                  <form className="space-y-4">
-                    <input
-                      type="text"
-                      placeholder="Your Name"
-                      className="w-full h-12 px-4 rounded-lg bg-background border border-border focus:border-primary focus:outline-none transition-colors"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Email Address"
-                      className="w-full h-12 px-4 rounded-lg bg-background border border-border focus:border-primary focus:outline-none transition-colors"
-                    />
-                    <input
-                      type="tel"
-                      placeholder="Phone Number"
-                      className="w-full h-12 px-4 rounded-lg bg-background border border-border focus:border-primary focus:outline-none transition-colors"
-                    />
-                    <Button variant="hero" className="w-full rounded-full">
+                   <div className="space-y-3">
+                    <Button variant="hero" className="w-full rounded-full" onClick={() => openLeadCapture({ projectName: "Aspirz by Danube", ctaType: "Get Pricing" })}>
                       Get Floor Plans & Pricing
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
-                  </form>
+                  </div>
                 </motion.div>
 
                 {/* Contact Actions */}
@@ -415,16 +401,11 @@ export default function AspirzProject() {
                   transition={{ delay: 0.5 }}
                   className="space-y-3"
                 >
-                  <Button variant="gold" className="w-full rounded-full" asChild>
-                    <a href="https://wa.me/9718005757" target="_blank" rel="noopener noreferrer">
-                      WhatsApp Inquiry
-                    </a>
+                  <Button variant="gold" className="w-full rounded-full" onClick={() => openLeadCapture({ projectName: "Aspirz by Danube", ctaType: "Book a Consultation" })}>
+                    Book a Consultation
                   </Button>
-                  <Button variant="gold-outline" className="w-full rounded-full" asChild>
-                    <a href="tel:+971800575757">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Book a Call
-                    </a>
+                  <Button variant="gold-outline" className="w-full rounded-full" onClick={() => openLeadCapture({ projectName: "Aspirz by Danube", ctaType: "Request Details" })}>
+                    Request Details
                   </Button>
                 </motion.div>
 
@@ -516,7 +497,6 @@ export default function AspirzProject() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }
