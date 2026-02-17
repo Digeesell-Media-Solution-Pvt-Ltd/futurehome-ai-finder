@@ -4,6 +4,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LeadCaptureProvider } from "@/contexts/LeadCaptureContext";
+import { LeadCaptureModal } from "@/components/lead/LeadCaptureModal";
 import Index from "./pages/Index";
 import AISearchPage from "./pages/AISearch";
 import Projects from "./pages/Projects";
@@ -77,7 +79,6 @@ import AlFurjanArea from "./pages/areas/AlFurjanArea";
 import DubaiSiliconOasisArea from "./pages/areas/DubaiSiliconOasisArea";
 import DamacHillsArea from "./pages/areas/DamacHillsArea";
 import SheikhZayedRoadArea from "./pages/areas/SheikhZayedRoadArea";
-// Developers, DeveloperDetail, Insights pages removed for now
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Disclaimer from "./pages/Disclaimer";
@@ -94,8 +95,10 @@ const App = () => (
   <HelmetProvider>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <LeadCaptureProvider>
       <Toaster />
       <Sonner />
+      <LeadCaptureModal />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
@@ -171,7 +174,6 @@ const App = () => (
           <Route path="/areas/damac-hills" element={<DamacHillsArea />} />
           <Route path="/areas/sheikh-zayed-road" element={<SheikhZayedRoadArea />} />
           <Route path="/areas/:areaId" element={<AreaDetail />} />
-          {/* Developers and Insights routes removed */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
@@ -183,6 +185,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      </LeadCaptureProvider>
     </TooltipProvider>
   </QueryClientProvider>
   </HelmetProvider>

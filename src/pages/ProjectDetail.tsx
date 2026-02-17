@@ -3,39 +3,29 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import {
-  MapPin, Calendar, Building2, TrendingUp, Download, Phone, MessageCircle,
-  Check, Sparkles, Home, Heart, ArrowRight
+  MapPin, Calendar, Building2, TrendingUp, Download,
+  Check, Sparkles, Home, Heart, ArrowRight, Send
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { getHeroImage, getGalleryImages } from "@/lib/heroImages";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import type { Project } from "@/types/project";
 
 const AMENITY_ICONS: Record<string, typeof Building2> = {
-  "Swimming Pool": Heart,
-  "Infinity Pool": Heart,
-  "Gym": TrendingUp,
-  "Kids Play Area": Home,
-  "BBQ Area": Home,
-  "Landscaped Gardens": Home,
-  "Beach Access": Heart,
-  "Clubhouse": Building2,
-  "Co-working Space": Building2,
-  "Retail Outlets": Building2,
-  "Smart Home System": Sparkles,
-  "Concierge": Sparkles,
-  "24/7 Security": Check,
-  "Parking": Building2,
-  "Jogging Track": TrendingUp,
-  "Spa": Heart,
-  "Yoga Deck": Heart,
+  "Swimming Pool": Heart, "Infinity Pool": Heart, "Gym": TrendingUp,
+  "Kids Play Area": Home, "BBQ Area": Home, "Landscaped Gardens": Home,
+  "Beach Access": Heart, "Clubhouse": Building2, "Co-working Space": Building2,
+  "Retail Outlets": Building2, "Smart Home System": Sparkles, "Concierge": Sparkles,
+  "24/7 Security": Check, "Parking": Building2, "Jogging Track": TrendingUp,
+  "Spa": Heart, "Yoga Deck": Heart,
 };
 
 export default function ProjectDetail() {
   const { projectId, developer } = useParams();
+  const { openLeadCapture } = useLeadCapture();
 
   const { data: project, isLoading, error } = useQuery({
     queryKey: ["project-detail", projectId],
@@ -71,6 +61,11 @@ export default function ProjectDetail() {
   const galleryImgs = getGalleryImages(project.slug);
   const developerName = project.developers?.name || "Developer";
   const areaName = project.areas?.name || project.city;
+  const projectFullName = `${project.project_name} by ${developerName}`;
+
+  const openForm = (ctaType: string, downloadUrl?: string) => {
+    openLeadCapture({ projectName: projectFullName, ctaType, downloadUrl });
+  };
 
   const formatPrice = (price: number | null) => {
     if (!price) return null;
@@ -143,9 +138,7 @@ export default function ProjectDetail() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-background mb-4">
                 {project.project_name}
               </h1>
-              <p className="text-xl text-background/90 mb-2">
-                by {developerName}
-              </p>
+              <p className="text-xl text-background/90 mb-2">by {developerName}</p>
               <div className="flex items-center gap-2 text-background/70 mb-6">
                 <MapPin className="w-4 h-4" />
                 <span>{areaName}, Dubai, UAE</span>
@@ -153,13 +146,7 @@ export default function ProjectDetail() {
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
                 {quickStats.map((stat) => (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="glass-panel p-4 rounded-xl text-center"
-                  >
+                  <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="glass-panel p-4 rounded-xl text-center">
                     <stat.icon className="w-5 h-5 text-primary mx-auto mb-2" />
                     <div className="font-semibold text-background text-sm">{stat.value}</div>
                     <div className="text-xs text-background/70">{stat.label}</div>
@@ -168,21 +155,19 @@ export default function ProjectDetail() {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <Button variant="gold" size="lg" className="rounded-full">
-                  <MessageCircle className="w-4 h-4 mr-2" />
+                <Button variant="gold" size="lg" className="rounded-full" onClick={() => openForm("Request Pricing")}>
+                  <Send className="w-4 h-4 mr-2" />
                   Request Pricing
                 </Button>
                 {project.brochure_url && (
-                  <a href={project.brochure_url} target="_blank" rel="noopener noreferrer">
-                    <Button variant="gold-outline" size="lg" className="rounded-full">
-                      <Download className="w-4 h-4 mr-2" />
-                      Download Brochure
-                    </Button>
-                  </a>
+                  <Button variant="gold-outline" size="lg" className="rounded-full" onClick={() => openForm("Download Brochure", project.brochure_url!)}>
+                    <Download className="w-4 h-4 mr-2" />
+                    Download Brochure
+                  </Button>
                 )}
-                <Button variant="gold-outline" size="lg" className="rounded-full">
-                  <Phone className="w-4 h-4 mr-2" />
-                  WhatsApp
+                <Button variant="gold-outline" size="lg" className="rounded-full" onClick={() => openForm("Book a Consultation")}>
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Book a Consultation
                 </Button>
               </div>
             </motion.div>
@@ -196,14 +181,7 @@ export default function ProjectDetail() {
           <div className="container-luxury">
             <div className="flex flex-wrap justify-center gap-4">
               {project.investment_tags.map((tag, index) => (
-                <motion.span
-                  key={tag}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="px-6 py-3 glass-panel rounded-full text-background/90 font-medium text-sm"
-                >
+                <motion.span key={tag} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="px-6 py-3 glass-panel rounded-full text-background/90 font-medium text-sm">
                   {tag}
                 </motion.span>
               ))}
@@ -216,17 +194,9 @@ export default function ProjectDetail() {
       <section className="section-padding bg-background">
         <div className="container-luxury">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">
-                Project Overview
-              </span>
-              <h2 className="text-heading text-foreground mb-6">
-                {project.project_name}
-              </h2>
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">Project Overview</span>
+              <h2 className="text-heading text-foreground mb-6">{project.project_name}</h2>
               <div className="prose prose-lg text-muted-foreground">
                 {project.full_description ? (
                   project.full_description.split('\n').map((p, i) => <p key={i}>{p}</p>)
@@ -240,7 +210,6 @@ export default function ProjectDetail() {
                   </p>
                 )}
               </div>
-
               <div className="flex items-center gap-4 mt-8">
                 <div className="flex items-center gap-2">
                   <Building2 className="w-5 h-5 text-primary" />
@@ -250,17 +219,8 @@ export default function ProjectDetail() {
             </motion.div>
 
             {galleryImgs.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="relative"
-              >
-                <img
-                  src={galleryImgs[0]}
-                  alt={`${project.project_name} Interior`}
-                  className="rounded-2xl shadow-luxury w-full"
-                />
+              <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
+                <img src={galleryImgs[0]} alt={`${project.project_name} Interior`} className="rounded-2xl shadow-luxury w-full" />
                 {(project.investment_score || project.lifestyle_score) && (
                   <div className="absolute -bottom-6 -left-6 glass-card p-6 rounded-xl">
                     <div className="flex items-center gap-4">
@@ -289,30 +249,13 @@ export default function ProjectDetail() {
       {project.bedroom_types.length > 0 && (
         <section className="section-padding bg-muted/30">
           <div className="container-luxury">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">
-                Available Units
-              </span>
-              <h2 className="text-heading text-foreground">
-                Property Types & Configurations
-              </h2>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+              <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">Available Units</span>
+              <h2 className="text-heading text-foreground">Property Types & Configurations</h2>
             </motion.div>
-
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {project.property_types.map((type, index) => (
-                <motion.div
-                  key={type}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bubble-card p-6 text-center"
-                >
+                <motion.div key={type} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bubble-card p-6 text-center">
                   <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                     <Home className="w-8 h-8 text-primary" />
                   </div>
@@ -329,33 +272,15 @@ export default function ProjectDetail() {
       {project.amenities.length > 0 && (
         <section className="section-padding bg-background">
           <div className="container-luxury">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">
-                World-Class Amenities
-              </span>
-              <h2 className="text-heading text-foreground">
-                A Life of Luxury Awaits
-              </h2>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+              <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">World-Class Amenities</span>
+              <h2 className="text-heading text-foreground">A Life of Luxury Awaits</h2>
             </motion.div>
-
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {project.amenities.map((amenity, index) => {
                 const Icon = AMENITY_ICONS[amenity] || Sparkles;
                 return (
-                  <motion.div
-                    key={amenity}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    whileHover={{ y: -4 }}
-                    className="glass-panel p-5 rounded-xl text-center group hover:border-primary/30 transition-all"
-                  >
+                  <motion.div key={amenity} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }} whileHover={{ y: -4 }} className="glass-panel p-5 rounded-xl text-center group hover:border-primary/30 transition-all">
                     <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
@@ -372,35 +297,14 @@ export default function ProjectDetail() {
       {galleryImgs.length > 0 && (
         <section className="section-padding bg-muted/30">
           <div className="container-luxury">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">
-                Gallery
-              </span>
-              <h2 className="text-heading text-foreground">
-                Experience {project.project_name}
-              </h2>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+              <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">Gallery</span>
+              <h2 className="text-heading text-foreground">Experience {project.project_name}</h2>
             </motion.div>
-
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {galleryImgs.map((src, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative overflow-hidden rounded-xl aspect-square"
-                >
-                  <img
-                    src={src}
-                    alt={`${project.project_name} Gallery ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="group relative overflow-hidden rounded-xl aspect-square">
+                  <img src={src} alt={`${project.project_name} Gallery ${index + 1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
               ))}
@@ -414,28 +318,12 @@ export default function ProjectDetail() {
         <section className="section-padding bg-charcoal">
           <div className="container-luxury">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">
-                  Investment Potential
-                </span>
-                <h2 className="text-heading text-background mb-6">
-                  Why Invest in {project.project_name}?
-                </h2>
-
+              <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">Investment Potential</span>
+                <h2 className="text-heading text-background mb-6">Why Invest in {project.project_name}?</h2>
                 <div className="space-y-4">
                   {project.investment_tags.map((tag, index) => (
-                    <motion.div
-                      key={tag}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className="flex items-start gap-3"
-                    >
+                    <motion.div key={tag} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex items-start gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="w-4 h-4 text-charcoal" />
                       </div>
@@ -443,14 +331,7 @@ export default function ProjectDetail() {
                     </motion.div>
                   ))}
                   {project.lifestyle_tags.map((tag, index) => (
-                    <motion.div
-                      key={tag}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: (project.investment_tags.length + index) * 0.1 }}
-                      className="flex items-start gap-3"
-                    >
+                    <motion.div key={tag} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: (project.investment_tags.length + index) * 0.1 }} className="flex items-start gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="w-4 h-4 text-charcoal" />
                       </div>
@@ -460,12 +341,7 @@ export default function ProjectDetail() {
                 </div>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="glass-panel p-8 rounded-2xl"
-              >
+              <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="glass-panel p-8 rounded-2xl">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-gold-dark flex items-center justify-center">
                     <Sparkles className="w-6 h-6 text-charcoal" />
@@ -501,27 +377,20 @@ export default function ProjectDetail() {
       {/* CTA Section */}
       <section className="section-padding bg-gradient-to-br from-primary/10 via-background to-gold-dark/10">
         <div className="container-luxury text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto"
-          >
-            <h2 className="text-heading text-foreground mb-4">
-              Interested in {project.project_name}?
-            </h2>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl mx-auto">
+            <h2 className="text-heading text-foreground mb-4">Interested in {project.project_name}?</h2>
             <p className="text-muted-foreground mb-8">
               Get exclusive access to floor plans, pricing, and payment plan details.
               Connect with the project's official sales team.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="gold" size="lg" className="rounded-full">
-                <MessageCircle className="w-4 h-4 mr-2" />
+              <Button variant="gold" size="lg" className="rounded-full" onClick={() => openForm("Request Pricing")}>
+                <Send className="w-4 h-4 mr-2" />
                 Request Pricing
               </Button>
-              <Button variant="gold-outline" size="lg" className="rounded-full">
-                <Phone className="w-4 h-4 mr-2" />
-                WhatsApp
+              <Button variant="gold-outline" size="lg" className="rounded-full" onClick={() => openForm("Book a Consultation")}>
+                <Calendar className="w-4 h-4 mr-2" />
+                Book a Consultation
               </Button>
             </div>
           </motion.div>
@@ -529,7 +398,6 @@ export default function ProjectDetail() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }

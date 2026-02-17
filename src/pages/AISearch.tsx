@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { Sparkles, Search, Sliders, ArrowRight, TrendingUp, MapPin, Building, Clock, Loader2 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useAISearch, useFilteredProjects } from "@/hooks/useProjects";
@@ -460,7 +460,7 @@ export default function AISearchPage() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
+      
     </div>
   );
 }

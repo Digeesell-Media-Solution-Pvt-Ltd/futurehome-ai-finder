@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 import { 
-  ArrowRight, Download, Phone, TrendingUp, 
+  ArrowRight, Download, TrendingUp, 
   MapPin, Building, Calendar, Home, Waves, Dumbbell, 
   Baby, Gamepad2, Utensils, Heart, Briefcase,
-  Star, Check, Sparkles, Mountain
+  Star, Check, Sparkles, Mountain, Send
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import bayz102Hero from "@/assets/projects/bayz102-hero.jpg";
 import bayz102Pool from "@/assets/projects/bayz102-pool.jpg";
 import bayz102Lobby from "@/assets/projects/bayz102-lobby.jpg";
@@ -85,6 +85,7 @@ const distances = [
 ];
 
 export default function Bayz102Project() {
+  const { openLeadCapture } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -408,16 +409,13 @@ export default function Bayz102Project() {
                   transition={{ delay: 0.5 }}
                   className="space-y-3"
                 >
-                  <Button variant="gold" className="w-full rounded-full" asChild>
-                    <a href="https://wa.me/9718005757" target="_blank" rel="noopener noreferrer">
-                      WhatsApp Inquiry
-                    </a>
+                  <Button variant="gold" className="w-full rounded-full" onClick={() => openLeadCapture({ projectName: "Bayz 102 by Danube", ctaType: "Request Pricing" })}>
+                    <Send className="w-4 h-4 mr-2" />
+                    Request Pricing
                   </Button>
-                  <Button variant="gold-outline" className="w-full rounded-full" asChild>
-                    <a href="tel:+971800575757">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Book a Call
-                    </a>
+                  <Button variant="gold-outline" className="w-full rounded-full" onClick={() => openLeadCapture({ projectName: "Bayz 102 by Danube", ctaType: "Book a Consultation" })}>
+                    <Calendar className="w-4 h-4 mr-2" />
+                    Book a Consultation
                   </Button>
                 </motion.div>
 
@@ -505,7 +503,6 @@ export default function Bayz102Project() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }
