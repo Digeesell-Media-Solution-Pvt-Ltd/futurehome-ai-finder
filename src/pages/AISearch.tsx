@@ -1,21 +1,17 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Sparkles, Search, Sliders, ArrowRight, Filter, TrendingUp, MapPin, Building, Clock, BadgeCheck } from "lucide-react";
+import { Sparkles, Search, Sliders, ArrowRight, TrendingUp, MapPin, Building, Clock, Loader2 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { getProjectUrl } from "@/lib/projectUrls";
-import oasiz2Hero from "@/assets/projects/oasiz2-hero.jpg";
-import oasizHero from "@/assets/projects/oasiz-hero.jpg";
-import bayz102Hero from "@/assets/projects/bayz102-hero.jpg";
-import shahrukhzLobby from "@/assets/projects/shahrukhz-lobby.jpg";
-import sparklzInterior from "@/assets/projects/sparklz-interior.jpg";
-import aspirzHero from "@/assets/projects/aspirz-hero.jpg";
-import timezHero from "@/assets/projects/timez-hero.jpg";
-import breezHero from "@/assets/projects/breez-hero.jpg";
+import { useAISearch, useFilteredProjects } from "@/hooks/useProjects";
+import { getHeroImage } from "@/lib/heroImages";
+import { projectDeveloperMap } from "@/lib/projectUrls";
+import type { ProjectFilters, Project } from "@/types/project";
+import { toast } from "@/hooks/use-toast";
 
 const suggestedQueries = [
   "2BR apartment in Dubai Marina under 2M",
@@ -24,144 +20,72 @@ const suggestedQueries = [
   "Beachfront property in Palm Jumeirah",
 ];
 
-const filters = {
+const filterOptions = {
   budget: ["Under 1M", "1M - 2M", "2M - 5M", "5M - 10M", "10M+"],
   bedrooms: ["Studio", "1 BR", "2 BR", "3 BR", "4+ BR"],
   areas: ["Dubai Marina", "Downtown", "Palm Jumeirah", "Business Bay", "Dubai Hills", "JVC"],
   handover: ["Ready", "2025", "2026", "2027", "2028+"],
 };
 
-const sampleResults = [
-  {
-    id: "oasiz2",
-    name: "Oasiz 2 by Danube",
-    developer: "Danube Properties",
-    location: "Dubai Silicon Oasis",
-    price: "AED 699K",
-    image: oasiz2Hero,
-    handover: "Nov 2027",
-    roi: "8-10%",
-    matchScore: 97,
-    matchReason: "Excellent match: Modern 31-storey tower with 483 units in DSO tech hub. Private pool options, skyline views, and 1% monthly payment plan. Ideal for investors seeking high ROI.",
-  },
-  {
-    id: "oasiz",
-    name: "Oasiz by Danube",
-    developer: "Danube Properties",
-    location: "Dubai Silicon Oasis",
-    price: "AED 699K",
-    image: oasizHero,
-    handover: "Nov 2027",
-    roi: "8-10%",
-    matchScore: 96,
-    matchReason: "Excellent match: Affordable luxury apartments in DSO tech hub with 1% monthly payment plan. Private pool units available. Ideal for first-time investors and families.",
-  },
-  {
-    id: "bayz102",
-    name: "Bayz 102 by Danube",
-    developer: "Danube Properties",
-    location: "Business Bay",
-    price: "AED 1.38M",
-    image: bayz102Hero,
-    handover: "June 2029",
-    roi: "7-9%",
-    matchScore: 97,
-    matchReason: "Premium match: Luxury residential tower in Business Bay with Burj Khalifa views, helipad, Italian furnishings, and 1% monthly payment plan.",
-  },
-  {
-    id: "shahrukhz",
-    name: "Shahrukhz by Danube",
-    developer: "Danube Properties",
-    location: "Sheikh Zayed Road",
-    price: "AED 1.9M",
-    image: shahrukhzLobby,
-    handover: "2029",
-    roi: "7-9%",
-    matchScore: 94,
-    matchReason: "Premium match: Grade-A commercial offices on Dubai's iconic Sheikh Zayed Road with helipad, skypool, and 70/30 payment plan.",
-  },
-  {
-    id: "sparklz",
-    name: "Sparklz by Danube",
-    developer: "Danube Properties",
-    location: "Al Furjan, Dubai",
-    price: "AED 900K",
-    image: sparklzInterior,
-    handover: "Q2 2028",
-    roi: "7-9%",
-    matchScore: 96,
-    matchReason: "Great match: Smart convertible apartments in family-friendly Al Furjan with 30+ amenities and excellent metro connectivity.",
-  },
-  {
-    id: "aspirz",
-    name: "Aspirz by Danube",
-    developer: "Danube Properties",
-    location: "Dubai Sports City",
-    price: "AED 850K",
-    image: aspirzHero,
-    handover: "Q4 2028",
-    roi: "8-10%",
-    matchScore: 95,
-    matchReason: "Great match: Mixed-use tower with convertible apartments and office spaces in Dubai Sports City. Ideal for investors seeking diversified rental income.",
-  },
-  {
-    id: "timez",
-    name: "Timez by Danube",
-    developer: "Danube Properties",
-    location: "Dubai Silicon Oasis",
-    price: "AED 550K",
-    image: timezHero,
-    handover: "Q4 2027",
-    roi: "8-10%",
-    matchScore: 97,
-    matchReason: "Excellent match: Affordable entry point with convertible layouts, 1% monthly payment plan perfect for first-time investors in DSO's growing tech hub.",
-  },
-  {
-    id: "breez",
-    name: "Breez by Danube",
-    developer: "Danube Properties",
-    location: "Dubai Maritime City",
-    price: "AED 700K",
-    image: breezHero,
-    handover: "Q4 2028",
-    roi: "12-15%",
-    matchScore: 98,
-    matchReason: "Perfect match: Waterfront property with 40+ amenities, fully furnished, high ROI potential in emerging Dubai Maritime City location.",
-  },
-];
+function formatPrice(price: number | null): string {
+  if (!price) return "Price TBA";
+  if (price >= 1_000_000) return `AED ${(price / 1_000_000).toFixed(1)}M`;
+  if (price >= 1_000) return `AED ${(price / 1_000).toFixed(0)}K`;
+  return `AED ${price}`;
+}
+
+function getProjectLink(project: Project): string {
+  const devSlug = projectDeveloperMap[project.slug];
+  if (devSlug) return `/projects/${devSlug}/${project.slug}`;
+  const developerSlug = project.developers?.slug || project.developers?.name?.toLowerCase().replace(/\s+/g, '-') || 'developer';
+  return `/projects/${developerSlug}/${project.slug}`;
+}
 
 export default function AISearchPage() {
   const [searchParams] = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
   const [query, setQuery] = useState(initialQuery);
-  const [isSearching, setIsSearching] = useState(false);
-  const [showResults, setShowResults] = useState(false);
+  const [aiFilters, setAiFilters] = useState<ProjectFilters>({});
+  const [hasSearched, setHasSearched] = useState(false);
+  const [isParsingQuery, setIsParsingQuery] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({});
+  const { parseQuery } = useAISearch();
+
+  // Merge AI filters with manual filter selections
+  const mergedFilters: ProjectFilters = { ...aiFilters };
+
+  const { data: projects, isLoading: isLoadingProjects } = useFilteredProjects(
+    hasSearched ? mergedFilters : { areas: ["__none__"] } // Don't fetch until searched
+  );
+
+  const isSearching = isParsingQuery || (hasSearched && isLoadingProjects);
 
   useEffect(() => {
     if (initialQuery) {
-      setQuery(initialQuery);
       handleSearchWithQuery(initialQuery);
     }
   }, []);
 
-  const handleSearchWithQuery = (q: string) => {
+  const handleSearchWithQuery = async (q: string) => {
     if (!q.trim()) return;
-    setIsSearching(true);
-    setTimeout(() => {
-      setIsSearching(false);
-      setShowResults(true);
-    }, 1500);
+    setIsParsingQuery(true);
+    try {
+      const filters = await parseQuery(q.trim());
+      setAiFilters(filters);
+      setHasSearched(true);
+    } catch (e) {
+      console.error("AI search error:", e);
+      toast({
+        title: "Search Failed",
+        description: "Could not process your search. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsParsingQuery(false);
+    }
   };
 
-  const handleSearch = () => {
-    if (!query.trim()) return;
-    setIsSearching(true);
-    setTimeout(() => {
-      setIsSearching(false);
-      setShowResults(true);
-    }, 1500);
-  };
+  const handleSearch = () => handleSearchWithQuery(query);
 
   const toggleFilter = (category: string, value: string) => {
     setSelectedFilters((prev) => {
@@ -173,23 +97,19 @@ export default function AISearchPage() {
     });
   };
 
+  const resultsList = hasSearched ? (projects || []) : [];
+
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Background animated elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <motion.div
-          animate={{
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-          }}
+          animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
           transition={{ duration: 20, repeat: Infinity }}
           className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-radial from-primary/10 to-transparent rounded-full blur-3xl"
         />
         <motion.div
-          animate={{
-            x: [0, -30, 0],
-            y: [0, 30, 0],
-          }}
+          animate={{ x: [0, -30, 0], y: [0, 30, 0] }}
           transition={{ duration: 15, repeat: Infinity }}
           className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-gradient-radial from-primary/10 to-transparent rounded-full blur-3xl"
         />
@@ -231,9 +151,7 @@ export default function AISearchPage() {
               </motion.div>
               <span className="text-sm font-medium text-foreground">AI-Powered Property Matching</span>
             </motion.div>
-            <h1 className="text-display text-foreground mb-4">
-              Find Your Perfect Property
-            </h1>
+            <h1 className="text-display text-foreground mb-4">Find Your Perfect Property</h1>
             <p className="text-lg text-muted-foreground">
               Tell us what you're looking for in natural language, and our AI will find 
               the best off-plan properties matching your criteria.
@@ -247,7 +165,7 @@ export default function AISearchPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="max-w-4xl mx-auto"
           >
-            {/* Main Search - Glass card */}
+            {/* Main Search */}
             <div className="glass-card p-6 mb-6">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-1 relative">
@@ -258,7 +176,7 @@ export default function AISearchPage() {
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="Describe your ideal property..."
                     className="w-full h-14 pl-12 pr-4 rounded-xl bg-background/90 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-shadow"
-                    onKeyPress={(e) => e.key === "Enter" && handleSearch()}
+                    onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                   />
                 </div>
                 <Button
@@ -270,13 +188,7 @@ export default function AISearchPage() {
                 >
                   {isSearching ? (
                     <>
-                      <motion.span
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                        className="mr-2"
-                      >
-                        ⟳
-                      </motion.span>
+                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
                       Searching...
                     </>
                   ) : (
@@ -288,7 +200,7 @@ export default function AISearchPage() {
                 </Button>
               </div>
 
-              {/* Suggested Queries - Bubble pills */}
+              {/* Suggested Queries */}
               <div className="mt-4 flex flex-wrap gap-2">
                 <span className="text-sm text-muted-foreground">Try:</span>
                 {suggestedQueries.map((suggestion) => (
@@ -296,7 +208,10 @@ export default function AISearchPage() {
                     key={suggestion}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
-                    onClick={() => setQuery(suggestion)}
+                    onClick={() => {
+                      setQuery(suggestion);
+                      handleSearchWithQuery(suggestion);
+                    }}
                     className="text-sm px-4 py-1.5 rounded-full transition-all duration-300 glass-panel hover:border-primary/30"
                   >
                     {suggestion}
@@ -305,7 +220,7 @@ export default function AISearchPage() {
               </div>
             </div>
 
-            {/* Filters - Glass card */}
+            {/* Filters */}
             <div className="glass-card p-6 mb-8">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -313,9 +228,8 @@ export default function AISearchPage() {
                 </div>
                 <span className="font-medium text-foreground">Refine Your Search</span>
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                {Object.entries(filters).map(([category, options]) => (
+                {Object.entries(filterOptions).map(([category, options]) => (
                   <div key={category}>
                     <label className="text-sm font-medium text-muted-foreground mb-2 block capitalize">
                       {category}
@@ -343,7 +257,7 @@ export default function AISearchPage() {
             </div>
 
             {/* Results */}
-            {showResults && (
+            {hasSearched && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -355,98 +269,140 @@ export default function AISearchPage() {
                     AI Matched Results
                   </h2>
                   <span className="glass-panel px-3 py-1.5 rounded-full text-sm text-muted-foreground">
-                    {sampleResults.length} properties found
+                    {isLoadingProjects ? (
+                      <span className="flex items-center gap-1"><Loader2 className="w-3 h-3 animate-spin" /> Loading...</span>
+                    ) : (
+                      `${resultsList.length} properties found`
+                    )}
                   </span>
                 </div>
 
-                {sampleResults.map((result, index) => (
-                  <motion.article
-                    key={result.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ y: -4, scale: 1.01 }}
-                    className="group bubble-card overflow-hidden"
-                  >
-                    <div className="flex flex-col md:flex-row">
-                      {/* Image */}
-                      <div className="relative w-full md:w-72 aspect-video md:aspect-auto">
-                        <img
-                          src={result.image}
-                          alt={result.name}
-                          className="w-full h-full object-cover"
-                        />
-                        {/* Match Score - Bubble */}
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ delay: 0.3, type: "spring" }}
-                          className="absolute top-3 left-3 px-4 py-2 rounded-full flex items-center gap-1.5"
-                          style={{
-                            background: "linear-gradient(135deg, hsl(43 40% 74%) 0%, hsl(43 50% 60%) 100%)",
-                            boxShadow: "0 4px 15px rgba(214, 199, 161, 0.4)",
-                          }}
-                        >
-                          <Sparkles className="w-4 h-4 text-charcoal" />
-                          <span className="text-sm font-semibold text-charcoal">{result.matchScore}% Match</span>
-                        </motion.div>
-                      </div>
-
-                      {/* Content */}
-                      <div className="flex-1 p-6 relative z-10">
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                          <span className="flex items-center gap-1">
-                            <Building className="w-4 h-4" />
-                            {result.developer}
-                          </span>
-                          <span className="w-1 h-1 rounded-full bg-primary" />
-                          <span className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            {result.location}
-                          </span>
-                        </div>
-
-                        <h3 className="text-xl font-display font-medium text-foreground mb-3">
-                          {result.name}
-                        </h3>
-
-                        {/* AI Insight - Glass panel */}
-                        <div className="glass-panel rounded-xl p-4 mb-4">
-                          <div className="flex items-start gap-2">
-                            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-gold-dark flex items-center justify-center flex-shrink-0 mt-0.5">
-                              <Sparkles className="w-3.5 h-3.5 text-charcoal" />
-                            </div>
-                            <p className="text-sm text-foreground">{result.matchReason}</p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <div>
-                              <span className="text-xs text-muted-foreground">From</span>
-                              <div className="font-semibold text-foreground">{result.price}</div>
-                            </div>
-                            <div className="glass-panel px-3 py-1.5 rounded-full flex items-center gap-1 text-primary">
-                              <TrendingUp className="w-4 h-4" />
-                              <span className="font-semibold text-sm">{result.roi} ROI</span>
-                            </div>
-                            <div className="glass-panel px-3 py-1.5 rounded-full flex items-center gap-1 text-muted-foreground text-sm">
-                              <Clock className="w-4 h-4" />
-                              {result.handover}
-                            </div>
-                          </div>
-
-                          <Button variant="gold" size="sm" className="rounded-full" asChild>
-                            <Link to={getProjectUrl(String(result.id), result.developer)}>
-                              View Details
-                              <ArrowRight className="w-4 h-4 ml-1" />
-                            </Link>
-                          </Button>
-                        </div>
-                      </div>
+                {isLoadingProjects && (
+                  <div className="flex items-center justify-center py-16">
+                    <div className="text-center">
+                      <Loader2 className="w-8 h-8 animate-spin text-primary mx-auto mb-4" />
+                      <p className="text-muted-foreground">Finding matching properties...</p>
                     </div>
-                  </motion.article>
-                ))}
+                  </div>
+                )}
+
+                {!isLoadingProjects && resultsList.length === 0 && (
+                  <div className="text-center py-16 glass-card">
+                    <Search className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
+                    <h3 className="text-lg font-display font-medium text-foreground mb-2">No matching properties found</h3>
+                    <p className="text-muted-foreground text-sm max-w-md mx-auto">
+                      Try broadening your search criteria or using different keywords. Our database is growing daily with new off-plan projects.
+                    </p>
+                  </div>
+                )}
+
+                {!isLoadingProjects && resultsList.map((project, index) => {
+                  const heroImg = getHeroImage(project.slug);
+                  const handoverText = project.handover_quarter && project.handover_year
+                    ? `${project.handover_quarter} ${project.handover_year}`
+                    : project.handover_year ? `${project.handover_year}` : "TBA";
+
+                  return (
+                    <motion.article
+                      key={project.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.08 }}
+                      whileHover={{ y: -4, scale: 1.01 }}
+                      className="group bubble-card overflow-hidden"
+                    >
+                      <div className="flex flex-col md:flex-row">
+                        {/* Image */}
+                        <div className="relative w-full md:w-72 aspect-video md:aspect-auto">
+                          {heroImg ? (
+                            <img
+                              src={heroImg}
+                              alt={project.project_name}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-muted flex items-center justify-center min-h-[200px]">
+                              <Building className="w-12 h-12 text-muted-foreground/30" />
+                            </div>
+                          )}
+                          {/* Investment Score Badge */}
+                          {project.investment_score && (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{ delay: 0.3, type: "spring" }}
+                              className="absolute top-3 left-3 px-4 py-2 rounded-full flex items-center gap-1.5"
+                              style={{
+                                background: "linear-gradient(135deg, hsl(43 40% 74%) 0%, hsl(43 50% 60%) 100%)",
+                                boxShadow: "0 4px 15px rgba(214, 199, 161, 0.4)",
+                              }}
+                            >
+                              <Sparkles className="w-4 h-4 text-charcoal" />
+                              <span className="text-sm font-semibold text-charcoal">{project.investment_score}/10 Score</span>
+                            </motion.div>
+                          )}
+                        </div>
+
+                        {/* Content */}
+                        <div className="flex-1 p-6 relative z-10">
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                            <span className="flex items-center gap-1">
+                              <Building className="w-4 h-4" />
+                              {project.developers?.name || "Developer"}
+                            </span>
+                            <span className="w-1 h-1 rounded-full bg-primary" />
+                            <span className="flex items-center gap-1">
+                              <MapPin className="w-4 h-4" />
+                              {project.areas?.name || project.city}
+                            </span>
+                          </div>
+
+                          <h3 className="text-xl font-display font-medium text-foreground mb-3">
+                            {project.project_name}
+                          </h3>
+
+                          {/* Description */}
+                          {project.short_description && (
+                            <div className="glass-panel rounded-xl p-4 mb-4">
+                              <div className="flex items-start gap-2">
+                                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-gold-dark flex items-center justify-center flex-shrink-0 mt-0.5">
+                                  <Sparkles className="w-3.5 h-3.5 text-charcoal" />
+                                </div>
+                                <p className="text-sm text-foreground line-clamp-2">{project.short_description}</p>
+                              </div>
+                            </div>
+                          )}
+
+                          <div className="flex items-center justify-between flex-wrap gap-3">
+                            <div className="flex items-center gap-4 flex-wrap">
+                              <div>
+                                <span className="text-xs text-muted-foreground">From</span>
+                                <div className="font-semibold text-foreground">{formatPrice(project.starting_price)}</div>
+                              </div>
+                              {project.investment_tags?.length > 0 && (
+                                <div className="glass-panel px-3 py-1.5 rounded-full flex items-center gap-1 text-primary">
+                                  <TrendingUp className="w-4 h-4" />
+                                  <span className="font-semibold text-sm">{project.investment_tags[0]}</span>
+                                </div>
+                              )}
+                              <div className="glass-panel px-3 py-1.5 rounded-full flex items-center gap-1 text-muted-foreground text-sm">
+                                <Clock className="w-4 h-4" />
+                                {handoverText}
+                              </div>
+                            </div>
+
+                            <Button variant="gold" size="sm" className="rounded-full" asChild>
+                              <Link to={getProjectLink(project)}>
+                                View Details
+                                <ArrowRight className="w-4 h-4 ml-1" />
+                              </Link>
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.article>
+                  );
+                })}
               </motion.div>
             )}
           </motion.div>
