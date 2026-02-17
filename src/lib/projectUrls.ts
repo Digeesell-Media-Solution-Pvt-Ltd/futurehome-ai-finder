@@ -67,4 +67,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'volta': 'damac',
   'coral-reef': 'damac',
   'elegance-tower': 'damac',
+  'canal-heights': 'damac',
 };
