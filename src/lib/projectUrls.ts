@@ -69,4 +69,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'elegance-tower': 'damac',
   'canal-heights': 'damac',
   'la-tilia': 'dubai-properties',
+  'mudon-al-ranim-7': 'dubai-properties',
 };

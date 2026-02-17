@@ -63,6 +63,7 @@ import CoralReefProject from "./pages/projects/CoralReefProject";
 import EleganceTowerProject from "./pages/projects/EleganceTowerProject";
 import CanalHeightsProject from "./pages/projects/CanalHeightsProject";
 import LaTiliaProject from "./pages/projects/LaTiliaProject";
+import MudonAlRanim7Project from "./pages/projects/MudonAlRanim7Project";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import DubaiMarinaArea from "./pages/areas/DubaiMarinaArea";
@@ -158,6 +159,7 @@ const App = () => (
           <Route path="/projects/damac/elegance-tower" element={<EleganceTowerProject />} />
           <Route path="/projects/damac/canal-heights" element={<CanalHeightsProject />} />
           <Route path="/projects/dubai-properties/la-tilia" element={<LaTiliaProject />} />
+          <Route path="/projects/dubai-properties/mudon-al-ranim-7" element={<MudonAlRanim7Project />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/dubai-marina" element={<DubaiMarinaArea />} />
