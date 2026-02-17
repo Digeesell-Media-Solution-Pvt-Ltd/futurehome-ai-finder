@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SlidersHorizontal, Grid, LayoutList, Building2 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
@@ -177,7 +177,7 @@ export default function Projects() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
+      
     </div>
   );
 }

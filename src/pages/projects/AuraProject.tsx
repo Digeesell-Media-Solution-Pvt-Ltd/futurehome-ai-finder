@@ -1,26 +1,12 @@
 import { motion } from "framer-motion";
 import { 
-  ArrowLeft, 
-  MapPin, 
-  Calendar, 
-  TrendingUp, 
-  BadgeCheck, 
-  Download, 
-  Phone, 
-  MessageCircle,
-  Building2,
-  Sparkles,
-  Dumbbell,
-  Car,
-  Waves,
-  TreePine,
-  Train,
-  Users
+  ArrowLeft, MapPin, Calendar, TrendingUp, BadgeCheck, Download, 
+  Building2, Sparkles, Dumbbell, Car, Waves, TreePine, Train, Users, Send
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import { Button } from "@/components/ui/button";
 
 import heroImage from "@/assets/projects/aura-hero.jpg";
@@ -83,9 +69,7 @@ With every corner echoing sophistication, Aura is more than a residence—it's t
 };
 
 export default function AuraProject() {
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/971000000000?text=Hi, I'm interested in Aura by Azizi in Jebel Ali", "_blank");
-  };
+  const { openLeadCapture } = useLeadCapture();
 
   return (
     <div className="min-h-screen bg-background">
@@ -319,16 +303,14 @@ export default function AuraProject() {
                     <h3 className="text-lg font-semibold text-foreground mb-4">Interested in Aura?</h3>
                     
                     <div className="space-y-3">
-                      <Button variant="gold" className="w-full" asChild>
-                        <a href="tel:+971000000000">
-                          <Phone className="w-4 h-4 mr-2" />
-                          Book a Call
-                        </a>
+                      <Button variant="gold" className="w-full" onClick={() => openLeadCapture({ projectName: "Aura by Azizi", ctaType: "Book a Consultation" })}>
+                        <Send className="w-4 h-4 mr-2" />
+                        Book a Consultation
                       </Button>
                       
-                      <Button variant="gold-outline" className="w-full" onClick={handleWhatsApp}>
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        WhatsApp
+                      <Button variant="gold-outline" className="w-full" onClick={() => openLeadCapture({ projectName: "Aura by Azizi", ctaType: "Request Pricing" })}>
+                        <TrendingUp className="w-4 h-4 mr-2" />
+                        Request Pricing
                       </Button>
                     </div>
                   </motion.div>
@@ -342,18 +324,14 @@ export default function AuraProject() {
                     <h3 className="text-lg font-semibold text-foreground mb-4">Downloads</h3>
                     
                     <div className="space-y-3">
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Download Floor Plans
-                        </a>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: "Aura by Azizi", ctaType: "Download Floor Plan" })}>
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Floor Plans
                       </Button>
                       
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Download Price Plan
-                        </a>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: "Aura by Azizi", ctaType: "Download Brochure" })}>
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Price Plan
                       </Button>
                     </div>
                   </motion.div>
@@ -380,7 +358,7 @@ export default function AuraProject() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
+      
     </div>
   );
 }

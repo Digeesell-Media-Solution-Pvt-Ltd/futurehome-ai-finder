@@ -83,6 +83,45 @@ export type Database = {
         }
         Relationships: []
       }
+      leads: {
+        Row: {
+          created_at: string
+          cta_type: string
+          download_url: string | null
+          email: string
+          full_name: string
+          id: string
+          phone_country_code: string
+          phone_number: string
+          project_name: string | null
+          requirement: string | null
+        }
+        Insert: {
+          created_at?: string
+          cta_type?: string
+          download_url?: string | null
+          email: string
+          full_name: string
+          id?: string
+          phone_country_code?: string
+          phone_number: string
+          project_name?: string | null
+          requirement?: string | null
+        }
+        Update: {
+          created_at?: string
+          cta_type?: string
+          download_url?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          phone_country_code?: string
+          phone_number?: string
+          project_name?: string | null
+          requirement?: string | null
+        }
+        Relationships: []
+      }
       projects: {
         Row: {
           amenities: Database["public"]["Enums"]["amenity_type"][]

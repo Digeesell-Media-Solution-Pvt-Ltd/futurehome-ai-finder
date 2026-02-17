@@ -4,11 +4,13 @@ import { Search, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AISearchDialog } from "@/components/ai/AISearchDialog";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import heroImage from "@/assets/hero-dubai.jpg";
 
 export function HeroSection() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [heroQuery, setHeroQuery] = useState("");
+  const { openLeadCapture } = useLeadCapture();
 
   const handleHeroSearch = () => {
     if (heroQuery.trim()) {
@@ -168,10 +170,8 @@ export function HeroSection() {
                 Browse All Projects
               </Link>
             </Button>
-            <Button variant="hero-outline" className="backdrop-blur-soft" asChild>
-              <Link to="/contact">
+            <Button variant="hero-outline" className="backdrop-blur-soft" onClick={() => openLeadCapture({ ctaType: "Request Details" })}>
                 Request Details
-              </Link>
             </Button>
           </motion.div>
         </div>

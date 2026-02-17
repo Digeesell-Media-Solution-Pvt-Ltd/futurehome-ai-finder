@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Search, Phone } from "lucide-react";
+import { Search, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { AISearchDialog } from "@/components/ai/AISearchDialog";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,6 +13,7 @@ export function Header() {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const useDarkLogo = isScrolled || !isHome;
+  const { openLeadCapture } = useLeadCapture();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,11 +67,9 @@ export function Header() {
                 <Search className="w-4 h-4 mr-1" />
                 <span className="hidden sm:inline">AI Search</span>
               </Button>
-              <Button variant="gold" size="sm" asChild>
-                <Link to="/contact">
-                  <Phone className="w-4 h-4 mr-1" />
-                  <span className="hidden sm:inline">Hire a Consultant</span>
-                </Link>
+              <Button variant="gold" size="sm" onClick={() => openLeadCapture({ ctaType: "Hire a Consultant" })}>
+                <Send className="w-4 h-4 mr-1" />
+                <span className="hidden sm:inline">Hire a Consultant</span>
               </Button>
             </motion.div>
           </nav>

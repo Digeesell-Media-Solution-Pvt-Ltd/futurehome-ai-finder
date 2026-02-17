@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { 
-  ArrowLeft, ArrowRight, Download, Phone, MessageCircle, MapPin, Building, 
+  ArrowLeft, ArrowRight, Download, MapPin, Building, 
   Calendar, Bed, TrendingUp, BadgeCheck, Heart, Share2, Play,
   Waves, Dumbbell, Film, Utensils, TreePalm, Baby, Gamepad2, Car,
-  Sparkles, Coffee, Wifi
+  Sparkles, Coffee, Wifi, Send
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import breezHero from "@/assets/projects/breez-hero.jpg";
 import breezAmenities from "@/assets/projects/breez-amenities.jpg";
 import breezRooftop from "@/assets/projects/breez-rooftop.jpg";
@@ -68,7 +68,7 @@ const highlights = [
 
 export default function BreezProjectPage() {
   const [isSaved, setIsSaved] = useState(false);
-
+  const { openLeadCapture } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -354,18 +354,13 @@ export default function BreezProjectPage() {
 
                   {/* CTAs */}
                   <div className="space-y-3">
-                    <Button variant="hero" size="lg" className="w-full rounded-full">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Book a Call
+                    <Button variant="hero" size="lg" className="w-full rounded-full" onClick={() => openLeadCapture({ projectName: "Breez by Danube", ctaType: "Book a Consultation" })}>
+                      <Send className="w-4 h-4 mr-2" />
+                      Book a Consultation
                     </Button>
-                    <Button 
-                      variant="gold" 
-                      size="lg" 
-                      className="w-full rounded-full"
-                      onClick={() => window.open("https://wa.me/971800575757", "_blank")}
-                    >
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      WhatsApp Inquiry
+                    <Button variant="gold" size="lg" className="w-full rounded-full" onClick={() => openLeadCapture({ projectName: "Breez by Danube", ctaType: "Request Pricing" })}>
+                      <TrendingUp className="w-4 h-4 mr-2" />
+                      Request Pricing
                     </Button>
                   </div>
 
@@ -396,28 +391,26 @@ export default function BreezProjectPage() {
                 >
                   <h3 className="font-medium text-foreground mb-4">Downloads</h3>
                   <div className="space-y-3">
-                    <a
-                      href="/downloads/breez-floor-plans.pdf"
-                      download
-                      className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
+                    <button
+                      onClick={() => openLeadCapture({ projectName: "Breez by Danube", ctaType: "Download Floor Plan", downloadUrl: "/downloads/breez-floor-plans.pdf" })}
+                      className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors w-full text-left"
                     >
                       <Download className="w-5 h-5 text-primary" />
                       <div>
                         <div className="text-sm font-medium text-foreground">Floor Plans</div>
                         <div className="text-xs text-muted-foreground">PDF • 2.5 MB</div>
                       </div>
-                    </a>
-                    <a
-                      href="/downloads/breez-floor-plans.pdf"
-                      download
-                      className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
+                    </button>
+                    <button
+                      onClick={() => openLeadCapture({ projectName: "Breez by Danube", ctaType: "Download Brochure", downloadUrl: "/downloads/breez-floor-plans.pdf" })}
+                      className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors w-full text-left"
                     >
                       <Download className="w-5 h-5 text-primary" />
                       <div>
                         <div className="text-sm font-medium text-foreground">Price Plan</div>
                         <div className="text-xs text-muted-foreground">PDF • 1.2 MB</div>
                       </div>
-                    </a>
+                    </button>
                   </div>
                 </motion.div>
               </div>
@@ -441,7 +434,6 @@ export default function BreezProjectPage() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }
