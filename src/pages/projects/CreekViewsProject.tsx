@@ -20,8 +20,8 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/creek-views-hero.jpg";
 import rooftopImage from "@/assets/projects/creek-views-rooftop.jpg";
@@ -360,7 +360,6 @@ export default function CreekViewsProject() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }
