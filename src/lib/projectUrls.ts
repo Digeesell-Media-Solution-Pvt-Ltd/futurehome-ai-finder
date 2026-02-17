@@ -70,4 +70,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'canal-heights': 'damac',
   'la-tilia': 'dubai-properties',
   'mudon-al-ranim-7': 'dubai-properties',
+  'eltiera-views': 'ellington',
 };
