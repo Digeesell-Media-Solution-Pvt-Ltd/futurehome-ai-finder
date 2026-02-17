@@ -28,7 +28,7 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import { Button } from "@/components/ui/button";
 import damacCasaHero from "@/assets/projects/damac-casa-hero.jpg";
 import damacCasaInterior from "@/assets/projects/damac-casa-interior.jpg";
@@ -86,6 +86,7 @@ const galleryImages = [
 ];
 
 export default function DamacCasaProject() {
+  const { openLeadCapture } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
@@ -536,11 +537,11 @@ export default function DamacCasaProject() {
               Connect with the project's official sales team.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="gold" size="lg" className="rounded-full">
+              <Button variant="gold" size="lg" className="rounded-full" onClick={() => openLeadCapture({ projectName: "DAMAC Casa", ctaType: "Request Details" })}>
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Request Project Details
               </Button>
-              <Button variant="gold-outline" size="lg" className="rounded-full">
+              <Button variant="gold-outline" size="lg" className="rounded-full" onClick={() => openLeadCapture({ projectName: "DAMAC Casa", ctaType: "Download Brochure" })}>
                 <Download className="w-4 h-4 mr-2" />
                 Download Brochure
               </Button>
@@ -593,7 +594,6 @@ export default function DamacCasaProject() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }

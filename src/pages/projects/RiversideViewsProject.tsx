@@ -3,7 +3,7 @@ import { ArrowLeft, TrendingUp, Building2, MapPin, Calendar, Download, Phone, Me
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import { Button } from "@/components/ui/button";
 
 import heroImage from "@/assets/projects/riverside-views-hero.jpg";
@@ -50,6 +50,7 @@ const paymentPlan = [
 ];
 
 export default function RiversideViewsProject() {
+  const { openLeadCapture } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -402,11 +403,11 @@ export default function RiversideViewsProject() {
               Secure your waterfront residence in Dubai's first riverside community. Book a consultation today.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button variant="gold" size="lg">
+              <Button variant="gold" size="lg" onClick={() => openLeadCapture({ projectName: "Riverside Views", ctaType: "Book a Consultation" })}>
                 <Phone className="w-4 h-4 mr-2" />
                 Schedule Consultation
               </Button>
-              <Button variant="gold-outline" size="lg">
+              <Button variant="gold-outline" size="lg" onClick={() => openLeadCapture({ projectName: "Riverside Views", ctaType: "Download Brochure" })}>
                 <Download className="w-4 h-4 mr-2" />
                 Download Brochure
               </Button>
@@ -416,7 +417,6 @@ export default function RiversideViewsProject() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }

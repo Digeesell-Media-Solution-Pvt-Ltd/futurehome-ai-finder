@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/skyvue-altier-hero.jpg";
 import interiorImage from "@/assets/projects/skyvue-altier-interior.jpg";
@@ -17,6 +18,7 @@ import lagoonImage from "@/assets/projects/skyvue-altier-lagoon.jpg";
 import rooftopImage from "@/assets/projects/skyvue-altier-rooftop.jpg";
 
 const SkyvueAltierProject = () => {
+  const { openLeadCapture } = useLeadCapture();
   const [activeImage, setActiveImage] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
@@ -440,34 +442,17 @@ const SkyvueAltierProject = () => {
 
               {/* CTA Buttons */}
               <div className="space-y-3">
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold"
-                  asChild
-                >
-                  <a href="https://sobharealty.com/sites/default/files/2025-11/SKYVUE%20ALTIER%20-%20Brochure.pdf" target="_blank" rel="noopener noreferrer">
-                    <Download className="w-4 h-4" />
-                    Download Pricing
-                  </a>
+                <Button className="w-full gap-2" variant="gold" onClick={() => openLeadCapture({ projectName: "Skyvue Altier", ctaType: "Download Pricing" })}>
+                  <Download className="w-4 h-4" />
+                  Download Pricing
                 </Button>
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold-outline"
-                  asChild
-                >
-                  <a href="https://sobharealty.com/sites/default/files/2025-11/SKYVUE%20ALTIER%20-%20Brochure.pdf" target="_blank" rel="noopener noreferrer">
-                    <FileText className="w-4 h-4" />
-                    View Brochure
-                  </a>
+                <Button className="w-full gap-2" variant="gold-outline" onClick={() => openLeadCapture({ projectName: "Skyvue Altier", ctaType: "Download Brochure" })}>
+                  <FileText className="w-4 h-4" />
+                  View Brochure
                 </Button>
-                <Button 
-                  className="w-full gap-2 bg-emerald-600 hover:bg-emerald-700 text-white"
-                  asChild
-                >
-                  <a href="https://wa.me/971501234567?text=Hi, I'm interested in Skyvue Altier at Sobha Hartland 2" target="_blank" rel="noopener noreferrer">
-                    <MessageSquare className="w-4 h-4" />
-                    WhatsApp Inquiry
-                  </a>
+                <Button className="w-full gap-2" variant="outline" onClick={() => openLeadCapture({ projectName: "Skyvue Altier", ctaType: "Request Details" })}>
+                  <MessageSquare className="w-4 h-4" />
+                  Request Details
                 </Button>
               </div>
 

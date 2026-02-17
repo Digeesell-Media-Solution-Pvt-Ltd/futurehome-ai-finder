@@ -28,7 +28,7 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import { Button } from "@/components/ui/button";
 import damacIslands2Hero from "@/assets/projects/damac-islands2-hero.jpg";
 import damacIslands2Pool from "@/assets/projects/damac-islands2-pool.jpg";
@@ -95,6 +95,7 @@ const galleryImages = [
 ];
 
 export default function DamacIslands2Project() {
+  const { openLeadCapture } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -573,13 +574,13 @@ export default function DamacIslands2Project() {
               luxury villas. Our property experts are ready to assist you.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="hero" size="lg" className="rounded-full">
+              <Button variant="hero" size="lg" className="rounded-full" onClick={() => openLeadCapture({ projectName: "DAMAC Islands 2", ctaType: "Book a Consultation" })}>
                 <Phone className="w-4 h-4 mr-2" />
                 Book Consultation
               </Button>
-              <Button variant="gold" size="lg" className="rounded-full">
+              <Button variant="gold" size="lg" className="rounded-full" onClick={() => openLeadCapture({ projectName: "DAMAC Islands 2", ctaType: "Request Details" })}>
                 <MessageCircle className="w-4 h-4 mr-2" />
-                WhatsApp Inquiry
+                Request Details
               </Button>
               <Button variant="gold-outline" size="lg" className="rounded-full" asChild>
                 <Link to="/projects">
@@ -593,7 +594,6 @@ export default function DamacIslands2Project() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }

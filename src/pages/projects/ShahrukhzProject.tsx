@@ -8,7 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import { Button } from "@/components/ui/button";
 import shahrukhzLobby from "@/assets/projects/shahrukhz-lobby.jpg";
 import shahrukhzSkypool from "@/assets/projects/shahrukhz-skypool.jpg";
@@ -74,6 +74,7 @@ const distances = [
 ];
 
 export default function ShahrukhzProject() {
+  const { openLeadCapture } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -393,16 +394,12 @@ export default function ShahrukhzProject() {
                   transition={{ delay: 0.5 }}
                   className="space-y-3"
                 >
-                  <Button variant="gold" className="w-full rounded-full" asChild>
-                    <a href="https://wa.me/9718005757" target="_blank" rel="noopener noreferrer">
-                      WhatsApp Inquiry
-                    </a>
+                  <Button variant="gold" className="w-full rounded-full" onClick={() => openLeadCapture({ projectName: "Shahrukhz", ctaType: "Request Details" })}>
+                    Request Details
                   </Button>
-                  <Button variant="gold-outline" className="w-full rounded-full" asChild>
-                    <a href="tel:+971800575757">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Book a Call
-                    </a>
+                  <Button variant="gold-outline" className="w-full rounded-full" onClick={() => openLeadCapture({ projectName: "Shahrukhz", ctaType: "Book a Consultation" })}>
+                    <Phone className="w-4 h-4 mr-2" />
+                    Book a Call
                   </Button>
                 </motion.div>
 
@@ -483,7 +480,6 @@ export default function ShahrukhzProject() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }

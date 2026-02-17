@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/the-greens-hero.jpg";
 import interiorImage from "@/assets/projects/the-greens-interior.jpg";
@@ -17,6 +18,7 @@ import poolImage from "@/assets/projects/the-greens-pool.jpg";
 import parkImage from "@/assets/projects/the-greens-park.jpg";
 
 const TheGreensProject = () => {
+  const { openLeadCapture } = useLeadCapture();
   const [activeImage, setActiveImage] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
@@ -301,36 +303,19 @@ const TheGreensProject = () => {
 
               {/* CTA Buttons */}
               <div className="space-y-3">
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold"
-                  asChild
-                >
-                  <a href="https://sobharealty.com/sites/default/files/2026-01/THE%20GREENS%20AT%20SOBHA_SANCTUARY.pdf" target="_blank" rel="noopener noreferrer">
-                    <Download className="w-4 h-4" />
-                    Download Floor Plan PDF
-                  </a>
+                <Button className="w-full gap-2" variant="gold" onClick={() => openLeadCapture({ projectName: "The Greens", ctaType: "Download Floor Plan" })}>
+                  <Download className="w-4 h-4" />
+                  Download Floor Plan PDF
                 </Button>
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold-outline"
-                  asChild
-                >
-                  <a href="https://sobharealty.com/sites/default/files/2026-01/THE%20GREENS%20AT%20SOBHA_SANCTUARY.pdf" target="_blank" rel="noopener noreferrer">
-                    <Download className="w-4 h-4" />
-                    Download Pricing Sheet
-                  </a>
+                <Button className="w-full gap-2" variant="gold-outline" onClick={() => openLeadCapture({ projectName: "The Greens", ctaType: "Download Pricing" })}>
+                  <Download className="w-4 h-4" />
+                  Download Pricing Sheet
                 </Button>
-                <Button 
-                  className="w-full gap-2 bg-emerald-600 hover:bg-emerald-700 text-white"
-                  asChild
-                >
-                  <a href="https://wa.me/971501234567?text=Hi, I'm interested in The Greens at Sobha Sanctuary" target="_blank" rel="noopener noreferrer">
-                    <MessageSquare className="w-4 h-4" />
-                    Contact Agent
-                  </a>
+                <Button className="w-full gap-2" variant="outline" onClick={() => openLeadCapture({ projectName: "The Greens", ctaType: "Request Details" })}>
+                  <MessageSquare className="w-4 h-4" />
+                  Contact Agent
                 </Button>
-                <Button variant="outline" className="w-full gap-2">
+                <Button variant="outline" className="w-full gap-2" onClick={() => openLeadCapture({ projectName: "The Greens", ctaType: "Book a Consultation" })}>
                   <Phone className="w-4 h-4" />
                   Schedule a Callback
                 </Button>

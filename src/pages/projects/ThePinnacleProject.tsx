@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/the-pinnacle-hero.jpg";
 import interiorImage from "@/assets/projects/the-pinnacle-interior.jpg";
@@ -18,6 +19,7 @@ import poolImage from "@/assets/projects/the-pinnacle-pool.jpg";
 import gymImage from "@/assets/projects/the-pinnacle-gym.jpg";
 
 const ThePinnacleProject = () => {
+  const { openLeadCapture } = useLeadCapture();
   const [activeImage, setActiveImage] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
@@ -383,34 +385,17 @@ const ThePinnacleProject = () => {
 
               {/* CTA Buttons */}
               <div className="space-y-3">
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold"
-                  asChild
-                >
-                  <a href="https://sobharealty.com/sites/default/files/2025-12/THE%20PINNACLE%20AT%20SOBHA%20CENTRAL_BROCHURE.pdf" target="_blank" rel="noopener noreferrer">
-                    <Download className="w-4 h-4" />
-                    Download Brochure
-                  </a>
+                <Button className="w-full gap-2" variant="gold" onClick={() => openLeadCapture({ projectName: "The Pinnacle", ctaType: "Download Brochure" })}>
+                  <Download className="w-4 h-4" />
+                  Download Brochure
                 </Button>
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold-outline"
-                  asChild
-                >
-                  <a href="https://sobharealty.com/sites/default/files/2025-12/The%20Pinnacle%20at%20Sobha%20Central_FloorPlans.pdf" target="_blank" rel="noopener noreferrer">
-                    <Download className="w-4 h-4" />
-                    Floor Plan PDF
-                  </a>
+                <Button className="w-full gap-2" variant="gold-outline" onClick={() => openLeadCapture({ projectName: "The Pinnacle", ctaType: "Download Floor Plan" })}>
+                  <Download className="w-4 h-4" />
+                  Floor Plan PDF
                 </Button>
-                <Button 
-                  className="w-full gap-2 bg-emerald-600 hover:bg-emerald-700 text-white"
-                  asChild
-                >
-                  <a href="https://wa.me/971501234567?text=Hi, I'm interested in The Pinnacle at Sobha Central" target="_blank" rel="noopener noreferrer">
-                    <Phone className="w-4 h-4" />
-                    Schedule a Call
-                  </a>
+                <Button className="w-full gap-2" variant="outline" onClick={() => openLeadCapture({ projectName: "The Pinnacle", ctaType: "Book a Consultation" })}>
+                  <Phone className="w-4 h-4" />
+                  Schedule a Call
                 </Button>
               </div>
 

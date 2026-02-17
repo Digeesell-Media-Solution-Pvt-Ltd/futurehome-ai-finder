@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/city-walk-crestlane-hero.jpg";
 import interiorImage from "@/assets/projects/city-walk-crestlane-interior.jpg";
@@ -17,6 +18,7 @@ import poolImage from "@/assets/projects/city-walk-crestlane-pool.jpg";
 import retailImage from "@/assets/projects/city-walk-crestlane-retail.jpg";
 
 const CityWalkCrestlaneProject = () => {
+  const { openLeadCapture } = useLeadCapture();
   const [activeImage, setActiveImage] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
@@ -393,44 +395,21 @@ const CityWalkCrestlaneProject = () => {
 
               {/* CTA Buttons */}
               <div className="space-y-3">
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold"
-                  asChild
-                >
-                  <a href="https://meraas.com/sites/default/files/2025-11/City%20Walk%20Crestlane%204%265%20Floor%20Plans.pdf" target="_blank" rel="noopener noreferrer">
-                    <Download className="w-4 h-4" />
-                    Download Floor Plan
-                  </a>
+                <Button className="w-full gap-2" variant="gold" onClick={() => openLeadCapture({ projectName: "City Walk Crestlane", ctaType: "Download Floor Plan" })}>
+                  <Download className="w-4 h-4" />
+                  Download Floor Plan
                 </Button>
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold-outline"
-                  asChild
-                >
-                  <a href="https://meraas.com/sites/default/files/2025-11/City%20Walk%20Crestlane%20Prices%20%26%20Payment%20Plan.pdf" target="_blank" rel="noopener noreferrer">
-                    <FileText className="w-4 h-4" />
-                    Download Price Plan
-                  </a>
+                <Button className="w-full gap-2" variant="gold-outline" onClick={() => openLeadCapture({ projectName: "City Walk Crestlane", ctaType: "Download Price Plan" })}>
+                  <FileText className="w-4 h-4" />
+                  Download Price Plan
                 </Button>
-                <Button 
-                  className="w-full gap-2" 
-                  variant="outline"
-                  asChild
-                >
-                  <a href="tel:+971501234567">
-                    <Phone className="w-4 h-4" />
-                    Contact Advisor
-                  </a>
+                <Button className="w-full gap-2" variant="outline" onClick={() => openLeadCapture({ projectName: "City Walk Crestlane", ctaType: "Book a Consultation" })}>
+                  <Phone className="w-4 h-4" />
+                  Contact Advisor
                 </Button>
-                <Button 
-                  className="w-full gap-2 bg-emerald-600 hover:bg-emerald-700 text-white"
-                  asChild
-                >
-                  <a href="https://wa.me/971501234567?text=Hi, I'm interested in City Walk Crestlane by Meraas" target="_blank" rel="noopener noreferrer">
-                    <MessageSquare className="w-4 h-4" />
-                    WhatsApp Inquiry
-                  </a>
+                <Button className="w-full gap-2" variant="outline" onClick={() => openLeadCapture({ projectName: "City Walk Crestlane", ctaType: "Request Details" })}>
+                  <MessageSquare className="w-4 h-4" />
+                  Request Details
                 </Button>
               </div>
 

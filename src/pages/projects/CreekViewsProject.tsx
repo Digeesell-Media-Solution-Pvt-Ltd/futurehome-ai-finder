@@ -81,9 +81,7 @@ Discover a location perfectly tailored to your needs, complemented by elegant de
 };
 
 export default function CreekViewsProject() {
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/971000000000?text=Hi, I'm interested in Creek Views in Dubai Healthcare City", "_blank");
-  };
+  const { openLeadCapture } = useLeadCapture();
 
   return (
     <div className="min-h-screen bg-background">
@@ -313,16 +311,14 @@ export default function CreekViewsProject() {
                     <h3 className="text-lg font-semibold text-foreground mb-4">Interested in Creek Views?</h3>
                     
                     <div className="space-y-3">
-                      <Button variant="gold" className="w-full" asChild>
-                        <a href="tel:+971000000000">
-                          <Phone className="w-4 h-4 mr-2" />
-                          Book a Call
-                        </a>
+                      <Button variant="gold" className="w-full" onClick={() => openLeadCapture({ projectName: "Creek Views", ctaType: "Book a Consultation" })}>
+                        <Phone className="w-4 h-4 mr-2" />
+                        Book a Call
                       </Button>
                       
-                      <Button variant="gold-outline" className="w-full" onClick={handleWhatsApp}>
+                      <Button variant="gold-outline" className="w-full" onClick={() => openLeadCapture({ projectName: "Creek Views", ctaType: "Request Details" })}>
                         <MessageCircle className="w-4 h-4 mr-2" />
-                        WhatsApp
+                        Request Details
                       </Button>
                     </div>
                   </motion.div>
@@ -336,18 +332,14 @@ export default function CreekViewsProject() {
                     <h3 className="text-lg font-semibold text-foreground mb-4">Downloads</h3>
                     
                     <div className="space-y-3">
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Download Floor Plans
-                        </a>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: "Creek Views", ctaType: "Download Floor Plan" })}>
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Floor Plans
                       </Button>
                       
-                      <Button variant="outline" className="w-full justify-start" asChild>
-                        <a href="#" download>
-                          <Download className="w-4 h-4 mr-2" />
-                          Download Price Plan
-                        </a>
+                      <Button variant="outline" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: "Creek Views", ctaType: "Download Price Plan" })}>
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Price Plan
                       </Button>
                     </div>
                   </motion.div>

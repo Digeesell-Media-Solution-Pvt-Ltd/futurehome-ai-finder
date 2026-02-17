@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/nad-al-sheba-gardens-hero.jpg";
 import interiorImage from "@/assets/projects/nad-al-sheba-gardens-interior.jpg";
@@ -17,6 +18,7 @@ import parkImage from "@/assets/projects/nad-al-sheba-gardens-park.jpg";
 import poolImage from "@/assets/projects/nad-al-sheba-gardens-pool.jpg";
 
 const NadAlShebaGardensProject = () => {
+  const { openLeadCapture } = useLeadCapture();
   const [activeImage, setActiveImage] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
@@ -393,35 +395,17 @@ const NadAlShebaGardensProject = () => {
 
               {/* CTA Buttons */}
               <div className="space-y-3">
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold"
-                  asChild
-                >
-                  <a href="https://meraas.com/en/project/nad-al-sheba-gardens-villa" target="_blank" rel="noopener noreferrer">
-                    <Download className="w-4 h-4" />
-                    Download Floor Plan
-                  </a>
+                <Button className="w-full gap-2" variant="gold" onClick={() => openLeadCapture({ projectName: "Nad Al Sheba Gardens", ctaType: "Download Floor Plan" })}>
+                  <Download className="w-4 h-4" />
+                  Download Floor Plan
                 </Button>
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold-outline"
-                  asChild
-                >
-                  <a href="https://meraas.com/en/project/nad-al-sheba-gardens-villa" target="_blank" rel="noopener noreferrer">
-                    <Download className="w-4 h-4" />
-                    Download Price Plan
-                  </a>
+                <Button className="w-full gap-2" variant="gold-outline" onClick={() => openLeadCapture({ projectName: "Nad Al Sheba Gardens", ctaType: "Download Price Plan" })}>
+                  <Download className="w-4 h-4" />
+                  Download Price Plan
                 </Button>
-                <Button 
-                  className="w-full gap-2" 
-                  variant="outline"
-                  asChild
-                >
-                  <a href="tel:+971501234567">
-                    <Phone className="w-4 h-4" />
-                    Contact Sales
-                  </a>
+                <Button className="w-full gap-2" variant="outline" onClick={() => openLeadCapture({ projectName: "Nad Al Sheba Gardens", ctaType: "Book a Consultation" })}>
+                  <Phone className="w-4 h-4" />
+                  Contact Sales
                 </Button>
               </div>
 
