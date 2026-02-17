@@ -64,4 +64,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'jumeirah-emirates-tower': 'meraas',
   'meriden-beach': 'green-horizon',
   'damac-casa': 'damac',
+  'volta': 'damac',
 };
