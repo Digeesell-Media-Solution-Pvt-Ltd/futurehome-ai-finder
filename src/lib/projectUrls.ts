@@ -66,4 +66,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'damac-casa': 'damac',
   'volta': 'damac',
   'coral-reef': 'damac',
+  'elegance-tower': 'damac',
 };
