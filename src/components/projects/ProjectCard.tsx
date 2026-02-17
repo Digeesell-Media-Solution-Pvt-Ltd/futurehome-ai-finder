@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Calendar, Building2, TrendingUp, Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import type { Project } from "@/types/project";
+import { getHeroImage } from "@/lib/heroImages";
 
 interface Props {
   project: Project;
@@ -11,6 +12,7 @@ interface Props {
 export function ProjectCard({ project, index }: Props) {
   const developerSlug = project.developers?.slug || "unknown";
   const projectUrl = `/projects/${developerSlug}/${project.slug}`;
+  const heroSrc = project.hero_image || getHeroImage(project.slug);
 
   const formatPrice = (price: number | null) => {
     if (!price) return null;
@@ -36,9 +38,9 @@ export function ProjectCard({ project, index }: Props) {
     >
       {/* Image */}
       <div className="relative aspect-[16/10] overflow-hidden">
-        {project.hero_image ? (
+        {heroSrc ? (
           <img
-            src={project.hero_image}
+            src={heroSrc}
             alt={project.project_name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             loading="lazy"
