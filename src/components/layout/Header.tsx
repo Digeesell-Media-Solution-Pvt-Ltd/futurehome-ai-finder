@@ -1,19 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { Search, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const navigation = [
-  { name: "Projects", href: "/projects" },
-  { name: "Areas", href: "/areas" },
-  { name: "Contact", href: "/contact" },
-];
-
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
   const useDarkLogo = isScrolled || !isHome;
@@ -25,10 +18,6 @@ export function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location]);
 
   return (
     <header
@@ -62,96 +51,28 @@ export function Header() {
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="hidden lg:flex items-center gap-8"
-          >
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={cn(
-                  "text-sm font-medium transition-colors duration-300 gold-underline",
-                  location.pathname === item.href
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </motion.div>
-
-          {/* Desktop CTA */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="hidden lg:flex items-center gap-4"
+            className="flex items-center gap-3"
           >
+            <Button variant="gold-outline" size="sm" asChild>
+              <Link to="/ai-search">
+                <Search className="w-4 h-4 mr-1" />
+                <span className="hidden sm:inline">AI Search</span>
+              </Link>
+            </Button>
             <Button variant="gold" size="sm" asChild>
-              <Link to="/contact">Request Details</Link>
+              <Link to="/contact">
+                <Phone className="w-4 h-4 mr-1" />
+                <span className="hidden sm:inline">Hire a Consultant</span>
+              </Link>
             </Button>
           </motion.div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
         </nav>
       </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-background border-t border-border"
-          >
-            <div className="container-luxury py-6 space-y-4">
-              {navigation.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                >
-                  <Link
-                    to={item.href}
-                    className={cn(
-                      "block py-2 text-base font-medium transition-colors",
-                      location.pathname === item.href
-                        ? "text-foreground"
-                        : "text-muted-foreground"
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-              <div className="pt-4 space-y-3 border-t border-border">
-                <Button variant="gold" className="w-full" asChild>
-                  <Link to="/contact">Request Details</Link>
-                </Button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }
