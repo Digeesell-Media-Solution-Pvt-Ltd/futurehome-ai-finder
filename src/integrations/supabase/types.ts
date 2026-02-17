@@ -14,7 +14,189 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      areas: {
+        Row: {
+          city: string
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          name: string
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          city?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name: string
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          city?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      developers: {
+        Row: {
+          created_at: string
+          description: string | null
+          featured: boolean
+          id: string
+          logo_url: string | null
+          name: string
+          name_ar: string | null
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          featured?: boolean
+          id?: string
+          logo_url?: string | null
+          name: string
+          name_ar?: string | null
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          featured?: boolean
+          id?: string
+          logo_url?: string | null
+          name?: string
+          name_ar?: string | null
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      projects: {
+        Row: {
+          amenities: Database["public"]["Enums"]["amenity_type"][]
+          area_id: string | null
+          bedroom_types: Database["public"]["Enums"]["bedroom_type"][]
+          brochure_url: string | null
+          city: string
+          created_at: string
+          currency: string
+          developer_id: string
+          floorplan_url: string | null
+          full_description: string | null
+          gallery_images: string[]
+          handover_quarter:
+            | Database["public"]["Enums"]["handover_quarter"]
+            | null
+          handover_year: number | null
+          hero_image: string | null
+          id: string
+          investment_score: number | null
+          investment_tags: Database["public"]["Enums"]["investment_tag"][]
+          launch_status: Database["public"]["Enums"]["launch_status"]
+          lifestyle_score: number | null
+          lifestyle_tags: Database["public"]["Enums"]["lifestyle_tag"][]
+          max_price: number | null
+          project_name: string
+          project_status: Database["public"]["Enums"]["project_status"]
+          property_types: Database["public"]["Enums"]["property_type"][]
+          short_description: string | null
+          slug: string
+          starting_price: number | null
+          updated_at: string
+        }
+        Insert: {
+          amenities?: Database["public"]["Enums"]["amenity_type"][]
+          area_id?: string | null
+          bedroom_types?: Database["public"]["Enums"]["bedroom_type"][]
+          brochure_url?: string | null
+          city?: string
+          created_at?: string
+          currency?: string
+          developer_id: string
+          floorplan_url?: string | null
+          full_description?: string | null
+          gallery_images?: string[]
+          handover_quarter?:
+            | Database["public"]["Enums"]["handover_quarter"]
+            | null
+          handover_year?: number | null
+          hero_image?: string | null
+          id?: string
+          investment_score?: number | null
+          investment_tags?: Database["public"]["Enums"]["investment_tag"][]
+          launch_status?: Database["public"]["Enums"]["launch_status"]
+          lifestyle_score?: number | null
+          lifestyle_tags?: Database["public"]["Enums"]["lifestyle_tag"][]
+          max_price?: number | null
+          project_name: string
+          project_status?: Database["public"]["Enums"]["project_status"]
+          property_types?: Database["public"]["Enums"]["property_type"][]
+          short_description?: string | null
+          slug: string
+          starting_price?: number | null
+          updated_at?: string
+        }
+        Update: {
+          amenities?: Database["public"]["Enums"]["amenity_type"][]
+          area_id?: string | null
+          bedroom_types?: Database["public"]["Enums"]["bedroom_type"][]
+          brochure_url?: string | null
+          city?: string
+          created_at?: string
+          currency?: string
+          developer_id?: string
+          floorplan_url?: string | null
+          full_description?: string | null
+          gallery_images?: string[]
+          handover_quarter?:
+            | Database["public"]["Enums"]["handover_quarter"]
+            | null
+          handover_year?: number | null
+          hero_image?: string | null
+          id?: string
+          investment_score?: number | null
+          investment_tags?: Database["public"]["Enums"]["investment_tag"][]
+          launch_status?: Database["public"]["Enums"]["launch_status"]
+          lifestyle_score?: number | null
+          lifestyle_tags?: Database["public"]["Enums"]["lifestyle_tag"][]
+          max_price?: number | null
+          project_name?: string
+          project_status?: Database["public"]["Enums"]["project_status"]
+          property_types?: Database["public"]["Enums"]["property_type"][]
+          short_description?: string | null
+          slug?: string
+          starting_price?: number | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "projects_area_id_fkey"
+            columns: ["area_id"]
+            isOneToOne: false
+            referencedRelation: "areas"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "projects_developer_id_fkey"
+            columns: ["developer_id"]
+            isOneToOne: false
+            referencedRelation: "developers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +205,72 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      amenity_type:
+        | "Swimming Pool"
+        | "Infinity Pool"
+        | "Gym"
+        | "Kids Play Area"
+        | "BBQ Area"
+        | "Landscaped Gardens"
+        | "Beach Access"
+        | "Clubhouse"
+        | "Co-working Space"
+        | "Retail Outlets"
+        | "Smart Home System"
+        | "Concierge"
+        | "24/7 Security"
+        | "Parking"
+        | "Jogging Track"
+        | "Spa"
+        | "Yoga Deck"
+      bedroom_type: "Studio" | "1BR" | "2BR" | "3BR" | "4BR" | "5BR+"
+      handover_quarter: "Q1" | "Q2" | "Q3" | "Q4"
+      investment_tag:
+        | "High ROI"
+        | "High Capital Appreciation"
+        | "Rental Income Focused"
+        | "Affordable Entry"
+        | "Luxury Segment"
+        | "Branded Residences"
+        | "Limited Units"
+        | "Investor Hotspot"
+      launch_status:
+        | "Pre-Launch"
+        | "Newly Launched"
+        | "Under Construction"
+        | "Ready to Move"
+        | "Handover Complete"
+      lifestyle_tag:
+        | "Waterfront"
+        | "Beachfront"
+        | "Golf Community"
+        | "Family Friendly"
+        | "Gated Community"
+        | "Popular Location"
+        | "Metro Access"
+        | "Good Connectivity"
+        | "Smart Home"
+        | "Wellness Living"
+        | "Resort Style"
+        | "Island Living"
+        | "City View"
+        | "Skyline View"
+      project_status:
+        | "Active"
+        | "Sold Out"
+        | "Upcoming"
+        | "On Hold"
+        | "Completed"
+      property_type:
+        | "Apartment"
+        | "Villa"
+        | "Townhouse"
+        | "Penthouse"
+        | "Duplex"
+        | "Office"
+        | "Retail"
+        | "Land"
+        | "Mansion"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +397,79 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      amenity_type: [
+        "Swimming Pool",
+        "Infinity Pool",
+        "Gym",
+        "Kids Play Area",
+        "BBQ Area",
+        "Landscaped Gardens",
+        "Beach Access",
+        "Clubhouse",
+        "Co-working Space",
+        "Retail Outlets",
+        "Smart Home System",
+        "Concierge",
+        "24/7 Security",
+        "Parking",
+        "Jogging Track",
+        "Spa",
+        "Yoga Deck",
+      ],
+      bedroom_type: ["Studio", "1BR", "2BR", "3BR", "4BR", "5BR+"],
+      handover_quarter: ["Q1", "Q2", "Q3", "Q4"],
+      investment_tag: [
+        "High ROI",
+        "High Capital Appreciation",
+        "Rental Income Focused",
+        "Affordable Entry",
+        "Luxury Segment",
+        "Branded Residences",
+        "Limited Units",
+        "Investor Hotspot",
+      ],
+      launch_status: [
+        "Pre-Launch",
+        "Newly Launched",
+        "Under Construction",
+        "Ready to Move",
+        "Handover Complete",
+      ],
+      lifestyle_tag: [
+        "Waterfront",
+        "Beachfront",
+        "Golf Community",
+        "Family Friendly",
+        "Gated Community",
+        "Popular Location",
+        "Metro Access",
+        "Good Connectivity",
+        "Smart Home",
+        "Wellness Living",
+        "Resort Style",
+        "Island Living",
+        "City View",
+        "Skyline View",
+      ],
+      project_status: [
+        "Active",
+        "Sold Out",
+        "Upcoming",
+        "On Hold",
+        "Completed",
+      ],
+      property_type: [
+        "Apartment",
+        "Villa",
+        "Townhouse",
+        "Penthouse",
+        "Duplex",
+        "Office",
+        "Retail",
+        "Land",
+        "Mansion",
+      ],
+    },
   },
 } as const
