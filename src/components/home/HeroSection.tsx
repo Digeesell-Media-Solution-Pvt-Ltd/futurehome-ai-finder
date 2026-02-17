@@ -1,11 +1,21 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Search, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { AISearchDialog } from "@/components/ai/AISearchDialog";
 import heroImage from "@/assets/hero-dubai.jpg";
 
-
 export function HeroSection() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [heroQuery, setHeroQuery] = useState("");
+
+  const handleHeroSearch = () => {
+    if (heroQuery.trim()) {
+      setDialogOpen(true);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
@@ -60,7 +70,7 @@ export function HeroSection() {
       {/* Content */}
       <div className="container-luxury relative z-10 pt-32 pb-20">
         <div className="max-w-3xl">
-          {/* Trust Badge - Glass style */}
+          {/* Trust Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -101,7 +111,7 @@ export function HeroSection() {
             Explore, compare, and connect — directly with official sales teams. No middlemen, no brokerage.
           </motion.p>
 
-          {/* AI Search Box - Glass Card */}
+          {/* AI Search Box */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -132,15 +142,16 @@ export function HeroSection() {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 <input
                   type="text"
+                  value={heroQuery}
+                  onChange={(e) => setHeroQuery(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleHeroSearch()}
                   placeholder="e.g., 2BR apartment in Dubai Marina under 2M..."
                   className="w-full h-14 pl-12 pr-4 rounded-xl bg-background/90 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-shadow"
                 />
               </div>
-              <Button variant="hero" size="xl" className="sm:w-auto" asChild>
-                <Link to="/ai-search">
-                  Search with AI
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
+              <Button variant="hero" size="xl" className="sm:w-auto" onClick={handleHeroSearch}>
+                Search with AI
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>
           </motion.div>
@@ -164,7 +175,6 @@ export function HeroSection() {
             </Button>
           </motion.div>
         </div>
-
       </div>
 
       {/* Scroll Indicator */}
@@ -186,6 +196,13 @@ export function HeroSection() {
           />
         </motion.div>
       </motion.div>
+
+      {/* AI Chat Dialog */}
+      <AISearchDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        initialQuery={heroQuery}
+      />
     </section>
   );
 }
