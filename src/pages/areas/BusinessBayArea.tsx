@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, TrendingUp, Building2, Users, DollarSign, ArrowRight, Sparkles } from "lucide-react";
+import { MapPin, TrendingUp, Building2, Droplets, DollarSign, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/layout/Header";
@@ -8,10 +8,10 @@ import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 
 const investmentPoints = [
-  { icon: MapPin, title: "Next to Downtown & DIFC", desc: "Prime central location directly adjacent to Downtown Dubai and the Dubai International Financial Centre." },
-  { icon: TrendingUp, title: "Strong Rental Market", desc: "High occupancy rates and consistent rental demand from professionals and corporate tenants." },
-  { icon: DollarSign, title: "Attractive Central Pricing", desc: "Competitive entry prices for a central location — strong value compared to neighboring Downtown." },
-  { icon: Users, title: "Growing Investor Community", desc: "A thriving ecosystem of investors, entrepreneurs, and startups driving demand and appreciation." },
+  { icon: MapPin, title: "Central Location Near Downtown", desc: "Directly adjacent to Downtown Dubai and DIFC, offering unmatched urban connectivity and convenience." },
+  { icon: TrendingUp, title: "Strong Rental Yields", desc: "High occupancy rates and consistent rental demand from professionals and corporate tenants ensure reliable returns." },
+  { icon: Building2, title: "Branded Residences & Luxury Towers", desc: "Home to designer towers and branded residences from top-tier developers, attracting premium tenants and buyers." },
+  { icon: Droplets, title: "High Liquidity Market", desc: "One of Dubai's most actively traded districts — strong resale volumes make it easy to enter and exit investments." },
 ];
 
 const nearbyAreas = [
@@ -31,8 +31,8 @@ export default function BusinessBayArea() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Business Bay Area Guide - Off-Plan Projects & Investments</title>
-        <meta name="description" content="Explore off-plan projects and investment opportunities in Business Bay. Dubai's central business hub with attractive pricing, strong rental yields, and modern lifestyle towers." />
+        <title>Business Bay Area Guide | Off-Plan Towers & Investments</title>
+        <meta name="description" content="Browse off-plan towers and investment-ready properties in Business Bay. Compare new projects with AI-powered property discovery." />
       </Helmet>
 
       <Header />
@@ -51,11 +51,11 @@ export default function BusinessBayArea() {
                 <span className="text-sm font-medium text-primary tracking-wider uppercase">Area Guide</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold leading-tight mb-6">
-                Modern Living in{" "}
-                <span className="text-primary">Business Bay</span>
+                Business Bay –{" "}
+                <span className="text-primary">Dubai's Urban Investment Core</span>
               </h1>
               <p className="text-lg text-white/70 max-w-2xl">
-                Dubai's central business hub — packed with off-plan investment opportunities and lifestyle towers.
+                A central district offering high-rise luxury towers, canal views, and consistent rental demand.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button variant="gold" size="lg" asChild>
@@ -88,7 +88,7 @@ export default function BusinessBayArea() {
               <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">About the Area</span>
               <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-6">About Business Bay</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                A mixed-use community of offices, luxury apartments, and hotels — Business Bay is ideal for professionals, entrepreneurs, and urban investors. Stretching along the Dubai Water Canal, the district offers a dynamic blend of commercial energy and residential comfort, making it one of Dubai's most sought-after investment destinations.
+                Business Bay is a mixed-use urban hub located next to Downtown Dubai. It features residential towers, office buildings, and ongoing premium off-plan launches.
               </p>
             </motion.div>
           </div>
@@ -138,9 +138,9 @@ export default function BusinessBayArea() {
               className="text-center mb-8"
             >
               <span className="text-sm font-medium text-primary tracking-wider uppercase mb-3 block">Projects</span>
-              <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-4">Top Projects in Business Bay</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-4">Explore Projects in Business Bay</h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
-                Browse verified off-plan projects in Business Bay from leading developers.
+                Browse off-plan towers in Business Bay from leading developers.
               </p>
             </motion.div>
             <div className="text-center">
@@ -205,15 +205,15 @@ export default function BusinessBayArea() {
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary/10 blur-[100px]" />
               <div className="relative z-10">
                 <h2 className="text-2xl md:text-3xl font-display font-medium text-white mb-4">
-                  Start Your Business Bay Search
+                  Find Urban Investment Opportunities
                 </h2>
                 <p className="text-white/60 mb-8 max-w-xl mx-auto">
-                  Let AI find you the best investment option here.
+                  Use AI to compare top towers in Business Bay.
                 </p>
                 <Button variant="gold" size="lg" asChild>
                   <Link to="/ai-search">
                     <Sparkles className="w-5 h-5 mr-2" />
-                    Find Properties
+                    Start AI Discovery
                   </Link>
                 </Button>
               </div>
