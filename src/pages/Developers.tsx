@@ -117,7 +117,10 @@ export default function DevelopersPage() {
               ))}
             </div>
           ) : filteredDevelopers.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+            <div 
+              key={`grid-${selectedLetter || 'all'}-${searchQuery}`}
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"
+            >
               {filteredDevelopers.map((developer, index) => (
                 <DeveloperCard 
                   key={developer.id} 
