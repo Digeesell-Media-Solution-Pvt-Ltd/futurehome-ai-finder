@@ -72,4 +72,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'mudon-al-ranim-7': 'dubai-properties',
   'eltiera-views': 'ellington',
   'salva': 'emaar',
+  'murooj-al-furjan': 'nakheel',
 };
