@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Developer, getInitials } from "@/data/developers";
@@ -14,17 +13,16 @@ export function DeveloperCard({ developer, index = 0, variant = "default" }: Dev
   const initials = getInitials(developer.nameEn);
   
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.03 }}
+    <article
       className={cn(
         "group relative overflow-hidden rounded-2xl transition-all duration-300",
         "glass-card hover:shadow-luxury",
         "hover:scale-[1.02] hover:border-primary/50",
+        "animate-fade-in",
         variant === "featured" && "bg-gradient-to-br from-primary/5 to-transparent",
         variant === "compact" && "p-4"
       )}
+      style={{ animationDelay: `${Math.min(index, 20) * 30}ms` }}
     >
       <Link 
         to={`/projects?developer=${encodeURIComponent(developer.nameEn)}`}
@@ -64,7 +62,6 @@ export function DeveloperCard({ developer, index = 0, variant = "default" }: Dev
           </p>
         )}
 
-
         {/* View Projects Button */}
         <div className={cn(
           "mt-4 flex items-center justify-center gap-2 text-sm font-medium",
@@ -77,6 +74,6 @@ export function DeveloperCard({ developer, index = 0, variant = "default" }: Dev
 
       {/* Decorative gradient overlay on hover */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-    </motion.article>
+    </article>
   );
 }
