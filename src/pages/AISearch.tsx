@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { useAISearch, useFilteredProjects } from "@/hooks/useProjects";
 import { getHeroImage } from "@/lib/heroImages";
 import { projectDeveloperMap } from "@/lib/projectUrls";
-import type { ProjectFilters, Project } from "@/types/project";
+import type { ProjectFilters, Project, BedroomType } from "@/types/project";
 import { toast } from "@/hooks/use-toast";
 
 const suggestedQueries = [
@@ -51,11 +51,61 @@ export default function AISearchPage() {
   const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({});
   const { parseQuery } = useAISearch();
 
-  // Merge AI filters with manual filter selections
-  const mergedFilters: ProjectFilters = { ...aiFilters };
+  // Convert selectedFilters into ProjectFilters and merge with AI filters
+  const mergedFilters: ProjectFilters = (() => {
+    const base: ProjectFilters = { ...aiFilters };
+
+    // Budget
+    const budgets = selectedFilters.budget || [];
+    if (budgets.length > 0) {
+      const mins: number[] = [];
+      const maxes: number[] = [];
+      budgets.forEach((b) => {
+        if (b === "Under 1M") { mins.push(0); maxes.push(1_000_000); }
+        else if (b === "1M - 2M") { mins.push(1_000_000); maxes.push(2_000_000); }
+        else if (b === "2M - 5M") { mins.push(2_000_000); maxes.push(5_000_000); }
+        else if (b === "5M - 10M") { mins.push(5_000_000); maxes.push(10_000_000); }
+        else if (b === "10M+") { mins.push(10_000_000); }
+      });
+      base.min_price = Math.min(...mins);
+      const finiteMaxes = maxes.filter((m) => m > 0);
+      if (finiteMaxes.length > 0 && !budgets.includes("10M+")) {
+        base.max_price = Math.max(...finiteMaxes);
+      }
+    }
+
+    // Bedrooms
+    const beds = selectedFilters.bedrooms || [];
+    if (beds.length > 0) {
+      const map: Record<string, string> = {
+        "Studio": "Studio", "1 BR": "1BR", "2 BR": "2BR",
+        "3 BR": "3BR", "4+ BR": "4BR",
+      };
+      base.bedroom_types = beds.map((b) => map[b] || b) as BedroomType[];
+    }
+
+    // Areas
+    const areas = selectedFilters.areas || [];
+    if (areas.length > 0) {
+      base.areas = areas;
+    }
+
+    // Handover
+    const handovers = selectedFilters.handover || [];
+    if (handovers.length > 0) {
+      const years = handovers
+        .map((h) => parseInt(h))
+        .filter((y) => !isNaN(y));
+      if (years.length > 0) {
+        base.handover_year = Math.min(...years);
+      }
+    }
+
+    return base;
+  })();
 
   const { data: projects, isLoading: isLoadingProjects } = useFilteredProjects(
-    hasSearched ? mergedFilters : { areas: ["__none__"] } // Don't fetch until searched
+    hasSearched ? mergedFilters : { areas: ["__none__"] }
   );
 
   const isSearching = isParsingQuery || (hasSearched && isLoadingProjects);
