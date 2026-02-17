@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
@@ -64,6 +64,7 @@ const galleryImages = [
 ];
 
 const MJLNourelleProject = () => {
+  const { openLeadCapture } = useLeadCapture();
   const [activeTab, setActiveTab] = useState("overview");
 
   useEffect(() => {
@@ -338,36 +339,24 @@ const MJLNourelleProject = () => {
                     </p>
 
                     <div className="space-y-4">
-                      <Button asChild className="w-full gap-2" size="lg">
-                        <a href="https://meraas.com/sites/default/files/2025-10/MJL%20Nourelle%20Floor%20Plans.pdf" target="_blank" rel="noopener noreferrer">
-                          <Download className="w-4 h-4" />
-                          Download Floor Plans
-                        </a>
+                      <Button className="w-full gap-2" size="lg" onClick={() => openLeadCapture({ projectName: "MJL Nourelle", ctaType: "Download Floor Plan" })}>
+                        <Download className="w-4 h-4" />
+                        Download Floor Plans
                       </Button>
                       
-                      <Button asChild variant="outline" className="w-full gap-2" size="lg">
-                        <a href="https://meraas.com/sites/default/files/2025-10/MJL%20Nourelle%20Prices%20%26%20Payment%20Plan.pdf" target="_blank" rel="noopener noreferrer">
-                          <Download className="w-4 h-4" />
-                          Download Price Plan
-                        </a>
+                      <Button variant="outline" className="w-full gap-2" size="lg" onClick={() => openLeadCapture({ projectName: "MJL Nourelle", ctaType: "Download Price Plan" })}>
+                        <Download className="w-4 h-4" />
+                        Download Price Plan
                       </Button>
                       
-                      <Button asChild variant="secondary" className="w-full gap-2" size="lg">
-                        <a href="tel:+971505550123">
-                          <Phone className="w-4 h-4" />
-                          Book Consultation
-                        </a>
+                      <Button variant="secondary" className="w-full gap-2" size="lg" onClick={() => openLeadCapture({ projectName: "MJL Nourelle", ctaType: "Book a Consultation" })}>
+                        <Phone className="w-4 h-4" />
+                        Book Consultation
                       </Button>
                       
-                      <Button asChild variant="outline" className="w-full gap-2 border-accent text-accent-foreground hover:bg-accent/10" size="lg">
-                        <a 
-                          href="https://wa.me/971505550123?text=Hi,%20I'm%20interested%20in%20MJL%20Nourelle%20at%20Madinat%20Jumeirah%20Living" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                        >
-                          <MessageCircle className="w-4 h-4" />
-                          WhatsApp Inquiry
-                        </a>
+                      <Button variant="outline" className="w-full gap-2" size="lg" onClick={() => openLeadCapture({ projectName: "MJL Nourelle", ctaType: "Request Details" })}>
+                        <MessageCircle className="w-4 h-4" />
+                        Request Details
                       </Button>
                     </div>
                   </div>
@@ -388,24 +377,14 @@ const MJLNourelleProject = () => {
                   <div className="bg-muted/30 rounded-2xl p-6">
                     <h4 className="font-semibold mb-4">Additional Downloads</h4>
                     <div className="space-y-3">
-                      <a 
-                        href="https://meraas.com/sites/default/files/2025-10/MJL_Nourelle_Mini%20Brochure.pdf" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <Download className="w-4 h-4" />
+                      <Button variant="ghost" size="sm" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: "MJL Nourelle", ctaType: "Download Brochure" })}>
+                        <Download className="w-4 h-4 mr-2" />
                         Project Brochure
-                      </a>
-                      <a 
-                        href="https://meraas.com/sites/default/files/2025-10/MJL%20Nourelle%20Masterplan_0.pdf" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <Download className="w-4 h-4" />
+                      </Button>
+                      <Button variant="ghost" size="sm" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: "MJL Nourelle", ctaType: "Download Masterplan" })}>
+                        <Download className="w-4 h-4 mr-2" />
                         Masterplan
-                      </a>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -416,7 +395,6 @@ const MJLNourelleProject = () => {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </>
   );
 };

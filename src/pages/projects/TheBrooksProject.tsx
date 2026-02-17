@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/the-brooks-hero.jpg";
 import interiorImage from "@/assets/projects/the-brooks-interior.jpg";
@@ -18,6 +19,7 @@ import parkImage from "@/assets/projects/the-brooks-park.jpg";
 import clubhouseImage from "@/assets/projects/the-brooks-clubhouse.jpg";
 
 const TheBrooksProject = () => {
+  const { openLeadCapture } = useLeadCapture();
   const [activeImage, setActiveImage] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
@@ -410,31 +412,17 @@ const TheBrooksProject = () => {
 
               {/* CTA Buttons */}
               <div className="space-y-3">
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold"
-                  asChild
-                >
-                  <a href="https://sobharealty.com/sites/default/files/2026-01/THE%20BROOKS%20AT%20SOBHA_SANCTUARY.pdf" target="_blank" rel="noopener noreferrer">
-                    <Download className="w-4 h-4" />
-                    Download Brochure
-                  </a>
+                <Button className="w-full gap-2" variant="gold" onClick={() => openLeadCapture({ projectName: "The Brooks", ctaType: "Download Brochure" })}>
+                  <Download className="w-4 h-4" />
+                  Download Brochure
                 </Button>
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold-outline"
-                >
+                <Button className="w-full gap-2" variant="gold-outline" onClick={() => openLeadCapture({ projectName: "The Brooks", ctaType: "Request Pricing" })}>
                   <Download className="w-4 h-4" />
                   Request Pricing
                 </Button>
-                <Button 
-                  className="w-full gap-2 bg-emerald-600 hover:bg-emerald-700 text-white"
-                  asChild
-                >
-                  <a href="https://wa.me/971501234567?text=Hi, I'm interested in The Brooks at Sobha Sanctuary" target="_blank" rel="noopener noreferrer">
-                    <MessageSquare className="w-4 h-4" />
-                    Enquire Now
-                  </a>
+                <Button className="w-full gap-2" variant="outline" onClick={() => openLeadCapture({ projectName: "The Brooks", ctaType: "Request Details" })}>
+                  <MessageSquare className="w-4 h-4" />
+                  Enquire Now
                 </Button>
               </div>
 

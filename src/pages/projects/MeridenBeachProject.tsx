@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
@@ -64,6 +64,7 @@ const galleryImages = [
 ];
 
 const MeridenBeachProject = () => {
+  const { openLeadCapture } = useLeadCapture();
   const [activeTab, setActiveTab] = useState("overview");
 
   useEffect(() => {
@@ -362,36 +363,24 @@ const MeridenBeachProject = () => {
                     </p>
 
                     <div className="space-y-4">
-                      <Button asChild className="w-full gap-2" size="lg">
-                        <a href="https://ghorizon.ae/en/meriden-beach-residences#register" target="_blank" rel="noopener noreferrer">
-                          <Download className="w-4 h-4" />
-                          Download Floor Plan
-                        </a>
+                      <Button className="w-full gap-2" size="lg" onClick={() => openLeadCapture({ projectName: "Meriden Beach Residences", ctaType: "Download Floor Plan" })}>
+                        <Download className="w-4 h-4" />
+                        Download Floor Plan
                       </Button>
 
-                      <Button asChild variant="outline" className="w-full gap-2" size="lg">
-                        <a href="https://ghorizon.ae/en/meriden-beach-residences#register" target="_blank" rel="noopener noreferrer">
-                          <Download className="w-4 h-4" />
-                          Download Price Plan
-                        </a>
+                      <Button variant="outline" className="w-full gap-2" size="lg" onClick={() => openLeadCapture({ projectName: "Meriden Beach Residences", ctaType: "Download Price Plan" })}>
+                        <Download className="w-4 h-4" />
+                        Download Price Plan
                       </Button>
 
-                      <Button asChild variant="secondary" className="w-full gap-2" size="lg">
-                        <a href="tel:+971505550123">
-                          <Phone className="w-4 h-4" />
-                          Contact Advisor
-                        </a>
+                      <Button variant="secondary" className="w-full gap-2" size="lg" onClick={() => openLeadCapture({ projectName: "Meriden Beach Residences", ctaType: "Book a Consultation" })}>
+                        <Phone className="w-4 h-4" />
+                        Contact Advisor
                       </Button>
 
-                      <Button asChild variant="outline" className="w-full gap-2 border-accent text-accent-foreground hover:bg-accent/10" size="lg">
-                        <a
-                          href="https://wa.me/971505550123?text=Hi,%20I'm%20interested%20in%20Meriden%20Beach%20Residences%20on%20Dubai%20Islands"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <MessageCircle className="w-4 h-4" />
-                          WhatsApp Inquiry
-                        </a>
+                      <Button variant="outline" className="w-full gap-2" size="lg" onClick={() => openLeadCapture({ projectName: "Meriden Beach Residences", ctaType: "Request Details" })}>
+                        <MessageCircle className="w-4 h-4" />
+                        Request Details
                       </Button>
                     </div>
                   </div>
@@ -438,7 +427,6 @@ const MeridenBeachProject = () => {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </>
   );
 };

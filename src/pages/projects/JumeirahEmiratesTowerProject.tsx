@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
@@ -67,6 +67,7 @@ const galleryImages = [
 ];
 
 const JumeirahEmiratesTowerProject = () => {
+  const { openLeadCapture } = useLeadCapture();
   const [activeTab, setActiveTab] = useState("overview");
 
   useEffect(() => {
@@ -366,36 +367,24 @@ const JumeirahEmiratesTowerProject = () => {
                     </p>
 
                     <div className="space-y-4">
-                      <Button asChild className="w-full gap-2" size="lg">
-                        <a href="https://meraas.com/sites/default/files/2025-06/Jumeirah%20Residences%20Emirates%20Towers-Brochure%20Tower%20B.pdf" target="_blank" rel="noopener noreferrer">
-                          <Download className="w-4 h-4" />
-                          Download Brochure
-                        </a>
+                      <Button className="w-full gap-2" size="lg" onClick={() => openLeadCapture({ projectName: "Jumeirah Emirates Tower", ctaType: "Download Brochure" })}>
+                        <Download className="w-4 h-4" />
+                        Download Brochure
                       </Button>
                       
-                      <Button asChild variant="outline" className="w-full gap-2" size="lg">
-                        <a href="https://meraas.com/sites/default/files/2025-06/Jumeirah%20Residences%20Emirates%20Towers-Prices%26Payment%20Plan%20Tower%20B.pdf" target="_blank" rel="noopener noreferrer">
-                          <Download className="w-4 h-4" />
-                          Download Price Plan
-                        </a>
+                      <Button variant="outline" className="w-full gap-2" size="lg" onClick={() => openLeadCapture({ projectName: "Jumeirah Emirates Tower", ctaType: "Download Price Plan" })}>
+                        <Download className="w-4 h-4" />
+                        Download Price Plan
                       </Button>
                       
-                      <Button asChild variant="secondary" className="w-full gap-2" size="lg">
-                        <a href="tel:+971505550123">
-                          <Phone className="w-4 h-4" />
-                          Enquire Now
-                        </a>
+                      <Button variant="secondary" className="w-full gap-2" size="lg" onClick={() => openLeadCapture({ projectName: "Jumeirah Emirates Tower", ctaType: "Request Details" })}>
+                        <Phone className="w-4 h-4" />
+                        Enquire Now
                       </Button>
                       
-                      <Button asChild variant="outline" className="w-full gap-2 border-accent text-accent-foreground hover:bg-accent/10" size="lg">
-                        <a 
-                          href="https://wa.me/971505550123?text=Hi,%20I'm%20interested%20in%20Jumeirah%20Emirates%20Tower%20Residences" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                        >
-                          <MessageCircle className="w-4 h-4" />
-                          WhatsApp Inquiry
-                        </a>
+                      <Button variant="outline" className="w-full gap-2" size="lg" onClick={() => openLeadCapture({ projectName: "Jumeirah Emirates Tower", ctaType: "Book a Consultation" })}>
+                        <MessageCircle className="w-4 h-4" />
+                        Book Consultation
                       </Button>
                     </div>
                   </div>
@@ -416,33 +405,14 @@ const JumeirahEmiratesTowerProject = () => {
                   <div className="bg-muted/30 rounded-2xl p-6">
                     <h4 className="font-semibold mb-4">Additional Downloads</h4>
                     <div className="space-y-3">
-                      <a 
-                        href="https://meraas.com/sites/default/files/2025-06/Jumeirah%20Residences%20Emirates%20Towers-Floor%20Plans%20Tower%20B.pdf" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <Download className="w-4 h-4" />
+                      <Button variant="ghost" size="sm" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: "Jumeirah Emirates Tower", ctaType: "Download Floor Plan" })}>
+                        <Download className="w-4 h-4 mr-2" />
                         Floor Plans
-                      </a>
-                      <a 
-                        href="https://meraas.com/sites/default/files/2025-05/Jumeirah%20Residences%20Emirates%20Towers-Master%20Plan.pdf" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <Download className="w-4 h-4" />
+                      </Button>
+                      <Button variant="ghost" size="sm" className="w-full justify-start" onClick={() => openLeadCapture({ projectName: "Jumeirah Emirates Tower", ctaType: "Download Masterplan" })}>
+                        <Download className="w-4 h-4 mr-2" />
                         Masterplan
-                      </a>
-                      <a 
-                        href="https://www.emiratestowers.meraas.com/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <Star className="w-4 h-4" />
-                        Visit Microsite
-                      </a>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -453,7 +423,6 @@ const JumeirahEmiratesTowerProject = () => {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </>
   );
 };

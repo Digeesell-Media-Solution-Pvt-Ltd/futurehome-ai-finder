@@ -66,6 +66,7 @@ const highlights = [
 ];
 
 export default function TimezProject() {
+  const { openLeadCapture } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -335,16 +336,12 @@ export default function TimezProject() {
                   transition={{ delay: 0.6 }}
                   className="space-y-3"
                 >
-                  <Button variant="gold" className="w-full rounded-full" asChild>
-                    <a href="https://wa.me/971800575757" target="_blank" rel="noopener noreferrer">
-                      WhatsApp Inquiry
-                    </a>
+                  <Button variant="gold" className="w-full rounded-full" onClick={() => openLeadCapture({ projectName: "Timez", ctaType: "Request Details" })}>
+                    Request Details
                   </Button>
-                  <Button variant="gold-outline" className="w-full rounded-full" asChild>
-                    <a href="tel:+971800575757">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Book a Call
-                    </a>
+                  <Button variant="gold-outline" className="w-full rounded-full" onClick={() => openLeadCapture({ projectName: "Timez", ctaType: "Book a Consultation" })}>
+                    <Phone className="w-4 h-4 mr-2" />
+                    Book a Call
                   </Button>
                 </motion.div>
 

@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 
 import heroImage from "@/assets/projects/the-edit-d3-hero.jpg";
 import interiorImage from "@/assets/projects/the-edit-d3-interior.jpg";
@@ -17,6 +18,7 @@ import rooftopImage from "@/assets/projects/the-edit-d3-rooftop.jpg";
 import gymImage from "@/assets/projects/the-edit-d3-gym.jpg";
 
 const TheEditD3Project = () => {
+  const { openLeadCapture } = useLeadCapture();
   const [activeImage, setActiveImage] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
@@ -393,35 +395,17 @@ const TheEditD3Project = () => {
 
               {/* CTA Buttons */}
               <div className="space-y-3">
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold"
-                  asChild
-                >
-                  <a href="https://meraas.com/sites/default/files/2025-11/The%20Edit%20at%20d3%20FloorPlans.pdf" target="_blank" rel="noopener noreferrer">
-                    <Download className="w-4 h-4" />
-                    Download Floor Plan
-                  </a>
+                <Button className="w-full gap-2" variant="gold" onClick={() => openLeadCapture({ projectName: "The Edit at d3", ctaType: "Download Floor Plan" })}>
+                  <Download className="w-4 h-4" />
+                  Download Floor Plan
                 </Button>
-                <Button 
-                  className="w-full gap-2" 
-                  variant="gold-outline"
-                  asChild
-                >
-                  <a href="https://editatd3.meraas.com/" target="_blank" rel="noopener noreferrer">
-                    <Download className="w-4 h-4" />
-                    Download Price Plan
-                  </a>
+                <Button className="w-full gap-2" variant="gold-outline" onClick={() => openLeadCapture({ projectName: "The Edit at d3", ctaType: "Download Price Plan" })}>
+                  <Download className="w-4 h-4" />
+                  Download Price Plan
                 </Button>
-                <Button 
-                  className="w-full gap-2" 
-                  variant="outline"
-                  asChild
-                >
-                  <a href="tel:+971501234567">
-                    <Calendar className="w-4 h-4" />
-                    Schedule a Tour
-                  </a>
+                <Button className="w-full gap-2" variant="outline" onClick={() => openLeadCapture({ projectName: "The Edit at d3", ctaType: "Book a Consultation" })}>
+                  <Calendar className="w-4 h-4" />
+                  Schedule a Tour
                 </Button>
               </div>
 
