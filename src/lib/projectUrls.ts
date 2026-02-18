@@ -74,6 +74,7 @@ export const projectDeveloperMap: Record<string, string> = {
   'eltiera-views': 'ellington',
   'meriva-collection': 'ellington',
   'salva': 'emaar',
+  'grove-ridge': 'emaar',
   'murooj-al-furjan': 'nakheel',
   'alba-residences': 'omniyat',
 };
