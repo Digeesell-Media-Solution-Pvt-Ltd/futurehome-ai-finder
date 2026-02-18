@@ -83,4 +83,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'orla-dorchester-collection': 'omniyat',
   'vela-viento-dorchester-collection': 'omniyat',
   'peninsula-four-the-plaza': 'select-group',
+  'artistry-one-residences': 'select-group',
 };
