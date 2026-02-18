@@ -78,5 +78,6 @@ export const projectDeveloperMap: Record<string, string> = {
   'vista-ridge': 'emaar',
   'murooj-al-furjan': 'nakheel',
   'tilal-al-furjan': 'nakheel',
+  'canal-front-residences': 'nakheel',
   'alba-residences': 'omniyat',
 };
