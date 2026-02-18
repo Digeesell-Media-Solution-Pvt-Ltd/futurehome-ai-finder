@@ -80,4 +80,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'tilal-al-furjan': 'nakheel',
   'canal-front-residences': 'nakheel',
   'alba-residences': 'omniyat',
+  'orla-dorchester-collection': 'omniyat',
 };
