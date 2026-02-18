@@ -85,4 +85,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'peninsula-four-the-plaza': 'select-group',
   'artistry-one-residences': 'select-group',
   'artistry-two-residences': 'select-group',
+  'jumeirah-living-business-bay': 'select-group',
 };
