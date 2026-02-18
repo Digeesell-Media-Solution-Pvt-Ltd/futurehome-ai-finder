@@ -72,6 +72,7 @@ import AlbaResidencesProject from "./pages/projects/AlbaResidencesProject";
 import MudonAlRanim5Project from "./pages/projects/MudonAlRanim5Project";
 import GroveRidgeProject from "./pages/projects/GroveRidgeProject";
 import VistaRidgeProject from "./pages/projects/VistaRidgeProject";
+import TilalAlFurjanProject from "./pages/projects/TilalAlFurjanProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import DubaiMarinaArea from "./pages/areas/DubaiMarinaArea";
@@ -174,6 +175,7 @@ const App = () => (
           <Route path="/projects/emaar/salva" element={<SalvaProject />} />
           <Route path="/projects/emaar/grove-ridge" element={<GroveRidgeProject />} />
           <Route path="/projects/emaar/vista-ridge" element={<VistaRidgeProject />} />
+          <Route path="/projects/nakheel/tilal-al-furjan" element={<TilalAlFurjanProject />} />
           <Route path="/projects/nakheel/murooj-al-furjan" element={<MuroojAlFurjanProject />} />
           <Route path="/projects/omniyat/alba-residences" element={<AlbaResidencesProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
