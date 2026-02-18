@@ -76,7 +76,7 @@ const PeninsulaFourProject = () => {
                 <span className="flex items-center gap-1"><MapPin className="w-4 h-4" /> Business Bay, Dubai</span>
                 <span className="flex items-center gap-1"><Building2 className="w-4 h-4" /> Apartment · Penthouse · Duplex Loft</span>
                 <span className="flex items-center gap-1"><BedDouble className="w-4 h-4" /> Studio – 4BR Penthouse</span>
-                <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> Dubai Water Canal Frontage</span>
+                <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> Handover Q2 2026</span>
               </div>
             </div>
           </div>
@@ -333,9 +333,10 @@ const PeninsulaFourProject = () => {
                       <Badge variant="secondary" className="text-xs">Waterfront</Badge>
                       <Badge variant="secondary" className="text-xs">High ROI</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">Price on request</p>
-                    <p className="text-xl font-bold text-foreground mt-1">Studio – 4BR Penthouse</p>
-                    <p className="text-xs text-muted-foreground mt-1">Business Bay · Dubai Water Canal</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Starting From</p>
+                    <p className="text-2xl font-bold text-primary mt-1">AED 1.1M</p>
+                    <p className="text-sm text-muted-foreground">Studio – 4BR Penthouse</p>
+                    <p className="text-xs text-muted-foreground mt-1">Business Bay · Dubai Water Canal · Handover Q2 2026</p>
                   </div>
 
                   <div className="space-y-3">
