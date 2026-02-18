@@ -76,6 +76,7 @@ import TilalAlFurjanProject from "./pages/projects/TilalAlFurjanProject";
 import CanalFrontResidencesProject from "./pages/projects/CanalFrontResidencesProject";
 import OrlaDorchesterProject from "./pages/projects/OrlaDorchesterProject";
 import VelaVientoProject from "./pages/projects/VelaVientoProject";
+import PeninsulaFourProject from "./pages/projects/PeninsulaFourProject";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
 import DubaiMarinaArea from "./pages/areas/DubaiMarinaArea";
@@ -184,6 +185,7 @@ const App = () => (
           <Route path="/projects/omniyat/alba-residences" element={<AlbaResidencesProject />} />
           <Route path="/projects/omniyat/orla-dorchester-collection" element={<OrlaDorchesterProject />} />
           <Route path="/projects/omniyat/vela-viento-dorchester-collection" element={<VelaVientoProject />} />
+          <Route path="/projects/select-group/peninsula-four-the-plaza" element={<PeninsulaFourProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/dubai-marina" element={<DubaiMarinaArea />} />
