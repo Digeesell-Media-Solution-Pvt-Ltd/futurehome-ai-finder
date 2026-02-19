@@ -196,14 +196,6 @@ export default function SelectGroupPage() {
               <p className="text-muted-foreground leading-relaxed mb-8">
                 Renowned for their commitment to architectural excellence, Select Group projects consistently outperform market benchmarks — attracting discerning end-users and investors alike. Their flagship partnership with Jumeirah Hotels & Resorts for Jumeirah Living Business Bay underscores a bold vision for branded luxury living along Dubai's iconic Water Canal.
               </p>
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                  ))}
-                </div>
-                <span className="text-sm text-muted-foreground">Rated 5-Star Developer by industry analysts</span>
-              </div>
             </motion.div>
 
             <motion.div
