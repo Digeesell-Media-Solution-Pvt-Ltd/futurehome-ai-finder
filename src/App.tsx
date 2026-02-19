@@ -81,6 +81,7 @@ import ArtistryOneProject from "./pages/projects/ArtistryOneProject";
 import ArtistryTwoProject from "./pages/projects/ArtistryTwoProject";
 import JumeirahLivingProject from "./pages/projects/JumeirahLivingProject";
 import DevelopersPage from "./pages/Developers";
+import Masterdatapannel from "./pages/Masterdatapannel";
 import SelectGroupPage from "./pages/developers/SelectGroupPage";
 import Areas from "./pages/Areas";
 import AreaDetail from "./pages/AreaDetail";
@@ -221,6 +222,7 @@ const App = () => (
           <Route path="/terms-of-use" element={<TermsOfUse />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="/saved" element={<Saved />} />
+          <Route path="/Masterdatapannel" element={<Masterdatapannel />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
