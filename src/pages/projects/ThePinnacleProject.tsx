@@ -395,10 +395,6 @@ const ThePinnacleProject = () => {
                   <div>
                     <p className="font-bold text-charcoal">Sobha Realty</p>
                     <p className="text-sm text-muted-foreground">Premium Developer</p>
-                    <div className="flex items-center gap-1 mt-1">
-                      <span className="text-gold-dark">★★★★★</span>
-                      <span className="text-xs text-muted-foreground">4.7/5</span>
-                    </div>
                   </div>
                 </div>
               </Card>

@@ -369,31 +369,6 @@ const ArtistryTwoProject = () => {
 
               <Card className="bg-muted/30">
                 <CardContent className="p-5">
-                  <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-                    <Star className="w-4 h-4 text-primary" /> Investment Score
-                  </h3>
-                  <div className="space-y-2">
-                    {[
-                      { label: "Investment Potential", value: 80 },
-                      { label: "Location Rating", value: 90 },
-                      { label: "Lifestyle Score", value: 85 },
-                    ].map(({ label, value }) => (
-                      <div key={label}>
-                        <div className="flex justify-between text-xs mb-1">
-                          <span className="text-muted-foreground">{label}</span>
-                          <span className="font-medium text-foreground">{value}%</span>
-                        </div>
-                        <div className="h-1.5 bg-muted rounded-full overflow-hidden">
-                          <div className="h-full bg-primary rounded-full" style={{ width: `${value}%` }} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-muted/30">
-                <CardContent className="p-5">
                   <h3 className="font-semibold text-foreground mb-2 text-sm">Legal Disclaimer</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     All prices, availability, and project details are subject to change without notice. Information is sourced from the developer's official materials. This listing is for informational purposes only and does not constitute an offer or contract. Buyers are advised to conduct their own due diligence.
