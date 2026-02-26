@@ -72,6 +72,12 @@ import AlbaResidencesProject from "./pages/projects/AlbaResidencesProject";
 import MudonAlRanim5Project from "./pages/projects/MudonAlRanim5Project";
 import GroveRidgeProject from "./pages/projects/GroveRidgeProject";
 import VistaRidgeProject from "./pages/projects/VistaRidgeProject";
+import AlberoDubaiCreekHarbourProject from "./pages/projects/AlberoDubaiCreekHarbourProject";
+import GolfMeadowEmaarSouthProject from "./pages/projects/GolfMeadowEmaarSouthProject";
+import GolfVergeEmaarSouthProject from "./pages/projects/GolfVergeEmaarSouthProject";
+import GolfDaleEmaarSouthProject from "./pages/projects/GolfDaleEmaarSouthProject";
+import ParkwoodDubaiHillsEstateProject from "./pages/projects/ParkwoodDubaiHillsEstateProject";
+import PalmCentralPrivateResidencesProject from "./pages/projects/PalmCentralPrivateResidencesProject";
 import TilalAlFurjanProject from "./pages/projects/TilalAlFurjanProject";
 import CanalFrontResidencesProject from "./pages/projects/CanalFrontResidencesProject";
 import OrlaDorchesterProject from "./pages/projects/OrlaDorchesterProject";
@@ -80,6 +86,7 @@ import PeninsulaFourProject from "./pages/projects/PeninsulaFourProject";
 import ArtistryOneProject from "./pages/projects/ArtistryOneProject";
 import ArtistryTwoProject from "./pages/projects/ArtistryTwoProject";
 import JumeirahLivingProject from "./pages/projects/JumeirahLivingProject";
+import SixSensesResidencesDubaiMarinaProject from "./pages/projects/SixSensesResidencesDubaiMarinaProject";
 import DevelopersPage from "./pages/Developers";
 import Masterdatapannel from "./pages/Masterdatapannel";
 import SelectGroupPage from "./pages/developers/SelectGroupPage";
@@ -185,6 +192,12 @@ const App = () => (
           <Route path="/projects/emaar/salva" element={<SalvaProject />} />
           <Route path="/projects/emaar/grove-ridge" element={<GroveRidgeProject />} />
           <Route path="/projects/emaar/vista-ridge" element={<VistaRidgeProject />} />
+          <Route path="/projects/emaar/albero-at-dubai-creek-harbour" element={<AlberoDubaiCreekHarbourProject />} />
+          <Route path="/projects/emaar/golf-meadow-at-emaar-south" element={<GolfMeadowEmaarSouthProject />} />
+          <Route path="/projects/emaar/golf-verge-at-emaar-south" element={<GolfVergeEmaarSouthProject />} />
+          <Route path="/projects/emaar/golf-dale-at-emaar-south" element={<GolfDaleEmaarSouthProject />} />
+          <Route path="/projects/emaar/parkwood-at-dubai-hills-estate" element={<ParkwoodDubaiHillsEstateProject />} />
+          <Route path="/projects/nakheel/palm-central-private-residences" element={<PalmCentralPrivateResidencesProject />} />
           <Route path="/projects/nakheel/tilal-al-furjan" element={<TilalAlFurjanProject />} />
           <Route path="/projects/nakheel/canal-front-residences" element={<CanalFrontResidencesProject />} />
           <Route path="/projects/nakheel/murooj-al-furjan" element={<MuroojAlFurjanProject />} />
@@ -195,6 +208,7 @@ const App = () => (
           <Route path="/projects/select-group/artistry-one-residences" element={<ArtistryOneProject />} />
           <Route path="/projects/select-group/artistry-two-residences" element={<ArtistryTwoProject />} />
           <Route path="/projects/select-group/jumeirah-living-business-bay" element={<JumeirahLivingProject />} />
+          <Route path="/projects/select-group/six-senses-residences-dubai-marina" element={<SixSensesResidencesDubaiMarinaProject />} />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/developers/select-group" element={<SelectGroupPage />} />
           <Route path="/areas" element={<Areas />} />

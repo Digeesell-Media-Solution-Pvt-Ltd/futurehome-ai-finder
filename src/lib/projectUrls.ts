@@ -76,6 +76,12 @@ export const projectDeveloperMap: Record<string, string> = {
   'salva': 'emaar',
   'grove-ridge': 'emaar',
   'vista-ridge': 'emaar',
+  'albero-at-dubai-creek-harbour': 'emaar',
+  'golf-meadow-at-emaar-south': 'emaar',
+  'golf-verge-at-emaar-south': 'emaar',
+  'golf-dale-at-emaar-south': 'emaar',
+  'parkwood-at-dubai-hills-estate': 'emaar',
+  'palm-central-private-residences': 'nakheel',
   'murooj-al-furjan': 'nakheel',
   'tilal-al-furjan': 'nakheel',
   'canal-front-residences': 'nakheel',
@@ -86,4 +92,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'artistry-one-residences': 'select-group',
   'artistry-two-residences': 'select-group',
   'jumeirah-living-business-bay': 'select-group',
+  'six-senses-residences-dubai-marina': 'select-group',
 };

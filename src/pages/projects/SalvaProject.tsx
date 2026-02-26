@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLeadCapture } from "@/contexts/LeadCaptureContext";
+import { getBrochureUrl } from "@/lib/brochure";
 import { useState } from "react";
 import {
   Building2, MapPin, Calendar, Banknote, BedDouble,
@@ -36,7 +37,7 @@ const amenities = [
 ];
 
 const SalvaProject = () => {
-  const { openLeadCapture } = useLeadCapture();
+  const { openLeadCapture, requestBrochureDownload } = useLeadCapture();
   const [activeImage, setActiveImage] = useState(0);
 
   const handleCTA = (ctaType: string) => {
@@ -189,7 +190,17 @@ const SalvaProject = () => {
                         <Download className="w-10 h-10 text-primary" />
                         <h3 className="font-semibold text-foreground">Project Brochure</h3>
                         <p className="text-sm text-muted-foreground">Full project details, villa layouts, and specifications</p>
-                        <Button onClick={() => handleCTA("Download Brochure")} className="mt-2">Download Brochure</Button>
+                        <Button
+                          onClick={() =>
+                            requestBrochureDownload(
+                              getBrochureUrl("emaar", "salva"),
+                              "Salva at The Heights",
+                            )
+                          }
+                          className="mt-2"
+                        >
+                          Download Brochure
+                        </Button>
                       </CardContent>
                     </Card>
                     <Card className="bg-muted/30">
@@ -229,7 +240,17 @@ const SalvaProject = () => {
                     <Button className="w-full" size="lg" onClick={() => handleCTA("Request Details")}>
                       <Star className="w-4 h-4 mr-2" /> Request Details
                     </Button>
-                    <Button variant="outline" className="w-full" size="lg" onClick={() => handleCTA("Download Brochure")}>
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                      size="lg"
+                      onClick={() =>
+                        requestBrochureDownload(
+                          getBrochureUrl("emaar", "salva"),
+                          "Salva at The Heights",
+                        )
+                      }
+                    >
                       <Download className="w-4 h-4 mr-2" /> Download Brochure
                     </Button>
                     <Button variant="outline" className="w-full" size="lg" onClick={() => handleCTA("Download Floor Plan")}>

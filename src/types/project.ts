@@ -22,7 +22,7 @@ export type AmenityType =
   | 'Smart Home System' | 'Concierge' | '24/7 Security' | 'Parking' | 'Jogging Track'
   | 'Spa' | 'Yoga Deck';
 
-export interface Project {
+export type Project = {
   id: string;
   project_name: string;
   slug: string;
@@ -54,7 +54,27 @@ export interface Project {
   // Joined fields
   developers?: { name: string; slug: string };
   areas?: { name: string; slug: string } | null;
+  // Normalized frontend contract fields
+  developerName?: string;
+  developerSlug?: string;
+  areaName?: string;
+  areaSlug?: string;
+  propertyTypeSlugs?: string[];
+  route?: string;
+  tags?: string[];
 }
+
+export type ProjectDataContract = Project & {
+  developers: { name: string; slug: string };
+  areas: { name: string; slug: string };
+  developerName: string;
+  developerSlug: string;
+  areaName: string;
+  areaSlug: string;
+  propertyTypeSlugs: string[];
+  route: string;
+  tags: string[];
+};
 
 export interface Area {
   id: string;

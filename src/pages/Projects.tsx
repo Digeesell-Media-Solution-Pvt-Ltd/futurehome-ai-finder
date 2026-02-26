@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SlidersHorizontal, Grid, LayoutList, Building2 } from "lucide-react";
+import { SlidersHorizontal, Building2 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
@@ -10,15 +10,56 @@ import { ProjectFilterSidebar } from "@/components/projects/ProjectFilterSidebar
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { AISearchBar } from "@/components/projects/AISearchBar";
 import { useFilteredProjects, useAreas, useDevelopersList } from "@/hooks/useProjects";
-import type { ProjectFilters } from "@/types/project";
+import type { Area, Developer, ProjectFilters } from "@/types/project";
+import { normalizeSlug } from "@/lib/normalize";
+import {
+  projects,
+  filterProjectsByFilters,
+  getSupplementalAreas,
+  getSupplementalDevelopers,
+} from "@/data/projects";
 
 export default function Projects() {
   const [filters, setFilters] = useState<ProjectFilters>({});
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
-  const { data: projects = [], isLoading } = useFilteredProjects(filters);
-  const { data: areas = [] } = useAreas();
-  const { data: developers = [] } = useDevelopersList();
+  const { data: apiProjects = [], isLoading } = useFilteredProjects(filters);
+  const { data: areasFromApi = [] } = useAreas();
+  const { data: developersFromApi = [] } = useDevelopersList();
+  const normalizedApiProjects = apiProjects.map((project) => {
+    const developerName = project.developerName || project.developers?.name || "Unknown Developer";
+    const developerSlug = project.developerSlug || project.developers?.slug || normalizeSlug(developerName);
+    const areaName = project.areaName || project.areas?.name || project.city || "Dubai";
+    const areaSlug = project.areaSlug || project.areas?.slug || normalizeSlug(areaName);
+
+    return {
+      ...project,
+      developerName,
+      developerSlug,
+      areaName,
+      areaSlug,
+    };
+  });
+
+  const additionalProjects = filterProjectsByFilters(
+    projects.filter(
+      (manualProject) => !normalizedApiProjects.some((apiProject) => apiProject.slug === manualProject.slug),
+    ),
+    filters,
+  );
+  const projectsForList = [...additionalProjects, ...normalizedApiProjects];
+
+  const mergedAreasBySlug = new Map<string, Area>();
+  [...areasFromApi, ...getSupplementalAreas(projects)].forEach((area) => {
+    mergedAreasBySlug.set(area.slug, area);
+  });
+  const areas = [...mergedAreasBySlug.values()];
+
+  const mergedDevelopersBySlug = new Map<string, Developer>();
+  [...developersFromApi, ...getSupplementalDevelopers(projects)].forEach((developer) => {
+    mergedDevelopersBySlug.set(developer.slug, developer);
+  });
+  const developers = [...mergedDevelopersBySlug.values()];
 
   const activeFilterCount = [
     filters.areas?.length,
@@ -108,7 +149,7 @@ export default function Projects() {
             {/* Toolbar */}
             <div className="flex items-center justify-between mb-6">
               <p className="text-sm text-muted-foreground">
-                {isLoading ? "Loading..." : `${projects.length} project${projects.length !== 1 ? "s" : ""} found`}
+                {isLoading ? "Loading..." : `${projectsForList.length} project${projectsForList.length !== 1 ? "s" : ""} found`}
               </p>
 
               {/* Mobile filter trigger */}
@@ -144,12 +185,12 @@ export default function Projects() {
                   <div key={i} className="rounded-2xl bg-muted animate-pulse aspect-[4/5]" />
                 ))}
               </div>
-            ) : projects.length > 0 ? (
+            ) : projectsForList.length > 0 ? (
               <div
                 key={JSON.stringify(filters)}
                 className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"
               >
-                {projects.map((project, i) => (
+                {projectsForList.map((project, i) => (
                   <ProjectCard key={project.id} project={project} index={i} />
                 ))}
               </div>

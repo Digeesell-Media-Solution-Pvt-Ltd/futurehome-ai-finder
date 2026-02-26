@@ -12,6 +12,7 @@ import { getHeroImage } from "@/lib/heroImages";
 import { projectDeveloperMap } from "@/lib/projectUrls";
 import type { ProjectFilters, Project, BedroomType } from "@/types/project";
 import { toast } from "@/hooks/use-toast";
+import { projects as manualProjects, filterProjectsByFilters } from "@/data/projects";
 
 const suggestedQueries = [
   "2BR apartment in Dubai Marina under 2M",
@@ -147,7 +148,16 @@ export default function AISearchPage() {
     });
   };
 
-  const resultsList = hasSearched ? (projects || []) : [];
+  const mergedResults = hasSearched ? (projects || []) : [];
+  const supplementalResults = hasSearched
+    ? filterProjectsByFilters(
+        manualProjects.filter(
+          (manualProject) => !mergedResults.some((apiProject) => apiProject.slug === manualProject.slug),
+        ),
+        mergedFilters,
+      )
+    : [];
+  const resultsList = hasSearched ? [...supplementalResults, ...mergedResults] : [];
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">

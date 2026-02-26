@@ -18,6 +18,7 @@ import peninsulaHeroImg from "@/assets/projects/peninsula-four-hero.jpg";
 import artistryOneHeroImg from "@/assets/projects/artistry-one-hero.jpg";
 import artistryTwoHeroImg from "@/assets/projects/artistry-two-hero.jpg";
 import jumeirahLivingHeroImg from "@/assets/projects/jumeirah-living-hero.jpg";
+import sixSensesHeroImg from "@/assets/projects/jumeirah-living-hero.jpg";
 
 const stats = [
   { value: "AED 20B+", label: "Gross Development Value", icon: TrendingUp },
@@ -48,6 +49,19 @@ const projects = [
     slug: "/projects/select-group/jumeirah-living-business-bay",
     featured: true,
     badge: "Flagship",
+  },
+  {
+    name: "Six Senses Residences Dubai Marina",
+    area: "Dubai Marina",
+    type: "Branded Residences",
+    bedrooms: "Luxury Apartments · Penthouses",
+    price: "TBD",
+    handover: "TBD",
+    tags: ["Branded Residences", "Wellness Living", "Luxury Segment"],
+    image: sixSensesHeroImg,
+    slug: "/projects/select-group/six-senses-residences-dubai-marina",
+    featured: false,
+    badge: "TBD",
   },
   {
     name: "Peninsula Four – The Plaza",

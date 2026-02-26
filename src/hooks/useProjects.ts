@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import type { Project, Area, Developer, ProjectFilters } from "@/types/project";
+import { normalizeDeveloperKey } from "@/lib/normalize";
 
 export function useAreas() {
   return useQuery({
@@ -77,10 +78,18 @@ export function useFilteredProjects(filters: ProjectFilters) {
         );
       }
       if (filters.developers && filters.developers.length > 0) {
-        const devLower = filters.developers.map(d => d.toLowerCase());
-        results = results.filter(p => 
-          p.developers && devLower.includes(p.developers.name.toLowerCase())
+        const selectedDeveloperKeys = filters.developers.map((developer) =>
+          normalizeDeveloperKey(developer),
         );
+        results = results.filter((project) => {
+          if (!project.developers) return false;
+          const developerNameKey = normalizeDeveloperKey(project.developers.name);
+          const developerSlugKey = normalizeDeveloperKey(project.developers.slug);
+          return (
+            selectedDeveloperKeys.includes(developerNameKey) ||
+            selectedDeveloperKeys.includes(developerSlugKey)
+          );
+        });
       }
 
       return results;

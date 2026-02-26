@@ -44,7 +44,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_REGEX = /^\d+$/;
 
 export function LeadCaptureModal() {
-  const { isOpen, config, closeLeadCapture } = useLeadCapture();
+  const { isOpen, config, closeLeadCapture, handleLeadSubmitSuccess } = useLeadCapture();
   const [form, setForm] = useState<FormData>({
     fullName: "",
     countryCode: "+971",
@@ -120,6 +120,7 @@ export function LeadCaptureModal() {
         cta_type: config.ctaType,
         download_url: config.downloadUrl || null,
       });
+      handleLeadSubmitSuccess();
       setIsSubmitted(true);
     } catch {
       // silently handle
