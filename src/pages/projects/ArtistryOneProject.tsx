@@ -14,12 +14,10 @@ import {
   CheckCircle, TreePine, Users, Award, Sparkles, Coffee
 } from "lucide-react";
 
-import heroImg from "@/assets/projects/artistry-one-hero.jpg";
-import interiorImg from "@/assets/projects/artistry-one-interior.jpg";
-import poolImg from "@/assets/projects/artistry-one-pool.jpg";
-import penthouseImg from "@/assets/projects/artistry-one-penthouse.jpg";
-
-const images = [heroImg, interiorImg, poolImg, penthouseImg];
+const fallbackImage = "/placeholder.svg";
+const images = [
+  "/projects/select-group/artistry-one-residences/hero.jpg",
+];
 
 const amenities = [
   { icon: Waves, label: "21st-Floor Infinity Pool" },
@@ -36,6 +34,12 @@ const amenities = [
 const ArtistryOneProject = () => {
   const { openLeadCapture } = useLeadCapture();
   const [activeImage, setActiveImage] = useState(0);
+
+  const handleImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
+    const image = event.currentTarget;
+    image.onerror = null;
+    image.src = fallbackImage;
+  };
 
   const handleCTA = (ctaType: string) => {
     openLeadCapture({ projectName: "Artistry One Residences", ctaType });
@@ -58,6 +62,7 @@ const ArtistryOneProject = () => {
             src={images[activeImage]}
             alt="Artistry One Residences by Select Group Dubai Design District"
             className="w-full h-full object-cover"
+            onError={handleImageError}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
@@ -93,7 +98,7 @@ const ArtistryOneProject = () => {
                   activeImage === i ? 'border-primary' : 'border-transparent opacity-70 hover:opacity-100'
                 }`}
               >
-                <img src={img} alt={`View ${i + 1}`} className="w-full h-full object-cover" />
+                <img src={img} alt={`View ${i + 1}`} className="w-full h-full object-cover" onError={handleImageError} />
               </button>
             ))}
           </div>
@@ -289,6 +294,7 @@ const ArtistryOneProject = () => {
                           src={img}
                           alt={`Artistry One Residences gallery ${i + 1}`}
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                          onError={handleImageError}
                         />
                       </div>
                     ))}

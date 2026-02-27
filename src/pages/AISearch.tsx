@@ -357,7 +357,7 @@ export default function AISearchPage() {
                 )}
 
                 {!isLoadingProjects && resultsList.map((project, index) => {
-                  const heroImg = getHeroImage(project.slug);
+                  const heroImg = project.hero_image || getHeroImage(project.slug);
                   const handoverText = project.handover_quarter && project.handover_year
                     ? `${project.handover_quarter} ${project.handover_year}`
                     : project.handover_year ? `${project.handover_year}` : "TBA";

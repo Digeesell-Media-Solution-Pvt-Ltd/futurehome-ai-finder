@@ -14,12 +14,19 @@ import {
   CheckCircle, TreePine, Users, Award, Sparkles, Coffee
 } from "lucide-react";
 
-import heroImg from "@/assets/projects/artistry-two-hero.jpg";
-import interiorImg from "@/assets/projects/artistry-two-interior.jpg";
-import poolImg from "@/assets/projects/artistry-two-pool.jpg";
-import amenitiesImg from "@/assets/projects/artistry-two-amenities.jpg";
-
-const images = [heroImg, interiorImg, poolImg, amenitiesImg];
+const fallbackImage = "/placeholder.svg";
+const images = [
+  "/projects/select-group/artistry-two-residences/697afdd1945d11fd9f3fb5ac_GRND.jpg",
+  "/projects/select-group/artistry-two-residences/6968bd2665f10dad9fab8b27_D3_03-Birdeye_SELECT-GROUP.jpg",
+  "/projects/select-group/artistry-two-residences/6968bc5c9fde222afed25de0_D3_04-Hero_SELECT-GROUP.jpg",
+  "/projects/select-group/artistry-two-residences/6968bd277988cfad12aca0a1_D3_05-Street_SELECT-GROUP.jpg",
+  "/projects/select-group/artistry-two-residences/6968bd28d2e4b9ae65274313_D3_06-Street_SELECT-GROUP.jpg",
+  "/projects/select-group/artistry-two-residences/6968b9afc7686f64d3b6fb66_D3_01_2BHK-Bedroom_SELECT-GROUP.jpg",
+  "/projects/select-group/artistry-two-residences/6968bdbb9adcef8b704e72e5_D3_02_1-2BHK_Living_SELECT-GROUP.jpg",
+  "/projects/select-group/artistry-two-residences/6968ba7de08ec0ac8083721d_D3_12-Main%20Pool_SELECT-GROUP.jpg",
+  "/projects/select-group/artistry-two-residences/6968bcc27988cfad12ac30a6_D3_13-Main%20Pool%20Deck_SELECT-GROUP.jpg",
+  "/projects/select-group/artistry-two-residences/6968b9d0e37864bfb1b1ddf7_D3_08_PH_Living_SELECT-GROUP%201.jpg",
+];
 
 const amenities = [
   { icon: Waves, label: "22nd-Floor Infinity Pool" },
@@ -36,6 +43,12 @@ const amenities = [
 const ArtistryTwoProject = () => {
   const { openLeadCapture } = useLeadCapture();
   const [activeImage, setActiveImage] = useState(0);
+
+  const handleImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
+    const image = event.currentTarget;
+    image.onerror = null;
+    image.src = fallbackImage;
+  };
 
   const handleCTA = (ctaType: string) => {
     openLeadCapture({ projectName: "Artistry Two Residences", ctaType });
@@ -58,6 +71,7 @@ const ArtistryTwoProject = () => {
             src={images[activeImage]}
             alt="Artistry Two Residences by Select Group Dubai Design District"
             className="w-full h-full object-cover"
+            onError={handleImageError}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
@@ -93,7 +107,7 @@ const ArtistryTwoProject = () => {
                   activeImage === i ? 'border-primary' : 'border-transparent opacity-70 hover:opacity-100'
                 }`}
               >
-                <img src={img} alt={`View ${i + 1}`} className="w-full h-full object-cover" />
+                <img src={img} alt={`View ${i + 1}`} className="w-full h-full object-cover" onError={handleImageError} />
               </button>
             ))}
           </div>
@@ -289,6 +303,7 @@ const ArtistryTwoProject = () => {
                           src={img}
                           alt={`Artistry Two Residences gallery ${i + 1}`}
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                          onError={handleImageError}
                         />
                       </div>
                     ))}

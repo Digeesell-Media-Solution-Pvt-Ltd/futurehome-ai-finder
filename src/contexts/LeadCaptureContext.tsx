@@ -35,6 +35,9 @@ export function LeadCaptureProvider({ children }: { children: ReactNode }) {
 
   const openLeadCapture = useCallback((cfg: LeadCaptureConfig) => {
     setConfig(cfg);
+    // Opening a fresh lead capture should clear any stale pending download
+    // unless an explicit downloadUrl is provided for this new context.
+    setPendingDownloadUrl(cfg.downloadUrl ?? null);
     setIsOpen(true);
   }, []);
 
@@ -58,6 +61,8 @@ export function LeadCaptureProvider({ children }: { children: ReactNode }) {
 
   const closeLeadCapture = useCallback(() => {
     setIsOpen(false);
+    // Ensure no stale download is carried over to the next lead capture session.
+    setPendingDownloadUrl(null);
   }, []);
 
   return (

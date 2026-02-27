@@ -58,7 +58,10 @@ export default function ProjectDetail() {
   }
 
   const heroSrc = project.hero_image || getHeroImage(project.slug);
-  const galleryImgs = getGalleryImages(project.slug);
+  const galleryImgs =
+    project.gallery_images && project.gallery_images.length > 0
+      ? project.gallery_images
+      : getGalleryImages(project.slug);
   const developerName = project.developers?.name || "Developer";
   const areaName = project.areas?.name || project.city;
   const projectFullName = `${project.project_name} by ${developerName}`;

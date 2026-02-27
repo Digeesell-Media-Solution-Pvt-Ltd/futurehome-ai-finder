@@ -32,6 +32,9 @@ import BurjAziziProject from "./pages/projects/BurjAziziProject";
 import AziziDavidProject from "./pages/projects/AziziDavidProject";
 import PrestigeOneResidencesProject from "./pages/projects/PrestigeOneResidencesProject";
 import SunvaleProject from "./pages/projects/SunvaleProject";
+import Blossom40Project from "./pages/projects/Blossom40Project";
+import OvelleTheValleyProject from "./pages/projects/OvelleTheValleyProject";
+import ArtHouseHillsProject from "./pages/projects/ArtHouseHillsProject";
 import AliyahProject from "./pages/projects/AliyahProject";
 import CreekViewsProject from "./pages/projects/CreekViewsProject";
 import AuraProject from "./pages/projects/AuraProject";
@@ -55,8 +58,11 @@ import TheBrooksProject from "./pages/projects/TheBrooksProject";
 import ThePinnacleProject from "./pages/projects/ThePinnacleProject";
 import SkyvueAltierProject from "./pages/projects/SkyvueAltierProject";
 import CityWalkCrestlaneProject from "./pages/projects/CityWalkCrestlaneProject";
+import CityWalkCrestlane5Project from "./pages/projects/CityWalkCrestlane5Project";
+import CityWalkCrestlane4Project from "./pages/projects/CityWalkCrestlane4Project";
 import TheEditD3Project from "./pages/projects/TheEditD3Project";
 import NadAlShebaGardensProject from "./pages/projects/NadAlShebaGardensProject";
+import NadAlShebaGardensPhase11Project from "./pages/projects/NadAlShebaGardensPhase11Project";
 import MJLNourelleProject from "./pages/projects/MJLNourelleProject";
 import JumeirahEmiratesTowerProject from "./pages/projects/JumeirahEmiratesTowerProject";
 import MeridenBeachProject from "./pages/projects/MeridenBeachProject";
@@ -86,6 +92,7 @@ import PalmCentralPrivateResidencesProject from "./pages/projects/PalmCentralPri
 import SymphonyByChaimaaProject from "./pages/projects/SymphonyByChaimaaProject";
 import GrandPoloChevaliaEstate2Project from "./pages/projects/GrandPoloChevaliaEstate2Project";
 import GrandPoloEquiterra2Project from "./pages/projects/GrandPoloEquiterra2Project";
+import ZyraHillsProject from "./pages/projects/ZyraHillsProject";
 import TilalAlFurjanProject from "./pages/projects/TilalAlFurjanProject";
 import CanalFrontResidencesProject from "./pages/projects/CanalFrontResidencesProject";
 import OrlaDorchesterProject from "./pages/projects/OrlaDorchesterProject";
@@ -96,6 +103,11 @@ import ArtistryTwoProject from "./pages/projects/ArtistryTwoProject";
 import JumeirahLivingProject from "./pages/projects/JumeirahLivingProject";
 import SixSensesResidencesDubaiMarinaProject from "./pages/projects/SixSensesResidencesDubaiMarinaProject";
 import DerbyHeightsProject from "./pages/projects/DerbyHeightsProject";
+import ArtHousePrivateResidencesProject from "./pages/projects/ArtHousePrivateResidencesProject";
+import PalaceResidencesHillsideBProject from "./pages/projects/PalaceResidencesHillsideBProject";
+import WindsorHouseIIProject from "./pages/projects/WindsorHouseIIProject";
+import SeaCliffByImtiazProject from "./pages/projects/SeaCliffByImtiazProject";
+import LineaByHolmProject from "./pages/projects/LineaByHolmProject";
 import DevelopersPage from "./pages/Developers";
 import Masterdatapannel from "./pages/Masterdatapannel";
 import SelectGroupPage from "./pages/developers/SelectGroupPage";
@@ -166,6 +178,8 @@ const App = () => (
           <Route path="/projects/azizi/azizi-david" element={<AziziDavidProject />} />
           <Route path="/projects/prestige-one/prestige-one-residences" element={<PrestigeOneResidencesProject />} />
           <Route path="/projects/prysm/sunvale" element={<SunvaleProject />} />
+          <Route path="/projects/tranquil/blossom-40" element={<Blossom40Project />} />
+          <Route path="/projects/adaan/art-house-hills" element={<ArtHouseHillsProject />} />
           <Route path="/projects/binghatti/binghatti-luxuria" element={<BinghattiLuxuriaProject />} />
           <Route path="/projects/binghatti/binghatti-cullinan" element={<BinghattiCullinanProject />} />
           <Route path="/projects/binghatti/binghatti-hillcrest" element={<BinghattiHillcrestProject />} />
@@ -186,8 +200,20 @@ const App = () => (
           <Route path="/projects/sobha/the-pinnacle" element={<ThePinnacleProject />} />
           <Route path="/projects/sobha/skyvue-altier" element={<SkyvueAltierProject />} />
           <Route path="/projects/meraas/city-walk-crestlane" element={<CityWalkCrestlaneProject />} />
+          <Route
+            path="/projects/meraas/city-walk-crestlane-4"
+            element={<CityWalkCrestlane4Project />}
+          />
+          <Route
+            path="/projects/meraas/city-walk-crestlane-5"
+            element={<CityWalkCrestlane5Project />}
+          />
           <Route path="/projects/meraas/the-edit-d3" element={<TheEditD3Project />} />
           <Route path="/projects/meraas/nad-al-sheba-gardens" element={<NadAlShebaGardensProject />} />
+          <Route
+            path="/projects/meraas/nad-al-sheba-gardens-phase-11"
+            element={<NadAlShebaGardensPhase11Project />}
+          />
           <Route path="/projects/meraas/mjl-nourelle" element={<MJLNourelleProject />} />
           <Route path="/projects/meraas/jumeirah-emirates-tower" element={<JumeirahEmiratesTowerProject />} />
           <Route path="/projects/green-horizon/meriden-beach" element={<MeridenBeachProject />} />
@@ -213,7 +239,9 @@ const App = () => (
           <Route path="/projects/emaar/sera-2" element={<Sera2Project />} />
           <Route path="/projects/emaar/grand-polo-chevalia-estate-2" element={<GrandPoloChevaliaEstate2Project />} />
           <Route path="/projects/emaar/grand-polo-equiterra-2" element={<GrandPoloEquiterra2Project />} />
+          <Route path="/projects/emaar/ovelle-at-the-valley" element={<OvelleTheValleyProject />} />
           <Route path="/projects/chaimaa/symphony-by-chaimaa" element={<SymphonyByChaimaaProject />} />
+          <Route path="/projects/laraix/zyra-hills" element={<ZyraHillsProject />} />
           <Route path="/projects/nakheel/palm-central-private-residences" element={<PalmCentralPrivateResidencesProject />} />
           <Route path="/projects/nakheel/tilal-al-furjan" element={<TilalAlFurjanProject />} />
           <Route path="/projects/nakheel/canal-front-residences" element={<CanalFrontResidencesProject />} />
@@ -227,6 +255,26 @@ const App = () => (
           <Route path="/projects/select-group/jumeirah-living-business-bay" element={<JumeirahLivingProject />} />
           <Route path="/projects/select-group/six-senses-residences-dubai-marina" element={<SixSensesResidencesDubaiMarinaProject />} />
           <Route path="/projects/amis/derby-heights" element={<DerbyHeightsProject />} />
+          <Route
+            path="/projects/viva/art-house-private-residences"
+            element={<ArtHousePrivateResidencesProject />}
+          />
+          <Route
+            path="/projects/emaar/palace-residences-hillside-b"
+            element={<PalaceResidencesHillsideBProject />}
+          />
+          <Route
+            path="/projects/ellington/windsor-house-ii"
+            element={<WindsorHouseIIProject />}
+          />
+          <Route
+            path="/projects/imtiaz/sea-cliff-by-imtiaz"
+            element={<SeaCliffByImtiazProject />}
+          />
+          <Route
+            path="/projects/holm/linea-by-holm"
+            element={<LineaByHolmProject />}
+          />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/developers/select-group" element={<SelectGroupPage />} />
           <Route path="/areas" element={<Areas />} />

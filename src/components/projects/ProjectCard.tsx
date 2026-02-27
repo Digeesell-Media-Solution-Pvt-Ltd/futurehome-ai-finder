@@ -4,6 +4,57 @@ import { Badge } from "@/components/ui/badge";
 import type { Project } from "@/types/project";
 import { getHeroImage } from "@/lib/heroImages";
 
+function normalizeImageSrc(src?: string) {
+  if (!src) return undefined;
+  if (src.startsWith("http")) return src;
+  if (src.startsWith("/")) return src;
+  return `/${src}`;
+}
+
+function getBestProjectImage(project: Project): string {
+  const anyProject = project as any;
+
+  // a) dataset / API grid image
+  const gridImage = normalizeImageSrc(anyProject.gridImage);
+
+  // b) dataset hero image variants
+  const heroImage = normalizeImageSrc(project.hero_image || anyProject.heroImage);
+
+  // c) nested hero shapes
+  const heroObjectSrc = normalizeImageSrc(anyProject.hero?.src);
+  const mediaHeroSrc = normalizeImageSrc(anyProject.media?.hero?.src);
+
+  // d/e/f) gallery / images arrays (objects or plain strings)
+  const galleryFirstObjectSrc = normalizeImageSrc(anyProject.gallery?.[0]?.src || anyProject.images?.[0]?.src);
+  const galleryFirstRawSrc = normalizeImageSrc(anyProject.gallery?.[0] || anyProject.images?.[0]);
+
+  // g) same resolver as ProjectDetail (src/assets/projects)
+  const heroFromAssets = normalizeImageSrc(getHeroImage(project.slug) || undefined);
+
+  const candidates = [
+    gridImage,
+    heroImage,
+    heroObjectSrc,
+    mediaHeroSrc,
+    galleryFirstObjectSrc,
+    galleryFirstRawSrc,
+    heroFromAssets,
+  ];
+
+  for (const candidate of candidates) {
+    if (candidate && candidate !== "/placeholder.svg") {
+      return candidate;
+    }
+  }
+
+  if (import.meta.env.DEV) {
+    // eslint-disable-next-line no-console
+    console.warn("Missing grid image for:", (anyProject.title || project.project_name), project.slug);
+  }
+
+  return "/placeholder.svg";
+}
+
 interface Props {
   project: Project;
   index: number;
@@ -12,7 +63,7 @@ interface Props {
 export function ProjectCard({ project, index }: Props) {
   const developerSlug = project.developers?.slug || "unknown";
   const projectUrl = `/projects/${developerSlug}/${project.slug}`;
-  const heroSrc = project.hero_image || getHeroImage(project.slug);
+  const resolvedGridImage = getBestProjectImage(project);
 
   const formatPrice = (price: number | null) => {
     if (!price) return null;
@@ -38,12 +89,16 @@ export function ProjectCard({ project, index }: Props) {
     >
       {/* Image */}
       <div className="relative aspect-[16/10] overflow-hidden">
-        {heroSrc ? (
+        {resolvedGridImage ? (
           <img
-            src={heroSrc}
+            src={resolvedGridImage}
             alt={project.project_name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             loading="lazy"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = "/placeholder.svg";
+            }}
           />
         ) : (
           <div className="w-full h-full bg-muted flex items-center justify-center">
