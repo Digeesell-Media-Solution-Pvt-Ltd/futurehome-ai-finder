@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Calendar, Building2, TrendingUp, Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import type { Project } from "@/types/project";
-import { getHeroImage } from "@/lib/heroImages";
+import { getHeroImage, getGalleryImages } from "@/lib/heroImages";
 
 function normalizeImageSrc(src?: string) {
   if (!src) return undefined;
@@ -31,6 +31,10 @@ function getBestProjectImage(project: Project): string {
   // g) same resolver as ProjectDetail (src/assets/projects)
   const heroFromAssets = normalizeImageSrc(getHeroImage(project.slug) || undefined);
 
+  // h) gallery images from asset resolver (fallback when no hero exists)
+  const galleryFromAssets = getGalleryImages(project.slug);
+  const firstGalleryAsset = galleryFromAssets.length > 0 ? galleryFromAssets[0] : undefined;
+
   const candidates = [
     gridImage,
     heroImage,
@@ -39,6 +43,7 @@ function getBestProjectImage(project: Project): string {
     galleryFirstObjectSrc,
     galleryFirstRawSrc,
     heroFromAssets,
+    firstGalleryAsset,
   ];
 
   for (const candidate of candidates) {

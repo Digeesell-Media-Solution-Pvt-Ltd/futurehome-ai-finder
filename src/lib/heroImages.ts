@@ -12,6 +12,9 @@ const slugToFileKey: Record<string, string> = {
   'samana-hills-south-2': 'samana-hills-south2',
   'samana-hills-south-3': 'samana-hills-south3',
   'samana-sky-views': 'samana-skyviews',
+  'artistry-one-residences': 'artistry-one',
+  'artistry-two-residences': 'artistry-two',
+  'jumeirah-living-business-bay': 'jumeirah-living',
 };
 
 // Build maps: slug -> hero image, slug -> gallery images
