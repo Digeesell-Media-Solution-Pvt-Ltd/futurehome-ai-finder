@@ -15,6 +15,21 @@ const slugToFileKey: Record<string, string> = {
   'artistry-one-residences': 'artistry-one',
   'artistry-two-residences': 'artistry-two',
   'jumeirah-living-business-bay': 'jumeirah-living',
+  'orla-dorchester-collection': 'orla-dorchester',
+  'peninsula-four-the-plaza': 'peninsula-four',
+  'vela-viento-dorchester-collection': 'vela-viento',
+  'six-senses-residences-dubai-marina': 'six-senses-dubai-marina',
+  'albero-at-dubai-creek-harbour': 'albero',
+  'golf-meadow-at-emaar-south': 'golf-meadow',
+  'golf-verge-at-emaar-south': 'golf-verge',
+  'golf-dale-at-emaar-south': 'golf-dale',
+  'palm-central-private-residences': 'palm-central',
+  'symphony-by-chaimaa': 'symphony',
+  'grand-polo-chevalia-estate-2': 'grand-polo',
+  'parkwood-at-dubai-hills-estate': 'parkwood',
+  // Self-maps to ensure gallery images resolve (no hero file exists)
+  'shahrukhz': 'shahrukhz',
+  'sparklz': 'sparklz',
 };
 
 // Build maps: slug -> hero image, slug -> gallery images
