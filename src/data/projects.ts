@@ -33,7 +33,7 @@ export const projects: ProjectDataContract[] = [
     investment_tags: ["High Capital Appreciation", "Investor Hotspot"],
     lifestyle_tags: ["Family Friendly", "Gated Community"],
     amenities: [], // TODO: populate when Phase 11 amenities are clearly itemised in official materials
-    hero_image: "/projects/meraas/nad-al-sheba-gardens-phase-11/hero.jpg",
+    hero_image: null,
     gallery_images: [],
     brochure_url: null,
     floorplan_url: null,
