@@ -1,23 +1,16 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { BarChart3, Download, TrendingUp, Building2, Home, Briefcase, MapPin } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
-import { useLeadCapture } from "@/contexts/LeadCaptureContext";
+import { ReportLeadModal } from "@/components/lead/ReportLeadModal";
 
 const REPORT_DOWNLOAD_URL = "/reports/dubai-transactions-feb-2026.html";
 
 export default function InsightsPage() {
-  const { openLeadCapture } = useLeadCapture();
-
-  const handleDownloadReport = () => {
-    openLeadCapture({
-      ctaType: "Download Report",
-      projectName: "Dubai Transactions Feb 2026 Report",
-      downloadUrl: REPORT_DOWNLOAD_URL,
-    });
-  };
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -51,12 +44,10 @@ export default function InsightsPage() {
             transition={{ duration: 0.5, delay: 0.15 }}
           >
             <div className="relative overflow-hidden rounded-2xl border border-border bg-card">
-              {/* Accent bar */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/60 to-transparent" />
 
               <div className="p-6 sm:p-8 lg:p-10">
                 <div className="flex flex-col lg:flex-row lg:items-start gap-8">
-                  {/* Left Content */}
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -80,7 +71,6 @@ export default function InsightsPage() {
                       price distributions, and area-level comparisons.
                     </p>
 
-                    {/* Highlight Tags */}
                     <div className="flex flex-wrap gap-2 mb-8">
                       {[
                         { icon: TrendingUp, label: "Off-Plan Transactions" },
@@ -99,19 +89,17 @@ export default function InsightsPage() {
                       ))}
                     </div>
 
-                    {/* Download Button */}
                     <Button
                       variant="gold"
                       size="lg"
                       className="rounded-full"
-                      onClick={handleDownloadReport}
+                      onClick={() => setShowModal(true)}
                     >
                       <Download className="w-4 h-4 mr-2" />
                       Download February Report
                     </Button>
                   </div>
 
-                  {/* Right Side Preview */}
                   <div className="hidden lg:block w-72 shrink-0">
                     <div className="rounded-xl border border-border bg-muted/30 p-5 space-y-4">
                       <p className="text-xs font-medium tracking-wider uppercase text-primary mb-3">
@@ -135,7 +123,6 @@ export default function InsightsPage() {
             </div>
           </motion.div>
 
-          {/* Coming Soon Section */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -148,6 +135,13 @@ export default function InsightsPage() {
           </motion.div>
         </div>
       </main>
+
+      <ReportLeadModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        downloadUrl={REPORT_DOWNLOAD_URL}
+        reportName="Dubai Transactions Feb 2026 Report"
+      />
 
       <Footer />
       <WhatsAppButton />
