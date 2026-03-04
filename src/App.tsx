@@ -8,6 +8,7 @@ import { LeadCaptureProvider } from "@/contexts/LeadCaptureContext";
 import { LeadCaptureModal } from "@/components/lead/LeadCaptureModal";
 import Index from "./pages/Index";
 import AISearchPage from "./pages/AISearch";
+import InsightsPage from "./pages/Insights";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import BreezProject from "./pages/projects/BreezProject";
@@ -153,6 +154,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/ai-search" element={<AISearchPage />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/insights" element={<InsightsPage />} />
           <Route path="/projects/danube/breez" element={<BreezProject />} />
           <Route path="/projects/danube/timez" element={<TimezProject />} />
           <Route path="/projects/danube/sparklz" element={<SparklzProject />} />
