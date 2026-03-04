@@ -8,6 +8,7 @@ import { LeadCaptureProvider } from "@/contexts/LeadCaptureContext";
 import { LeadCaptureModal } from "@/components/lead/LeadCaptureModal";
 import Index from "./pages/Index";
 import AISearchPage from "./pages/AISearch";
+import InsightsPage from "./pages/Insights";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import BreezProject from "./pages/projects/BreezProject";
