@@ -278,6 +278,10 @@ const App = () => (
             path="/projects/holm/linea-by-holm"
             element={<LineaByHolmProject />}
           />
+          <Route
+            path="/projects/dubai-south-properties/hayat-dubai-south"
+            element={<HayatDubaiSouthProject />}
+          />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/developers/select-group" element={<SelectGroupPage />} />
           <Route path="/areas" element={<Areas />} />
