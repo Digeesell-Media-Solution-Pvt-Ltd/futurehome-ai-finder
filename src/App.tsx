@@ -98,6 +98,7 @@ import TilalAlFurjanProject from "./pages/projects/TilalAlFurjanProject";
 import CanalFrontResidencesProject from "./pages/projects/CanalFrontResidencesProject";
 import OrlaDorchesterProject from "./pages/projects/OrlaDorchesterProject";
 import VelaVientoProject from "./pages/projects/VelaVientoProject";
+import HayatDubaiSouthProject from "./pages/projects/HayatDubaiSouthProject";
 import PeninsulaFourProject from "./pages/projects/PeninsulaFourProject";
 import ArtistryOneProject from "./pages/projects/ArtistryOneProject";
 import ArtistryTwoProject from "./pages/projects/ArtistryTwoProject";
@@ -276,6 +277,10 @@ const App = () => (
           <Route
             path="/projects/holm/linea-by-holm"
             element={<LineaByHolmProject />}
+          />
+          <Route
+            path="/projects/dubai-south-properties/hayat-dubai-south"
+            element={<HayatDubaiSouthProject />}
           />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
           <Route path="/developers/select-group" element={<SelectGroupPage />} />
