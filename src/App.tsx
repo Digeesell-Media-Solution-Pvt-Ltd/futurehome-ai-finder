@@ -98,6 +98,7 @@ import TilalAlFurjanProject from "./pages/projects/TilalAlFurjanProject";
 import CanalFrontResidencesProject from "./pages/projects/CanalFrontResidencesProject";
 import OrlaDorchesterProject from "./pages/projects/OrlaDorchesterProject";
 import VelaVientoProject from "./pages/projects/VelaVientoProject";
+import HayatDubaiSouthProject from "./pages/projects/HayatDubaiSouthProject";
 import PeninsulaFourProject from "./pages/projects/PeninsulaFourProject";
 import ArtistryOneProject from "./pages/projects/ArtistryOneProject";
 import ArtistryTwoProject from "./pages/projects/ArtistryTwoProject";
