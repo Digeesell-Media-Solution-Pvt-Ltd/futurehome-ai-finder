@@ -110,6 +110,7 @@ import PalaceResidencesHillsideBProject from "./pages/projects/PalaceResidencesH
 import WindsorHouseIIProject from "./pages/projects/WindsorHouseIIProject";
 import SeaCliffByImtiazProject from "./pages/projects/SeaCliffByImtiazProject";
 import LineaByHolmProject from "./pages/projects/LineaByHolmProject";
+import MoonsaResidences2Project from "./pages/projects/MoonsaResidences2Project";
 import DevelopersPage from "./pages/Developers";
 import Masterdatapannel from "./pages/Masterdatapannel";
 import SelectGroupPage from "./pages/developers/SelectGroupPage";
@@ -183,6 +184,10 @@ const App = () => (
           <Route path="/projects/prysm/sunvale" element={<SunvaleProject />} />
           <Route path="/projects/tranquil/blossom-40" element={<Blossom40Project />} />
           <Route path="/projects/adaan/art-house-hills" element={<ArtHouseHillsProject />} />
+          <Route
+            path="/projects/dugasta-properties/moonsa-residences-2"
+            element={<MoonsaResidences2Project />}
+          />
           <Route path="/projects/binghatti/binghatti-luxuria" element={<BinghattiLuxuriaProject />} />
           <Route path="/projects/binghatti/binghatti-cullinan" element={<BinghattiCullinanProject />} />
           <Route path="/projects/binghatti/binghatti-hillcrest" element={<BinghattiHillcrestProject />} />

@@ -115,4 +115,5 @@ export const projectDeveloperMap: Record<string, string> = {
   'palace-residences-hillside-b': 'emaar',
   'linea-by-holm': 'holm',
   'hayat-dubai-south': 'dubai-south-properties',
+  'moonsa-residences-2': 'dugasta-properties',
 };
