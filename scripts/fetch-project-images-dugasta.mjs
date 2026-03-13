@@ -1,12 +1,22 @@
 /**
- * Extract real project images from an official Dugasta project page and save locally.
- * Complies with imageRules: same-domain only, no icons/logos/small thumbnails, hero + gallery.
+ * Extract real project images from the official Dugasta project page and save locally.
+ * Follows imageRules: same-domain only, no icons/logos/small thumbnails, hero + gallery (min 8).
+ *
+ * imageRules alignment:
+ * - sourcePage: default URL below (official project page only).
+ * - step1–6: Load HTML → scan <img>, <picture>, <source>, background-image → same domain →
+ *   ignore <400px / icons/logos → prioritize hero/large → download to folderPath.
+ * - heroImage: largest exterior/banner; fallback highest resolution.
+ * - galleryImages: minimumCount 8; all valid large images (exterior, interiors, amenities, lifestyle).
+ * - listingGridImage / homepageGridImage: use hero (dataset hero_image).
+ * - localStorage: folderPath below; fileNaming hero.jpg, 01.jpg, 02.jpg, ...
+ * - strictRestrictions: if source page 404 or no images → leave gallery empty (no fake images).
  *
  * Usage (from repo root):
  *   node scripts/fetch-project-images-dugasta.mjs [URL]
  *
- * Default URL: https://dugasta.com/property/moonsa-residences-2/
- * Output: public/projects/dugasta-properties/moonsa-residences-2/hero.jpg, 01.jpg, 02.jpg, ...
+ * Default URL (sourcePage): https://dugasta.com/property/moonsa-residences-2/
+ * Output: public/projects/dugasta-properties/moonsa-residences-2/hero.<ext>, 01.<ext>, ..., 08.<ext> (min 8 gallery)
  */
 
 import fs from "fs";
@@ -17,7 +27,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.join(__dirname, "..");
 const OUT_DIR = path.join(repoRoot, "public/projects/dugasta-properties/moonsa-residences-2");
 
-const SOURCE_URL = process.argv[2] || "https://dugasta.com/property/moonsa-residences-2/";
+const SOURCE_PAGE = "https://dugasta.com/property/moonsa-residences-2/";
+const SOURCE_URL = process.argv[2] || SOURCE_PAGE;
+const GALLERY_MIN_COUNT = 8;
 const ACCEPTED_EXT = [".jpg", ".jpeg", ".png", ".webp"];
 const MIN_WIDTH_HINT = 400; // ignore URLs that suggest small size (e.g. -150x150)
 const SKIP_PATTERNS = [
@@ -132,7 +144,7 @@ async function main() {
   const html = await res.text();
   const urls = extractImageUrls(html, SOURCE_URL);
   if (urls.length === 0) {
-    console.error("No same-domain project images found. Leave gallery empty per strictRestrictions.");
+    console.error("No same-domain project images found. Leave gallery empty per imageRules.strictRestrictions.ifImagesNotFound.");
     process.exit(0);
   }
 
@@ -171,7 +183,10 @@ async function main() {
 
   console.log("\nDone. Update src/data/projects.ts for moonsa-residences-2 with:");
   console.log('  hero_image: "/projects/dugasta-properties/moonsa-residences-2/' + heroName + '",');
-  console.log("  gallery_images:", JSON.stringify(writtenGallery.slice(0, 8), null, 2));
+  console.log("  gallery_images:", JSON.stringify(writtenGallery, null, 2));
+  if (writtenGallery.length < GALLERY_MIN_COUNT) {
+    console.warn(`\nNote: gallery has ${writtenGallery.length} image(s); imageRules request minimumCount ${GALLERY_MIN_COUNT}. Run again when the source page has more images.`);
+  }
 }
 
 main().catch((e) => {

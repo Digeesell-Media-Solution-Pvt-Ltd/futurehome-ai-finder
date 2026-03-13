@@ -1202,12 +1202,8 @@ export const projects: ProjectDataContract[] = [
     investment_tags: ["High ROI", "Affordable Entry", "Investor Friendly", "Guaranteed Return"],
     lifestyle_tags: ["Urban Living", "Modern Architecture", "Affordable Luxury"],
     amenities: [],
-    hero_image: "/projects/dugasta-properties/moonsa-residences-2/hero.jpg",
-    gallery_images: [
-      "/projects/dugasta-properties/moonsa-residences-2/01.jpg",
-      "/projects/dugasta-properties/moonsa-residences-2/02.jpg",
-      "/projects/dugasta-properties/moonsa-residences-2/03.jpg",
-    ],
+    hero_image: null,
+    gallery_images: [],
     brochure_url: null,
     floorplan_url: null,
     short_description:

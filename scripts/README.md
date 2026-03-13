@@ -22,17 +22,29 @@ The audit checks:
 - Store downloaded images under: `public/projects/{developerSlug}/{projectSlug}/`
 - Update only `hero_image` and `gallery_images` in `src/data/projects.ts`; do not change filter keys (developerSlug, areaSlug, tags, etc.).
 
-## Fetch Dugasta project images
+## Dugasta project images (extract URLs only – no download)
 
-To **automatically extract and download** real project images from an official Dugasta project page (e.g. Moonsa Residences 2):
+**displayRule:** Use image URLs directly from the official page; do not download; render images from source.
+
+To **extract image URLs only** (no local download) from the official Moonsa Residences 2 page:
+
+```bash
+node scripts/extract-project-image-urls-dugasta.mjs [URL]
+```
+
+- **Default URL (sourcePage):** `https://dugasta.com/property/moonsa-residences-2/`
+- **Method:** Parse HTML, extract `<img>` `src` attributes; filter out icons/logos and images smaller than 400px; prioritize large renders and banners.
+- **Output:** Hero URL (largest exterior render) and gallery URLs. Paste them into `src/data/projects.ts` as `hero_image` and `gallery_images` (full URLs). The app renders them directly from the source (dugasta.com).
+- **gridImage:** Use the same hero URL for the project listing card (dataset `hero_image`).
+- **strictRestrictions:** No AI images, no stock images, no placeholders. If the page is 404 or no images are found, leave `hero_image` and `gallery_images` empty.
+
+## Fetch Dugasta project images (download to local – optional)
+
+To **download** images locally instead of using source URLs:
 
 ```bash
 node scripts/fetch-project-images-dugasta.mjs [URL]
 ```
 
-- **Default URL:** `https://dugasta.com/property/moonsa-residences-2/`
 - **Output folder:** `public/projects/dugasta-properties/moonsa-residences-2/`
-- **Strategy:** Loads page HTML, scans `<img>`, `<picture>`, `<source>`, and `background-image` URLs, keeps same-domain (dugasta.com) only, skips icons/logos and small thumbnails (<400px hint), prioritises hero/banner/render, downloads as `hero.<ext>`, `01.<ext>`, `02.<ext>`, …
-- **Accepted types:** `.jpg`, `.jpeg`, `.png`, `.webp`
-- **After run:** The script prints the exact `hero_image` and `gallery_images` to paste into `src/data/projects.ts` for the project. The project detail page and grid read from the central dataset, so no other code changes are needed.
-- If the page returns 404 or no images are found, leave `hero_image` and `gallery_images` empty; the UI shows placeholder and “Official images will appear here once they are available” (no fake images).
+- Use when you prefer local assets over rendering from source.
