@@ -5,6 +5,7 @@ export interface Developer {
   nameAr: string;
   slug: string;
   logoUrl?: string;
+  sourceUrl?: string;
   featured?: boolean;
   projectCount?: number;
   trustScore?: number;
@@ -181,3 +182,4 @@ export function parseDevelopersFromCSV(csvContent: string): Developer[] {
 
 // Alphabet for filtering
 export const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#'.split('');
+

@@ -78,7 +78,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display text-lg font-medium mb-4 text-primary">Top Areas</h4>
+            <Link to="/areas">
+              <h4 className="font-display text-lg font-medium mb-4 text-primary">
+                Top Areas
+              </h4>
+            </Link>
             <ul className="space-y-3">
               {footerLinks.areas.map((link) =>
               <li key={link.name}>

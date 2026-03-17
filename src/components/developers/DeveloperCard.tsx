@@ -25,7 +25,7 @@ export function DeveloperCard({ developer, index = 0, variant = "default" }: Dev
       style={{ animationDelay: `${Math.min(index, 20) * 30}ms` }}
     >
       <Link 
-        to={`/projects?developer=${encodeURIComponent(developer.nameEn)}`}
+        to={`/developers/${encodeURIComponent(developer.slug)}`}
         className="block p-6"
       >
         {/* Logo / Initials */}

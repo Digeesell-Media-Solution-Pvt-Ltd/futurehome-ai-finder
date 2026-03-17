@@ -112,6 +112,7 @@ import SeaCliffByImtiazProject from "./pages/projects/SeaCliffByImtiazProject";
 import LineaByHolmProject from "./pages/projects/LineaByHolmProject";
 import MoonsaResidences2Project from "./pages/projects/MoonsaResidences2Project";
 import DevelopersPage from "./pages/Developers";
+import DeveloperProjectsPage from "./pages/DeveloperProjects";
 import Masterdatapannel from "./pages/Masterdatapannel";
 import SelectGroupPage from "./pages/developers/SelectGroupPage";
 import Areas from "./pages/Areas";
@@ -288,6 +289,8 @@ const App = () => (
             element={<HayatDubaiSouthProject />}
           />
           <Route path="/projects/:developer/:projectId" element={<ProjectDetail />} />
+          <Route path="/developers" element={<DevelopersPage />} />
+          <Route path="/developers/:developerSlug" element={<DeveloperProjectsPage />} />
           <Route path="/developers/select-group" element={<SelectGroupPage />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/dubai-marina" element={<DubaiMarinaArea />} />
