@@ -29,7 +29,7 @@ const footerLinks = {
 };
 
 const socialLinks = [
-{ name: "Instagram", icon: Instagram, href: "#" },
+{ name: "Instagram", icon: Instagram, href: "https://www.instagram.com/offplanproperties.uae/" },
 { name: "LinkedIn", icon: Linkedin, href: "#" },
 { name: "Facebook", icon: Facebook, href: "#" },
 { name: "Twitter", icon: Twitter, href: "#" }];
