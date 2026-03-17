@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /Masterdatapannel
+
+Sitemap: https://off-plan-projects.com/sitemap.xml
