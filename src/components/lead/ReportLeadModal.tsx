@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, CheckCircle, Download } from "lucide-react";
+import { X, Send, CheckCircle, Download, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -59,8 +59,18 @@ export function ReportLeadModal({ isOpen, onClose, downloadUrl, reportName }: Re
     }
   };
 
-  const handleDownload = () => {
+  const handleViewReport = () => {
     window.open(downloadUrl, "_blank");
+    handleClose();
+  };
+
+  const handleDownloadReport = () => {
+    const link = document.createElement("a");
+    link.href = downloadUrl;
+    link.download = reportName.replace(/\s+/g, "-").toLowerCase() + ".html";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
     handleClose();
   };
 
@@ -115,12 +125,18 @@ export function ReportLeadModal({ isOpen, onClose, downloadUrl, reportName }: Re
                     Thank You!
                   </h3>
                   <p className="text-sm text-muted-foreground mb-5">
-                    Your report is ready to download.
+                    Your report is ready.
                   </p>
-                  <Button variant="gold" className="rounded-full" onClick={handleDownload}>
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Report
-                  </Button>
+                  <div className="flex flex-col gap-3">
+                    <Button variant="gold" className="rounded-full" onClick={handleViewReport}>
+                      <FileText className="w-4 h-4 mr-2" />
+                      Open Report
+                    </Button>
+                    <Button variant="outline" className="rounded-full" onClick={handleDownloadReport}>
+                      <Download className="w-4 h-4 mr-2" />
+                      Download Report
+                    </Button>
+                  </div>
                 </motion.div>
               ) : (
                 <>
