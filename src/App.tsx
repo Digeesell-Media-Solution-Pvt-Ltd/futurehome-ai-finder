@@ -140,6 +140,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import CookiePolicy from "./pages/CookiePolicy";
 import Saved from "./pages/Saved";
+import ProjectOnboarding from "./pages/ProjectOnboarding";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
