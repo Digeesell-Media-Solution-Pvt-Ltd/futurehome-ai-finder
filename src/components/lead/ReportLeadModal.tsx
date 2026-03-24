@@ -125,12 +125,18 @@ export function ReportLeadModal({ isOpen, onClose, downloadUrl, reportName }: Re
                     Thank You!
                   </h3>
                   <p className="text-sm text-muted-foreground mb-5">
-                    Your report is ready to download.
+                    Your report is ready.
                   </p>
-                  <Button variant="gold" className="rounded-full" onClick={handleDownload}>
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Report
-                  </Button>
+                  <div className="flex flex-col gap-3">
+                    <Button variant="gold" className="rounded-full" onClick={handleViewReport}>
+                      <FileText className="w-4 h-4 mr-2" />
+                      Open Report
+                    </Button>
+                    <Button variant="outline" className="rounded-full" onClick={handleDownloadReport}>
+                      <Download className="w-4 h-4 mr-2" />
+                      Download Report
+                    </Button>
+                  </div>
                 </motion.div>
               ) : (
                 <>
