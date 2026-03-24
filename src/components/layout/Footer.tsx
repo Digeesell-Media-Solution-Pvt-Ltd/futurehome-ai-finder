@@ -19,7 +19,7 @@ const footerLinks = {
   { name: "About Us", href: "/about" },
   { name: "Market Insights", href: "/insights" },
   { name: "Contact", href: "/contact" },
-  { name: "Careers", href: "/careers" }],
+  { name: "Project Onboarding", href: "/project-onboarding" }],
 
   legal: [
   { name: "Privacy Policy", href: "/privacy" },

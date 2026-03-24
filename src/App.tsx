@@ -140,6 +140,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import CookiePolicy from "./pages/CookiePolicy";
 import Saved from "./pages/Saved";
+import ProjectOnboarding from "./pages/ProjectOnboarding";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -317,6 +318,7 @@ const App = () => (
           <Route path="/terms-of-use" element={<TermsOfUse />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="/saved" element={<Saved />} />
+          <Route path="/project-onboarding" element={<ProjectOnboarding />} />
           <Route path="/Masterdatapannel" element={<Masterdatapannel />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

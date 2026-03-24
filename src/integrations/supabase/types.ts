@@ -122,6 +122,51 @@ export type Database = {
         }
         Relationships: []
       }
+      project_onboarding: {
+        Row: {
+          brochure_url: string | null
+          consent_given: boolean
+          created_at: string
+          developer_name: string
+          floorplan_url: string | null
+          id: string
+          image_urls: string[]
+          poc_email: string
+          poc_name: string
+          poc_phone: string
+          priceplan_url: string | null
+          project_name: string
+        }
+        Insert: {
+          brochure_url?: string | null
+          consent_given?: boolean
+          created_at?: string
+          developer_name: string
+          floorplan_url?: string | null
+          id?: string
+          image_urls?: string[]
+          poc_email: string
+          poc_name: string
+          poc_phone: string
+          priceplan_url?: string | null
+          project_name: string
+        }
+        Update: {
+          brochure_url?: string | null
+          consent_given?: boolean
+          created_at?: string
+          developer_name?: string
+          floorplan_url?: string | null
+          id?: string
+          image_urls?: string[]
+          poc_email?: string
+          poc_name?: string
+          poc_phone?: string
+          priceplan_url?: string | null
+          project_name?: string
+        }
+        Relationships: []
+      }
       projects: {
         Row: {
           amenities: Database["public"]["Enums"]["amenity_type"][]
