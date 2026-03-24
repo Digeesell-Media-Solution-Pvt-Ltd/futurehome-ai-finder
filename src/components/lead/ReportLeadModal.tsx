@@ -59,8 +59,18 @@ export function ReportLeadModal({ isOpen, onClose, downloadUrl, reportName }: Re
     }
   };
 
-  const handleDownload = () => {
+  const handleViewReport = () => {
     window.open(downloadUrl, "_blank");
+    handleClose();
+  };
+
+  const handleDownloadReport = () => {
+    const link = document.createElement("a");
+    link.href = downloadUrl;
+    link.download = reportName.replace(/\s+/g, "-").toLowerCase() + ".html";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
     handleClose();
   };
 
