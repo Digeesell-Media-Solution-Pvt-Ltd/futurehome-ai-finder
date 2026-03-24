@@ -318,6 +318,7 @@ const App = () => (
           <Route path="/terms-of-use" element={<TermsOfUse />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="/saved" element={<Saved />} />
+          <Route path="/project-onboarding" element={<ProjectOnboarding />} />
           <Route path="/Masterdatapannel" element={<Masterdatapannel />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
