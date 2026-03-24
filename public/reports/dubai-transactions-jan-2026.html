@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>January 2026 — Dubai Real Estate Report</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --gold:#C9A84C;--gold-l:#E8C96A;--gold-d:#9B7A2A;
+  --navy:#0D1B2A;--navy2:#131F30;--navy3:#1A2840;
+  --slate:#243550;--steel:#2E4A70;
+  --teal:#1A8080;--teal-l:#25ADAD;
+  --rose:#C05A5A;--rose-l:#E07070;
+  --white:#FFFFFF;--off:#F0F4F8;
+  --muted:#8899BB;--dim:#566880;
+  --border:rgba(201,168,76,0.18);--border2:rgba(255,255,255,0.07);
+  --card:rgba(255,255,255,0.035);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;font-size:14px}
+
+/* ── HEADER ── */
+.ph{background:linear-gradient(135deg,var(--navy2) 0%,var(--slate) 100%);border-bottom:1px solid var(--border);padding:44px 52px 36px;position:relative;overflow:hidden}
+.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 90% at 85% 40%,rgba(201,168,76,0.1) 0%,transparent 65%)}
+.ph::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:var(--navy);font-size:10px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:2px;text-transform:uppercase;margin-bottom:16px}
+.ph h1{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,46px);font-weight:900;line-height:1.08;margin-bottom:10px}
+.ph h1 span{color:var(--gold-l)}
+.ph .sub{color:var(--muted);font-size:13px;font-weight:300;letter-spacing:.3px}
+
+/* ── NAV TABS ── */
+.nav{display:flex;gap:4px;background:var(--navy2);border-bottom:1px solid var(--border);padding:0 52px;overflow-x:auto}
+.nav a{padding:13px 22px;font-size:12px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:.2s}
+.nav a:hover{color:var(--white)}
+.nav a.active{color:var(--gold-l);border-bottom-color:var(--gold)}
+
+/* ── CONTENT ── */
+.wrap{max-width:1440px;margin:0 auto;padding:40px 52px 60px}
+
+/* ── INSIGHT BOX ── */
+.insight{background:linear-gradient(135deg,var(--navy3),rgba(30,45,75,.5));border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:8px;padding:20px 24px;margin-bottom:36px;line-height:1.8;color:#C8D5E8;font-size:13.5px}
+.insight strong{color:var(--gold-l)}
+.insight em{color:var(--teal-l);font-style:normal}
+
+/* ── KPI STRIP ── */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:36px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 18px;position:relative;overflow:hidden;transition:.2s}
+.kpi:hover{border-color:rgba(201,168,76,.4)}
+.kpi::after{content:'';position:absolute;top:-24px;right:-24px;width:90px;height:90px;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%)}
+.kpi.hi{border-color:var(--gold)}
+.kpi .lbl{font-size:10px;text-transform:uppercase;letter-spacing:1.6px;color:var(--muted);margin-bottom:8px}
+.kpi .val{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;line-height:1;color:var(--white)}
+.kpi.hi .val{color:var(--gold-l)}
+.kpi .note{font-size:11px;color:var(--muted);margin-top:6px}
+
+/* ── SECTION HEAD ── */
+.sh{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--gold-l);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:9px}
+.sh .ico{font-size:17px}
+
+/* ── GRID ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px}
+@media(max-width:1000px){.g2,.g3{grid-template-columns:1fr}}
+
+/* ── CHART CARD ── */
+.cc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px}
+.cc h3{font-size:11px;text-transform:uppercase;letter-spacing:1.1px;color:var(--muted);margin-bottom:18px}
+.cw{position:relative}
+
+/* ── TABLE WRAPPER ── */
+.tw{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:32px}
+.tw table{width:100%;border-collapse:collapse;font-size:12.5px}
+.tw thead th{background:rgba(201,168,76,.13);color:var(--gold-l);font-size:9.5px;text-transform:uppercase;letter-spacing:1.2px;font-weight:600;padding:12px 14px;white-space:nowrap;border-bottom:1px solid var(--border)}
+.tw thead th:not(:first-child){text-align:right}
+.tw tbody tr{border-bottom:1px solid var(--border2);transition:background .12s}
+.tw tbody tr:last-child{border-bottom:none}
+.tw tbody tr:hover{background:rgba(255,255,255,.04)}
+.tw tbody td{padding:10px 14px;color:#C8D5E8}
+.tw tbody td:not(:first-child){text-align:right}
+.tw tbody td.area-name{font-weight:500;color:var(--off);max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tw tfoot td{background:rgba(201,168,76,.12);color:var(--gold-l);font-weight:700;padding:11px 14px;border-top:1px solid var(--border)}
+.tw tfoot td:not(:first-child){text-align:right}
+
+/* ── HEAT CELL ── */
+.hc{display:block;font-weight:600;font-size:12px}
+.hs{display:block;font-size:10px;color:var(--muted);margin-top:1px}
+.h0{} .h1{background:rgba(42,173,173,.07)} .h2{background:rgba(42,173,173,.14)}
+.h3{background:rgba(201,168,76,.1)} .h4{background:rgba(201,168,76,.2)} .h5{background:rgba(201,168,76,.32)}
+.na{color:var(--dim);font-size:16px}
+
+/* ── RANK BADGE ── */
+.rb{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font-size:10px;font-weight:700;flex-shrink:0}
+.r1{background:var(--gold);color:var(--navy)}
+.r2{background:#B8B8B8;color:var(--navy)}
+.r3{background:#CD7F32;color:#fff}
+.rn{background:rgba(255,255,255,.1);color:var(--white)}
+
+/* ── PROGRESS BAR ── */
+.pb{height:5px;background:rgba(255,255,255,.06);border-radius:3px;margin-top:4px;overflow:hidden}
+.pf{height:100%;background:linear-gradient(90deg,var(--teal-l),var(--gold));border-radius:3px}
+
+/* ── TABS ── */
+.sec-tabs{display:flex;gap:6px;margin-bottom:20px}
+.sec-tab{padding:7px 16px;border-radius:5px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.6px;cursor:pointer;text-transform:uppercase;transition:.2s}
+.sec-tab:hover{color:var(--white);border-color:var(--gold-d)}
+.sec-tab.on{background:rgba(201,168,76,.15);color:var(--gold-l);border-color:var(--gold)}
+.sec-panel{display:none}.sec-panel.on{display:block}
+
+/* ── SCROLL TABLE ── */
+.scroll-x{overflow-x:auto}
+
+/* ── FOOTER ── */
+.foot{text-align:center;padding:28px 52px;color:var(--muted);font-size:11px;border-top:1px solid var(--border);margin-top:20px;letter-spacing:.3px}
+</style>
+
+</head>
+<body>
+
+<div class="ph">
+  <div class="badge">📅 Monthly Report</div>
+  <h1>Dubai Real Estate<br><span>January 2026</span></h1>
+  <div class="sub">DLD Registered Transactions &nbsp;·&nbsp; All Property Types &nbsp;·&nbsp; 95 Active Areas</div>
+</div>
+
+<nav class="nav">
+  <a href="#overview" class="active">Overview</a>
+  <a href="#all-areas">All Areas</a>
+  <a href="#room-breakdown">Room × Area</a>
+  <a href="#top10">Top 10 Detail</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="insight">
+      <strong>January 2026</strong> saw <strong>9,511 transactions</strong> with a combined value of
+      <strong>AED 22.37B</strong> across <strong>95 areas</strong>.
+      The average deal size was <strong>AED 2.4M</strong>.
+      <em>Dubai Land Residence Complex</em> led the market with <strong>640 transactions</strong>
+      worth <strong>AED 604.4M</strong>, followed by
+      <em>Jumeirah Village Circle</em> (614 deals) and
+      <em>Madinat Al Mataar</em> (578 deals).
+    </div>
+  
+    <div class="kpis">
+      <div class="kpi hi"><div class="lbl">Total Transactions</div><div class="val">9,511</div><div class="note">Registered deals</div></div>
+      <div class="kpi"><div class="lbl">Total Value</div><div class="val">AED 22.37B</div><div class="note">Combined transaction value</div></div>
+      <div class="kpi"><div class="lbl">Avg Deal Size</div><div class="val">AED 2.4M</div><div class="note">Per transaction</div></div>
+      <div class="kpi"><div class="lbl">Active Areas</div><div class="val">95</div><div class="note">Unique locations</div></div>
+      <div class="kpi"><div class="lbl">Highest Deal</div><div class="val">AED 2.57B</div><div class="note">Single area total value</div></div>
+    </div>
+
+  <!-- ═══ SECTION 1: Overview Charts ═══ -->
+  <div id="overview">
+    <div class="sh"><span class="ico">📊</span> Market Overview</div>
+    <div class="g2">
+      <div class="cc">
+        <h3>Top 10 Areas — Units Sold</h3>
+        <div class="cw" style="height:300px"><canvas id="unitsBar"></canvas></div>
+      </div>
+      <div class="cc">
+        <h3>Top 10 Areas — Transaction Value (AED M)</h3>
+        <div class="cw" style="height:300px"><canvas id="valueBar"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 2: All Areas Table ═══ -->
+  <div id="all-areas">
+    <div class="sh"><span class="ico">🗺️</span> All Areas — Units Sold & Transaction Value</div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:18px">All 95 active areas sorted by transaction volume. Bar fill shows relative share.</p>
+    
+    <div class="tw scroll-x">
+      <table>
+        <thead><tr><th>#</th><th>Area</th><th>Units Sold</th><th>Total Value</th><th>Avg Value</th></tr></thead>
+        <tbody><tr>
+          <td><span class="rb r1">1</span></td>
+          <td class="area-name" title="DUBAI LAND RESIDENCE COMPLEX">Dubai Land Residence Complex</td>
+          <td><strong>640</strong><div class="pb"><div class="pf" style="width:100%"></div></div></td>
+          <td>AED 604.4M</td>
+          <td>AED 944K</td>
+        </tr><tr>
+          <td><span class="rb r2">2</span></td>
+          <td class="area-name" title="JUMEIRAH VILLAGE CIRCLE">Jumeirah Village Circle</td>
+          <td><strong>614</strong><div class="pb"><div class="pf" style="width:96%"></div></div></td>
+          <td>AED 714.1M</td>
+          <td>AED 1.2M</td>
+        </tr><tr>
+          <td><span class="rb r3">3</span></td>
+          <td class="area-name" title="Madinat Al Mataar">Madinat Al Mataar</td>
+          <td><strong>578</strong><div class="pb"><div class="pf" style="width:90%"></div></div></td>
+          <td>AED 874.4M</td>
+          <td>AED 1.5M</td>
+        </tr><tr>
+          <td><span class="rb rn">4</span></td>
+          <td class="area-name" title="MAJAN">Majan</td>
+          <td><strong>562</strong><div class="pb"><div class="pf" style="width:88%"></div></div></td>
+          <td>AED 518.8M</td>
+          <td>AED 923K</td>
+        </tr><tr>
+          <td><span class="rb rn">5</span></td>
+          <td class="area-name" title="Palm Deira">Palm Deira</td>
+          <td><strong>550</strong><div class="pb"><div class="pf" style="width:86%"></div></div></td>
+          <td>AED 1.69B</td>
+          <td>AED 3.1M</td>
+        </tr><tr>
+          <td><span class="rb rn">6</span></td>
+          <td class="area-name" title="BUSINESS BAY">Business Bay</td>
+          <td><strong>490</strong><div class="pb"><div class="pf" style="width:77%"></div></div></td>
+          <td>AED 2.57B</td>
+          <td>AED 5.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">7</span></td>
+          <td class="area-name" title="Al Khairan First">Al Khairan First</td>
+          <td><strong>467</strong><div class="pb"><div class="pf" style="width:73%"></div></div></td>
+          <td>AED 1.35B</td>
+          <td>AED 2.9M</td>
+        </tr><tr>
+          <td><span class="rb rn">8</span></td>
+          <td class="area-name" title="JUMEIRAH VILLAGE TRIANGLE">Jumeirah Village Triangle</td>
+          <td><strong>391</strong><div class="pb"><div class="pf" style="width:61%"></div></div></td>
+          <td>AED 473.4M</td>
+          <td>AED 1.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">9</span></td>
+          <td class="area-name" title="DUBAI PRODUCTION CITY">Dubai Production City</td>
+          <td><strong>284</strong><div class="pb"><div class="pf" style="width:44%"></div></div></td>
+          <td>AED 319.9M</td>
+          <td>AED 1.1M</td>
+        </tr><tr>
+          <td><span class="rb rn">10</span></td>
+          <td class="area-name" title="DUBAI SPORTS CITY">Dubai Sports City</td>
+          <td><strong>246</strong><div class="pb"><div class="pf" style="width:38%"></div></div></td>
+          <td>AED 300.1M</td>
+          <td>AED 1.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">11</span></td>
+          <td class="area-name" title="TECOM SITE A">Tecom Site A</td>
+          <td><strong>242</strong><div class="pb"><div class="pf" style="width:38%"></div></div></td>
+          <td>AED 703.8M</td>
+          <td>AED 2.9M</td>
+        </tr><tr>
+          <td><span class="rb rn">12</span></td>
+          <td class="area-name" title="Madinat Dubai Almelaheyah">Madinat Dubai Almelaheyah</td>
+          <td><strong>221</strong><div class="pb"><div class="pf" style="width:35%"></div></div></td>
+          <td>AED 1.16B</td>
+          <td>AED 5.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">13</span></td>
+          <td class="area-name" title="DUBAI MARITIME CITY">Dubai Maritime City</td>
+          <td><strong>206</strong><div class="pb"><div class="pf" style="width:32%"></div></div></td>
+          <td>AED 445.0M</td>
+          <td>AED 2.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">14</span></td>
+          <td class="area-name" title="Hadaeq Sheikh Mohammed Bin Rashid">Hadaeq Sheikh Mohammed Bin Rashid</td>
+          <td><strong>198</strong><div class="pb"><div class="pf" style="width:31%"></div></div></td>
+          <td>AED 535.3M</td>
+          <td>AED 2.7M</td>
+        </tr><tr>
+          <td><span class="rb rn">15</span></td>
+          <td class="area-name" title="ARJAN">Arjan</td>
+          <td><strong>194</strong><div class="pb"><div class="pf" style="width:30%"></div></div></td>
+          <td>AED 248.3M</td>
+          <td>AED 1.3M</td>
+        </tr><tr>
+          <td><span class="rb rn">16</span></td>
+          <td class="area-name" title="Um Suqaim Third">Um Suqaim Third</td>
+          <td><strong>192</strong><div class="pb"><div class="pf" style="width:30%"></div></div></td>
+          <td>AED 789.6M</td>
+          <td>AED 4.1M</td>
+        </tr><tr>
+          <td><span class="rb rn">17</span></td>
+          <td class="area-name" title="Dubai Investment Park Second">Dubai Investment Park Second</td>
+          <td><strong>192</strong><div class="pb"><div class="pf" style="width:30%"></div></div></td>
+          <td>AED 237.7M</td>
+          <td>AED 1.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">18</span></td>
+          <td class="area-name" title="DUBAI SCIENCE PARK">Dubai Science Park</td>
+          <td><strong>178</strong><div class="pb"><div class="pf" style="width:28%"></div></div></td>
+          <td>AED 301.6M</td>
+          <td>AED 1.7M</td>
+        </tr><tr>
+          <td><span class="rb rn">19</span></td>
+          <td class="area-name" title="SAMA AL JADAF">Sama Al Jadaf</td>
+          <td><strong>170</strong><div class="pb"><div class="pf" style="width:27%"></div></div></td>
+          <td>AED 199.5M</td>
+          <td>AED 1.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">20</span></td>
+          <td class="area-name" title="MOTOR CITY">Motor City</td>
+          <td><strong>150</strong><div class="pb"><div class="pf" style="width:23%"></div></div></td>
+          <td>AED 205.7M</td>
+          <td>AED 1.4M</td>
+        </tr><tr>
+          <td><span class="rb rn">21</span></td>
+          <td class="area-name" title="Jabal Ali First">Jabal Ali First</td>
+          <td><strong>149</strong><div class="pb"><div class="pf" style="width:23%"></div></div></td>
+          <td>AED 161.4M</td>
+          <td>AED 1.1M</td>
+        </tr><tr>
+          <td><span class="rb rn">22</span></td>
+          <td class="area-name" title="Al Yelayiss 2">Al Yelayiss 2</td>
+          <td><strong>132</strong><div class="pb"><div class="pf" style="width:21%"></div></div></td>
+          <td>AED 197.3M</td>
+          <td>AED 1.5M</td>
+        </tr><tr>
+          <td><span class="rb rn">23</span></td>
+          <td class="area-name" title="Al Satwa">Al Satwa</td>
+          <td><strong>130</strong><div class="pb"><div class="pf" style="width:20%"></div></div></td>
+          <td>AED 193.1M</td>
+          <td>AED 1.5M</td>
+        </tr><tr>
+          <td><span class="rb rn">24</span></td>
+          <td class="area-name" title="DUBAI STUDIO CITY">Dubai Studio City</td>
+          <td><strong>125</strong><div class="pb"><div class="pf" style="width:20%"></div></div></td>
+          <td>AED 112.5M</td>
+          <td>AED 900K</td>
+        </tr><tr>
+          <td><span class="rb rn">25</span></td>
+          <td class="area-name" title="PALM DEIRA">Palm Deira</td>
+          <td><strong>97</strong><div class="pb"><div class="pf" style="width:15%"></div></div></td>
+          <td>AED 334.8M</td>
+          <td>AED 3.5M</td>
+        </tr><tr>
+          <td><span class="rb rn">26</span></td>
+          <td class="area-name" title="Business Bay">Business Bay</td>
+          <td><strong>93</strong><div class="pb"><div class="pf" style="width:15%"></div></div></td>
+          <td>AED 307.8M</td>
+          <td>AED 3.3M</td>
+        </tr><tr>
+          <td><span class="rb rn">27</span></td>
+          <td class="area-name" title="Al Wasl">Al Wasl</td>
+          <td><strong>93</strong><div class="pb"><div class="pf" style="width:15%"></div></div></td>
+          <td>AED 446.6M</td>
+          <td>AED 4.8M</td>
+        </tr><tr>
+          <td><span class="rb rn">28</span></td>
+          <td class="area-name" title="Wadi Al Safa 4">Wadi Al Safa 4</td>
+          <td><strong>93</strong><div class="pb"><div class="pf" style="width:15%"></div></div></td>
+          <td>AED 374.1M</td>
+          <td>AED 4.0M</td>
+        </tr><tr>
+          <td><span class="rb rn">29</span></td>
+          <td class="area-name" title="DMCC-EZ2">Dmcc-Ez2</td>
+          <td><strong>90</strong><div class="pb"><div class="pf" style="width:14%"></div></div></td>
+          <td>AED 218.3M</td>
+          <td>AED 2.4M</td>
+        </tr><tr>
+          <td><span class="rb rn">30</span></td>
+          <td class="area-name" title="Bukadra">Bukadra</td>
+          <td><strong>89</strong><div class="pb"><div class="pf" style="width:14%"></div></div></td>
+          <td>AED 282.1M</td>
+          <td>AED 3.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">31</span></td>
+          <td class="area-name" title="AL FURJAN">Al Furjan</td>
+          <td><strong>89</strong><div class="pb"><div class="pf" style="width:14%"></div></div></td>
+          <td>AED 143.9M</td>
+          <td>AED 1.6M</td>
+        </tr><tr>
+          <td><span class="rb rn">32</span></td>
+          <td class="area-name" title="HORIZON">Horizon</td>
+          <td><strong>89</strong><div class="pb"><div class="pf" style="width:14%"></div></div></td>
+          <td>AED 213.2M</td>
+          <td>AED 2.4M</td>
+        </tr><tr>
+          <td><span class="rb rn">33</span></td>
+          <td class="area-name" title="SILICON OASIS">Silicon Oasis</td>
+          <td><strong>83</strong><div class="pb"><div class="pf" style="width:13%"></div></div></td>
+          <td>AED 128.2M</td>
+          <td>AED 1.5M</td>
+        </tr><tr>
+          <td><span class="rb rn">34</span></td>
+          <td class="area-name" title="Palm Jabal Ali">Palm Jabal Ali</td>
+          <td><strong>82</strong><div class="pb"><div class="pf" style="width:13%"></div></div></td>
+          <td>AED 500.9M</td>
+          <td>AED 6.1M</td>
+        </tr><tr>
+          <td><span class="rb rn">35</span></td>
+          <td class="area-name" title="DUBAI INDUSTRIAL CITY">Dubai Industrial City</td>
+          <td><strong>81</strong><div class="pb"><div class="pf" style="width:13%"></div></div></td>
+          <td>AED 55.5M</td>
+          <td>AED 685K</td>
+        </tr><tr>
+          <td><span class="rb rn">36</span></td>
+          <td class="area-name" title="BURJ KHALIFA">Burj Khalifa</td>
+          <td><strong>78</strong><div class="pb"><div class="pf" style="width:12%"></div></div></td>
+          <td>AED 436.0M</td>
+          <td>AED 5.6M</td>
+        </tr><tr>
+          <td><span class="rb rn">37</span></td>
+          <td class="area-name" title="DUBAI SOUTH">Dubai South</td>
+          <td><strong>74</strong><div class="pb"><div class="pf" style="width:12%"></div></div></td>
+          <td>AED 87.9M</td>
+          <td>AED 1.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">38</span></td>
+          <td class="area-name" title="CITY OF ARABIA">City Of Arabia</td>
+          <td><strong>73</strong><div class="pb"><div class="pf" style="width:11%"></div></div></td>
+          <td>AED 54.3M</td>
+          <td>AED 743K</td>
+        </tr><tr>
+          <td><span class="rb rn">39</span></td>
+          <td class="area-name" title="LIWAN">Liwan</td>
+          <td><strong>67</strong><div class="pb"><div class="pf" style="width:10%"></div></div></td>
+          <td>AED 69.3M</td>
+          <td>AED 1.0M</td>
+        </tr><tr>
+          <td><span class="rb rn">40</span></td>
+          <td class="area-name" title="FALCON CITY OF WONDERS">Falcon City Of Wonders</td>
+          <td><strong>64</strong><div class="pb"><div class="pf" style="width:10%"></div></div></td>
+          <td>AED 105.3M</td>
+          <td>AED 1.6M</td>
+        </tr><tr>
+          <td><span class="rb rn">41</span></td>
+          <td class="area-name" title="BUSINESS PARK">Business Park</td>
+          <td><strong>57</strong><div class="pb"><div class="pf" style="width:9%"></div></div></td>
+          <td>AED 123.5M</td>
+          <td>AED 2.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">42</span></td>
+          <td class="area-name" title="JUMEIRAH LAKES TOWERS">Jumeirah Lakes Towers</td>
+          <td><strong>55</strong><div class="pb"><div class="pf" style="width:9%"></div></div></td>
+          <td>AED 124.4M</td>
+          <td>AED 2.3M</td>
+        </tr><tr>
+          <td><span class="rb rn">43</span></td>
+          <td class="area-name" title="INTERNATIONAL CITY PH 2 & 3">International City Ph 2 & 3</td>
+          <td><strong>55</strong><div class="pb"><div class="pf" style="width:9%"></div></div></td>
+          <td>AED 44.3M</td>
+          <td>AED 805K</td>
+        </tr><tr>
+          <td><span class="rb rn">44</span></td>
+          <td class="area-name" title="JUMEIRAH HEIGHTS">Jumeirah Heights</td>
+          <td><strong>42</strong><div class="pb"><div class="pf" style="width:7%"></div></div></td>
+          <td>AED 120.8M</td>
+          <td>AED 2.9M</td>
+        </tr><tr>
+          <td><span class="rb rn">45</span></td>
+          <td class="area-name" title="DAMAC HILLS">Damac Hills</td>
+          <td><strong>41</strong><div class="pb"><div class="pf" style="width:6%"></div></div></td>
+          <td>AED 71.2M</td>
+          <td>AED 1.7M</td>
+        </tr><tr>
+          <td><span class="rb rn">46</span></td>
+          <td class="area-name" title="Ras Al Khor Industrial First">Ras Al Khor Industrial First</td>
+          <td><strong>39</strong><div class="pb"><div class="pf" style="width:6%"></div></div></td>
+          <td>AED 93.8M</td>
+          <td>AED 2.4M</td>
+        </tr><tr>
+          <td><span class="rb rn">47</span></td>
+          <td class="area-name" title="Marsa Dubai">Marsa Dubai</td>
+          <td><strong>36</strong><div class="pb"><div class="pf" style="width:6%"></div></div></td>
+          <td>AED 300.9M</td>
+          <td>AED 8.4M</td>
+        </tr><tr>
+          <td><span class="rb rn">48</span></td>
+          <td class="area-name" title="PALM JUMEIRAH">Palm Jumeirah</td>
+          <td><strong>34</strong><div class="pb"><div class="pf" style="width:5%"></div></div></td>
+          <td>AED 534.1M</td>
+          <td>AED 15.7M</td>
+        </tr><tr>
+          <td><span class="rb rn">49</span></td>
+          <td class="area-name" title="JADDAF WATERFRONT">Jaddaf Waterfront</td>
+          <td><strong>33</strong><div class="pb"><div class="pf" style="width:5%"></div></div></td>
+          <td>AED 55.8M</td>
+          <td>AED 1.7M</td>
+        </tr><tr>
+          <td><span class="rb rn">50</span></td>
+          <td class="area-name" title="Wadi Al Safa 5">Wadi Al Safa 5</td>
+          <td><strong>33</strong><div class="pb"><div class="pf" style="width:5%"></div></div></td>
+          <td>AED 73.9M</td>
+          <td>AED 2.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">51</span></td>
+          <td class="area-name" title="DOWN TOWN JABAL ALI">Down Town Jabal Ali</td>
+          <td><strong>31</strong><div class="pb"><div class="pf" style="width:5%"></div></div></td>
+          <td>AED 39.1M</td>
+          <td>AED 1.3M</td>
+        </tr><tr>
+          <td><span class="rb rn">52</span></td>
+          <td class="area-name" title="Trade Center Second">Trade Center Second</td>
+          <td><strong>30</strong><div class="pb"><div class="pf" style="width:5%"></div></div></td>
+          <td>AED 343.5M</td>
+          <td>AED 11.4M</td>
+        </tr><tr>
+          <td><span class="rb rn">53</span></td>
+          <td class="area-name" title="Nad Al Shiba First">Nad Al Shiba First</td>
+          <td><strong>29</strong><div class="pb"><div class="pf" style="width:5%"></div></div></td>
+          <td>AED 64.0M</td>
+          <td>AED 2.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">54</span></td>
+          <td class="area-name" title="Al Jadaf">Al Jadaf</td>
+          <td><strong>26</strong><div class="pb"><div class="pf" style="width:4%"></div></div></td>
+          <td>AED 117.3M</td>
+          <td>AED 4.5M</td>
+        </tr><tr>
+          <td><span class="rb rn">55</span></td>
+          <td class="area-name" title="INTERNATIONAL CITY PH 1">International City Ph 1</td>
+          <td><strong>25</strong><div class="pb"><div class="pf" style="width:4%"></div></div></td>
+          <td>AED 39.2M</td>
+          <td>AED 1.6M</td>
+        </tr><tr>
+          <td><span class="rb rn">56</span></td>
+          <td class="area-name" title="DUBAI HILLS">Dubai Hills</td>
+          <td><strong>22</strong><div class="pb"><div class="pf" style="width:3%"></div></div></td>
+          <td>AED 52.2M</td>
+          <td>AED 2.4M</td>
+        </tr><tr>
+          <td><span class="rb rn">57</span></td>
+          <td class="area-name" title="SOBHA HEARTLAND">Sobha Heartland</td>
+          <td><strong>22</strong><div class="pb"><div class="pf" style="width:3%"></div></div></td>
+          <td>AED 68.1M</td>
+          <td>AED 3.1M</td>
+        </tr><tr>
+          <td><span class="rb rn">58</span></td>
+          <td class="area-name" title="Al Hebiah Fifth">Al Hebiah Fifth</td>
+          <td><strong>22</strong><div class="pb"><div class="pf" style="width:3%"></div></div></td>
+          <td>AED 31.5M</td>
+          <td>AED 1.4M</td>
+        </tr><tr>
+          <td><span class="rb rn">59</span></td>
+          <td class="area-name" title="SUFOUH GARDENS">Sufouh Gardens</td>
+          <td><strong>20</strong><div class="pb"><div class="pf" style="width:3%"></div></div></td>
+          <td>AED 54.1M</td>
+          <td>AED 2.7M</td>
+        </tr><tr>
+          <td><span class="rb rn">60</span></td>
+          <td class="area-name" title="DUBAI MARINA">Dubai Marina</td>
+          <td><strong>17</strong><div class="pb"><div class="pf" style="width:3%"></div></div></td>
+          <td>AED 44.3M</td>
+          <td>AED 2.6M</td>
+        </tr><tr>
+          <td><span class="rb rn">61</span></td>
+          <td class="area-name" title="LIVING LEGENDS">Living Legends</td>
+          <td><strong>17</strong><div class="pb"><div class="pf" style="width:3%"></div></div></td>
+          <td>AED 29.8M</td>
+          <td>AED 1.8M</td>
+        </tr><tr>
+          <td><span class="rb rn">62</span></td>
+          <td class="area-name" title="DUBAI HARBOUR">Dubai Harbour</td>
+          <td><strong>17</strong><div class="pb"><div class="pf" style="width:3%"></div></div></td>
+          <td>AED 137.8M</td>
+          <td>AED 8.1M</td>
+        </tr><tr>
+          <td><span class="rb rn">63</span></td>
+          <td class="area-name" title="DUBAI CREEK HARBOUR">Dubai Creek Harbour</td>
+          <td><strong>16</strong><div class="pb"><div class="pf" style="width:2%"></div></div></td>
+          <td>AED 47.9M</td>
+          <td>AED 3.0M</td>
+        </tr><tr>
+          <td><span class="rb rn">64</span></td>
+          <td class="area-name" title="Al Merkadh">Al Merkadh</td>
+          <td><strong>12</strong><div class="pb"><div class="pf" style="width:2%"></div></div></td>
+          <td>AED 25.5M</td>
+          <td>AED 2.1M</td>
+        </tr><tr>
+          <td><span class="rb rn">65</span></td>
+          <td class="area-name" title="MEYDAN ONE">Meydan One</td>
+          <td><strong>11</strong><div class="pb"><div class="pf" style="width:2%"></div></div></td>
+          <td>AED 24.8M</td>
+          <td>AED 2.3M</td>
+        </tr><tr>
+          <td><span class="rb rn">66</span></td>
+          <td class="area-name" title="DUBAI HEALTHCARE CITY - PHASE 2">Dubai Healthcare City - Phase 2</td>
+          <td><strong>11</strong><div class="pb"><div class="pf" style="width:2%"></div></div></td>
+          <td>AED 24.2M</td>
+          <td>AED 2.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">67</span></td>
+          <td class="area-name" title="Madinat Hind 4">Madinat Hind 4</td>
+          <td><strong>10</strong><div class="pb"><div class="pf" style="width:2%"></div></div></td>
+          <td>AED 10.7M</td>
+          <td>AED 1.1M</td>
+        </tr><tr>
+          <td><span class="rb rn">68</span></td>
+          <td class="area-name" title="Jumeirah First">Jumeirah First</td>
+          <td><strong>9</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 239.9M</td>
+          <td>AED 26.7M</td>
+        </tr><tr>
+          <td><span class="rb rn">69</span></td>
+          <td class="area-name" title="LA MER">La Mer</td>
+          <td><strong>9</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 218.7M</td>
+          <td>AED 24.3M</td>
+        </tr><tr>
+          <td><span class="rb rn">70</span></td>
+          <td class="area-name" title="BARSHA HEIGHTS">Barsha Heights</td>
+          <td><strong>9</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 42.9M</td>
+          <td>AED 4.8M</td>
+        </tr><tr>
+          <td><span class="rb rn">71</span></td>
+          <td class="area-name" title="Wadi Al Safa 3">Wadi Al Safa 3</td>
+          <td><strong>9</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 17.7M</td>
+          <td>AED 2.0M</td>
+        </tr><tr>
+          <td><span class="rb rn">72</span></td>
+          <td class="area-name" title="NAD AL SHEBA GARDENS">Nad Al Sheba Gardens</td>
+          <td><strong>7</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 10.4M</td>
+          <td>AED 1.5M</td>
+        </tr><tr>
+          <td><span class="rb rn">73</span></td>
+          <td class="area-name" title="Al Kifaf">Al Kifaf</td>
+          <td><strong>7</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 20.4M</td>
+          <td>AED 2.9M</td>
+        </tr><tr>
+          <td><span class="rb rn">74</span></td>
+          <td class="area-name" title="TOWN SQUARE">Town Square</td>
+          <td><strong>5</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 6.3M</td>
+          <td>AED 1.3M</td>
+        </tr><tr>
+          <td><span class="rb rn">75</span></td>
+          <td class="area-name" title="Trade Center First">Trade Center First</td>
+          <td><strong>5</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 19.7M</td>
+          <td>AED 3.9M</td>
+        </tr><tr>
+          <td><span class="rb rn">76</span></td>
+          <td class="area-name" title="THE WORLD">The World</td>
+          <td><strong>5</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 15.1M</td>
+          <td>AED 3.0M</td>
+        </tr><tr>
+          <td><span class="rb rn">77</span></td>
+          <td class="area-name" title="THE LAKES">The Lakes</td>
+          <td><strong>5</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 17.1M</td>
+          <td>AED 3.4M</td>
+        </tr><tr>
+          <td><span class="rb rn">78</span></td>
+          <td class="area-name" title="Dubai Investment Park First">Dubai Investment Park First</td>
+          <td><strong>4</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 1.8M</td>
+          <td>AED 438K</td>
+        </tr><tr>
+          <td><span class="rb rn">79</span></td>
+          <td class="area-name" title="Mirdif">Mirdif</td>
+          <td><strong>4</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 8.7M</td>
+          <td>AED 2.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">80</span></td>
+          <td class="area-name" title="TECOM SITE D">Tecom Site D</td>
+          <td><strong>4</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 9.0M</td>
+          <td>AED 2.2M</td>
+        </tr><tr>
+          <td><span class="rb rn">81</span></td>
+          <td class="area-name" title="DUBAI WATER CANAL">Dubai Water Canal</td>
+          <td><strong>4</strong><div class="pb"><div class="pf" style="width:1%"></div></div></td>
+          <td>AED 94.3M</td>
+          <td>AED 23.6M</td>
+        </tr><tr>
+          <td><span class="rb rn">82</span></td>
+          <td class="area-name" title="Jumeirah Second">Jumeirah Second</td>
+          <td><strong>3</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 151.3M</td>
+          <td>AED 50.4M</td>
+        </tr><tr>
+          <td><span class="rb rn">83</span></td>
+          <td class="area-name" title="EMAAR SOUTH">Emaar South</td>
+          <td><strong>3</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 5.3M</td>
+          <td>AED 1.8M</td>
+        </tr><tr>
+          <td><span class="rb rn">84</span></td>
+          <td class="area-name" title="Al Thanyah Fifth">Al Thanyah Fifth</td>
+          <td><strong>3</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 8.1M</td>
+          <td>AED 2.7M</td>
+        </tr><tr>
+          <td><span class="rb rn">85</span></td>
+          <td class="area-name" title="MEYDAN AVENUE">Meydan Avenue</td>
+          <td><strong>2</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 5.5M</td>
+          <td>AED 2.8M</td>
+        </tr><tr>
+          <td><span class="rb rn">86</span></td>
+          <td class="area-name" title="CITY WALK">City Walk</td>
+          <td><strong>2</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 6.8M</td>
+          <td>AED 3.4M</td>
+        </tr><tr>
+          <td><span class="rb rn">87</span></td>
+          <td class="area-name" title="DUBAI DESIGN DISTRICT">Dubai Design District</td>
+          <td><strong>2</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 5.2M</td>
+          <td>AED 2.6M</td>
+        </tr><tr>
+          <td><span class="rb rn">88</span></td>
+          <td class="area-name" title="Warsan Fourth">Warsan Fourth</td>
+          <td><strong>2</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 1.4M</td>
+          <td>AED 701K</td>
+        </tr><tr>
+          <td><span class="rb rn">89</span></td>
+          <td class="area-name" title="Zaabeel First">Zaabeel First</td>
+          <td><strong>2</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 8.1M</td>
+          <td>AED 4.1M</td>
+        </tr><tr>
+          <td><span class="rb rn">90</span></td>
+          <td class="area-name" title="Zaabeel Second">Zaabeel Second</td>
+          <td><strong>2</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 9.9M</td>
+          <td>AED 4.9M</td>
+        </tr><tr>
+          <td><span class="rb rn">91</span></td>
+          <td class="area-name" title="Al Barsha First">Al Barsha First</td>
+          <td><strong>1</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 1.9M</td>
+          <td>AED 1.9M</td>
+        </tr><tr>
+          <td><span class="rb rn">92</span></td>
+          <td class="area-name" title="DUBAI INVESTMENT PARK FIRST">Dubai Investment Park First</td>
+          <td><strong>1</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 760K</td>
+          <td>AED 760K</td>
+        </tr><tr>
+          <td><span class="rb rn">93</span></td>
+          <td class="area-name" title="Island 2">Island 2</td>
+          <td><strong>1</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 80.0M</td>
+          <td>AED 80.0M</td>
+        </tr><tr>
+          <td><span class="rb rn">94</span></td>
+          <td class="area-name" title="Palm Jumeirah">Palm Jumeirah</td>
+          <td><strong>1</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 3.4M</td>
+          <td>AED 3.4M</td>
+        </tr><tr>
+          <td><span class="rb rn">95</span></td>
+          <td class="area-name" title="Wadi Al Safa 2">Wadi Al Safa 2</td>
+          <td><strong>1</strong><div class="pb"><div class="pf" style="width:0%"></div></div></td>
+          <td>AED 1.7M</td>
+          <td>AED 1.7M</td>
+        </tr></tbody>
+        <tfoot><tr><td colspan="2">TOTAL / AVERAGE</td>
+          <td>9,511</td>
+          <td>AED 22.37B</td>
+          <td>AED 2.4M</td>
+        </tr></tfoot>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 3: Room × Area Breakdown ═══ -->
+  <div id="room-breakdown">
+    <div class="sh"><span class="ico">🏠</span> Room Type × Area — Total Value & Units Sold</div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:18px">Each cell shows total transaction value and number of units sold. Colour intensity reflects value level within each room type column.</p>
+    
+    <div class="tw scroll-x">
+      <table>
+        <thead><tr><th>Area</th><th>Studio</th><th>1 B/R</th><th>2 B/R</th><th>3 B/R</th><th>4 B/R</th><th>5 B/R</th><th>Office</th><th>Unknown</th></tr></thead>
+        <tbody><tr><td class='area-name' title='DUBAI LAND RESIDENCE COMPLEX'>Dubai Land Residence Complex</td><td class="h4"><span class="hc">AED 209.2M</span><span class="hs">304 units</span></td><td class="h4"><span class="hc">AED 248.9M</span><span class="hs">241 units</span></td><td class="h3"><span class="hc">AED 105.0M</span><span class="hs">72 units</span></td><td class="h2"><span class="hc">AED 26.3M</span><span class="hs">15 units</span></td><td class="h0"><span class="hc">AED 2.4M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 12.7M</span><span class="hs">7 units</span></td></tr><tr><td class='area-name' title='JUMEIRAH VILLAGE CIRCLE'>Jumeirah Village Circle</td><td class="h4"><span class="hc">AED 141.5M</span><span class="hs">185 units</span></td><td class="h4"><span class="hc">AED 371.8M</span><span class="hs">329 units</span></td><td class="h4"><span class="hc">AED 121.5M</span><span class="hs">72 units</span></td><td class="h1"><span class="hc">AED 9.4M</span><span class="hs">5 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 5.6M</span><span class="hs">2 units</span></td><td class="h4"><span class="hc">AED 64.4M</span><span class="hs">21 units</span></td></tr><tr><td class='area-name' title='Madinat Al Mataar'>Madinat Al Mataar</td><td class="h4"><span class="hc">AED 74.3M</span><span class="hs">125 units</span></td><td class="h4"><span class="hc">AED 284.1M</span><span class="hs">216 units</span></td><td class="h4"><span class="hc">AED 416.9M</span><span class="hs">203 units</span></td><td class="h3"><span class="hc">AED 83.3M</span><span class="hs">30 units</span></td><td class="h1"><span class="hc">AED 8.9M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 6.9M</span><span class="hs">3 units</span></td></tr><tr><td class='area-name' title='MAJAN'>Majan</td><td class="h4"><span class="hc">AED 246.7M</span><span class="hs">354 units</span></td><td class="h4"><span class="hc">AED 135.7M</span><span class="hs">125 units</span></td><td class="h3"><span class="hc">AED 83.2M</span><span class="hs">54 units</span></td><td class="h2"><span class="hc">AED 17.3M</span><span class="hs">8 units</span></td><td class="h0"><span class="hc">AED 2.8M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 33.2M</span><span class="hs">20 units</span></td></tr><tr><td class='area-name' title='Palm Deira'>Palm Deira</td><td class="h0"><span class="hc">AED 1.2M</span><span class="hs">1 units</span></td><td class="h4"><span class="hc">AED 590.9M</span><span class="hs">272 units</span></td><td class="h4"><span class="hc">AED 725.6M</span><span class="hs">212 units</span></td><td class="h4"><span class="hc">AED 345.6M</span><span class="hs">61 units</span></td><td class="h2"><span class="hc">AED 28.1M</span><span class="hs">4 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='BUSINESS BAY'>Business Bay</td><td class="h3"><span class="hc">AED 54.8M</span><span class="hs">42 units</span></td><td class="h4"><span class="hc">AED 670.7M</span><span class="hs">244 units</span></td><td class="h4"><span class="hc">AED 491.2M</span><span class="hs">107 units</span></td><td class="h4"><span class="hc">AED 196.0M</span><span class="hs">26 units</span></td><td class="h4"><span class="hc">AED 90.8M</span><span class="hs">8 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h4"><span class="hc">AED 1.07B</span><span class="hs">63 units</span></td></tr><tr><td class='area-name' title='Al Khairan First'>Al Khairan First</td><td><span class="na">—</span></td><td class="h4"><span class="hc">AED 477.9M</span><span class="hs">239 units</span></td><td class="h4"><span class="hc">AED 594.8M</span><span class="hs">172 units</span></td><td class="h4"><span class="hc">AED 279.9M</span><span class="hs">56 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='JUMEIRAH VILLAGE TRIANGLE'>Jumeirah Village Triangle</td><td class="h3"><span class="hc">AED 65.9M</span><span class="hs">87 units</span></td><td class="h4"><span class="hc">AED 251.5M</span><span class="hs">219 units</span></td><td class="h3"><span class="hc">AED 98.4M</span><span class="hs">60 units</span></td><td class="h2"><span class="hc">AED 26.0M</span><span class="hs">9 units</span></td><td class="h0"><span class="hc">AED 6.2M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 25.4M</span><span class="hs">14 units</span></td></tr><tr><td class='area-name' title='DUBAI PRODUCTION CITY'>Dubai Production City</td><td class="h3"><span class="hc">AED 50.9M</span><span class="hs">73 units</span></td><td class="h4"><span class="hc">AED 153.4M</span><span class="hs">142 units</span></td><td class="h3"><span class="hc">AED 85.4M</span><span class="hs">54 units</span></td><td class="h2"><span class="hc">AED 30.2M</span><span class="hs">15 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DUBAI SPORTS CITY'>Dubai Sports City</td><td class="h4"><span class="hc">AED 78.4M</span><span class="hs">93 units</span></td><td class="h3"><span class="hc">AED 83.5M</span><span class="hs">70 units</span></td><td class="h3"><span class="hc">AED 105.2M</span><span class="hs">63 units</span></td><td class="h2"><span class="hc">AED 17.9M</span><span class="hs">8 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 15.1M</span><span class="hs">12 units</span></td></tr><tr><td class='area-name' title='TECOM SITE A'>Tecom Site A</td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 12.7M</span><span class="hs">4 units</span></td><td class="h2"><span class="hc">AED 24.1M</span><span class="hs">3 units</span></td><td class="h3"><span class="hc">AED 39.0M</span><span class="hs">4 units</span></td><td class="h2"><span class="hc">AED 12.2M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h4"><span class="hc">AED 615.8M</span><span class="hs">230 units</span></td></tr><tr><td class='area-name' title='Madinat Dubai Almelaheyah'>Madinat Dubai Almelaheyah</td><td><span class="na">—</span></td><td class="h4"><span class="hc">AED 259.2M</span><span class="hs">99 units</span></td><td class="h4"><span class="hc">AED 277.3M</span><span class="hs">62 units</span></td><td class="h4"><span class="hc">AED 113.9M</span><span class="hs">16 units</span></td><td class="h3"><span class="hc">AED 39.3M</span><span class="hs">3 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h4"><span class="hc">AED 466.0M</span><span class="hs">41 units</span></td></tr><tr><td class='area-name' title='DUBAI MARITIME CITY'>Dubai Maritime City</td><td class="h4"><span class="hc">AED 117.7M</span><span class="hs">82 units</span></td><td class="h4"><span class="hc">AED 200.7M</span><span class="hs">87 units</span></td><td class="h4"><span class="hc">AED 113.5M</span><span class="hs">34 units</span></td><td class="h1"><span class="hc">AED 13.0M</span><span class="hs">3 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Hadaeq Sheikh Mohammed Bin Rashid'>Hadaeq Sheikh Mohammed Bin Rashid</td><td><span class="na">—</span></td><td class="h4"><span class="hc">AED 142.8M</span><span class="hs">76 units</span></td><td class="h4"><span class="hc">AED 261.8M</span><span class="hs">93 units</span></td><td class="h4"><span class="hc">AED 130.7M</span><span class="hs">29 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='ARJAN'>Arjan</td><td class="h3"><span class="hc">AED 61.0M</span><span class="hs">76 units</span></td><td class="h4"><span class="hc">AED 117.8M</span><span class="hs">90 units</span></td><td class="h2"><span class="hc">AED 28.5M</span><span class="hs">15 units</span></td><td class="h1"><span class="hc">AED 9.7M</span><span class="hs">4 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 31.3M</span><span class="hs">9 units</span></td></tr><tr><td class='area-name' title='Um Suqaim Third'>Um Suqaim Third</td><td><span class="na">—</span></td><td class="h4"><span class="hc">AED 176.4M</span><span class="hs">65 units</span></td><td class="h4"><span class="hc">AED 341.6M</span><span class="hs">86 units</span></td><td class="h4"><span class="hc">AED 251.7M</span><span class="hs">40 units</span></td><td class="h2"><span class="hc">AED 20.0M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Dubai Investment Park Second'>Dubai Investment Park Second</td><td class="h2"><span class="hc">AED 19.6M</span><span class="hs">26 units</span></td><td class="h4"><span class="hc">AED 180.4M</span><span class="hs">148 units</span></td><td class="h2"><span class="hc">AED 37.7M</span><span class="hs">18 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DUBAI SCIENCE PARK'>Dubai Science Park</td><td class="h4"><span class="hc">AED 67.7M</span><span class="hs">75 units</span></td><td class="h3"><span class="hc">AED 97.5M</span><span class="hs">61 units</span></td><td class="h3"><span class="hc">AED 67.5M</span><span class="hs">29 units</span></td><td class="h3"><span class="hc">AED 38.9M</span><span class="hs">10 units</span></td><td class="h1"><span class="hc">AED 10.1M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 20.0M</span><span class="hs">2 units</span></td></tr><tr><td class='area-name' title='SAMA AL JADAF'>Sama Al Jadaf</td><td class="h4"><span class="hc">AED 87.5M</span><span class="hs">103 units</span></td><td class="h3"><span class="hc">AED 80.1M</span><span class="hs">53 units</span></td><td class="h2"><span class="hc">AED 28.3M</span><span class="hs">13 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 3.7M</span><span class="hs">1 units</span></td></tr><tr><td class='area-name' title='MOTOR CITY'>Motor City</td><td class="h2"><span class="hc">AED 26.8M</span><span class="hs">34 units</span></td><td class="h4"><span class="hc">AED 121.0M</span><span class="hs">93 units</span></td><td class="h2"><span class="hc">AED 41.0M</span><span class="hs">19 units</span></td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 11.3M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 5.6M</span><span class="hs">2 units</span></td></tr><tr><td class='area-name' title='Jabal Ali First'>Jabal Ali First</td><td class="h2"><span class="hc">AED 23.4M</span><span class="hs">32 units</span></td><td class="h3"><span class="hc">AED 91.9M</span><span class="hs">88 units</span></td><td class="h2"><span class="hc">AED 41.1M</span><span class="hs">27 units</span></td><td class="h0"><span class="hc">AED 5.0M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Al Yelayiss 2'>Al Yelayiss 2</td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 56.1M</span><span class="hs">50 units</span></td><td class="h4"><span class="hc">AED 121.6M</span><span class="hs">75 units</span></td><td class="h2"><span class="hc">AED 19.5M</span><span class="hs">7 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Al Satwa'>Al Satwa</td><td class="h3"><span class="hc">AED 55.7M</span><span class="hs">52 units</span></td><td class="h3"><span class="hc">AED 96.5M</span><span class="hs">63 units</span></td><td class="h2"><span class="hc">AED 31.0M</span><span class="hs">13 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 9.8M</span><span class="hs">2 units</span></td></tr><tr><td class='area-name' title='DUBAI STUDIO CITY'>Dubai Studio City</td><td class="h3"><span class="hc">AED 38.9M</span><span class="hs">56 units</span></td><td class="h3"><span class="hc">AED 64.8M</span><span class="hs">62 units</span></td><td class="h0"><span class="hc">AED 7.6M</span><span class="hs">6 units</span></td><td class="h0"><span class="hc">AED 1.2M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='PALM DEIRA'>Palm Deira</td><td class="h1"><span class="hc">AED 3.6M</span><span class="hs">2 units</span></td><td class="h3"><span class="hc">AED 79.8M</span><span class="hs">31 units</span></td><td class="h4"><span class="hc">AED 183.0M</span><span class="hs">53 units</span></td><td class="h3"><span class="hc">AED 33.5M</span><span class="hs">9 units</span></td><td class="h1"><span class="hc">AED 6.7M</span><span class="hs">1 units</span></td><td class="h0"><span class="hc">AED 28.1M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Business Bay'>Business Bay</td><td class="h1"><span class="hc">AED 2.2M</span><span class="hs">2 units</span></td><td class="h3"><span class="hc">AED 105.3M</span><span class="hs">45 units</span></td><td class="h4"><span class="hc">AED 135.3M</span><span class="hs">37 units</span></td><td class="h3"><span class="hc">AED 65.0M</span><span class="hs">9 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Al Wasl'>Al Wasl</td><td class="h2"><span class="hc">AED 15.5M</span><span class="hs">11 units</span></td><td class="h3"><span class="hc">AED 60.2M</span><span class="hs">24 units</span></td><td class="h4"><span class="hc">AED 241.6M</span><span class="hs">46 units</span></td><td class="h3"><span class="hc">AED 98.6M</span><span class="hs">11 units</span></td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 30.7M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Wadi Al Safa 4'>Wadi Al Safa 4</td><td class="h0"><span class="hc">AED 585K</span><span class="hs">1 units</span></td><td class="h2"><span class="hc">AED 30.2M</span><span class="hs">21 units</span></td><td class="h4"><span class="hc">AED 152.8M</span><span class="hs">38 units</span></td><td class="h4"><span class="hc">AED 181.3M</span><span class="hs">32 units</span></td><td class="h1"><span class="hc">AED 9.2M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DMCC-EZ2'>Dmcc-Ez2</td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 79.2M</span><span class="hs">43 units</span></td><td class="h4"><span class="hc">AED 139.1M</span><span class="hs">47 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Bukadra'>Bukadra</td><td><span class="na">—</span></td><td class="h4"><span class="hc">AED 110.9M</span><span class="hs">56 units</span></td><td class="h3"><span class="hc">AED 54.2M</span><span class="hs">15 units</span></td><td class="h3"><span class="hc">AED 46.1M</span><span class="hs">11 units</span></td><td class="h1"><span class="hc">AED 8.8M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 62.2M</span><span class="hs">6 units</span></td></tr><tr><td class='area-name' title='AL FURJAN'>Al Furjan</td><td class="h1"><span class="hc">AED 4.9M</span><span class="hs">8 units</span></td><td class="h2"><span class="hc">AED 45.7M</span><span class="hs">36 units</span></td><td class="h3"><span class="hc">AED 53.3M</span><span class="hs">30 units</span></td><td class="h2"><span class="hc">AED 31.5M</span><span class="hs">13 units</span></td><td class="h0"><span class="hc">AED 4.3M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 4.1M</span><span class="hs">1 units</span></td></tr><tr><td class='area-name' title='HORIZON'>Horizon</td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 109.8M</span><span class="hs">59 units</span></td><td class="h3"><span class="hc">AED 58.8M</span><span class="hs">21 units</span></td><td class="h0"><span class="hc">AED 7.0M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 37.5M</span><span class="hs">7 units</span></td></tr><tr><td class='area-name' title='SILICON OASIS'>Silicon Oasis</td><td class="h1"><span class="hc">AED 6.0M</span><span class="hs">8 units</span></td><td class="h2"><span class="hc">AED 21.1M</span><span class="hs">19 units</span></td><td class="h3"><span class="hc">AED 73.4M</span><span class="hs">44 units</span></td><td class="h2"><span class="hc">AED 16.7M</span><span class="hs">7 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 11.1M</span><span class="hs">5 units</span></td></tr><tr><td class='area-name' title='Palm Jabal Ali'>Palm Jabal Ali</td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 69.5M</span><span class="hs">25 units</span></td><td class="h4"><span class="hc">AED 140.9M</span><span class="hs">30 units</span></td><td class="h4"><span class="hc">AED 143.1M</span><span class="hs">18 units</span></td><td class="h4"><span class="hc">AED 98.0M</span><span class="hs">7 units</span></td><td class="h2"><span class="hc">AED 49.4M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DUBAI INDUSTRIAL CITY'>Dubai Industrial City</td><td class="h3"><span class="hc">AED 37.0M</span><span class="hs">62 units</span></td><td class="h2"><span class="hc">AED 14.8M</span><span class="hs">16 units</span></td><td class="h0"><span class="hc">AED 3.7M</span><span class="hs">3 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='BURJ KHALIFA'>Burj Khalifa</td><td class="h2"><span class="hc">AED 14.2M</span><span class="hs">9 units</span></td><td class="h3"><span class="hc">AED 79.0M</span><span class="hs">32 units</span></td><td class="h4"><span class="hc">AED 117.4M</span><span class="hs">25 units</span></td><td class="h3"><span class="hc">AED 98.5M</span><span class="hs">8 units</span></td><td class="h4"><span class="hc">AED 126.9M</span><span class="hs">4 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DUBAI SOUTH'>Dubai South</td><td class="h1"><span class="hc">AED 8.6M</span><span class="hs">14 units</span></td><td class="h1"><span class="hc">AED 14.4M</span><span class="hs">16 units</span></td><td class="h3"><span class="hc">AED 59.0M</span><span class="hs">41 units</span></td><td class="h0"><span class="hc">AED 5.9M</span><span class="hs">3 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='CITY OF ARABIA'>City Of Arabia</td><td class="h3"><span class="hc">AED 33.5M</span><span class="hs">56 units</span></td><td class="h1"><span class="hc">AED 12.3M</span><span class="hs">12 units</span></td><td class="h1"><span class="hc">AED 8.5M</span><span class="hs">5 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='LIWAN'>Liwan</td><td class="h2"><span class="hc">AED 10.9M</span><span class="hs">17 units</span></td><td class="h2"><span class="hc">AED 35.9M</span><span class="hs">37 units</span></td><td class="h1"><span class="hc">AED 15.2M</span><span class="hs">10 units</span></td><td class="h1"><span class="hc">AED 7.4M</span><span class="hs">3 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='FALCON CITY OF WONDERS'>Falcon City Of Wonders</td><td class="h1"><span class="hc">AED 10.8M</span><span class="hs">12 units</span></td><td class="h2"><span class="hc">AED 44.7M</span><span class="hs">31 units</span></td><td class="h2"><span class="hc">AED 34.2M</span><span class="hs">16 units</span></td><td class="h2"><span class="hc">AED 15.6M</span><span class="hs">5 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='BUSINESS PARK'>Business Park</td><td class="h3"><span class="hc">AED 44.9M</span><span class="hs">33 units</span></td><td class="h2"><span class="hc">AED 33.0M</span><span class="hs">13 units</span></td><td class="h2"><span class="hc">AED 32.3M</span><span class="hs">8 units</span></td><td class="h1"><span class="hc">AED 13.3M</span><span class="hs">3 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='JUMEIRAH LAKES TOWERS'>Jumeirah Lakes Towers</td><td class="h2"><span class="hc">AED 11.7M</span><span class="hs">12 units</span></td><td class="h2"><span class="hc">AED 37.1M</span><span class="hs">20 units</span></td><td class="h3"><span class="hc">AED 47.8M</span><span class="hs">16 units</span></td><td class="h2"><span class="hc">AED 17.6M</span><span class="hs">5 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 10.1M</span><span class="hs">2 units</span></td></tr><tr><td class='area-name' title='INTERNATIONAL CITY PH 2 & 3'>International City Ph 2 & 3</td><td class="h2"><span class="hc">AED 12.4M</span><span class="hs">24 units</span></td><td class="h2"><span class="hc">AED 17.7M</span><span class="hs">21 units</span></td><td class="h1"><span class="hc">AED 14.2M</span><span class="hs">10 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='JUMEIRAH HEIGHTS'>Jumeirah Heights</td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 54.5M</span><span class="hs">26 units</span></td><td class="h2"><span class="hc">AED 43.3M</span><span class="hs">13 units</span></td><td class="h1"><span class="hc">AED 8.2M</span><span class="hs">2 units</span></td><td class="h2"><span class="hc">AED 14.9M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DAMAC HILLS'>Damac Hills</td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 35.8M</span><span class="hs">28 units</span></td><td class="h2"><span class="hc">AED 24.0M</span><span class="hs">12 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 11.4M</span><span class="hs">1 units</span></td></tr><tr><td class='area-name' title='Ras Al Khor Industrial First'>Ras Al Khor Industrial First</td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 36.4M</span><span class="hs">21 units</span></td><td class="h2"><span class="hc">AED 43.4M</span><span class="hs">15 units</span></td><td class="h1"><span class="hc">AED 14.0M</span><span class="hs">3 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Marsa Dubai'>Marsa Dubai</td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 55.7M</span><span class="hs">15 units</span></td><td class="h3"><span class="hc">AED 86.5M</span><span class="hs">11 units</span></td><td class="h3"><span class="hc">AED 75.4M</span><span class="hs">6 units</span></td><td class="h3"><span class="hc">AED 60.1M</span><span class="hs">3 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 23.3M</span><span class="hs">1 units</span></td></tr><tr><td class='area-name' title='PALM JUMEIRAH'>Palm Jumeirah</td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 32.9M</span><span class="hs">7 units</span></td><td class="h3"><span class="hc">AED 92.4M</span><span class="hs">10 units</span></td><td class="h4"><span class="hc">AED 293.1M</span><span class="hs">14 units</span></td><td class="h4"><span class="hc">AED 115.7M</span><span class="hs">3 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='JADDAF WATERFRONT'>Jaddaf Waterfront</td><td class="h0"><span class="hc">AED 700K</span><span class="hs">1 units</span></td><td class="h1"><span class="hc">AED 12.9M</span><span class="hs">10 units</span></td><td class="h2"><span class="hc">AED 36.1M</span><span class="hs">19 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 6.0M</span><span class="hs">3 units</span></td></tr><tr><td class='area-name' title='Wadi Al Safa 5'>Wadi Al Safa 5</td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 18.3M</span><span class="hs">12 units</span></td><td class="h2"><span class="hc">AED 32.4M</span><span class="hs">14 units</span></td><td class="h2"><span class="hc">AED 23.2M</span><span class="hs">7 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DOWN TOWN JABAL ALI'>Down Town Jabal Ali</td><td class="h1"><span class="hc">AED 3.0M</span><span class="hs">5 units</span></td><td class="h1"><span class="hc">AED 11.9M</span><span class="hs">11 units</span></td><td class="h1"><span class="hc">AED 21.9M</span><span class="hs">14 units</span></td><td class="h0"><span class="hc">AED 2.3M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Trade Center Second'>Trade Center Second</td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 21.7M</span><span class="hs">5 units</span></td><td class="h3"><span class="hc">AED 52.8M</span><span class="hs">8 units</span></td><td class="h4"><span class="hc">AED 152.5M</span><span class="hs">12 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h4"><span class="hc">AED 116.5M</span><span class="hs">5 units</span></td></tr><tr><td class='area-name' title='Nad Al Shiba First'>Nad Al Shiba First</td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 24.7M</span><span class="hs">15 units</span></td><td class="h2"><span class="hc">AED 31.3M</span><span class="hs">12 units</span></td><td class="h0"><span class="hc">AED 6.3M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 1.7M</span><span class="hs">1 units</span></td></tr><tr><td class='area-name' title='Al Jadaf'>Al Jadaf</td><td class="h2"><span class="hc">AED 12.0M</span><span class="hs">13 units</span></td><td class="h3"><span class="hc">AED 50.0M</span><span class="hs">10 units</span></td><td class="h1"><span class="hc">AED 10.2M</span><span class="hs">1 units</span></td><td class="h3"><span class="hc">AED 45.1M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='INTERNATIONAL CITY PH 1'>International City Ph 1</td><td class="h0"><span class="hc">AED 1.8M</span><span class="hs">3 units</span></td><td class="h1"><span class="hc">AED 4.4M</span><span class="hs">5 units</span></td><td class="h1"><span class="hc">AED 7.8M</span><span class="hs">6 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 25.2M</span><span class="hs">11 units</span></td></tr><tr><td class='area-name' title='DUBAI HILLS'>Dubai Hills</td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 23.2M</span><span class="hs">13 units</span></td><td class="h1"><span class="hc">AED 18.4M</span><span class="hs">6 units</span></td><td class="h1"><span class="hc">AED 10.6M</span><span class="hs">3 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='SOBHA HEARTLAND'>Sobha Heartland</td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 14.4M</span><span class="hs">8 units</span></td><td class="h0"><span class="hc">AED 7.7M</span><span class="hs">3 units</span></td><td class="h2"><span class="hc">AED 22.0M</span><span class="hs">6 units</span></td><td class="h0"><span class="hc">AED 4.4M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 19.7M</span><span class="hs">4 units</span></td></tr><tr><td class='area-name' title='Al Hebiah Fifth'>Al Hebiah Fifth</td><td><span class="na">—</span></td><td class="h2"><span class="hc">AED 23.4M</span><span class="hs">18 units</span></td><td class="h1"><span class="hc">AED 8.1M</span><span class="hs">4 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='SUFOUH GARDENS'>Sufouh Gardens</td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 10.0M</span><span class="hs">5 units</span></td><td class="h2"><span class="hc">AED 44.1M</span><span class="hs">15 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DUBAI MARINA'>Dubai Marina</td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 14.3M</span><span class="hs">8 units</span></td><td class="h1"><span class="hc">AED 15.1M</span><span class="hs">7 units</span></td><td class="h1"><span class="hc">AED 15.0M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='LIVING LEGENDS'>Living Legends</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 3.4M</span><span class="hs">3 units</span></td><td class="h1"><span class="hc">AED 11.6M</span><span class="hs">7 units</span></td><td class="h1"><span class="hc">AED 14.8M</span><span class="hs">7 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DUBAI HARBOUR'>Dubai Harbour</td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 13.4M</span><span class="hs">4 units</span></td><td class="h2"><span class="hc">AED 40.9M</span><span class="hs">6 units</span></td><td class="h3"><span class="hc">AED 57.2M</span><span class="hs">6 units</span></td><td class="h2"><span class="hc">AED 26.2M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DUBAI CREEK HARBOUR'>Dubai Creek Harbour</td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 9.1M</span><span class="hs">5 units</span></td><td class="h1"><span class="hc">AED 16.9M</span><span class="hs">7 units</span></td><td class="h2"><span class="hc">AED 15.7M</span><span class="hs">3 units</span></td><td class="h0"><span class="hc">AED 6.2M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Al Merkadh'>Al Merkadh</td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 6.1M</span><span class="hs">4 units</span></td><td class="h1"><span class="hc">AED 19.4M</span><span class="hs">8 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='MEYDAN ONE'>Meydan One</td><td class="h1"><span class="hc">AED 5.5M</span><span class="hs">5 units</span></td><td class="h0"><span class="hc">AED 2.4M</span><span class="hs">1 units</span></td><td class="h1"><span class="hc">AED 12.2M</span><span class="hs">4 units</span></td><td class="h0"><span class="hc">AED 4.7M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DUBAI HEALTHCARE CITY - PHASE 2'>Dubai Healthcare City - Phase 2</td><td class="h0"><span class="hc">AED 778K</span><span class="hs">1 units</span></td><td class="h1"><span class="hc">AED 5.9M</span><span class="hs">4 units</span></td><td class="h1"><span class="hc">AED 10.4M</span><span class="hs">4 units</span></td><td class="h0"><span class="hc">AED 7.2M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Madinat Hind 4'>Madinat Hind 4</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 2.8M</span><span class="hs">4 units</span></td><td class="h1"><span class="hc">AED 7.8M</span><span class="hs">6 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Jumeirah First'>Jumeirah First</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 19.3M</span><span class="hs">2 units</span></td><td class="h3"><span class="hc">AED 88.5M</span><span class="hs">3 units</span></td><td class="h4"><span class="hc">AED 132.1M</span><span class="hs">4 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='LA MER'>La Mer</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 47.3M</span><span class="hs">3 units</span></td><td class="h4"><span class="hc">AED 99.3M</span><span class="hs">4 units</span></td><td class="h3"><span class="hc">AED 72.1M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='BARSHA HEIGHTS'>Barsha Heights</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 42.9M</span><span class="hs">9 units</span></td></tr><tr><td class='area-name' title='Wadi Al Safa 3'>Wadi Al Safa 3</td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 7.5M</span><span class="hs">5 units</span></td><td class="h0"><span class="hc">AED 6.7M</span><span class="hs">3 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 3.5M</span><span class="hs">1 units</span></td></tr><tr><td class='area-name' title='NAD AL SHEBA GARDENS'>Nad Al Sheba Gardens</td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 6.8M</span><span class="hs">5 units</span></td><td class="h0"><span class="hc">AED 3.7M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Al Kifaf'>Al Kifaf</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 1.9M</span><span class="hs">1 units</span></td><td class="h1"><span class="hc">AED 10.1M</span><span class="hs">4 units</span></td><td class="h1"><span class="hc">AED 8.4M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='TOWN SQUARE'>Town Square</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 1.8M</span><span class="hs">2 units</span></td><td class="h0"><span class="hc">AED 2.5M</span><span class="hs">2 units</span></td><td class="h0"><span class="hc">AED 1.9M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Trade Center First'>Trade Center First</td><td><span class="na">—</span></td><td class="h1"><span class="hc">AED 9.5M</span><span class="hs">3 units</span></td><td class="h0"><span class="hc">AED 3.9M</span><span class="hs">1 units</span></td><td class="h0"><span class="hc">AED 6.3M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='THE WORLD'>The World</td><td class="h1"><span class="hc">AED 9.3M</span><span class="hs">4 units</span></td><td class="h1"><span class="hc">AED 5.8M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='THE LAKES'>The Lakes</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 3.5M</span><span class="hs">2 units</span></td><td class="h0"><span class="hc">AED 3.5M</span><span class="hs">1 units</span></td><td class="h1"><span class="hc">AED 10.1M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Dubai Investment Park First'>Dubai Investment Park First</td><td class="h0"><span class="hc">AED 863K</span><span class="hs">2 units</span></td><td class="h0"><span class="hc">AED 889K</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Mirdif'>Mirdif</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 6.2M</span><span class="hs">3 units</span></td><td class="h0"><span class="hc">AED 2.5M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='TECOM SITE D'>Tecom Site D</td><td class="h0"><span class="hc">AED 1.3M</span><span class="hs">1 units</span></td><td class="h0"><span class="hc">AED 2.3M</span><span class="hs">1 units</span></td><td class="h0"><span class="hc">AED 5.5M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DUBAI WATER CANAL'>Dubai Water Canal</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 1.7M</span><span class="hs">1 units</span></td><td class="h0"><span class="hc">AED 2.6M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 35.6M</span><span class="hs">1 units</span></td><td class="h3"><span class="hc">AED 54.4M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Jumeirah Second'>Jumeirah Second</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 50.7M</span><span class="hs">1 units</span></td><td class="h4"><span class="hc">AED 100.7M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='EMAAR SOUTH'>Emaar South</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 1.9M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 3.4M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Al Thanyah Fifth'>Al Thanyah Fifth</td><td class="h0"><span class="hc">AED 1.5M</span><span class="hs">1 units</span></td><td class="h0"><span class="hc">AED 2.7M</span><span class="hs">1 units</span></td><td class="h0"><span class="hc">AED 3.9M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='MEYDAN AVENUE'>Meydan Avenue</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 5.5M</span><span class="hs">2 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='CITY WALK'>City Walk</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 2.5M</span><span class="hs">1 units</span></td><td class="h0"><span class="hc">AED 4.3M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DUBAI DESIGN DISTRICT'>Dubai Design District</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 2.1M</span><span class="hs">1 units</span></td><td class="h0"><span class="hc">AED 3.1M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Warsan Fourth'>Warsan Fourth</td><td class="h0"><span class="hc">AED 515K</span><span class="hs">1 units</span></td><td class="h0"><span class="hc">AED 886K</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Zaabeel First'>Zaabeel First</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 3.6M</span><span class="hs">1 units</span></td><td class="h0"><span class="hc">AED 4.5M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Zaabeel Second'>Zaabeel Second</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 3.8M</span><span class="hs">1 units</span></td><td class="h0"><span class="hc">AED 6.0M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Al Barsha First'>Al Barsha First</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 1.9M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='DUBAI INVESTMENT PARK FIRST'>Dubai Investment Park First</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 760K</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Island 2'>Island 2</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h3"><span class="hc">AED 80.0M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Palm Jumeirah'>Palm Jumeirah</td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 3.4M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name' title='Wadi Al Safa 2'>Wadi Al Safa 2</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td class="h0"><span class="hc">AED 1.7M</span><span class="hs">1 units</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 4: Top 10 Detail ═══ -->
+  <div id="top10">
+    <div class="sh"><span class="ico">🏆</span> Top 10 Areas — Room-wise Average Price</div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:18px">Average price = Total value ÷ Number of transactions per area per room type.</p>
+
+    <div class="cc" style="margin-bottom:28px">
+      <h3>Room-wise Avg Price (AED '000s) — Top 10 Areas</h3>
+      <div class="cw" style="height:360px"><canvas id="roomAvgChart"></canvas></div>
+    </div>
+
+    <div class="tw scroll-x">
+      <table>
+        <thead><tr><th>Area</th><th>Studio</th><th>1 B/R</th><th>2 B/R</th><th>3 B/R</th><th>4 B/R</th><th>5 B/R</th><th>Office</th><th>Unknown</th></tr></thead>
+        <tbody><tr><td class='area-name'>Dubai Land Residence Complex</td><td>AED 688K</td><td>AED 1.0M</td><td>AED 1.5M</td><td>AED 1.8M</td><td>AED 2.4M</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td>AED 1.8M</td></tr><tr><td class='area-name'>Jumeirah Village Circle</td><td>AED 765K</td><td>AED 1.1M</td><td>AED 1.7M</td><td>AED 1.9M</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td>AED 2.8M</td><td>AED 3.1M</td></tr><tr><td class='area-name'>Madinat Al Mataar</td><td>AED 594K</td><td>AED 1.3M</td><td>AED 2.1M</td><td>AED 2.8M</td><td>AED 8.9M</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td>AED 2.3M</td></tr><tr><td class='area-name'>Majan</td><td>AED 697K</td><td>AED 1.1M</td><td>AED 1.5M</td><td>AED 2.2M</td><td>AED 2.8M</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td>AED 1.7M</td></tr><tr><td class='area-name'>Palm Deira</td><td>AED 1.2M</td><td>AED 2.2M</td><td>AED 3.4M</td><td>AED 5.7M</td><td>AED 7.0M</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name'>Business Bay</td><td>AED 1.3M</td><td>AED 2.7M</td><td>AED 4.6M</td><td>AED 7.5M</td><td>AED 11.4M</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td>AED 16.9M</td></tr><tr><td class='area-name'>Al Khairan First</td><td><span class="na">—</span></td><td>AED 2.0M</td><td>AED 3.5M</td><td>AED 5.0M</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name'>Jumeirah Village Triangle</td><td>AED 758K</td><td>AED 1.1M</td><td>AED 1.6M</td><td>AED 2.9M</td><td>AED 3.1M</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td>AED 1.8M</td></tr><tr><td class='area-name'>Dubai Production City</td><td>AED 697K</td><td>AED 1.1M</td><td>AED 1.6M</td><td>AED 2.0M</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td></tr><tr><td class='area-name'>Dubai Sports City</td><td>AED 843K</td><td>AED 1.2M</td><td>AED 1.7M</td><td>AED 2.2M</td><td><span class="na">—</span></td><td><span class="na">—</span></td><td><span class="na">—</span></td><td>AED 1.3M</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">Dubai Land Department &nbsp;·&nbsp; January 2026 &nbsp;·&nbsp; Real Estate Transaction Intelligence</div>
+
+<script>
+Chart.defaults.color = '#8899BB';
+Chart.defaults.font.family = "'DM Sans', sans-serif";
+const grid = 'rgba(255,255,255,0.055)';
+
+// Nav highlight on scroll
+document.querySelectorAll('.nav a').forEach(a => {
+  a.addEventListener('click', function(){
+    document.querySelectorAll('.nav a').forEach(x=>x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Units bar
+new Chart(document.getElementById('unitsBar'),{
+  type:'bar',
+  data:{labels:["Dubai Land Residence Complex", "Jumeirah Village Circle", "Madinat Al Mataar", "Majan", "Palm Deira", "Business Bay", "Al Khairan First", "Jumeirah Village Triangle", "Dubai Production City", "Dubai Sports City"],datasets:[{label:'Units Sold',data:[640, 614, 578, 562, 550, 490, 467, 391, 284, 246],
+    backgroundColor:["#C9A84C", "#2AADAD", "#5B8DB8", "#E8826A", "#7A6B9A", "#4A8C6E", "#D4556A", "#5EC6C6", "#8BC34A", "#FF9800"],borderRadius:6,borderSkipped:false}]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.parsed.y.toLocaleString()+' units'}}},
+    scales:{x:{grid:{color:grid},ticks:{font:{size:9},maxRotation:30}},y:{grid:{color:grid}}}
+  }
+});
+
+// Value bar
+new Chart(document.getElementById('valueBar'),{
+  type:'bar',
+  data:{labels:["Dubai Land Residence Complex", "Jumeirah Village Circle", "Madinat Al Mataar", "Majan", "Palm Deira", "Business Bay", "Al Khairan First", "Jumeirah Village Triangle", "Dubai Production City", "Dubai Sports City"],datasets:[{label:'Value (AED M)',data:[604.4, 714.1, 874.4, 518.8, 1691.5, 2570.3, 1352.6, 473.4, 319.9, 300.1],
+    backgroundColor:["#C9A84C", "#2AADAD", "#5B8DB8", "#E8826A", "#7A6B9A", "#4A8C6E", "#D4556A", "#5EC6C6", "#8BC34A", "#FF9800"],borderRadius:6,borderSkipped:false}]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' AED '+c.parsed.y.toLocaleString()+'M'}}},
+    scales:{x:{grid:{color:grid},ticks:{font:{size:9},maxRotation:30}},y:{grid:{color:grid}}}
+  }
+});
+
+// Room avg price grouped bar
+new Chart(document.getElementById('roomAvgChart'),{
+  type:'bar',
+  data:{labels:["Dubai Land Residence Complex", "Jumeirah Village Circle", "Madinat Al Mataar", "Majan", "Palm Deira", "Business Bay", "Al Khairan First", "Jumeirah Village Triangle", "Dubai Production City", "Dubai Sports City"],
+    datasets:[{label:"Studio",data:[688, 765, 594, 697, 1195, 1305, 0, 758, 697, 843],backgroundColor:"#C9A84C",borderRadius:4,borderSkipped:false},
+{label:"1 B/R",data:[1033, 1130, 1315, 1085, 2173, 2749, 2000, 1148, 1080, 1193],backgroundColor:"#2AADAD",borderRadius:4,borderSkipped:false},
+{label:"2 B/R",data:[1458, 1687, 2054, 1541, 3423, 4590, 3458, 1640, 1582, 1669],backgroundColor:"#5B8DB8",borderRadius:4,borderSkipped:false},
+{label:"3 B/R",data:[1754, 1876, 2778, 2161, 5665, 7540, 4998, 2889, 2013, 2234],backgroundColor:"#E8826A",borderRadius:4,borderSkipped:false},
+{label:"4 B/R",data:[2366, 0, 8878, 2767, 7023, 11355, 0, 3118, 0, 0],backgroundColor:"#7A6B9A",borderRadius:4,borderSkipped:false}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top',labels:{padding:16,font:{size:12}}},
+      tooltip:{callbacks:{label:c=>' '+c.dataset.label+': AED '+c.parsed.y.toLocaleString()+'K'}}
+    },
+    scales:{
+      x:{grid:{color:grid},ticks:{font:{size:9},maxRotation:30}},
+      y:{grid:{color:grid},title:{display:true,text:'AED (Thousands)'}}
+    }
+  }
+});
+</script>
+</body></html>
