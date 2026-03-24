@@ -11,7 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { LogOut, RefreshCw, Search, Download, Eye, EyeOff } from "lucide-react";
+import { LogOut, RefreshCw, Search, Download, Eye, EyeOff, ExternalLink } from "lucide-react";
 
 interface Lead {
   id: string;
@@ -26,6 +26,23 @@ interface Lead {
   download_url: string | null;
 }
 
+interface OnboardingSubmission {
+  id: string;
+  created_at: string;
+  poc_name: string;
+  poc_email: string;
+  poc_phone: string;
+  developer_name: string;
+  project_name: string;
+  image_urls: string[];
+  brochure_url: string | null;
+  floorplan_url: string | null;
+  priceplan_url: string | null;
+  consent_given: boolean;
+}
+
+type TabType = "leads" | "onboarding";
+
 export default function Masterdatapannel() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
@@ -34,18 +51,20 @@ export default function Masterdatapannel() {
   const [loginError, setLoginError] = useState("");
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 
+  const [activeTab, setActiveTab] = useState<TabType>("leads");
   const [leads, setLeads] = useState<Lead[]>([]);
+  const [onboardingData, setOnboardingData] = useState<OnboardingSubmission[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [lastRefreshed, setLastRefreshed] = useState<Date | null>(null);
 
-  const fetchLeads = async (u: string, p: string) => {
+  const fetchData = async (u: string, p: string, table?: string) => {
     const { data, error } = await supabase.functions.invoke("get-leads", {
-      body: { username: u, password: p },
+      body: { username: u, password: p, table },
     });
     if (error) throw error;
     if (data?.error) throw new Error(data.error);
-    return data.data as Lead[];
+    return data.data;
   };
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -53,8 +72,12 @@ export default function Masterdatapannel() {
     setIsLoggingIn(true);
     setLoginError("");
     try {
-      const data = await fetchLeads(username, password);
-      setLeads(data);
+      const [leadsData, onboardingResult] = await Promise.all([
+        fetchData(username, password),
+        fetchData(username, password, "project_onboarding"),
+      ]);
+      setLeads(leadsData as Lead[]);
+      setOnboardingData(onboardingResult as OnboardingSubmission[]);
       setIsAuthenticated(true);
       setLastRefreshed(new Date());
     } catch {
@@ -67,8 +90,12 @@ export default function Masterdatapannel() {
   const handleRefresh = async () => {
     setIsLoading(true);
     try {
-      const data = await fetchLeads(username, password);
-      setLeads(data);
+      const [leadsData, onboardingResult] = await Promise.all([
+        fetchData(username, password),
+        fetchData(username, password, "project_onboarding"),
+      ]);
+      setLeads(leadsData as Lead[]);
+      setOnboardingData(onboardingResult as OnboardingSubmission[]);
       setLastRefreshed(new Date());
     } catch {
       // ignore
@@ -82,10 +109,23 @@ export default function Masterdatapannel() {
     setUsername("");
     setPassword("");
     setLeads([]);
+    setOnboardingData([]);
     setLastRefreshed(null);
   };
 
-  const exportCSV = () => {
+  // ── Leads filtering & export ──
+  const filteredLeads = leads.filter((l) => {
+    const q = searchQuery.toLowerCase();
+    return (
+      l.full_name.toLowerCase().includes(q) ||
+      l.email.toLowerCase().includes(q) ||
+      (l.project_name ?? "").toLowerCase().includes(q) ||
+      (l.requirement ?? "").toLowerCase().includes(q) ||
+      l.phone_number.includes(q)
+    );
+  });
+
+  const exportLeadsCSV = () => {
     const headers = ["#", "Name", "Email", "Phone", "Project", "CTA Type", "Requirement", "Date"];
     const rows = filteredLeads.map((l, i) => [
       i + 1,
@@ -107,23 +147,51 @@ export default function Masterdatapannel() {
     URL.revokeObjectURL(url);
   };
 
-  const filteredLeads = leads.filter((l) => {
+  // ── Onboarding filtering & export ──
+  const filteredOnboarding = onboardingData.filter((o) => {
     const q = searchQuery.toLowerCase();
     return (
-      l.full_name.toLowerCase().includes(q) ||
-      l.email.toLowerCase().includes(q) ||
-      (l.project_name ?? "").toLowerCase().includes(q) ||
-      (l.requirement ?? "").toLowerCase().includes(q) ||
-      l.phone_number.includes(q)
+      o.poc_name.toLowerCase().includes(q) ||
+      o.poc_email.toLowerCase().includes(q) ||
+      o.developer_name.toLowerCase().includes(q) ||
+      o.project_name.toLowerCase().includes(q) ||
+      o.poc_phone.includes(q)
     );
   });
 
-  // ── LOGIN SCREEN ────────────────────────────────────────────────────────────
+  const exportOnboardingCSV = () => {
+    const headers = ["#", "POC Name", "POC Email", "POC Phone", "Developer", "Project", "Images", "Brochure", "Floor Plan", "Price Plan", "Consent", "Date"];
+    const rows = filteredOnboarding.map((o, i) => [
+      i + 1,
+      o.poc_name,
+      o.poc_email,
+      o.poc_phone,
+      o.developer_name,
+      o.project_name,
+      o.image_urls.length,
+      o.brochure_url ? "Yes" : "No",
+      o.floorplan_url ? "Yes" : "No",
+      o.priceplan_url ? "Yes" : "No",
+      o.consent_given ? "Yes" : "No",
+      new Date(o.created_at).toLocaleDateString("en-GB"),
+    ]);
+    const csv = [headers, ...rows].map((r) => r.map((c) => `"${c}"`).join(",")).join("\n");
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `project-onboarding-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const totalCount = activeTab === "leads" ? leads.length : onboardingData.length;
+
+  // ── LOGIN SCREEN ──
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center p-4">
         <div className="w-full max-w-sm">
-          {/* Logo / Brand */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 mb-4">
               <svg viewBox="0 0 24 24" className="w-7 h-7 text-primary fill-current">
@@ -131,231 +199,238 @@ export default function Masterdatapannel() {
               </svg>
             </div>
             <h1 className="text-2xl font-display font-bold text-foreground">Master Data Panel</h1>
-            <p className="text-sm text-muted-foreground mt-1">FutureHome AI — Leads CMS</p>
+            <p className="text-sm text-muted-foreground mt-1">OffPlan Projects — Admin CMS</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4 bg-card border border-border rounded-2xl p-6 shadow-sm">
             <div className="space-y-1.5">
               <Label htmlFor="username">Username</Label>
-              <Input
-                id="username"
-                type="text"
-                autoComplete="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Enter username"
-                required
-              />
+              <Input id="username" type="text" autoComplete="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter username" required />
             </div>
-
             <div className="space-y-1.5">
               <Label htmlFor="password">Password</Label>
               <div className="relative">
-                <Input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  autoComplete="current-password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter password"
-                  required
-                  className="pr-10"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                >
+                <Input id="password" type={showPassword ? "text" : "password"} autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter password" required className="pr-10" />
+                <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
             </div>
-
-            {loginError && (
-              <p className="text-sm text-destructive bg-destructive/10 rounded-lg px-3 py-2">
-                {loginError}
-              </p>
-            )}
-
-            <Button type="submit" className="w-full" disabled={isLoggingIn}>
-              {isLoggingIn ? "Signing in…" : "Sign In"}
-            </Button>
+            {loginError && <p className="text-sm text-destructive bg-destructive/10 rounded-lg px-3 py-2">{loginError}</p>}
+            <Button type="submit" className="w-full" disabled={isLoggingIn}>{isLoggingIn ? "Signing in…" : "Sign In"}</Button>
           </form>
         </div>
       </div>
     );
   }
 
-  // ── CMS DASHBOARD ───────────────────────────────────────────────────────────
+  // ── CMS DASHBOARD ──
   return (
     <div className="min-h-screen bg-background">
       {/* Top Bar */}
       <header className="sticky top-0 z-50 bg-card border-b border-border">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
           <div>
-            <h1 className="text-base font-display font-bold text-foreground leading-none">
-              Master Data Panel
-            </h1>
+            <h1 className="text-base font-display font-bold text-foreground leading-none">Master Data Panel</h1>
             <p className="text-xs text-muted-foreground mt-0.5">
-              {leads.length} lead{leads.length !== 1 ? "s" : ""} total
-              {lastRefreshed && (
-                <> · Last refreshed {lastRefreshed.toLocaleTimeString()}</>
-              )}
+              {totalCount} {activeTab === "leads" ? "lead" : "submission"}{totalCount !== 1 ? "s" : ""} total
+              {lastRefreshed && <> · Last refreshed {lastRefreshed.toLocaleTimeString()}</>}
             </p>
           </div>
-
           <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleRefresh}
-              disabled={isLoading}
-              className="gap-1.5"
-            >
-              <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? "animate-spin" : ""}`} />
-              Refresh
+            <Button variant="outline" size="sm" onClick={handleRefresh} disabled={isLoading} className="gap-1.5">
+              <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? "animate-spin" : ""}`} /> Refresh
             </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={exportCSV}
-              disabled={filteredLeads.length === 0}
-              className="gap-1.5"
-            >
-              <Download className="w-3.5 h-3.5" />
-              Export CSV
+            <Button variant="outline" size="sm" onClick={activeTab === "leads" ? exportLeadsCSV : exportOnboardingCSV} disabled={(activeTab === "leads" ? filteredLeads : filteredOnboarding).length === 0} className="gap-1.5">
+              <Download className="w-3.5 h-3.5" /> Export CSV
             </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleLogout}
-              className="gap-1.5 text-muted-foreground hover:text-destructive"
-            >
-              <LogOut className="w-3.5 h-3.5" />
-              Logout
+            <Button variant="ghost" size="sm" onClick={handleLogout} className="gap-1.5 text-muted-foreground hover:text-destructive">
+              <LogOut className="w-3.5 h-3.5" /> Logout
             </Button>
           </div>
         </div>
       </header>
 
       <main className="max-w-screen-xl mx-auto px-4 sm:px-6 py-6 space-y-5">
-        {/* Stats Row */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {[
-            { label: "Total Leads", value: leads.length },
-            {
-              label: "This Month",
-              value: leads.filter((l) => {
-                const d = new Date(l.created_at);
-                const now = new Date();
-                return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
-              }).length,
-            },
-            {
-              label: "Today",
-              value: leads.filter((l) => {
-                const d = new Date(l.created_at);
-                const now = new Date();
-                return (
-                  d.getDate() === now.getDate() &&
-                  d.getMonth() === now.getMonth() &&
-                  d.getFullYear() === now.getFullYear()
-                );
-              }).length,
-            },
-            {
-              label: "Projects",
-              value: new Set(leads.map((l) => l.project_name).filter(Boolean)).size,
-            },
-          ].map((stat) => (
-            <div key={stat.label} className="bg-card border border-border rounded-xl p-4">
-              <p className="text-xs text-muted-foreground">{stat.label}</p>
-              <p className="text-2xl font-bold text-foreground mt-0.5">{stat.value}</p>
-            </div>
-          ))}
+        {/* Tabs */}
+        <div className="flex gap-1 bg-muted p-1 rounded-lg w-fit">
+          <button
+            onClick={() => { setActiveTab("leads"); setSearchQuery(""); }}
+            className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${activeTab === "leads" ? "bg-card text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
+          >
+            Leads ({leads.length})
+          </button>
+          <button
+            onClick={() => { setActiveTab("onboarding"); setSearchQuery(""); }}
+            className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${activeTab === "onboarding" ? "bg-card text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
+          >
+            Project Onboarding ({onboardingData.length})
+          </button>
         </div>
+
+        {/* Stats Row */}
+        {activeTab === "leads" && (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { label: "Total Leads", value: leads.length },
+              { label: "This Month", value: leads.filter((l) => { const d = new Date(l.created_at); const now = new Date(); return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear(); }).length },
+              { label: "Today", value: leads.filter((l) => { const d = new Date(l.created_at); const now = new Date(); return d.getDate() === now.getDate() && d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear(); }).length },
+              { label: "Projects", value: new Set(leads.map((l) => l.project_name).filter(Boolean)).size },
+            ].map((stat) => (
+              <div key={stat.label} className="bg-card border border-border rounded-xl p-4">
+                <p className="text-xs text-muted-foreground">{stat.label}</p>
+                <p className="text-2xl font-bold text-foreground mt-0.5">{stat.value}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {activeTab === "onboarding" && (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { label: "Total Submissions", value: onboardingData.length },
+              { label: "This Month", value: onboardingData.filter((o) => { const d = new Date(o.created_at); const now = new Date(); return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear(); }).length },
+              { label: "Today", value: onboardingData.filter((o) => { const d = new Date(o.created_at); const now = new Date(); return d.getDate() === now.getDate() && d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear(); }).length },
+              { label: "Developers", value: new Set(onboardingData.map((o) => o.developer_name)).size },
+            ].map((stat) => (
+              <div key={stat.label} className="bg-card border border-border rounded-xl p-4">
+                <p className="text-xs text-muted-foreground">{stat.label}</p>
+                <p className="text-2xl font-bold text-foreground mt-0.5">{stat.value}</p>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Search */}
         <div className="relative max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
-          <Input
-            placeholder="Search leads…"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-9"
-          />
+          <Input placeholder={activeTab === "leads" ? "Search leads…" : "Search submissions…"} value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-9" />
         </div>
 
-        {/* Table */}
-        <div className="bg-card border border-border rounded-xl overflow-hidden">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-10">#</TableHead>
-                <TableHead>Name</TableHead>
-                <TableHead>Email</TableHead>
-                <TableHead>Phone</TableHead>
-                <TableHead>Project</TableHead>
-                <TableHead>CTA Type</TableHead>
-                <TableHead>Requirement</TableHead>
-                <TableHead>Date</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {filteredLeads.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={8} className="text-center py-12 text-muted-foreground text-sm">
-                    {searchQuery ? "No leads match your search." : "No leads submitted yet."}
-                  </TableCell>
-                </TableRow>
-              ) : (
-                filteredLeads.map((lead, i) => (
-                  <TableRow key={lead.id}>
-                    <TableCell className="text-muted-foreground text-xs">{i + 1}</TableCell>
-                    <TableCell className="font-medium">{lead.full_name}</TableCell>
-                    <TableCell className="text-sm text-muted-foreground">{lead.email}</TableCell>
-                    <TableCell className="text-sm text-muted-foreground whitespace-nowrap">
-                      {lead.phone_country_code} {lead.phone_number}
-                    </TableCell>
-                    <TableCell>
-                      {lead.project_name ? (
-                        <span className="text-sm font-medium">{lead.project_name}</span>
-                      ) : (
-                        <span className="text-xs text-muted-foreground">—</span>
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      <span className="inline-block text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
-                        {lead.cta_type}
-                      </span>
-                    </TableCell>
-                    <TableCell className="text-sm text-muted-foreground max-w-[200px] truncate">
-                      {lead.requirement ?? "—"}
-                    </TableCell>
-                    <TableCell className="text-xs text-muted-foreground whitespace-nowrap">
-                      {new Date(lead.created_at).toLocaleDateString("en-GB", {
-                        day: "2-digit",
-                        month: "short",
-                        year: "numeric",
-                      })}
-                      <br />
-                      <span className="opacity-60">
-                        {new Date(lead.created_at).toLocaleTimeString("en-GB", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
-                      </span>
-                    </TableCell>
+        {/* Leads Table */}
+        {activeTab === "leads" && (
+          <div className="bg-card border border-border rounded-xl overflow-hidden">
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-10">#</TableHead>
+                    <TableHead>Name</TableHead>
+                    <TableHead>Email</TableHead>
+                    <TableHead>Phone</TableHead>
+                    <TableHead>Project</TableHead>
+                    <TableHead>CTA Type</TableHead>
+                    <TableHead>Requirement</TableHead>
+                    <TableHead>Date</TableHead>
                   </TableRow>
-                ))
-              )}
-            </TableBody>
-          </Table>
-        </div>
+                </TableHeader>
+                <TableBody>
+                  {filteredLeads.length === 0 ? (
+                    <TableRow>
+                      <TableCell colSpan={8} className="text-center py-12 text-muted-foreground text-sm">
+                        {searchQuery ? "No leads match your search." : "No leads submitted yet."}
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    filteredLeads.map((lead, i) => (
+                      <TableRow key={lead.id}>
+                        <TableCell className="text-muted-foreground text-xs">{i + 1}</TableCell>
+                        <TableCell className="font-medium">{lead.full_name}</TableCell>
+                        <TableCell className="text-sm text-muted-foreground">{lead.email}</TableCell>
+                        <TableCell className="text-sm text-muted-foreground whitespace-nowrap">{lead.phone_country_code} {lead.phone_number}</TableCell>
+                        <TableCell>{lead.project_name ? <span className="text-sm font-medium">{lead.project_name}</span> : <span className="text-xs text-muted-foreground">—</span>}</TableCell>
+                        <TableCell><span className="inline-block text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">{lead.cta_type}</span></TableCell>
+                        <TableCell className="text-sm text-muted-foreground max-w-[200px] truncate">{lead.requirement ?? "—"}</TableCell>
+                        <TableCell className="text-xs text-muted-foreground whitespace-nowrap">
+                          {new Date(lead.created_at).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}
+                          <br /><span className="opacity-60">{new Date(lead.created_at).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}</span>
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  )}
+                </TableBody>
+              </Table>
+            </div>
+          </div>
+        )}
 
-        {filteredLeads.length > 0 && (
+        {/* Onboarding Table */}
+        {activeTab === "onboarding" && (
+          <div className="bg-card border border-border rounded-xl overflow-hidden">
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-10">#</TableHead>
+                    <TableHead>POC Name</TableHead>
+                    <TableHead>POC Email</TableHead>
+                    <TableHead>POC Phone</TableHead>
+                    <TableHead>Developer</TableHead>
+                    <TableHead>Project</TableHead>
+                    <TableHead>Images</TableHead>
+                    <TableHead>Docs</TableHead>
+                    <TableHead>Date</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredOnboarding.length === 0 ? (
+                    <TableRow>
+                      <TableCell colSpan={9} className="text-center py-12 text-muted-foreground text-sm">
+                        {searchQuery ? "No submissions match your search." : "No project submissions yet."}
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    filteredOnboarding.map((item, i) => (
+                      <TableRow key={item.id}>
+                        <TableCell className="text-muted-foreground text-xs">{i + 1}</TableCell>
+                        <TableCell className="font-medium">{item.poc_name}</TableCell>
+                        <TableCell className="text-sm text-muted-foreground">{item.poc_email}</TableCell>
+                        <TableCell className="text-sm text-muted-foreground whitespace-nowrap">{item.poc_phone}</TableCell>
+                        <TableCell className="text-sm font-medium">{item.developer_name}</TableCell>
+                        <TableCell className="text-sm font-medium">{item.project_name}</TableCell>
+                        <TableCell>
+                          <span className="inline-block text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
+                            {item.image_urls.length} image{item.image_urls.length !== 1 ? "s" : ""}
+                          </span>
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex gap-1.5">
+                            {item.brochure_url && (
+                              <a href={item.brochure_url} target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline flex items-center gap-0.5">
+                                Brochure <ExternalLink className="w-3 h-3" />
+                              </a>
+                            )}
+                            {item.floorplan_url && (
+                              <a href={item.floorplan_url} target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline flex items-center gap-0.5">
+                                Floor <ExternalLink className="w-3 h-3" />
+                              </a>
+                            )}
+                            {item.priceplan_url && (
+                              <a href={item.priceplan_url} target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline flex items-center gap-0.5">
+                                Price <ExternalLink className="w-3 h-3" />
+                              </a>
+                            )}
+                            {!item.brochure_url && !item.floorplan_url && !item.priceplan_url && (
+                              <span className="text-xs text-muted-foreground">—</span>
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-xs text-muted-foreground whitespace-nowrap">
+                          {new Date(item.created_at).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}
+                          <br /><span className="opacity-60">{new Date(item.created_at).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}</span>
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  )}
+                </TableBody>
+              </Table>
+            </div>
+          </div>
+        )}
+
+        {(activeTab === "leads" ? filteredLeads : filteredOnboarding).length > 0 && (
           <p className="text-xs text-muted-foreground text-center">
-            Showing {filteredLeads.length} of {leads.length} leads
+            Showing {(activeTab === "leads" ? filteredLeads : filteredOnboarding).length} of {totalCount} {activeTab === "leads" ? "leads" : "submissions"}
           </p>
         )}
       </main>
