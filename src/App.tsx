@@ -145,6 +145,7 @@ import NotFound from "./pages/NotFound";
 import ProgrammaticAreaPage from "./pages/programmatic/ProgrammaticAreaPage";
 import ProgrammaticDeveloperSeoPage from "./pages/programmatic/ProgrammaticDeveloperSeoPage";
 import ProgrammaticBlogPage from "./pages/programmatic/ProgrammaticBlogPage";
+import BlogListingPage from "./pages/Blog";
 
 const queryClient = new QueryClient();
 
@@ -299,6 +300,7 @@ const App = () => (
           {/* Programmatic SEO templates — data-driven slugs from src/data/programmatic/*.seed.ts */}
           <Route path="/off-plan-projects/:areaSlug" element={<ProgrammaticAreaPage />} />
           <Route path="/off-plan-by-developer/:developerSlug" element={<ProgrammaticDeveloperSeoPage />} />
+          <Route path="/blog" element={<BlogListingPage />} />
           <Route path="/blog/:topicSlug" element={<ProgrammaticBlogPage />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/dubai-marina" element={<DubaiMarinaArea />} />

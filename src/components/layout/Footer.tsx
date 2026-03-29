@@ -21,6 +21,7 @@ const footerLinks = {
   { name: "Project Onboarding", href: "/project-onboarding" }],
 
   blog: [
+  { name: "Blog", href: "/blog" },
   { name: "Dubai Marina off-plan guide", href: "/blog/best-off-plan-projects-dubai-marina" },
   { name: "Payment plans explained", href: "/blog/dubai-off-plan-payment-plans-guide" },
   { name: "Best areas for investors", href: "/blog/best-areas-invest-dubai" },
