@@ -59,11 +59,15 @@ export function BlogRelatedArticles({ current }: { current: ProgrammaticBlogPost
               to={`/blog/${post.slug}`}
               className="group rounded-2xl border border-border bg-card shadow-sm hover:shadow-md hover:border-primary/30 transition-all overflow-hidden"
             >
-              <div className="aspect-[16/9] bg-gradient-to-br from-primary/10 via-muted to-primary/5 flex items-center justify-center p-4 relative">
-                <span className="text-xl font-display font-bold text-primary/20 text-center leading-tight line-clamp-2">
-                  {post.title}
-                </span>
-                <span className="absolute top-2 left-2 text-[10px] font-semibold uppercase tracking-wider bg-charcoal/80 text-white px-2 py-0.5 rounded-full">
+              <div className="aspect-[16/9] relative overflow-hidden">
+                <img
+                  src={getBlogImage(post.slug)}
+                  alt={`${post.title} — Dubai off-plan insights`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <span className="absolute top-2 left-2 text-[10px] font-semibold uppercase tracking-wider bg-primary text-primary-foreground px-2 py-0.5 rounded-full shadow-sm">
                   {getCategoryTag(post)}
                 </span>
               </div>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Calendar } from "lucide-react";
 import type { ProgrammaticBlogPost } from "@/types/programmatic";
+import { getBlogImage } from "@/lib/blogImages";
 
 const BLOG_IMAGES: Record<string, string> = {
   "best-off-plan-projects-dubai-marina":
