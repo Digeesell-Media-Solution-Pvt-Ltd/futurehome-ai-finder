@@ -1968,6 +1968,9 @@ export function filterProjectsByFilters(
     if (filters.handover_year && project.handover_year !== filters.handover_year) {
       return false;
     }
+    if (filters.launch_statuses?.length && !filters.launch_statuses.includes(project.launch_status)) {
+      return false;
+    }
     if (filters.areas?.length) {
       const areas = filters.areas.map((a) => a.toLowerCase());
       if (!areas.includes(project.areaName.toLowerCase())) return false;

@@ -52,6 +52,9 @@ export function useFilteredProjects(filters: ProjectFilters) {
       if (filters.handover_year) {
         query = query.eq("handover_year", filters.handover_year);
       }
+      if (filters.launch_statuses && filters.launch_statuses.length > 0) {
+        query = query.in("launch_status", filters.launch_statuses);
+      }
       if (filters.property_types && filters.property_types.length > 0) {
         query = query.overlaps("property_types", filters.property_types);
       }

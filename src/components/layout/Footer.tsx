@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Instagram, Linkedin, Facebook, Twitter } from "lucide-react";
 
 const footerLinks = {
   projects: [
   { name: "All Projects", href: "/projects" },
-  { name: "New Launches", href: "/projects?filter=new" },
-  { name: "Ready Soon", href: "/projects?filter=ready" },
-  { name: "Investor Picks", href: "/projects?filter=investor" }],
+  { name: "New Launches", href: "/projects?launch_status=Newly%20Launched" },
+  { name: "Ready Soon", href: "/projects?handover_year=2026" },
+  { name: "Investor Picks", href: "/projects?investment_tags=Investor%20Hotspot" }],
 
   areas: [
   { name: "Dubai Marina", href: "/areas/dubai-marina" },
-  { name: "Downtown Dubai", href: "/areas/downtown" },
+  { name: "Downtown Dubai", href: "/areas/downtown-dubai" },
   { name: "Palm Jumeirah", href: "/areas/palm-jumeirah" },
   { name: "Business Bay", href: "/areas/business-bay" }],
 
@@ -21,10 +20,16 @@ const footerLinks = {
   { name: "Contact", href: "/contact" },
   { name: "Project Onboarding", href: "/project-onboarding" }],
 
+  blog: [
+  { name: "Dubai Marina off-plan guide", href: "/blog/best-off-plan-projects-dubai-marina" },
+  { name: "Payment plans explained", href: "/blog/dubai-off-plan-payment-plans-guide" },
+  { name: "Best areas for investors", href: "/blog/best-areas-invest-dubai" },
+  { name: "Off-plan vs ready", href: "/blog/off-plan-vs-ready-dubai" }],
+
   legal: [
-  { name: "Privacy Policy", href: "/privacy" },
-  { name: "Terms of Service", href: "/terms" },
-  { name: "Cookie Policy", href: "/cookies" }]
+  { name: "Privacy Policy", href: "/privacy-policy" },
+  { name: "Terms of Service", href: "/terms-of-use" },
+  { name: "Cookie Policy", href: "/cookie-policy" }]
 
 };
 
@@ -40,7 +45,7 @@ export function Footer() {
     <footer className="bg-charcoal text-background">
       {/* Main Footer */}
       <div className="container-luxury section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
@@ -101,6 +106,22 @@ export function Footer() {
             <h4 className="font-display text-lg font-medium mb-4 text-primary">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) =>
+              <li key={link.name}>
+                  <Link
+                  to={link.href}
+                  className="text-sm text-background/70 hover:text-primary transition-colors">
+
+                    {link.name}
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-display text-lg font-medium mb-4 text-primary">Blog</h4>
+            <ul className="space-y-3">
+              {footerLinks.blog.map((link) =>
               <li key={link.name}>
                   <Link
                   to={link.href}

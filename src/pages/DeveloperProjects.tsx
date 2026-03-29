@@ -8,6 +8,9 @@ import { useFilteredProjects } from "@/hooks/useProjects";
 import { normalizeDeveloperKey, normalizeSlug } from "@/lib/normalize";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import type { ProjectFilters } from "@/types/project";
+import { InternalLinkCluster } from "@/components/internal-linking/InternalLinkCluster";
+import { getDeveloperAppListingInternalLinks } from "@/lib/internal-linking/buildInternalLinks";
+import type { ProjectDataContract } from "@/types/project";
 
 export default function DeveloperProjectsPage() {
   const { developerSlug } = useParams<{ developerSlug: string }>();
@@ -71,12 +74,20 @@ export default function DeveloperProjectsPage() {
     if (bySlug) {
       return bySlug.developerName || bySlug.developers?.name || "Developer";
     }
-    // Fallback: prettify slug
     return developerSlug
       .split("-")
       .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
       .join(" ");
   }, [allProjects, developerSlug]);
+
+  const developerInternalLinks = useMemo(() => {
+    if (!developerSlug) return [];
+    return getDeveloperAppListingInternalLinks(
+      developerSlug,
+      developerName,
+      developerProjects as unknown as ProjectDataContract[],
+    );
+  }, [developerSlug, developerName, developerProjects]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -106,6 +117,15 @@ export default function DeveloperProjectsPage() {
             <h3 className="text-lg font-medium text-foreground mb-1">No listing found</h3>
           </div>
         )}
+
+        {developerInternalLinks.length > 0 ? (
+          <InternalLinkCluster
+            className="mt-16 max-w-4xl mx-auto"
+            title="Continue researching Dubai off-plan"
+            links={developerInternalLinks}
+            inlineContextCount={2}
+          />
+        ) : null}
       </main>
       <Footer />
     </div>

@@ -142,6 +142,9 @@ import CookiePolicy from "./pages/CookiePolicy";
 import Saved from "./pages/Saved";
 import ProjectOnboarding from "./pages/ProjectOnboarding";
 import NotFound from "./pages/NotFound";
+import ProgrammaticAreaPage from "./pages/programmatic/ProgrammaticAreaPage";
+import ProgrammaticDeveloperSeoPage from "./pages/programmatic/ProgrammaticDeveloperSeoPage";
+import ProgrammaticBlogPage from "./pages/programmatic/ProgrammaticBlogPage";
 
 const queryClient = new QueryClient();
 
@@ -293,6 +296,10 @@ const App = () => (
           <Route path="/developers" element={<DevelopersPage />} />
           <Route path="/developers/:developerSlug" element={<DeveloperProjectsPage />} />
           <Route path="/developers/select-group" element={<SelectGroupPage />} />
+          {/* Programmatic SEO templates — data-driven slugs from src/data/programmatic/*.seed.ts */}
+          <Route path="/off-plan-projects/:areaSlug" element={<ProgrammaticAreaPage />} />
+          <Route path="/off-plan-by-developer/:developerSlug" element={<ProgrammaticDeveloperSeoPage />} />
+          <Route path="/blog/:topicSlug" element={<ProgrammaticBlogPage />} />
           <Route path="/areas" element={<Areas />} />
           <Route path="/areas/dubai-marina" element={<DubaiMarinaArea />} />
           <Route path="/areas/downtown-dubai" element={<DowntownDubaiArea />} />

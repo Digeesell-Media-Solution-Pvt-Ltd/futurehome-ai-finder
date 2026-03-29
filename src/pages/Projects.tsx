@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { SlidersHorizontal, Building2 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -10,7 +11,8 @@ import { ProjectFilterSidebar } from "@/components/projects/ProjectFilterSidebar
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { AISearchBar } from "@/components/projects/AISearchBar";
 import { useFilteredProjects, useAreas, useDevelopersList } from "@/hooks/useProjects";
-import type { Area, Developer, ProjectFilters } from "@/types/project";
+import type { Area, Developer, InvestmentTag, LaunchStatus, ProjectFilters } from "@/types/project";
+import { HANDOVER_YEARS, INVESTMENT_TAGS, LAUNCH_STATUSES } from "@/types/project";
 import { normalizeSlug } from "@/lib/normalize";
 import {
   projects,
@@ -19,9 +21,52 @@ import {
   getSupplementalDevelopers,
 } from "@/data/projects";
 
+function projectFiltersFromSearchParams(searchParams: URLSearchParams): ProjectFilters {
+  const out: ProjectFilters = {};
+  const hyRaw = searchParams.get("handover_year");
+  if (hyRaw) {
+    const n = Number.parseInt(hyRaw, 10);
+    if (!Number.isNaN(n) && HANDOVER_YEARS.includes(n as (typeof HANDOVER_YEARS)[number])) {
+      out.handover_year = n;
+    }
+  }
+  const invRaw = searchParams.get("investment_tags");
+  if (invRaw) {
+    const allowed = new Set<string>(INVESTMENT_TAGS);
+    const tags = invRaw
+      .split(",")
+      .map((s) => s.trim())
+      .filter((t): t is InvestmentTag => allowed.has(t));
+    if (tags.length > 0) out.investment_tags = tags;
+  }
+  const launchRaw = searchParams.get("launch_status");
+  if (launchRaw) {
+    const allowed = new Set<string>(LAUNCH_STATUSES);
+    const statuses = launchRaw
+      .split(",")
+      .map((s) => s.trim())
+      .filter((t): t is LaunchStatus => allowed.has(t));
+    if (statuses.length > 0) out.launch_statuses = statuses;
+  }
+  return out;
+}
+
 export default function Projects() {
+  const [searchParams] = useSearchParams();
   const [filters, setFilters] = useState<ProjectFilters>({});
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
+  useEffect(() => {
+    const key = searchParams.toString();
+    if (!key) {
+      setFilters({});
+      return;
+    }
+    const next = projectFiltersFromSearchParams(searchParams);
+    if (Object.keys(next).length > 0) {
+      setFilters(next);
+    }
+  }, [searchParams]);
 
   const { data: apiProjects = [], isLoading } = useFilteredProjects(filters);
   const { data: areasFromApi = [] } = useAreas();
@@ -70,6 +115,7 @@ export default function Projects() {
     filters.handover_year ? 1 : 0,
     filters.investment_tags?.length,
     filters.lifestyle_tags?.length,
+    filters.launch_statuses?.length,
   ].reduce((a, b) => a + (b || 0), 0);
 
   return (
@@ -119,6 +165,9 @@ export default function Projects() {
               <Badge variant="secondary" className="text-xs">{filters.handover_year}</Badge>
             )}
             {filters.investment_tags?.map(t => (
+              <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
+            ))}
+            {filters.launch_statuses?.map((t) => (
               <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
             ))}
             {filters.lifestyle_tags?.map(t => (

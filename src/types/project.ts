@@ -105,9 +105,17 @@ export interface ProjectFilters {
   handover_year?: number;
   investment_tags?: InvestmentTag[];
   lifestyle_tags?: LifestyleTag[];
+  launch_statuses?: LaunchStatus[];
 }
 
 // Controlled values for filter dropdowns
+export const LAUNCH_STATUSES: LaunchStatus[] = [
+  'Pre-Launch',
+  'Newly Launched',
+  'Under Construction',
+  'Ready to Move',
+  'Handover Complete',
+];
 export const PROPERTY_TYPES: PropertyType[] = ['Apartment', 'Villa', 'Townhouse', 'Penthouse', 'Duplex', 'Office', 'Retail', 'Land', 'Mansion'];
 export const BEDROOM_TYPES: BedroomType[] = ['Studio', '1BR', '2BR', '3BR', '4BR', '5BR+'];
 export const INVESTMENT_TAGS: InvestmentTag[] = ['High ROI', 'High Capital Appreciation', 'Rental Income Focused', 'Affordable Entry', 'Luxury Segment', 'Branded Residences', 'Limited Units', 'Investor Hotspot'];

@@ -13,6 +13,8 @@ import { Button } from "@/components/ui/button";
 import { getHeroImage, getGalleryImages } from "@/lib/heroImages";
 import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import type { Project } from "@/types/project";
+import { InternalLinkCluster } from "@/components/internal-linking/InternalLinkCluster";
+import { getProjectPageInternalLinks } from "@/lib/internal-linking/buildInternalLinks";
 
 const AMENITY_ICONS: Record<string, typeof Building2> = {
   "Swimming Pool": Heart, "Infinity Pool": Heart, "Gym": TrendingUp,
@@ -82,6 +84,14 @@ export default function ProjectDetail() {
       ? `${project.handover_quarter} ${project.handover_year}`
       : `${project.handover_year}`
     : null;
+
+  const projectInternalLinks = getProjectPageInternalLinks({
+    areaSlug: project.areas?.slug,
+    areaName,
+    developerSlug: project.developers?.slug,
+    developerName,
+    projectName: project.project_name,
+  });
 
   const quickStats = [
     project.starting_price ? { label: "Starting Price", value: formatPrice(project.starting_price)!, icon: TrendingUp } : null,
@@ -364,6 +374,17 @@ export default function ProjectDetail() {
           </div>
         </section>
       )}
+
+      <section className="section-padding bg-background border-t border-border">
+        <div className="container-luxury max-w-4xl">
+          <InternalLinkCluster
+            title="Keep exploring Dubai off-plan"
+            intro="Structured links to the parent area hub, developer programmes, and high-intent guides—typed for crawlability."
+            links={projectInternalLinks}
+            inlineContextCount={2}
+          />
+        </div>
+      </section>
 
       {/* Disclaimer */}
       <section className="py-6 bg-muted/30">
