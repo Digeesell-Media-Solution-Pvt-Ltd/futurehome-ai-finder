@@ -21,7 +21,7 @@ function getCategoryTag(post: ProgrammaticBlogPost): string {
 export function BlogCard({ post }: { post: ProgrammaticBlogPost }) {
   const excerpt = getExcerpt(post);
   const category = getCategoryTag(post);
-  const imgSrc = BLOG_IMAGES[post.slug] || DEFAULT_IMAGE;
+  const imgSrc = getBlogImage(post.slug);
   const date = new Date(post.publishedAt).toLocaleDateString("en-AE", {
     year: "numeric",
     month: "long",
