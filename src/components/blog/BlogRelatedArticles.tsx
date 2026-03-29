@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Calendar } from "lucide-react";
 import { programmaticBlogPosts } from "@/data/programmatic/blog.seed";
 import type { ProgrammaticBlogPost } from "@/types/programmatic";
+import { getBlogImage } from "@/lib/blogImages";
 
 function getCategoryTag(post: ProgrammaticBlogPost): string {
   if (post.areaListingGuide) return "Area Guide";
