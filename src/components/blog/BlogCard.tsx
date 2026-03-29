@@ -2,6 +2,24 @@ import { Link } from "react-router-dom";
 import { Calendar } from "lucide-react";
 import type { ProgrammaticBlogPost } from "@/types/programmatic";
 
+const BLOG_IMAGES: Record<string, string> = {
+  "best-off-plan-projects-dubai-marina":
+    "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
+  "dubai-off-plan-payment-plans-guide":
+    "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
+  "why-invest-off-plan-dubai-2026":
+    "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&q=80",
+  "is-off-plan-worth-it-dubai":
+    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+  "best-areas-invest-dubai":
+    "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&q=80",
+  "off-plan-vs-ready-dubai":
+    "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+};
+
+const DEFAULT_IMAGE =
+  "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?w=800&q=80";
+
 function getExcerpt(post: ProgrammaticBlogPost): string {
   const text = post.contentAngle || post.body;
   if (!text) return "";
@@ -19,6 +37,7 @@ function getCategoryTag(post: ProgrammaticBlogPost): string {
 export function BlogCard({ post }: { post: ProgrammaticBlogPost }) {
   const excerpt = getExcerpt(post);
   const category = getCategoryTag(post);
+  const imgSrc = BLOG_IMAGES[post.slug] || DEFAULT_IMAGE;
   const date = new Date(post.publishedAt).toLocaleDateString("en-AE", {
     year: "numeric",
     month: "long",
@@ -30,15 +49,19 @@ export function BlogCard({ post }: { post: ProgrammaticBlogPost }) {
       to={`/blog/${post.slug}`}
       className="group block rounded-2xl border border-border bg-card shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden"
     >
-      {/* Image placeholder */}
-      <div className="aspect-[16/9] bg-gradient-to-br from-primary/10 via-muted to-primary/5 flex items-center justify-center relative overflow-hidden">
-        <div className="text-center px-6">
-          <span className="text-4xl font-display font-bold text-primary/20 leading-tight line-clamp-2">
-            {post.title}
-          </span>
-        </div>
+      {/* Featured image */}
+      <div className="aspect-[16/9] relative overflow-hidden">
+        <img
+          src={imgSrc}
+          alt={`${post.title} — Dubai off-plan property insights`}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        {/* Category badge */}
         <div className="absolute top-3 left-3">
-          <span className="inline-block text-xs font-semibold uppercase tracking-wider bg-primary text-primary-foreground px-3 py-1 rounded-full">
+          <span className="inline-block text-xs font-semibold uppercase tracking-wider bg-primary text-primary-foreground px-3 py-1 rounded-full shadow-sm">
             {category}
           </span>
         </div>
