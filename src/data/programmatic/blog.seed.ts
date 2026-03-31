@@ -117,6 +117,76 @@ export const programmaticBlogPosts: ProgrammaticBlogPost[] = [
   },
   {
     kind: "blog",
+    title: "Off Plan Projects in JVC Dubai: Affordable Investment Opportunities",
+    slug: "off-plan-projects-jvc-dubai",
+    primaryKeyword: "off plan projects JVC",
+    contentAngle:
+      "A practical guide to JVC's most accessible off-plan launches—price bands, rental yields, and payment plan comparisons for budget-conscious investors.",
+    publishedAt: "2026-03-30T00:00:00.000Z",
+    authorName: "OffPlanProjects Editorial",
+    titleTag: "Off Plan Projects in JVC Dubai 2026",
+    metaDescription:
+      "Explore affordable off plan projects in JVC with high ROI and flexible payment plans.",
+    h1: "Off Plan Projects in JVC Dubai",
+    body: `This guide is optimised for readers searching off plan projects JVC—use the live strip below for current inventory, then validate schedules with official sales channels.`,
+    relatedAreaProgrammaticSlugs: ["jvc"],
+    relatedDeveloperSlugs: ["binghatti", "samana", "danube"],
+    relatedProjectSlugs: ["binghatti-hillcrest", "samana-skyviews", "elegance-tower"],
+    areaListingGuide: {
+      areaName: "JVC",
+      areaHubSlug: "jvc",
+      listingLimit: 5,
+      introduction: `Jumeirah Village Circle has cemented itself as Dubai's most searched affordable investment corridor. If you are comparing off plan projects JVC offers today, the goal is to match **payment flexibility**, **handover timing**, and **rental demand reality** to your actual budget and exit plan.
+
+**Who this guide helps.** First-time investors looking for accessible entry tickets; portfolio builders adding yield-focused units; end-users who want community living with strong connectivity to Business Bay and Marina without the premium price tag.`,
+
+      whyInvest: `**Affordability with scale.** JVC consistently delivers some of the lowest per-square-foot rates among established Dubai communities, making it a natural entry point for investors who want to diversify across multiple units rather than concentrating capital in a single high-ticket tower.
+
+**Rental demand is structural.** The community's circular masterplan, proximity to Al Khail Road and Hessa Street, and growing retail and F&B presence attract long-term tenants—young professionals, small families, and corporate relocators who value space-to-price ratios.
+
+**Developer competition works for you.** Multiple developers launch simultaneously in JVC, which means buyers can compare payment plans, amenity packages, and handover windows side-by-side—often negotiating better terms than in supply-constrained zones.
+
+We still treat off-plan as a regulated, milestone-based purchase: confirm escrow registration, read the current payment schedule, and document Oqood assumptions with your bank before you reserve.`,
+
+      priceAndRoi: `**Pricing bands.** JVC studios and 1-bedrooms typically start well below the citywide average, with 2-bedroom apartments offering strong value for families. Compare on a **per sq ft** basis and factor in balcony sizes, parking allocation, and floor premiums.
+
+**ROI framing.** Gross yields in JVC often exceed 7–8% for well-positioned studios and 1-beds—among the highest in Dubai. Underwrite with realistic service charges, occupancy assumptions, and your financing cost before locking in.
+
+**Payment plans.** JVC developers frequently offer post-handover payment plans stretching 3–5 years, which can dramatically improve cash-on-cash returns for leveraged buyers. Construction-linked milestones keep your exposure aligned with build progress.`,
+
+      investmentTips: `**Compare developers, not just prices.** In JVC, the difference between a smooth handover and a delayed one often comes down to developer track record. Prioritise builders with completed JVC projects you can physically visit.
+
+**Location within JVC matters.** Units near Circle Mall, the upcoming metro extension corridor, and park-facing plots command rental premiums. Don't treat all JVC inventory as identical.
+
+**Pair this guide with live inventory.** Use our directory rows and the JVC hub to cross-check availability, then request the official addendum for the exact payment matrix you intend to sign.
+
+**Model your exit.** JVC's strength is volume—which means resale competition can be fierce. If your plan is flip-on-handover, stress-test against 6–12 months of void and competing inventory from neighbouring towers.`,
+    },
+    faq: [
+      {
+        question: "What makes JVC a good area for off-plan investment in 2026?",
+        answer:
+          "JVC combines affordable entry prices, high gross rental yields (often 7–8%+), flexible post-handover payment plans, and strong tenant demand driven by its central location and growing community amenities.",
+      },
+      {
+        question: "What types of off-plan properties are available in JVC?",
+        answer:
+          "JVC offers studios, 1-bedroom, 2-bedroom, and 3-bedroom apartments from multiple developers. Some projects also include townhouses and duplexes, giving buyers a range of investment and lifestyle options.",
+      },
+      {
+        question: "How do JVC payment plans compare to other Dubai areas?",
+        answer:
+          "JVC developers often provide more aggressive post-handover plans—sometimes 3–5 years after completion—which lowers the upfront capital requirement and improves cash-on-cash returns compared to premium waterfront districts.",
+      },
+      {
+        question: "Where can I see all off-plan projects in JVC?",
+        answer:
+          "Use our JVC off-plan hub at /off-plan-projects/jvc alongside the live listing strip on this page, then confirm availability and plan details on each official project page.",
+      },
+    ],
+  },
+  {
+    kind: "blog",
     title: "Best Off Plan Projects in Dubai Marina (2026 Guide)",
     slug: "best-off-plan-projects-dubai-marina",
     primaryKeyword: "off plan projects Dubai Marina",
