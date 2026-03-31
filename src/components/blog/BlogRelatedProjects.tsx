@@ -10,6 +10,9 @@ import {
 } from "@/lib/blog/listingFormatters";
 
 function getRelatedProjects(post: ProgrammaticBlogPost, limit = 4) {
+  const isAreaBlog = !!post.areaListingGuide;
+  const areaSlugs = post.relatedAreaProgrammaticSlugs;
+
   // 1. Try relatedProjectSlugs
   const bySlug = post.relatedProjectSlugs
     .map((slug) => projects.find((p) => p.slug === slug))
@@ -18,7 +21,6 @@ function getRelatedProjects(post: ProgrammaticBlogPost, limit = 4) {
   if (bySlug.length >= limit) return bySlug.slice(0, limit);
 
   // 2. Expand by area
-  const areaSlugs = post.relatedAreaProgrammaticSlugs;
   const byArea = projects.filter(
     (p) => areaSlugs.includes(p.areaSlug) && !bySlug.some((b) => b?.slug === p.slug)
   );
@@ -26,7 +28,10 @@ function getRelatedProjects(post: ProgrammaticBlogPost, limit = 4) {
   const combined = [...bySlug, ...byArea];
   if (combined.length >= limit) return combined.slice(0, limit);
 
-  // 3. Fill with featured
+  // 3. For area-based blogs, do NOT fill with random global projects
+  if (isAreaBlog) return combined.slice(0, limit);
+
+  // 4. For non-area blogs, fill with featured
   const featured = projects
     .filter((p) => !combined.some((c) => c?.slug === p.slug))
     .slice(0, limit - combined.length);
@@ -36,24 +41,48 @@ function getRelatedProjects(post: ProgrammaticBlogPost, limit = 4) {
 
 export function BlogRelatedProjects({ post }: { post: ProgrammaticBlogPost }) {
   const related = getRelatedProjects(post);
-  if (related.length === 0) return null;
+  const isAreaBlog = !!post.areaListingGuide;
+  const areaName = post.areaListingGuide?.areaName;
+  const areaHubSlug = post.areaListingGuide?.areaHubSlug;
+
+  if (related.length === 0) {
+    if (!isAreaBlog) return null;
+    return (
+      <section className="my-14 rounded-2xl border border-dashed border-border bg-muted/20 p-8 text-center text-muted-foreground">
+        <Building2 className="h-10 w-10 mx-auto mb-3 opacity-40" />
+        <p className="text-sm">
+          No current {areaName} listings available right now.{" "}
+          <Link to={`/off-plan-projects/${areaHubSlug}`} className="text-primary underline-offset-4 hover:underline">
+            Explore {areaName} investment opportunities
+          </Link>.
+        </p>
+      </section>
+    );
+  }
+
+  const heading = isAreaBlog ? `Featured Off-Plan Projects in ${areaName}` : "Featured Off-Plan Projects";
+  const subtitle = isAreaBlog
+    ? `Listings matched to ${areaName} from our directory`
+    : "Handpicked listings relevant to this article";
+  const browseLink = isAreaBlog ? `/off-plan-projects/${areaHubSlug}` : "/projects";
+  const browseLabel = isAreaBlog ? `All ${areaName} projects` : "View all";
 
   return (
     <section className="my-14" aria-labelledby="related-projects-heading">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h2 id="related-projects-heading" className="text-2xl font-display font-semibold text-foreground">
-            Featured Off-Plan Projects
+            {heading}
           </h2>
           <p className="text-sm text-muted-foreground mt-1">
-            Handpicked listings relevant to this article
+            {subtitle}
           </p>
         </div>
         <Link
-          to="/projects"
+          to={browseLink}
           className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline underline-offset-4"
         >
-          View all <ArrowUpRight className="h-4 w-4" />
+          {browseLabel} <ArrowUpRight className="h-4 w-4" />
         </Link>
       </div>
 
