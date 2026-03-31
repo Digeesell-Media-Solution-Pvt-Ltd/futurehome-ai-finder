@@ -59,7 +59,7 @@ const ArtistryTwoProject = () => {
       <Helmet>
         <title>Artistry Two Residences by Select Group | Dubai Design District d3</title>
         <meta name="description" content="Discover Artistry Two Residences by Select Group in Dubai Design District — 1–3BR apartments and 4BR duplex penthouses with Burj Khalifa views, padel courts, 22nd-floor infinity pool, and 50/50 payment plan. Handover 2029." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/select-group/artistry-two-residences" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/select-group/artistry-two-residences" />
       </Helmet>
 
       <Header />

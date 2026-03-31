@@ -67,7 +67,7 @@ const GolfVergeEmaarSouthProject = () => {
           name="description"
           content="Discover Golf Verge at Emaar South by Emaar — 1 to 3-bedroom luxury apartments with endless green vistas and prices from AED 1.20M."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/emaar/golf-verge-at-emaar-south" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/golf-verge-at-emaar-south" />
       </Helmet>
 
       <Header />

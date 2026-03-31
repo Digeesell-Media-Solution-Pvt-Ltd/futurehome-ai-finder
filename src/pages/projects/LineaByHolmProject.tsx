@@ -68,7 +68,7 @@ const LineaByHolmProject = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/holm/linea-by-holm"
+          href="https://off-plan-projects.com/projects/holm/linea-by-holm"
         />
       </Helmet>
 

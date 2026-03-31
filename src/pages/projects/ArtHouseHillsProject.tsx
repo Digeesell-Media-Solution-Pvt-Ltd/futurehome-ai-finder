@@ -49,7 +49,7 @@ const ArtHouseHillsProject = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/adaan/art-house-hills"
+          href="https://off-plan-projects.com/projects/adaan/art-house-hills"
         />
       </Helmet>
 

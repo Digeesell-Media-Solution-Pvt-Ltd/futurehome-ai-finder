@@ -46,7 +46,7 @@ const OrlaDorchesterProject = () => {
       <Helmet>
         <title>ORLA Dorchester Collection by Omniyat | Luxury Residences on Palm Jumeirah</title>
         <meta name="description" content="Discover ORLA Dorchester Collection by Omniyat — a Foster + Partners-designed masterpiece on Palm Jumeirah with 89 ultra-luxury residences, Super Penthouses, and Dorchester Collection management." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/omniyat/orla-dorchester-collection" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/omniyat/orla-dorchester-collection" />
       </Helmet>
 
       <Header />

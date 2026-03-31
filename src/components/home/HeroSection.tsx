@@ -1,16 +1,18 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Search, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AISearchDialog } from "@/components/ai/AISearchDialog";
 import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import heroImage from "@/assets/hero-dubai.jpg";
+import { SmartImage } from "@/components/media/SmartImage";
 
 export function HeroSection() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [heroQuery, setHeroQuery] = useState("");
   const { openLeadCapture } = useLeadCapture();
+  const prefersReducedMotion = useReducedMotion();
 
   const handleHeroSearch = () => {
     if (heroQuery.trim()) {
@@ -22,36 +24,48 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
+        <SmartImage
           src={heroImage}
           alt="Dubai luxury real estate skyline"
           className="w-full h-full object-cover"
+          width={1920}
+          height={1080}
+          sizes="100vw"
+          eager
         />
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal/95 via-charcoal/70 to-charcoal/30" />
         
         {/* Animated light effects */}
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden hidden md:block">
           <motion.div
-            animate={{
-              x: [0, 100, 0],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            animate={
+              prefersReducedMotion
+                ? undefined
+                : {
+                    x: [0, 100, 0],
+                    opacity: [0.3, 0.5, 0.3],
+                  }
+            }
+            transition={prefersReducedMotion ? undefined : { duration: 8, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] rounded-full bg-gradient-radial from-primary/20 to-transparent blur-3xl"
           />
           <motion.div
-            animate={{
-              y: [0, -50, 0],
-              opacity: [0.2, 0.4, 0.2],
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            animate={
+              prefersReducedMotion
+                ? undefined
+                : {
+                    y: [0, -50, 0],
+                    opacity: [0.2, 0.4, 0.2],
+                  }
+            }
+            transition={prefersReducedMotion ? undefined : { duration: 10, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-radial from-primary/15 to-transparent blur-3xl"
           />
         </div>
       </div>
 
       {/* Floating Decorative Bubbles */}
-      <div className="absolute inset-0 z-5 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 z-5 overflow-hidden pointer-events-none hidden md:block">
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
           transition={{ duration: 6, repeat: Infinity }}

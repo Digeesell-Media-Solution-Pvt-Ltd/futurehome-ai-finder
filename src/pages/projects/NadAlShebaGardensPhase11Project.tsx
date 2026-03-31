@@ -49,7 +49,7 @@ const NadAlShebaGardensPhase11Project = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/meraas/nad-al-sheba-gardens-phase-11"
+          href="https://off-plan-projects.com/projects/meraas/nad-al-sheba-gardens-phase-11"
         />
       </Helmet>
 

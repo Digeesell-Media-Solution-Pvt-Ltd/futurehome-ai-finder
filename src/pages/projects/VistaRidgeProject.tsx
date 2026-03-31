@@ -48,7 +48,7 @@ const VistaRidgeProject = () => {
       <Helmet>
         <title>Vista Ridge at Emaar South by Emaar | Golf Apartments in Dubai</title>
         <meta name="description" content="Explore Vista Ridge at Emaar South by Emaar — golf-front apartments from AED 2.5M with championship course views, resort-style amenities, and exceptional investment potential." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/emaar/vista-ridge" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/vista-ridge" />
       </Helmet>
 
       <Header />

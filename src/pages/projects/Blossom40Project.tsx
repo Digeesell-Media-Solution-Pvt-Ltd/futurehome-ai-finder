@@ -52,7 +52,7 @@ const Blossom40Project = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/tranquil/blossom-40"
+          href="https://off-plan-projects.com/projects/tranquil/blossom-40"
         />
       </Helmet>
 

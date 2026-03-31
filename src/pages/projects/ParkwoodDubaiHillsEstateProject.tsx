@@ -66,7 +66,7 @@ const ParkwoodDubaiHillsEstateProject = () => {
           name="description"
           content="Explore Parkwood at Dubai Hills Estate by Emaar — 1, 2, and 3-bedroom apartments plus 3-bedroom townhouses from AED 1.75M in Dubai's green heart."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/emaar/parkwood-at-dubai-hills-estate" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/parkwood-at-dubai-hills-estate" />
       </Helmet>
 
       <Header />

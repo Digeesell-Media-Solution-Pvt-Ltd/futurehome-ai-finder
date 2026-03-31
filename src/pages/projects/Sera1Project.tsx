@@ -74,7 +74,7 @@ const Sera1Project = () => {
           name="description"
           content="Discover Sera 1 at Rashid Yachts & Marina by Emaar — an exclusive waterfront sanctuary with 1 to 3-bedroom apartments, 3-bedroom townhouses, and resort-inspired marina living."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/emaar/sera-1" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/sera-1" />
       </Helmet>
 
       <Header />

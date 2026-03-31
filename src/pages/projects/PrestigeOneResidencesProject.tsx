@@ -65,7 +65,7 @@ const PrestigeOneResidencesProject = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/prestige-one/prestige-one-residences"
+          href="https://off-plan-projects.com/projects/prestige-one/prestige-one-residences"
         />
       </Helmet>
 

@@ -64,7 +64,7 @@ const WindsorHouseIIProject = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/ellington/windsor-house-ii"
+          href="https://off-plan-projects.com/projects/ellington/windsor-house-ii"
         />
       </Helmet>
 

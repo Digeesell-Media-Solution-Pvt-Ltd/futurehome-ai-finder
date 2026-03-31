@@ -60,7 +60,7 @@ const SunvaleProject = () => {
           name="description"
           content="Sunvale by PRYSM Real Estate is an off-plan residential project in International City, Dubai with contemporary apartments, lifestyle amenities and neighbourhood connectivity."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/prysm/sunvale" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/prysm/sunvale" />
       </Helmet>
 
       <Header />

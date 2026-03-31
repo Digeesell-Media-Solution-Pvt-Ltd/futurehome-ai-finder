@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Calendar } from "lucide-react";
 import type { ProgrammaticBlogPost } from "@/types/programmatic";
 import { getBlogImage } from "@/lib/blogImages";
+import { SmartImage } from "@/components/media/SmartImage";
 
 
 function getExcerpt(post: ProgrammaticBlogPost): string {
@@ -35,11 +36,13 @@ export function BlogCard({ post }: { post: ProgrammaticBlogPost }) {
     >
       {/* Featured image */}
       <div className="aspect-[16/9] relative overflow-hidden">
-        <img
+        <SmartImage
           src={imgSrc}
           alt={`${post.title} — Dubai off-plan property insights`}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
+          width={640}
+          height={360}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />

@@ -47,7 +47,7 @@ const TilalAlFurjanProject = () => {
       <Helmet>
         <title>Tilal Al Furjan by Nakheel | Ready Villas in Al Furjan Dubai</title>
         <meta name="description" content="Discover Tilal Al Furjan by Nakheel — ready 4 and 5-bedroom villas in Al Furjan Dubai with gated community living, resort-style amenities, and excellent connectivity." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/nakheel/tilal-al-furjan" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/nakheel/tilal-al-furjan" />
       </Helmet>
 
       <Header />

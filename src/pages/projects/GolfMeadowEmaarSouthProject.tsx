@@ -71,7 +71,7 @@ const GolfMeadowEmaarSouthProject = () => {
           name="description"
           content="Discover Golf Meadow at Emaar South by Emaar — 1 to 3-bedroom luxury apartments and 3-bedroom townhouses with golf-estate living and prices from AED 1.12M."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/emaar/golf-meadow-at-emaar-south" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/golf-meadow-at-emaar-south" />
       </Helmet>
 
       <Header />

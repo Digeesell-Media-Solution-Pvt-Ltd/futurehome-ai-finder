@@ -55,7 +55,7 @@ const CityWalkCrestlane5Project = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/meraas/city-walk-crestlane-5"
+          href="https://off-plan-projects.com/projects/meraas/city-walk-crestlane-5"
         />
       </Helmet>
 

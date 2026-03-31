@@ -46,7 +46,7 @@ const VelaVientoProject = () => {
       <Helmet>
         <title>VELA Viento by Omniyat | Dorchester Collection Residences Business Bay</title>
         <meta name="description" content="Explore VELA Viento at Dubai Water Canal by Omniyat, ultra-luxury branded residences managed by Dorchester Collection in Business Bay, Dubai." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/omniyat/vela-viento-dorchester-collection" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/omniyat/vela-viento-dorchester-collection" />
       </Helmet>
 
       <Header />

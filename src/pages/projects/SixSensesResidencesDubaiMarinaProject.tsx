@@ -66,7 +66,7 @@ const SixSensesResidencesDubaiMarinaProject = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/select-group/six-senses-residences-dubai-marina"
+          href="https://off-plan-projects.com/projects/select-group/six-senses-residences-dubai-marina"
         />
       </Helmet>
 

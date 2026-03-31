@@ -57,7 +57,7 @@ const PalaceResidencesHillsideBProject = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/emaar/palace-residences-hillside-b"
+          href="https://off-plan-projects.com/projects/emaar/palace-residences-hillside-b"
         />
       </Helmet>
 

@@ -66,7 +66,7 @@ const GolfDaleEmaarSouthProject = () => {
           name="description"
           content="Discover Golf Dale at Emaar South by Emaar — 1 to 3-bedroom golf-facing apartments from AED 1.12M in a premium green community."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/emaar/golf-dale-at-emaar-south" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/golf-dale-at-emaar-south" />
       </Helmet>
 
       <Header />

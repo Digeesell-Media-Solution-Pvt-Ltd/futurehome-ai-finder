@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { LogOut, RefreshCw, Search, Download, Eye, EyeOff, ExternalLink } from "lucide-react";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 interface Lead {
   id: string;
@@ -190,8 +191,10 @@ export default function Masterdatapannel() {
   // ── LOGIN SCREEN ──
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-4">
-        <div className="w-full max-w-sm">
+      <>
+        <SeoHead title="Master Data Panel | OffPlan Projects" canonicalPath="/Masterdatapannel" noindex />
+        <div className="min-h-screen bg-background flex items-center justify-center p-4">
+          <div className="w-full max-w-sm">
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 mb-4">
               <svg viewBox="0 0 24 24" className="w-7 h-7 text-primary fill-current">
@@ -219,14 +222,16 @@ export default function Masterdatapannel() {
             {loginError && <p className="text-sm text-destructive bg-destructive/10 rounded-lg px-3 py-2">{loginError}</p>}
             <Button type="submit" className="w-full" disabled={isLoggingIn}>{isLoggingIn ? "Signing in…" : "Sign In"}</Button>
           </form>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
   // ── CMS DASHBOARD ──
   return (
     <div className="min-h-screen bg-background">
+      <SeoHead title="Master Data Panel | OffPlan Projects" canonicalPath="/Masterdatapannel" noindex />
       {/* Top Bar */}
       <header className="sticky top-0 z-50 bg-card border-b border-border">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">

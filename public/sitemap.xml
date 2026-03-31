@@ -10,8 +10,6 @@
   <url><loc>https://off-plan-projects.com/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://off-plan-projects.com/contact</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://off-plan-projects.com/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://off-plan-projects.com/project-onboarding</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://off-plan-projects.com/saved</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
 
   <!-- Danube Projects -->
   <url><loc>https://off-plan-projects.com/projects/danube/breez</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>

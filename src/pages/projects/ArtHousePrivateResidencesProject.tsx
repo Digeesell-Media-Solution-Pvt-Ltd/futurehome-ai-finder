@@ -58,7 +58,7 @@ const ArtHousePrivateResidencesProject = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/viva/art-house-private-residences"
+          href="https://off-plan-projects.com/projects/viva/art-house-private-residences"
         />
       </Helmet>
 

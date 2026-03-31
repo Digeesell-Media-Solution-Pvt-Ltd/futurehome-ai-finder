@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLeadCapture } from "@/contexts/LeadCaptureContext";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 import heroImage from "@/assets/projects/the-pinnacle-hero.jpg";
 import interiorImage from "@/assets/projects/the-pinnacle-interior.jpg";
@@ -64,11 +65,12 @@ const ThePinnacleProject = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SeoHead
+        title="The Pinnacle by Sobha | Off-Plan Dubai Apartments"
+        description="Premium living at The Pinnacle, Sobha Realty's off-plan residences in Dubai. 1 and 2 bedroom apartments in Sobha Central with world-class amenities."
+        canonicalPath="/projects/sobha/the-pinnacle"
+      />
       <Header />
-      
-      {/* SEO Meta */}
-      <title>The Pinnacle by Sobha | Off-Plan Dubai Apartments</title>
-      <meta name="description" content="Premium living at The Pinnacle, Sobha Realty's off-plan residences in Dubai. 1 & 2 bedroom apartments in Sobha Central with world-class amenities." />
 
       {/* Hero Section */}
       <section className="relative h-[70vh] overflow-hidden">

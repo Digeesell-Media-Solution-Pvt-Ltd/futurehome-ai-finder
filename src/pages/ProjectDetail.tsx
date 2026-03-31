@@ -1,7 +1,6 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import {
   MapPin, Calendar, Building2, TrendingUp, Download,
   Check, Sparkles, Home, Heart, ArrowRight, Send
@@ -15,6 +14,8 @@ import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import type { Project } from "@/types/project";
 import { InternalLinkCluster } from "@/components/internal-linking/InternalLinkCluster";
 import { getProjectPageInternalLinks } from "@/lib/internal-linking/buildInternalLinks";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { SmartImage } from "@/components/media/SmartImage";
 
 const AMENITY_ICONS: Record<string, typeof Building2> = {
   "Swimming Pool": Heart, "Infinity Pool": Heart, "Gym": TrendingUp,
@@ -67,6 +68,10 @@ export default function ProjectDetail() {
   const developerName = project.developers?.name || "Developer";
   const areaName = project.areas?.name || project.city;
   const projectFullName = `${project.project_name} by ${developerName}`;
+  const canonicalPath = `/projects/${project.developers?.slug || developer || "developer"}/${project.slug}`;
+  const metaDescription =
+    project.short_description ||
+    `Discover ${project.project_name} by ${developerName} in ${areaName}, Dubai. ${project.property_types.join(", ")} available.`;
 
   const openForm = (ctaType: string, downloadUrl?: string) => {
     openLeadCapture({ projectName: projectFullName, ctaType, downloadUrl });
@@ -102,13 +107,11 @@ export default function ProjectDetail() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>{project.project_name} by {developerName} | Off-Plan Dubai</title>
-        <meta
-          name="description"
-          content={project.short_description || `Discover ${project.project_name} by ${developerName} in ${areaName}, Dubai. ${project.property_types.join(", ")} available.`}
-        />
-      </Helmet>
+      <SeoHead
+        title={`${project.project_name} by ${developerName} | Off-Plan Dubai`}
+        description={metaDescription}
+        canonicalPath={canonicalPath}
+      />
 
       <Header />
 
@@ -116,7 +119,15 @@ export default function ProjectDetail() {
       <section className="relative h-[80vh] min-h-[600px] overflow-hidden">
         <div className="absolute inset-0">
           {heroSrc ? (
-            <img src={heroSrc} alt={project.project_name} className="w-full h-full object-cover" />
+            <SmartImage
+              src={heroSrc}
+              alt={project.project_name || "Project hero image"}
+              className="w-full h-full object-cover"
+              width={1920}
+              height={1080}
+              sizes="100vw"
+              eager
+            />
           ) : (
             <div className="w-full h-full bg-charcoal flex items-center justify-center">
               <Building2 className="h-20 w-20 text-muted-foreground/20" />
@@ -233,7 +244,14 @@ export default function ProjectDetail() {
 
             {galleryImgs.length > 0 && (
               <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
-                <img src={galleryImgs[0]} alt={`${project.project_name} Interior`} className="rounded-2xl shadow-luxury w-full" />
+                <SmartImage
+                  src={galleryImgs[0]}
+                  alt={`${project.project_name} interior view`}
+                  className="rounded-2xl shadow-luxury w-full"
+                  width={960}
+                  height={640}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
                 {(project.investment_score || project.lifestyle_score) && (
                   <div className="absolute -bottom-6 -left-6 glass-card p-6 rounded-xl">
                     <div className="flex items-center gap-4">
@@ -317,7 +335,14 @@ export default function ProjectDetail() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {galleryImgs.map((src, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="group relative overflow-hidden rounded-xl aspect-square">
-                  <img src={src} alt={`${project.project_name} Gallery ${index + 1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <SmartImage
+                    src={src}
+                    alt={`${project.project_name} gallery image ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    width={600}
+                    height={600}
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
               ))}

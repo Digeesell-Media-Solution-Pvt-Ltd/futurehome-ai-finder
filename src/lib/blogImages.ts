@@ -18,6 +18,19 @@ const BLOG_IMAGES: Record<string, string> = {
 const DEFAULT_IMAGE =
   "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?w=800&q=80";
 
+function optimizeUnsplash(url: string): string {
+  try {
+    const parsed = new URL(url);
+    parsed.searchParams.set("auto", "format");
+    parsed.searchParams.set("fit", "crop");
+    parsed.searchParams.set("w", "640");
+    parsed.searchParams.set("q", "70");
+    return parsed.toString();
+  } catch {
+    return url;
+  }
+}
+
 export function getBlogImage(slug: string): string {
-  return BLOG_IMAGES[slug] || DEFAULT_IMAGE;
+  return optimizeUnsplash(BLOG_IMAGES[slug] || DEFAULT_IMAGE);
 }

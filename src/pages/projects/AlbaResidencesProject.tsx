@@ -51,7 +51,7 @@ const AlbaResidencesProject = () => {
       <Helmet>
         <title>The Alba Residences by Omniyat | Dorchester Collection Palm Jumeirah</title>
         <meta name="description" content="Discover The Alba Residences at Palm Jumeirah by Omniyat, ultra-luxury branded waterfront homes managed by Dorchester Collection." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/omniyat/alba-residences" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/omniyat/alba-residences" />
       </Helmet>
 
       <Header />

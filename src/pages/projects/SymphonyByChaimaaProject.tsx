@@ -75,7 +75,7 @@ const SymphonyByChaimaaProject = () => {
           name="description"
           content="Discover Symphony by Chaimaa in Majan, Dubai — a wellness-inspired residential project with refined 1 and 2 bedroom apartments, premium amenities, and community-focused living."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/chaimaa/symphony-by-chaimaa" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/chaimaa/symphony-by-chaimaa" />
       </Helmet>
 
       <Header />

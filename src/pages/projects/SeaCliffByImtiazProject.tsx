@@ -69,7 +69,7 @@ const SeaCliffByImtiazProject = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/imtiaz/sea-cliff-by-imtiaz"
+          href="https://off-plan-projects.com/projects/imtiaz/sea-cliff-by-imtiaz"
         />
       </Helmet>
 

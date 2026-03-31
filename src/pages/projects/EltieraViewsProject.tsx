@@ -47,7 +47,7 @@ const EltieraViewsProject = () => {
       <Helmet>
         <title>Eltiera Views by Ellington | Luxury Residences in Jumeirah Islands</title>
         <meta name="description" content="Explore Eltiera Views at Jumeirah Islands by Ellington Properties offering premium waterfront apartments in Dubai." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/ellington/eltiera-views" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/ellington/eltiera-views" />
       </Helmet>
 
       <Header />

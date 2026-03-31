@@ -46,7 +46,7 @@ const PeninsulaFourProject = () => {
       <Helmet>
         <title>Peninsula Four The Plaza by Select Group | Waterfront Residences Business Bay Dubai</title>
         <meta name="description" content="Discover Peninsula Four, The Plaza by Select Group — luxury waterfront studios to 4BR penthouses and duplex lofts in Business Bay, steps from Downtown Dubai and Burj Khalifa." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/select-group/peninsula-four-the-plaza" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/select-group/peninsula-four-the-plaza" />
       </Helmet>
 
       <Header />

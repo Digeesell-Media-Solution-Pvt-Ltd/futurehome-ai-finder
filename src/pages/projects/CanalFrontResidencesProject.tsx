@@ -46,7 +46,7 @@ const CanalFrontResidencesProject = () => {
       <Helmet>
         <title>Canal Front Residences by Nakheel | Waterfront Apartments in Dubai</title>
         <meta name="description" content="Explore Canal Front Residences by Nakheel — ready waterfront apartments along Dubai Water Canal with canal and skyline views, 5 minutes from Downtown Dubai." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/nakheel/canal-front-residences" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/nakheel/canal-front-residences" />
       </Helmet>
 
       <Header />

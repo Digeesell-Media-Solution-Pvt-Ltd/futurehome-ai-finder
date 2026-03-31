@@ -63,7 +63,7 @@ const MudonAlRanim5Project = () => {
       <Helmet>
         <title>Mudon Al Ranim 5 by Dubai Properties | Townhouses in Mudon Dubai</title>
         <meta name="description" content="Explore Mudon Al Ranim 5 offering 3 & 4 bedroom townhouses in Mudon, Dubailand, Dubai. Family-focused living in a green gated community. Handover Q2 2026." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/dubai-properties/mudon-al-ranim-5" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/dubai-properties/mudon-al-ranim-5" />
       </Helmet>
 
       <Header />

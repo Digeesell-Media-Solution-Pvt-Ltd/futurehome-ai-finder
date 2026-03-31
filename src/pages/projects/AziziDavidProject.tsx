@@ -63,7 +63,7 @@ const AziziDavidProject = () => {
           name="description"
           content="Azizi David offers waterfront-inspired living in Al Jaddaf, Dubai with studios, 1 and 2-bedroom apartments and luxury penthouses, a resort-style pool, gym and retail promenade."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/azizi/azizi-david" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/azizi/azizi-david" />
       </Helmet>
 
       <Header />

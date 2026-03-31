@@ -49,7 +49,7 @@ const SalvaProject = () => {
       <Helmet>
         <title>Salva at The Heights by Emaar | Wellness Villas in Dubai</title>
         <meta name="description" content="Explore Salva at The Heights Country Club & Wellness by Emaar Properties — exclusive 3 to 5 bedroom villas in Dubai's first wellness-led master community." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/emaar/salva" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/salva" />
       </Helmet>
 
       <Header />

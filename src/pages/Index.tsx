@@ -1,25 +1,35 @@
+import { Suspense, lazy } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingAIButton } from "@/components/layout/FloatingAIButton";
-import { MobileLoader } from "@/components/layout/MobileLoader";
 import { HeroSection } from "@/components/home/HeroSection";
-import { FeaturedProjects } from "@/components/home/FeaturedProjects";
-import { TrustedDevelopers } from "@/components/home/TrustedDevelopers";
-import { WhyOffPlan } from "@/components/home/WhyOffPlan";
-import { CTASection } from "@/components/home/CTASection";
 import { InternalLinkCluster } from "@/components/internal-linking/InternalLinkCluster";
 import { getHomepageInternalLinks } from "@/lib/internal-linking/buildInternalLinks";
+
+const FeaturedProjects = lazy(() =>
+  import("@/components/home/FeaturedProjects").then((m) => ({ default: m.FeaturedProjects })),
+);
+const TrustedDevelopers = lazy(() =>
+  import("@/components/home/TrustedDevelopers").then((m) => ({ default: m.TrustedDevelopers })),
+);
+const WhyOffPlan = lazy(() =>
+  import("@/components/home/WhyOffPlan").then((m) => ({ default: m.WhyOffPlan })),
+);
+const CTASection = lazy(() =>
+  import("@/components/home/CTASection").then((m) => ({ default: m.CTASection })),
+);
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <MobileLoader />
       <Header />
       <main>
         <HeroSection />
-        <FeaturedProjects />
-        <TrustedDevelopers />
-        <WhyOffPlan />
+        <Suspense fallback={<div className="h-24" />}>
+          <FeaturedProjects />
+          <TrustedDevelopers />
+          <WhyOffPlan />
+        </Suspense>
         <div className="container-luxury py-12 md:py-16">
           <InternalLinkCluster
             title="Explore Dubai off-plan by area, developer, and strategy"
@@ -28,7 +38,9 @@ const Index = () => {
             inlineContextCount={2}
           />
         </div>
-        <CTASection />
+        <Suspense fallback={<div className="h-20" />}>
+          <CTASection />
+        </Suspense>
       </main>
       <Footer />
       <FloatingAIButton />

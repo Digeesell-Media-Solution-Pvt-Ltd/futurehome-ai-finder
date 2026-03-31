@@ -1,11 +1,11 @@
 import { useState, useMemo } from "react";
-import { Helmet } from "react-helmet-async";
 import { Search } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { programmaticBlogPosts } from "@/data/programmatic/blog.seed";
 import { Input } from "@/components/ui/input";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const CATEGORIES = ["All", "Area Guide", "Investment", "Payment Plans", "Insights"] as const;
 
@@ -42,14 +42,11 @@ export default function BlogListingPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Dubai Real Estate Blog | Off Plan Projects</title>
-        <meta
-          name="description"
-          content="Explore Dubai real estate insights, off-plan property guides, area updates, and investment tips from Off Plan Projects."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/blog" />
-      </Helmet>
+      <SeoHead
+        title="Dubai Real Estate Blog | Off Plan Projects"
+        description="Explore Dubai real estate insights, off-plan property guides, area updates, and investment tips from Off Plan Projects."
+        canonicalPath="/blog"
+      />
 
       <Header />
 

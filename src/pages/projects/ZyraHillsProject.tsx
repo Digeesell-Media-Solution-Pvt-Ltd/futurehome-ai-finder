@@ -48,7 +48,7 @@ const ZyraHillsProject = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/laraix/zyra-hills"
+          href="https://off-plan-projects.com/projects/laraix/zyra-hills"
         />
       </Helmet>
 

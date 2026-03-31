@@ -52,7 +52,7 @@ const JumeirahLivingProject = () => {
           name="description"
           content="Discover Jumeirah Living Business Bay by Select Group — the only Jumeirah-managed branded residence on Dubai Water Canal. 2–5BR apartments and full-floor penthouse. Under construction, Q4 2025 handover."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/select-group/jumeirah-living-business-bay" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/select-group/jumeirah-living-business-bay" />
       </Helmet>
 
       <Header />

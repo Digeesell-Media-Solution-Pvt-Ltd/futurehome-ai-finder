@@ -73,7 +73,7 @@ const PalmCentralPrivateResidencesProject = () => {
           name="description"
           content="Discover Palm Central Private Residences by Nakheel — a premium Palm Jumeirah residential address with curated amenities, elegant layouts, and strong long-term investment appeal."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/nakheel/palm-central-private-residences" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/nakheel/palm-central-private-residences" />
       </Helmet>
 
       <Header />

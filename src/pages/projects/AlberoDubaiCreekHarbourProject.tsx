@@ -72,7 +72,7 @@ const AlberoDubaiCreekHarbourProject = () => {
           name="description"
           content="Discover Albero at Dubai Creek Harbour by Emaar, featuring 1 to 3-bedroom apartments and 3-bedroom townhouses from AED 1.81M in a premium waterfront master community."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/emaar/albero-at-dubai-creek-harbour" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/albero-at-dubai-creek-harbour" />
       </Helmet>
 
       <Header />

@@ -48,7 +48,7 @@ const GroveRidgeProject = () => {
       <Helmet>
         <title>Grove Ridge at Emaar South by Emaar | Golf Townhouses in Dubai</title>
         <meta name="description" content="Explore Grove Ridge at Emaar South by Emaar — golf-front townhouses and apartments from AED 1.2M with championship course views, family amenities, and strong investment potential." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/emaar/grove-ridge" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/grove-ridge" />
       </Helmet>
 
       <Header />

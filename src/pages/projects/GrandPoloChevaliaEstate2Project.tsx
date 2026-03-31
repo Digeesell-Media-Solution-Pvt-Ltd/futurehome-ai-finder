@@ -70,7 +70,7 @@ const GrandPoloChevaliaEstate2Project = () => {
           name="description"
           content="Discover Grand Polo - Chevalia Estate 2 by Emaar at Grand Polo Club & Resort — a premium community of 4 and 5-bedroom luxury villas inspired by equestrian heritage."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/emaar/grand-polo-chevalia-estate-2" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/grand-polo-chevalia-estate-2" />
       </Helmet>
 
       <Header />

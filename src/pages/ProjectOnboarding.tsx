@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileNav } from "@/components/layout/MobileNav";
@@ -11,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Upload, CheckCircle, Loader2, X, ImagePlus, FileText, LayoutGrid, DollarSign } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 interface FileUploadSlot {
   label: string;
@@ -137,9 +137,7 @@ export default function ProjectOnboarding() {
   if (submitted) {
     return (
       <>
-        <Helmet>
-          <title>Project Onboarding | OffPlan Projects</title>
-        </Helmet>
+        <SeoHead title="Project Onboarding | OffPlan Projects" canonicalPath="/project-onboarding" noindex />
         <Header />
         <main className="min-h-screen bg-background pt-28 pb-20">
           <div className="container-luxury max-w-2xl text-center">
@@ -163,10 +161,12 @@ export default function ProjectOnboarding() {
 
   return (
     <>
-      <Helmet>
-        <title>Project Onboarding | OffPlan Projects</title>
-        <meta name="description" content="Submit your off-plan project for listing on OffPlan Projects — Dubai's AI-powered property discovery platform." />
-      </Helmet>
+      <SeoHead
+        title="Project Onboarding | OffPlan Projects"
+        description="Submit your off-plan project for listing on OffPlan Projects - Dubai's AI-powered property discovery platform."
+        canonicalPath="/project-onboarding"
+        noindex
+      />
       <Header />
       <main className="min-h-screen bg-background pt-28 pb-20">
         <div className="container-luxury max-w-3xl">

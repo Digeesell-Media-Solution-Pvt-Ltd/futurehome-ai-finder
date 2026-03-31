@@ -60,7 +60,7 @@ const DerbyHeightsProject = () => {
           name="description"
           content="Derby Heights by AMIS in Dubai South offers contemporary apartments with refined interiors, lifestyle amenities and strong investment credentials in a fast-growing district."
         />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/amis/derby-heights" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/amis/derby-heights" />
       </Helmet>
 
       <Header />

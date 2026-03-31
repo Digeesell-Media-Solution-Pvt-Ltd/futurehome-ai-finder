@@ -47,7 +47,7 @@ const MuroojAlFurjanProject = () => {
       <Helmet>
         <title>Murooj Al Furjan by Nakheel | Ready Villas in Dubai</title>
         <meta name="description" content="Explore Murooj Al Furjan by Nakheel offering ready luxury villas in Al Furjan, Dubai with premium community amenities." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/nakheel/murooj-al-furjan" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/nakheel/murooj-al-furjan" />
       </Helmet>
 
       <Header />

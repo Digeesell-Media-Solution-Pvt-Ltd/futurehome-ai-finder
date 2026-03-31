@@ -3,6 +3,7 @@ import { MapPin, Calendar, Building2, TrendingUp, Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import type { Project } from "@/types/project";
 import { getHeroImage, getGalleryImages } from "@/lib/heroImages";
+import { SmartImage } from "@/components/media/SmartImage";
 
 function normalizeImageSrc(src?: string) {
   if (!src) return undefined;
@@ -95,11 +96,13 @@ export function ProjectCard({ project, index }: Props) {
       {/* Image */}
       <div className="relative aspect-[16/10] overflow-hidden">
         {resolvedGridImage ? (
-          <img
+          <SmartImage
             src={resolvedGridImage}
             alt={project.project_name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
+            width={640}
+            height={400}
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
             onError={(e) => {
               e.currentTarget.onerror = null;
               e.currentTarget.src = "/placeholder.svg";

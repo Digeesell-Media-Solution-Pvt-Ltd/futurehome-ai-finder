@@ -65,7 +65,7 @@ const GrandPoloEquiterra2Project = () => {
         />
         <link
           rel="canonical"
-          href="https://futurehome-ai-finder.lovable.app/projects/emaar/grand-polo-equiterra-2"
+          href="https://off-plan-projects.com/projects/emaar/grand-polo-equiterra-2"
         />
       </Helmet>
 

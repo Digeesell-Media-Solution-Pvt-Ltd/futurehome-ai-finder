@@ -76,7 +76,7 @@ const MerivaCollectionProject = () => {
       <Helmet>
         <title>The Meriva Collection by Ellington | Dubai Islands Waterfront Residences</title>
         <meta name="description" content="Discover The Meriva Collection at Dubai Islands by Ellington Properties offering premium waterfront residences and investment opportunities." />
-        <link rel="canonical" href="https://futurehome-ai-finder.lovable.app/projects/ellington/meriva-collection" />
+        <link rel="canonical" href="https://off-plan-projects.com/projects/ellington/meriva-collection" />
       </Helmet>
 
       <Header />

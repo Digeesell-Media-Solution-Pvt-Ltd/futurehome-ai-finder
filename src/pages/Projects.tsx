@@ -55,6 +55,7 @@ export default function Projects() {
   const [searchParams] = useSearchParams();
   const [filters, setFilters] = useState<ProjectFilters>({});
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(12);
 
   useEffect(() => {
     const key = searchParams.toString();
@@ -67,6 +68,10 @@ export default function Projects() {
       setFilters(next);
     }
   }, [searchParams]);
+
+  useEffect(() => {
+    setVisibleCount(12);
+  }, [filters]);
 
   const { data: apiProjects = [], isLoading } = useFilteredProjects(filters);
   const { data: areasFromApi = [] } = useAreas();
@@ -93,6 +98,7 @@ export default function Projects() {
     filters,
   );
   const projectsForList = [...additionalProjects, ...normalizedApiProjects];
+  const visibleProjects = projectsForList.slice(0, visibleCount);
 
   const mergedAreasBySlug = new Map<string, Area>();
   [...areasFromApi, ...getSupplementalAreas(projects)].forEach((area) => {
@@ -235,14 +241,23 @@ export default function Projects() {
                 ))}
               </div>
             ) : projectsForList.length > 0 ? (
-              <div
-                key={JSON.stringify(filters)}
-                className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"
-              >
-                {projectsForList.map((project, i) => (
-                  <ProjectCard key={project.id} project={project} index={i} />
-                ))}
-              </div>
+              <>
+                <div
+                  key={JSON.stringify(filters)}
+                  className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"
+                >
+                  {visibleProjects.map((project, i) => (
+                    <ProjectCard key={project.id} project={project} index={i} />
+                  ))}
+                </div>
+                {visibleCount < projectsForList.length ? (
+                  <div className="mt-8 flex justify-center">
+                    <Button variant="outline" onClick={() => setVisibleCount((prev) => prev + 12)}>
+                      Load More Projects
+                    </Button>
+                  </div>
+                ) : null}
+              </>
             ) : (
               <div className="text-center py-20">
                 <Building2 className="h-12 w-12 text-muted-foreground/30 mx-auto mb-4" />
