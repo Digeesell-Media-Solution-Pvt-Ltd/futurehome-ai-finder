@@ -13,6 +13,8 @@ const BLOG_IMAGES: Record<string, string> = {
     "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&q=80",
   "off-plan-vs-ready-dubai":
     "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+  "off-plan-projects-jvc-dubai":
+    "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
 };
 
 const DEFAULT_IMAGE =
