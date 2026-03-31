@@ -6,6 +6,7 @@ import { BlogCard } from "@/components/blog/BlogCard";
 import { programmaticBlogPosts } from "@/data/programmatic/blog.seed";
 import { Input } from "@/components/ui/input";
 import { SeoHead } from "@/components/seo/SeoHead";
+import { CrawlContentSection } from "@/components/seo/CrawlContentSection";
 
 const CATEGORIES = ["All", "Area Guide", "Investment", "Payment Plans", "Insights"] as const;
 
@@ -103,6 +104,39 @@ export default function BlogListingPage() {
             ))}
           </div>
         )}
+
+        <CrawlContentSection
+          title="Dubai off-plan blog and research hub"
+          paragraphs={[
+            "This blog index is built as a thematic research layer that supports project, area, and developer decision-making. Articles are mapped to high-intent topics such as payment plans, investment area selection, and off-plan versus ready stock comparisons so users can move from educational queries into actionable listing pages.",
+            "Every guide is connected to related commercial pages through internal links, improving topical authority and crawl depth without introducing irrelevant navigation patterns. This structure helps search engines understand that the blog is not isolated content but part of a broader property discovery ecosystem.",
+            "For users, these articles provide context that reduces low-intent clicks and improves shortlist quality. For technical SEO, the index acts as a strong crawl entry point to deeper blog detail pages and linked project/area destinations.",
+          ]}
+          faqs={[
+            {
+              question: "What should I read first as a new buyer?",
+              answer:
+                "Start with payment plan and area-comparison guides, then move into project pages that match your budget and timeline.",
+            },
+            {
+              question: "Do blog posts link to project and area pages?",
+              answer:
+                "Yes. Blog templates include contextual internal links to area hubs, developer pages, and relevant listings.",
+            },
+            {
+              question: "Is the blog updated for current market themes?",
+              answer:
+                "Yes. Topics are selected around active demand patterns and recurring buyer decision questions in Dubai's off-plan market.",
+            },
+          ]}
+          relatedLinks={[
+            { label: "All projects", to: "/projects" },
+            { label: "All areas", to: "/areas" },
+            { label: "All developers", to: "/developers" },
+            { label: "Best areas to invest", to: "/blog/best-areas-invest-dubai" },
+            { label: "Off-plan payment plans", to: "/blog/dubai-off-plan-payment-plans-guide" },
+          ]}
+        />
       </section>
 
       <Footer />

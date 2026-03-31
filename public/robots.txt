@@ -15,4 +15,3 @@ Allow: /
 Disallow: /Masterdatapannel
 
 Sitemap: https://off-plan-projects.com/sitemap.xml
-Sitemap: https://off-plan-projects.com/sitemap-programmatic.xml

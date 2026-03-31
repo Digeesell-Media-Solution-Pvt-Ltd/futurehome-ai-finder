@@ -1,19 +1,18 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 export default function TermsOfUsePage() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Terms of Use | OffPlanProjects UAE</title>
-        <meta
-          name="description"
-          content="Read the terms and conditions of using our AI-powered UAE property discovery platform. Learn how we protect users and set clear usage boundaries."
-        />
-      </Helmet>
+      <SeoHead
+        title="Terms of Use | OffPlanProjects UAE"
+        description="Read the terms and conditions for using our UAE property discovery platform."
+        canonicalPath="/terms-of-use"
+        noindex
+      />
 
       <Header />
 

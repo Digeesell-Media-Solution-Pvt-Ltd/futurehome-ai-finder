@@ -20,6 +20,8 @@ import {
   getSupplementalAreas,
   getSupplementalDevelopers,
 } from "@/data/projects";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { CrawlContentSection } from "@/components/seo/CrawlContentSection";
 
 function projectFiltersFromSearchParams(searchParams: URLSearchParams): ProjectFilters {
   const out: ProjectFilters = {};
@@ -126,6 +128,11 @@ export default function Projects() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SeoHead
+        title="Dubai Off-Plan Projects Directory | Off Plan Projects"
+        description="Compare Dubai off-plan projects by area, developer, budget, handover timeline, and investment profile. Explore verified project pages and filter by your buying goals."
+        canonicalPath="/projects"
+      />
       <Header />
 
       <main className="container-luxury pt-24 pb-20">
@@ -277,6 +284,39 @@ export default function Projects() {
                 This platform operates as a digital property discovery and marketing portal. We do not provide brokerage services. All information is sourced from official developer channels and is subject to change without notice.
               </p>
             </div>
+
+            <CrawlContentSection
+              title="How to compare off-plan projects in Dubai"
+              paragraphs={[
+                "This directory is built to help buyers shortlist off-plan projects using practical decision filters instead of browsing isolated listings one by one. You can compare launches by location, developer profile, expected handover, budget range, and product type to quickly narrow down choices that match your strategy.",
+                "For investment-focused users, reviewing area demand drivers and developer track record together usually improves shortlist quality. A lower launch price is only one part of the decision; payment plans, delivery timeline, and the surrounding infrastructure pipeline can have a larger effect on rental strength and exit liquidity by handover.",
+                "Use this page as your crawlable starting hub, then move into area, developer, and blog guides for deeper research context. Every project card connects directly to the project detail page and to related discovery paths, so both users and search engines can understand how each listing fits into the broader Dubai off-plan market.",
+              ]}
+              faqs={[
+                {
+                  question: "How often are projects updated in this directory?",
+                  answer:
+                    "Listings are refreshed as new launches and verified updates become available from developer and partner data sources.",
+                },
+                {
+                  question: "Should I start with area pages or developer pages?",
+                  answer:
+                    "If location is fixed, start with area pages. If builder trust is your priority, start with developer pages and then compare area-specific inventory.",
+                },
+                {
+                  question: "Do project pages include direct internal paths for research?",
+                  answer:
+                    "Yes. Project pages link to related area hubs, developer listings, and market guides to support end-to-end comparison.",
+                },
+              ]}
+              relatedLinks={[
+                { label: "Dubai areas", to: "/areas" },
+                { label: "Developers", to: "/developers" },
+                { label: "Blog guides", to: "/blog" },
+                { label: "AI search", to: "/ai-search" },
+                { label: "Contact team", to: "/contact" },
+              ]}
+            />
           </div>
         </div>
       </main>

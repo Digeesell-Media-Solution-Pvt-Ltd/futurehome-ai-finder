@@ -5,6 +5,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 import { Button } from "@/components/ui/button";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { CrawlContentSection } from "@/components/seo/CrawlContentSection";
 
 const areas = [
   "Dubai Marina", "Downtown Dubai", "Palm Jumeirah", "Business Bay",
@@ -17,6 +19,11 @@ const areas = [
 export default function AreasPage() {
   return (
     <div className="min-h-screen bg-background">
+      <SeoHead
+        title="Dubai Off-Plan Areas Guide | Explore Top Communities"
+        description="Explore Dubai's top off-plan areas, compare community profiles, and jump into active project listings by location."
+        canonicalPath="/areas"
+      />
       <Header />
       
       <main className="pt-24 pb-20">
@@ -87,6 +94,39 @@ export default function AreasPage() {
               </Link>
             </Button>
           </motion.div>
+
+          <CrawlContentSection
+            title="How to evaluate off-plan areas in Dubai"
+            paragraphs={[
+              "Area-level analysis helps you avoid selecting projects in isolation. Community fundamentals such as transport access, planned infrastructure, retail depth, and inventory pipeline often shape long-term rental demand and resale behavior more than launch marketing alone. This page is designed as a location-first hub so users can map project options to the right district strategy.",
+              "For end users, practical criteria include connectivity to work centers, school and lifestyle ecosystem fit, and expected handover timing relative to personal move-in plans. For investors, it is useful to compare price-per-square-foot trajectory, supply mix by unit type, and expected completion density in the same micro-market window.",
+              "Each area route links to projects, developers, and market guides, creating crawlable topical clusters rather than isolated pages. This improves discoverability for both users and search engines while keeping internal links context-relevant and conversion-oriented.",
+            ]}
+            faqs={[
+              {
+                question: "What is the best way to compare two Dubai areas?",
+                answer:
+                  "Compare supply pipeline, current launch pricing, developer mix, and handover concentration within the same period.",
+              },
+              {
+                question: "Do area pages connect to live project listings?",
+                answer:
+                  "Yes. Area pages provide direct links to active project pages and related developer hubs.",
+              },
+              {
+                question: "Can area guides help with investment strategy?",
+                answer:
+                  "Yes. They provide location-level context that supports stronger shortlist decisions than project pages alone.",
+              },
+            ]}
+            relatedLinks={[
+              { label: "All projects", to: "/projects" },
+              { label: "Developers", to: "/developers" },
+              { label: "Dubai Marina area hub", to: "/off-plan-projects/dubai-marina" },
+              { label: "Downtown area hub", to: "/off-plan-projects/downtown-dubai" },
+              { label: "Area investment blog", to: "/blog/best-areas-invest-dubai" },
+            ]}
+          />
         </div>
       </main>
 

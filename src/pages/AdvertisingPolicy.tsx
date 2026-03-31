@@ -1,22 +1,21 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import { CheckCircle } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 export default function AdvertisingPolicyPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Advertising & Listing Policy | Promote Projects on OffPlanProjects</title>
-        <meta
-          name="description"
-          content="Learn how developers and brokers can list and promote UAE off-plan projects on our AI-powered discovery platform. Transparent terms and listing criteria."
-        />
-      </Helmet>
+      <SeoHead
+        title="Advertising & Listing Policy | Promote Projects on OffPlanProjects"
+        description="Advertising and listing policy for project promotion on OffPlanProjects."
+        canonicalPath="/advertising-policy"
+        noindex
+      />
 
       <Header />
 

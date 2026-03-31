@@ -1,19 +1,18 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Privacy Policy | OffPlanProjects UAE</title>
-        <meta
-          name="description"
-          content="Learn how your data is collected and used on our AI-powered property discovery platform. We respect your privacy and never sell personal info."
-        />
-      </Helmet>
+      <SeoHead
+        title="Privacy Policy | OffPlanProjects UAE"
+        description="Learn how your data is collected and used on our AI-powered property discovery platform."
+        canonicalPath="/privacy-policy"
+        noindex
+      />
 
       <Header />
 

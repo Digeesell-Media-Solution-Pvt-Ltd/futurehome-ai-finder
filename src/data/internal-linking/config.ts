@@ -2,9 +2,16 @@
  * Central config for scalable internal linking. Extend arrays as you add areas/developers/blogs.
  */
 export const INTERNAL_LINKING = {
-  priorityAreaSlugs: ["dubai-marina", "jvc", "business-bay", "downtown-dubai"] as const,
+  priorityAreaSlugs: [
+    "dubai-marina",
+    "jvc",
+    "business-bay",
+    "downtown-dubai",
+    "palm-jumeirah",
+    "dubai-hills",
+  ] as const,
 
-  priorityDeveloperSlugs: ["emaar", "damac", "sobha"] as const,
+  priorityDeveloperSlugs: ["emaar", "damac", "sobha", "binghatti", "nakheel"] as const,
 
   homepageBlogSlugs: [
     "best-off-plan-projects-dubai-marina",

@@ -11,6 +11,8 @@ import type { ProjectFilters } from "@/types/project";
 import { InternalLinkCluster } from "@/components/internal-linking/InternalLinkCluster";
 import { getDeveloperAppListingInternalLinks } from "@/lib/internal-linking/buildInternalLinks";
 import type { ProjectDataContract } from "@/types/project";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { CrawlContentSection } from "@/components/seo/CrawlContentSection";
 
 export default function DeveloperProjectsPage() {
   const { developerSlug } = useParams<{ developerSlug: string }>();
@@ -91,6 +93,11 @@ export default function DeveloperProjectsPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SeoHead
+        title={`${developerName} Projects in Dubai | Off Plan Projects`}
+        description={`Browse active ${developerName} off-plan projects in Dubai, compare unit types and handover windows, and navigate to area and market guides.`}
+        canonicalPath={`/developers/${developerSlug || ""}`}
+      />
       <Header />
       <main className="container-luxury pt-24 pb-20">
         {/* Developer Header */}
@@ -126,6 +133,39 @@ export default function DeveloperProjectsPage() {
             inlineContextCount={2}
           />
         ) : null}
+
+        <CrawlContentSection
+          title={`${developerName}: current project pipeline overview`}
+          paragraphs={[
+            `${developerName} listings on this page are grouped to make side-by-side comparison simpler for buyers and investors reviewing launch options. Instead of opening disconnected project pages, you can evaluate the full pipeline in one place and then branch into area-specific opportunities.`,
+            "When comparing projects from a single developer, focus on handover staging, unit mix spread, and location diversification. This helps identify whether the portfolio aligns with your risk profile, target holding period, and expected rental or end-user demand conditions at completion.",
+            "This developer hub is connected through internal links to related area and blog resources. That structure supports deeper crawl coverage and stronger page quality signals while preserving relevance for users performing intent-driven research.",
+          ]}
+          faqs={[
+            {
+              question: "How should I compare projects from the same developer?",
+              answer:
+                "Use handover schedule, location profile, payment plan structure, and unit mix to compare like-for-like opportunities.",
+            },
+            {
+              question: "Does this page link to related areas and guides?",
+              answer:
+                "Yes. Internal links are included to area hubs and educational blog content for deeper evaluation.",
+            },
+            {
+              question: "Are these listings suitable for shortlist building?",
+              answer:
+                "Yes. This page is designed as a shortlist hub before moving into detailed project pages.",
+            },
+          ]}
+          relatedLinks={[
+            { label: "All developers", to: "/developers" },
+            { label: "All projects", to: "/projects" },
+            { label: "Area hubs", to: "/areas" },
+            { label: "Payment plan guide", to: "/blog/dubai-off-plan-payment-plans-guide" },
+            { label: "Off-plan vs ready", to: "/blog/off-plan-vs-ready-dubai" },
+          ]}
+        />
       </main>
       <Footer />
     </div>

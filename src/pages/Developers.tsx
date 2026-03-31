@@ -8,6 +8,8 @@ import { projects, filterProjectsByFilters } from "@/data/projects";
 import { useFilteredProjects } from "@/hooks/useProjects";
 import { normalizeSlug } from "@/lib/normalize";
 import type { ProjectFilters } from "@/types/project";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { CrawlContentSection } from "@/components/seo/CrawlContentSection";
 
 interface SimpleDeveloper {
   name: string;
@@ -54,6 +56,11 @@ export default function DevelopersPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SeoHead
+        title="Top Dubai Developers with Active Off-Plan Listings"
+        description="Browse Dubai developers with active off-plan projects, then open each developer page to compare launches, areas, and live inventory."
+        canonicalPath="/developers"
+      />
       <Header />
       <main className="container-luxury pt-24 pb-20">
         {/* Page Header */}
@@ -94,6 +101,39 @@ export default function DevelopersPage() {
             <h3 className="text-lg font-medium text-foreground mb-1">No listing found</h3>
           </div>
         )}
+
+        <CrawlContentSection
+          title="Research developers before selecting a project"
+          paragraphs={[
+            "Developer comparison is one of the most important steps in off-plan research because delivery standards, handover consistency, and product positioning can vary significantly even within the same area. This page groups active developers so users can move from a broad market view into brand-specific inventories quickly.",
+            "A useful evaluation method is to compare developers across three categories: launch pipeline quality, payment structure flexibility, and area concentration. Developers active in multiple high-demand corridors may offer stronger resale depth, while focused niche developers may provide differentiated product formats and pricing strategies.",
+            "Each developer profile connects to project-level detail pages and adjacent research hubs. That internal link structure improves crawl depth and helps search engines understand topical relevance between developer entities, area entities, and transaction-intent project content.",
+          ]}
+          faqs={[
+            {
+              question: "Why should I start by developer instead of by project?",
+              answer:
+                "Starting by developer helps you evaluate execution history and portfolio consistency before comparing specific launches.",
+            },
+            {
+              question: "Can I compare developers in the same area?",
+              answer:
+                "Yes. Open area hubs and switch between linked developer pages to compare supply, pricing bands, and handover windows.",
+            },
+            {
+              question: "Are these developer pages connected to related guides?",
+              answer:
+                "Yes. Internal links point to project directories, area hubs, and blog guides to support deeper due diligence.",
+            },
+          ]}
+          relatedLinks={[
+            { label: "All projects", to: "/projects" },
+            { label: "Dubai areas", to: "/areas" },
+            { label: "Investment guides", to: "/blog" },
+            { label: "Off-plan by developer", to: "/off-plan-by-developer/emaar" },
+            { label: "Off-plan by developer (DAMAC)", to: "/off-plan-by-developer/damac" },
+          ]}
+        />
       </main>
       <Footer />
       <WhatsAppButton />

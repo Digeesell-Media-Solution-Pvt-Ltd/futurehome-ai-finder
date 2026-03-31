@@ -6,10 +6,17 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { Button } from "@/components/ui/button";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 export default function Saved() {
   return (
     <div className="min-h-screen bg-background pb-20 lg:pb-0">
+      <SeoHead
+        title="Saved Projects | Off Plan Projects"
+        description="Saved project shortlist page."
+        canonicalPath="/saved"
+        noindex
+      />
       <Header />
       
       <main className="pt-24 pb-20">

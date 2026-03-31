@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const sections = [
   {
@@ -92,13 +92,12 @@ const sections = [
 export default function DisclaimerPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Platform Disclaimer | Property Discovery Platform UAE</title>
-        <meta
-          name="description"
-          content="Important legal disclaimer for users of our AI-powered UAE property discovery platform. Informational and marketing use only."
-        />
-      </Helmet>
+      <SeoHead
+        title="Platform Disclaimer | Property Discovery Platform UAE"
+        description="Important legal disclaimer for users of our UAE property discovery platform."
+        canonicalPath="/disclaimer"
+        noindex
+      />
 
       <Header />
 

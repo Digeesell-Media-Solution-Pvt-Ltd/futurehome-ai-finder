@@ -1,20 +1,19 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 import { CheckCircle } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 export default function CookiePolicyPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Cookie Policy | OffPlanProjects UAE</title>
-        <meta
-          name="description"
-          content="This site uses cookies for functionality, analytics, and personalization. Learn how we use cookies and how you can manage your preferences."
-        />
-      </Helmet>
+      <SeoHead
+        title="Cookie Policy | OffPlanProjects UAE"
+        description="Cookie usage and preference policy for OffPlanProjects."
+        canonicalPath="/cookie-policy"
+        noindex
+      />
 
       <Header />
 
