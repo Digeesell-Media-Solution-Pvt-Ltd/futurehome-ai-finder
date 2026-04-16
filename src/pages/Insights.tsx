@@ -95,8 +95,8 @@ export default function InsightsPage() {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="UAE Real Estate Market Reports & Insights | OffPlanProjects"
-        description="Download monthly UAE real estate market reports. Track off-plan project launches, developer activity, and investment trends across Dubai and UAE."
+        title="UAE Property Market Insights | Off-Plan Trends & Data"
+        description="Stay ahead of the UAE off-plan property market. Latest trends, price data, developer activity and investment insights for Dubai, Abu Dhabi and RAK."
         canonicalPath="/insights"
       />
       <Header />

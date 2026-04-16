@@ -24,8 +24,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SeoHead
-        title="UAE Off-Plan Properties | AI-Powered Discovery | OffPlanProjects"
-        description="Find the best off-plan properties in Dubai and UAE with AI-assisted search. Compare projects by area, developer, price, and ROI."
+        title="UAE Off-Plan Projects | AI-Powered Property Discovery"
+        description="Discover the latest off-plan projects across Dubai, Abu Dhabi and Ras Al Khaimah. AI-powered search, verified developers, direct connections — no agent fees."
         canonicalPath="/"
       />
       <Header />

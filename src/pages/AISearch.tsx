@@ -177,8 +177,8 @@ export default function AISearchPage() {
       </div>
 
       <SeoHead
-        title="AI Property Search | Find UAE Off-Plan Projects | OffPlanProjects"
-        description="Use AI to search UAE off-plan properties by natural language. Filter by bedrooms, location, price, and developer to find your ideal investment."
+        title="AI Property Search | Find Off-Plan Projects in UAE"
+        description="Use our AI-powered search to find the perfect off-plan property in the UAE. Filter by location, budget, developer and payment plan in seconds."
         canonicalPath="/ai-search"
       />
       <Header />
