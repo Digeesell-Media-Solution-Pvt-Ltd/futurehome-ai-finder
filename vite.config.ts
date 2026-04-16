@@ -27,6 +27,7 @@ const CORE_ROUTES = [
   "/privacy-policy",
   "/terms-of-use",
   "/cookie-policy",
+  "/faq",
 ];
 
 // All individually-imported project detail pages (from src/App.tsx)
