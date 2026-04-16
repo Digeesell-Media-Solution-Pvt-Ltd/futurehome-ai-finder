@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { BarChart3, Download, TrendingUp, Building2, Home, MapPin, Calendar, FileText } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { ReportLeadModal } from "@/components/lead/ReportLeadModal";
@@ -93,6 +94,11 @@ export default function InsightsPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SeoHead
+        title="UAE Property Market Insights | Off-Plan Trends & Data"
+        description="Stay ahead of the UAE off-plan property market. Latest trends, price data, developer activity and investment insights for Dubai, Abu Dhabi and RAK."
+        canonicalPath="/insights"
+      />
       <Header />
 
       <main className="pt-24 pb-20">

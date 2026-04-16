@@ -134,6 +134,7 @@ import DamacHillsArea from "./pages/areas/DamacHillsArea";
 import SheikhZayedRoadArea from "./pages/areas/SheikhZayedRoadArea";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import FAQ from "./pages/FAQ";
 import Disclaimer from "./pages/Disclaimer";
 import AdvertisingPolicy from "./pages/AdvertisingPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -321,6 +322,7 @@ const App = () => (
           <Route path="/areas/:areaId" element={<AreaDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/advertising-policy" element={<AdvertisingPolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
