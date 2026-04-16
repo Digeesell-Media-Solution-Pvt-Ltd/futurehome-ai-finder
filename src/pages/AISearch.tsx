@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { Sparkles, Search, Sliders, ArrowRight, TrendingUp, MapPin, Building, Clock, Loader2 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -175,8 +176,13 @@ export default function AISearchPage() {
         />
       </div>
 
+      <SeoHead
+        title="AI Property Search | Find UAE Off-Plan Projects | OffPlanProjects"
+        description="Use AI to search UAE off-plan properties by natural language. Filter by bedrooms, location, price, and developer to find your ideal investment."
+        canonicalPath="/ai-search"
+      />
       <Header />
-      
+
       <main className="pt-24 pb-20 relative z-10">
         <div className="container-luxury">
           {/* Hero Section */}

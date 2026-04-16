@@ -1,4 +1,5 @@
 import { Suspense, lazy } from "react";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingAIButton } from "@/components/layout/FloatingAIButton";
@@ -22,6 +23,11 @@ const CTASection = lazy(() =>
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SeoHead
+        title="UAE Off-Plan Properties | AI-Powered Discovery | OffPlanProjects"
+        description="Find the best off-plan properties in Dubai and UAE with AI-assisted search. Compare projects by area, developer, price, and ROI."
+        canonicalPath="/"
+      />
       <Header />
       <main>
         <HeroSection />
