@@ -2,7 +2,14 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
-import vitePrerender from "vite-plugin-prerender";
+import { createRequire } from "module";
+
+// vite-plugin-prerender's .mjs file incorrectly uses require() (packaging bug).
+// Load the working CJS build directly via createRequire.
+const _require = createRequire(import.meta.url);
+const vitePrerender = _require("vite-plugin-prerender") as ((opts: Record<string, unknown>) => unknown) & {
+  PuppeteerRenderer: new (opts: Record<string, unknown>) => unknown;
+};
 
 // ---------------------------------------------------------------------------
 // Static routes to prerender at build time.
@@ -214,6 +221,14 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
+  build: {
+    // Lower the JS target so esbuild transpiles ES2020 operators (optional chaining `?.`
+    // and nullish coalescing `??`) to older syntax.  This is required because
+    // vite-plugin-prerender bundles Puppeteer 1.20 / Chromium 78, which predates those
+    // operators.  Production users on modern browsers are unaffected — the transpiled
+    // output is functionally identical and only marginally larger.
+    target: "chrome79",
+  },
   plugins: [
     react(),
     mode === "development" && componentTagger(),
@@ -223,12 +238,14 @@ export default defineConfig(({ mode }) => ({
         staticDir: path.join(__dirname, "dist"),
         routes: ALL_PRERENDER_ROUTES,
         renderer: new vitePrerender.PuppeteerRenderer({
-          // Wait 3 s after page load before snapshotting so that
+          // Wait 5 s after page load before snapshotting so that
           // TanStack Query / Supabase fetches have time to resolve.
-          renderAfterTime: 3000,
+          renderAfterTime: 5000,
           headless: true,
           // Render up to 4 routes concurrently to keep build time reasonable.
           maxConcurrentRoutes: 4,
+          // Required when Chromium runs as root (CI containers, Docker, etc.)
+          args: ["--no-sandbox", "--disable-setuid-sandbox"],
         }),
       }),
   ].filter(Boolean),
