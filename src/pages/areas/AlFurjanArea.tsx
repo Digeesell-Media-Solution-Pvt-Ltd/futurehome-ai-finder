@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, Train, Users, DollarSign, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { ProgrammaticJsonLd } from "@/components/programmatic/ProgrammaticJsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/schema-jsonld";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -30,10 +32,18 @@ const fadeUp = {
 export default function AlFurjanArea() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Al Furjan Area Guide - Off-Plan Projects & Investments</title>
-        <meta name="description" content="Explore off-plan projects in Al Furjan. Affordable modern apartments and villas near metro lines with high rental demand and strong ROI for investors." />
-      </Helmet>
+      <SeoHead
+        title="Al Furjan Area Guide - Off-Plan Projects & Investments"
+        description="Explore off-plan projects in Al Furjan. Affordable modern apartments and villas near metro lines with high rental demand and strong ROI for investors."
+        canonicalPath="/areas/al-furjan"
+      />
+      <ProgrammaticJsonLd
+        data={[breadcrumbListSchema([
+          { name: "Home", path: "/" },
+          { name: "Areas", path: "/areas" },
+          { name: "Al Furjan", path: "/areas/al-furjan" },
+        ])]}
+      />
 
       <Header />
 

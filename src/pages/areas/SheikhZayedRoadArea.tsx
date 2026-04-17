@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, Building2, Landmark, Crown, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { ProgrammaticJsonLd } from "@/components/programmatic/ProgrammaticJsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/schema-jsonld";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -30,10 +32,18 @@ const fadeUp = {
 export default function SheikhZayedRoadArea() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Sheikh Zayed Road Area Guide - Off-Plan Projects & Investments</title>
-        <meta name="description" content="Explore off-plan projects on Sheikh Zayed Road. High-rise luxury, supertall towers, central location, and premium investment opportunities in Dubai's most iconic corridor." />
-      </Helmet>
+      <SeoHead
+        title="Sheikh Zayed Road Area Guide - Off-Plan Projects & Investments"
+        description="Explore off-plan projects on Sheikh Zayed Road. High-rise luxury, supertall towers, central location, and premium investment opportunities in Dubai's most iconic corridor."
+        canonicalPath="/areas/sheikh-zayed-road"
+      />
+      <ProgrammaticJsonLd
+        data={[breadcrumbListSchema([
+          { name: "Home", path: "/" },
+          { name: "Areas", path: "/areas" },
+          { name: "Sheikh Zayed Road", path: "/areas/sheikh-zayed-road" },
+        ])]}
+      />
 
       <Header />
 

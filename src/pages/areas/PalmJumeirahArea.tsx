@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, Shield, Crown, Building, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { ProgrammaticJsonLd } from "@/components/programmatic/ProgrammaticJsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/schema-jsonld";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -30,10 +32,18 @@ const fadeUp = {
 export default function PalmJumeirahArea() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Palm Jumeirah Area Guide - Off-Plan Projects & Investments</title>
-        <meta name="description" content="Explore ultra-premium off-plan projects on Palm Jumeirah. Discover iconic waterfront living, branded residences, and exclusive investment opportunities." />
-      </Helmet>
+      <SeoHead
+        title="Palm Jumeirah Area Guide - Off-Plan Projects & Investments"
+        description="Explore ultra-premium off-plan projects on Palm Jumeirah. Discover iconic waterfront living, branded residences, and exclusive investment opportunities."
+        canonicalPath="/areas/palm-jumeirah"
+      />
+      <ProgrammaticJsonLd
+        data={[breadcrumbListSchema([
+          { name: "Home", path: "/" },
+          { name: "Areas", path: "/areas" },
+          { name: "Palm Jumeirah", path: "/areas/palm-jumeirah" },
+        ])]}
+      />
 
       <Header />
 

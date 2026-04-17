@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, Building2, Droplets, DollarSign, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { ProgrammaticJsonLd } from "@/components/programmatic/ProgrammaticJsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/schema-jsonld";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -30,10 +32,18 @@ const fadeUp = {
 export default function BusinessBayArea() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Business Bay Area Guide | Off-Plan Towers & Investments</title>
-        <meta name="description" content="Browse off-plan towers and investment-ready properties in Business Bay. Compare new projects with AI-powered property discovery." />
-      </Helmet>
+      <SeoHead
+        title="Business Bay Area Guide | Off-Plan Towers & Investments"
+        description="Browse off-plan towers and investment-ready properties in Business Bay. Compare new projects with AI-powered property discovery."
+        canonicalPath="/areas/business-bay"
+      />
+      <ProgrammaticJsonLd
+        data={[breadcrumbListSchema([
+          { name: "Home", path: "/" },
+          { name: "Areas", path: "/areas" },
+          { name: "Business Bay", path: "/areas/business-bay" },
+        ])]}
+      />
 
       <Header />
 

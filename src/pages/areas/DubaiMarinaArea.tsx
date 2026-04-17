@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, Train, Building, Users, Palmtree, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { ProgrammaticJsonLd } from "@/components/programmatic/ProgrammaticJsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/schema-jsonld";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -31,10 +33,18 @@ const fadeUp = {
 export default function DubaiMarinaArea() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Dubai Marina Area Guide - Off-Plan Projects & Investments</title>
-        <meta name="description" content="Explore off-plan projects and investment opportunities in Dubai Marina. Browse verified listings, developer insights, and lifestyle highlights." />
-      </Helmet>
+      <SeoHead
+        title="Dubai Marina Area Guide - Off-Plan Projects & Investments"
+        description="Explore off-plan projects and investment opportunities in Dubai Marina. Browse verified listings, developer insights, and lifestyle highlights."
+        canonicalPath="/areas/dubai-marina"
+      />
+      <ProgrammaticJsonLd
+        data={[breadcrumbListSchema([
+          { name: "Home", path: "/" },
+          { name: "Areas", path: "/areas" },
+          { name: "Dubai Marina", path: "/areas/dubai-marina" },
+        ])]}
+      />
 
       <Header />
 

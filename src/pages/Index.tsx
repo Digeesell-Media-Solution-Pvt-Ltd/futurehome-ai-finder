@@ -1,5 +1,7 @@
 import { Suspense, lazy } from "react";
 import { SeoHead } from "@/components/seo/SeoHead";
+import { ProgrammaticJsonLd } from "@/components/programmatic/ProgrammaticJsonLd";
+import { organizationSchema, webSiteSchemaSearchAction } from "@/lib/seo/schema-jsonld";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingAIButton } from "@/components/layout/FloatingAIButton";
@@ -28,6 +30,7 @@ const Index = () => {
         description="Discover the latest off-plan projects across Dubai, Abu Dhabi and Ras Al Khaimah. AI-powered search, verified developers, direct connections — no agent fees."
         canonicalPath="/"
       />
+      <ProgrammaticJsonLd data={[organizationSchema(), webSiteSchemaSearchAction()]} />
       <Header />
       <main>
         <HeroSection />

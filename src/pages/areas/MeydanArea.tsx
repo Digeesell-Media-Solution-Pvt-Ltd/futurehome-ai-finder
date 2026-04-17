@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, Home, Shield, Car, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { ProgrammaticJsonLd } from "@/components/programmatic/ProgrammaticJsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/schema-jsonld";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -30,10 +32,18 @@ const fadeUp = {
 export default function MeydanArea() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Meydan Area Guide | Luxury Villas & Off-Plan Projects</title>
-        <meta name="description" content="Discover off-plan villas and apartments in Meydan. Explore new launches and investment-ready communities." />
-      </Helmet>
+      <SeoHead
+        title="Meydan Area Guide | Luxury Villas & Off-Plan Projects"
+        description="Discover off-plan villas and apartments in Meydan. Explore new launches and investment-ready communities."
+        canonicalPath="/areas/meydan"
+      />
+      <ProgrammaticJsonLd
+        data={[breadcrumbListSchema([
+          { name: "Home", path: "/" },
+          { name: "Areas", path: "/areas" },
+          { name: "Meydan", path: "/areas/meydan" },
+        ])]}
+      />
 
       <Header />
 
