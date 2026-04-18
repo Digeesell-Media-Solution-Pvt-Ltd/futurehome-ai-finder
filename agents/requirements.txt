@@ -1,0 +1,30 @@
+# AI Video Agent Pipeline — Python Dependencies
+
+# Video processing
+ffmpeg-python==0.2.0
+
+# Google APIs (Drive + YouTube)
+google-api-python-client==2.136.0
+google-auth==2.32.0
+google-auth-oauthlib==1.2.1
+google-auth-httplib2==0.2.0
+
+# OpenAI (TTS voiceover)
+openai==1.51.0
+
+# Anthropic (caption writing — Claude)
+anthropic==0.34.0
+
+# Config & validation
+pydantic-settings==2.4.0
+python-dotenv==1.0.1
+
+# CLI
+click==8.1.7
+
+# HTTP requests (Instagram, TikTok APIs)
+requests==2.32.3
+
+# Utilities
+tqdm==4.66.5
+tenacity==9.0.0
