@@ -27,6 +27,7 @@ import heroImage from "@/assets/projects/samana-imperial-hero.jpg";
 import interiorImage from "@/assets/projects/samana-imperial-interior.jpg";
 import lagoonImage from "@/assets/projects/samana-imperial-lagoon.jpg";
 import zenImage from "@/assets/projects/samana-imperial-zen.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Samana Imperial Garden",
@@ -84,7 +85,12 @@ export default function SamanaImperialProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Samana Imperial | Off-Plan Dubai"
+        description="Samana Imperial by Samana Developers — premium off-plan residences in Dubai with private pools and attractive investment payment plans."
+        canonicalPath="/projects/samana/samana-imperial"
+      />
+
       <Header />
       
       <main>

@@ -27,6 +27,7 @@ import heroImage from "@/assets/projects/perla-prime-hero.jpg";
 import interiorImage from "@/assets/projects/perla-prime-interior.jpg";
 import rooftopImage from "@/assets/projects/perla-prime-rooftop.jpg";
 import beachImage from "@/assets/projects/perla-prime-beach.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Perla Prime",
@@ -85,7 +86,12 @@ export default function PerlaPrimeProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Perla Prime by Reportage | Off-Plan Dubai"
+        description="Perla Prime by Reportage Properties — off-plan residential development in Dubai with quality finishes and flexible payment plans."
+        canonicalPath="/projects/reportage/perla-prime"
+      />
+
       <Header />
       
       <main>

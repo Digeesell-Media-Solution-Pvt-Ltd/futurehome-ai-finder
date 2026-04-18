@@ -13,6 +13,7 @@ import heroImage from "@/assets/projects/binghatti-titania-hero.jpg";
 import interiorImage from "@/assets/projects/binghatti-titania-interior.jpg";
 import poolImage from "@/assets/projects/binghatti-titania-pool.jpg";
 import lobbyImage from "@/assets/projects/binghatti-titania-lobby.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Binghatti Titania",
@@ -70,7 +71,12 @@ export default function BinghattiTitaniaProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Binghatti Titania | Off-Plan Dubai"
+        description="Binghatti Titania by Binghatti Developers — off-plan apartments in Dubai combining modern architecture with resort-style living."
+        canonicalPath="/projects/binghatti/binghatti-titania"
+      />
+
       <Header />
       
       <main>

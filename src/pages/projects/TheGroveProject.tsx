@@ -13,6 +13,7 @@ import heroImage from "@/assets/projects/the-grove-hero.jpg";
 import interiorImage from "@/assets/projects/the-grove-interior.jpg";
 import spaImage from "@/assets/projects/the-grove-spa.jpg";
 import gardenImage from "@/assets/projects/the-grove-garden.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const TheGroveProject = () => {
   const { openLeadCapture } = useLeadCapture();
@@ -62,7 +63,12 @@ const TheGroveProject = () => {
 
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="The Grove by Sobha | Off-Plan Dubai"
+        description="The Grove by Sobha Realty — off-plan residential community in Dubai set amid serene gardens with high-quality finishes and modern amenities."
+        canonicalPath="/projects/sobha/the-grove"
+      />
+
       <Header />
       
       {/* Hero Section */}

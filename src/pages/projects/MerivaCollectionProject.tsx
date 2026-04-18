@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -73,11 +73,12 @@ const MerivaCollectionProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>The Meriva Collection by Ellington | Dubai Islands Waterfront Residences</title>
-        <meta name="description" content="Discover The Meriva Collection at Dubai Islands by Ellington Properties offering premium waterfront residences and investment opportunities." />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/ellington/meriva-collection" />
-      </Helmet>
+      <SeoHead
+        title="The Meriva Collection by Ellington | Dubai Islands Waterfront Residences"
+        description="Discover The Meriva Collection at Dubai Islands by Ellington Properties offering premium waterfront residences and investment opportunities."
+        canonicalPath="/projects/ellington/meriva-collection"
+      />
+
 
       <Header />
 

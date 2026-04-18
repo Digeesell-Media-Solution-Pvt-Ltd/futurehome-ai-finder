@@ -27,6 +27,7 @@ import heroImage from "@/assets/projects/binghatti-cullinan-hero.jpg";
 import interiorImage from "@/assets/projects/binghatti-cullinan-interior.jpg";
 import coworkImage from "@/assets/projects/binghatti-cullinan-cowork.jpg";
 import rooftopImage from "@/assets/projects/binghatti-cullinan-rooftop.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Binghatti Cullinan",
@@ -84,7 +85,12 @@ export default function BinghattiCullinanProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Binghatti Cullinan | Off-Plan Luxury Dubai"
+        description="Binghatti Cullinan by Binghatti Developers — ultra-luxury off-plan tower in Dubai. Discover exclusive residences and investment opportunities."
+        canonicalPath="/projects/binghatti/binghatti-cullinan"
+      />
+
       <Header />
       
       <main>

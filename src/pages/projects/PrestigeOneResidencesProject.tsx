@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -57,17 +57,12 @@ const PrestigeOneResidencesProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Prestige One Residences – Hilton Residences Dubai Maritime City</title>
-        <meta
-          name="description"
-          content="Prestige One Residences – Hilton Residences Dubai Maritime City offers branded waterfront apartments with Hilton-inspired amenities and curated lifestyle spaces in Dubai Maritime City."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/prestige-one/prestige-one-residences"
-        />
-      </Helmet>
+      <SeoHead
+        title="Prestige One Residences – Hilton Residences Dubai Maritime City"
+        description="Prestige One Residences – Hilton Residences Dubai Maritime City offers branded waterfront apartments with Hilton-inspired amenities and curated lifestyle spaces in Dubai Maritime City."
+        canonicalPath="/projects/prestige-one/prestige-one-residences"
+      />
+
 
       <Header />
 

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -44,17 +44,12 @@ const Blossom40Project = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Blossom 40 by Tranquil Developers | Apartments in Majan, Dubai</title>
-        <meta
-          name="description"
-          content="Blossom 40 by Tranquil Developers offers thoughtfully planned 1.5 and 2.5 bedroom apartments in Majan, Dubailand, designed around modern living with strong long-term appeal."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/tranquil/blossom-40"
-        />
-      </Helmet>
+      <SeoHead
+        title="Blossom 40 by Tranquil Developers | Apartments in Majan, Dubai"
+        description="Blossom 40 by Tranquil Developers offers thoughtfully planned 1.5 and 2.5 bedroom apartments in Majan, Dubailand, designed around modern living with strong long-term appeal."
+        canonicalPath="/projects/tranquil/blossom-40"
+      />
+
 
       <Header />
 

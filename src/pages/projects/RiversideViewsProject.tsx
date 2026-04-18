@@ -10,6 +10,7 @@ import heroImage from "@/assets/projects/riverside-views-hero.jpg";
 import poolImage from "@/assets/projects/riverside-views-pool.jpg";
 import interiorImage from "@/assets/projects/riverside-views-interior.jpg";
 import promenadeImage from "@/assets/projects/riverside-views-promenade.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const quickStats = [
   { label: "Starting Price", value: "AED 1,800/month*" },
@@ -52,7 +53,12 @@ const paymentPlan = [
 export default function RiversideViewsProject() {
   const { openLeadCapture } = useLeadCapture();
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Riverside Views by DAMAC | Off-Plan Dubai"
+        description="Riverside Views by DAMAC Properties — off-plan waterfront residences in Dubai with scenic creek views and premium resort-style amenities."
+        canonicalPath="/projects/damac/riverside-views"
+      />
+
       <Header />
       
       <main>

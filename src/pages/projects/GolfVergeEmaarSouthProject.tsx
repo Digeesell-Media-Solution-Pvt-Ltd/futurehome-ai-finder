@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -61,14 +61,12 @@ const GolfVergeEmaarSouthProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Golf Verge at Emaar South by Emaar | Golf-Facing 1-3BR Apartments</title>
-        <meta
-          name="description"
-          content="Discover Golf Verge at Emaar South by Emaar — 1 to 3-bedroom luxury apartments with endless green vistas and prices from AED 1.20M."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/golf-verge-at-emaar-south" />
-      </Helmet>
+      <SeoHead
+        title="Golf Verge at Emaar South by Emaar | Golf-Facing 1-3BR Apartments"
+        description="Discover Golf Verge at Emaar South by Emaar — 1 to 3-bedroom luxury apartments with endless green vistas and prices from AED 1.20M."
+        canonicalPath="/projects/emaar/golf-verge-at-emaar-south"
+      />
+
 
       <Header />
 

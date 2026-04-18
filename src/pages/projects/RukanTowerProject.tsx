@@ -27,6 +27,7 @@ import heroImage from "@/assets/projects/rukan-tower-hero.jpg";
 import interiorImage from "@/assets/projects/rukan-tower-interior.jpg";
 import poolImage from "@/assets/projects/rukan-tower-pool.jpg";
 import gymImage from "@/assets/projects/rukan-tower-gym.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Rukan Tower",
@@ -85,7 +86,12 @@ export default function RukanTowerProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Rukan Tower by Reportage | Off-Plan Dubai"
+        description="Rukan Tower by Reportage Properties — off-plan urban residences in Rukan, Dubai, combining contemporary design with smart-living features."
+        canonicalPath="/projects/reportage/rukan-tower"
+      />
+
       <Header />
       
       <main>

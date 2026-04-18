@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -44,11 +44,12 @@ const TilalAlFurjanProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Tilal Al Furjan by Nakheel | Ready Villas in Al Furjan Dubai</title>
-        <meta name="description" content="Discover Tilal Al Furjan by Nakheel — ready 4 and 5-bedroom villas in Al Furjan Dubai with gated community living, resort-style amenities, and excellent connectivity." />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/nakheel/tilal-al-furjan" />
-      </Helmet>
+      <SeoHead
+        title="Tilal Al Furjan by Nakheel | Ready Villas in Al Furjan Dubai"
+        description="Discover Tilal Al Furjan by Nakheel — ready 4 and 5-bedroom villas in Al Furjan Dubai with gated community living, resort-style amenities, and excellent connectivity."
+        canonicalPath="/projects/nakheel/tilal-al-furjan"
+      />
+
 
       <Header />
 

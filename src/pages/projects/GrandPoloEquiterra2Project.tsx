@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -57,17 +57,12 @@ const GrandPoloEquiterra2Project = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Grand Polo Club & Resort – Equiterra 2 by Emaar | Townhouses in Dubai Investment Park</title>
-        <meta
-          name="description"
-          content="Equiterra 2 at Grand Polo Club & Resort by Emaar brings equestrian-inspired townhouse living to Dubai Investment Park with estate-style landscaping and community amenities."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/emaar/grand-polo-equiterra-2"
-        />
-      </Helmet>
+      <SeoHead
+        title="Grand Polo Club & Resort – Equiterra 2 by Emaar | Townhouses in Dubai Investment Park"
+        description="Equiterra 2 at Grand Polo Club & Resort by Emaar brings equestrian-inspired townhouse living to Dubai Investment Park with estate-style landscaping and community amenities."
+        canonicalPath="/projects/emaar/grand-polo-equiterra-2"
+      />
+
 
       <Header />
 

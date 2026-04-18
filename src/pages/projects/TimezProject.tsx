@@ -13,6 +13,7 @@ import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import timezHero from "@/assets/projects/timez-hero.jpg";
 import timezPool from "@/assets/projects/timez-pool.jpg";
 import timezInterior from "@/assets/projects/timez-interior.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const quickStats = [
   { label: "Starting From", value: "AED 550K", icon: TrendingUp },
@@ -68,7 +69,12 @@ const highlights = [
 export default function TimezProject() {
   const { openLeadCapture } = useLeadCapture();
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Timez by Danube | Off-Plan Dubai Silicon Oasis"
+        description="Timez by Danube Properties in Dubai Silicon Oasis — off-plan apartments with 45+ amenities and a flexible payment plan."
+        canonicalPath="/projects/danube/timez"
+      />
+
       <Header />
       
       {/* Hero Section */}

@@ -14,6 +14,7 @@ import heroImage from "@/assets/projects/the-edit-d3-hero.jpg";
 import interiorImage from "@/assets/projects/the-edit-d3-interior.jpg";
 import rooftopImage from "@/assets/projects/the-edit-d3-rooftop.jpg";
 import gymImage from "@/assets/projects/the-edit-d3-gym.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const TheEditD3Project = () => {
   const { openLeadCapture } = useLeadCapture();
@@ -65,7 +66,12 @@ const TheEditD3Project = () => {
 
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="The Edit at d3 by Meraas | Off-Plan Dubai"
+        description="The Edit at Dubai Design District (d3) by Meraas — off-plan creative residences in Dubai's premier design and fashion hub."
+        canonicalPath="/projects/meraas/the-edit-d3"
+      />
+
       <Header />
       
       {/* SEO Meta */}

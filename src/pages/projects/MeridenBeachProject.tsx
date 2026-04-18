@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -73,14 +73,12 @@ const MeridenBeachProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Meriden Beach Residences | Beachfront Apartments Dubai Islands</title>
-        <meta
-          name="description"
-          content="Experience spacious beachfront apartments at Meriden Beach Residences by Green Horizon on Dubai Islands. 1-3 BR from AED 1.8M, Q1 2028 handover."
-        />
-        <meta name="keywords" content="Meriden Beach Residences, Green Horizon, Dubai Islands, beachfront apartments, off-plan Dubai, waterfront living" />
-      </Helmet>
+      <SeoHead
+        title="Meriden Beach Residences | Beachfront Apartments Dubai Islands"
+        description="Spacious beachfront apartments at Meriden Beach Residences by Green Horizon on Dubai Islands. 1-3 BR from AED 1.8M, Q1 2028 handover."
+        canonicalPath="/projects/green-horizon/meriden-beach"
+      />
+
 
       <Header />
 

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -48,11 +48,12 @@ const AlbaResidencesProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>The Alba Residences by Omniyat | Dorchester Collection Palm Jumeirah</title>
-        <meta name="description" content="Discover The Alba Residences at Palm Jumeirah by Omniyat, ultra-luxury branded waterfront homes managed by Dorchester Collection." />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/omniyat/alba-residences" />
-      </Helmet>
+      <SeoHead
+        title="The Alba Residences by Omniyat | Dorchester Collection Palm Jumeirah"
+        description="Discover The Alba Residences at Palm Jumeirah by Omniyat, ultra-luxury branded waterfront homes managed by Dorchester Collection."
+        canonicalPath="/projects/omniyat/alba-residences"
+      />
+
 
       <Header />
 

@@ -9,6 +9,7 @@ import heroImage from "@/assets/projects/chelsea-residences-hero.jpg";
 import poolImage from "@/assets/projects/chelsea-residences-pool.jpg";
 import interiorImage from "@/assets/projects/chelsea-residences-interior.jpg";
 import gymImage from "@/assets/projects/chelsea-residences-gym.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectImages = [
   { src: heroImage, alt: "Chelsea Residences Tower" },
@@ -42,7 +43,12 @@ const unitTypes = [
 
 export default function ChelseaResidencesProject() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Chelsea Residences by DAMAC | Off-Plan Dubai"
+        description="Chelsea Residences by DAMAC Properties — off-plan luxury apartments in Dubai with world-class amenities and a prime location."
+        canonicalPath="/projects/damac/chelsea-residences"
+      />
+
       <Header />
       
       <main>

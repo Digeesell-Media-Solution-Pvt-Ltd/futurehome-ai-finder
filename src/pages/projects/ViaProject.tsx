@@ -27,6 +27,7 @@ import heroImage from "@/assets/projects/via-hero.jpg";
 import interiorImage from "@/assets/projects/via-interior.jpg";
 import poolImage from "@/assets/projects/via-pool.jpg";
 import lobbyImage from "@/assets/projects/via-lobby.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "VIA - Montenapoleone",
@@ -87,7 +88,12 @@ export default function ViaProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Via by Reportage | Off-Plan Dubai"
+        description="Via by Reportage Properties — off-plan residential development in Dubai offering contemporary apartments with quality finishes."
+        canonicalPath="/projects/reportage/via"
+      />
+
       <Header />
       
       <main>

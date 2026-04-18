@@ -27,6 +27,7 @@ import heroImage from "@/assets/projects/samana-hills-south2-hero.jpg";
 import interiorImage from "@/assets/projects/samana-hills-south2-interior.jpg";
 import poolImage from "@/assets/projects/samana-hills-south2-pool.jpg";
 import courtyardImage from "@/assets/projects/samana-hills-south2-courtyard.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Samana Hills South 2",
@@ -84,7 +85,12 @@ export default function SamanaHillsSouth2Project() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Samana Hills South 2 | Off-Plan Dubai"
+        description="Samana Hills South 2 by Samana Developers — off-plan Dubai residences with private pools, smart home features, and resort-style amenities."
+        canonicalPath="/projects/samana/samana-hills-south-2"
+      />
+
       <Header />
       
       <main>

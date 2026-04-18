@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -45,11 +45,12 @@ const GroveRidgeProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Grove Ridge at Emaar South by Emaar | Golf Townhouses in Dubai</title>
-        <meta name="description" content="Explore Grove Ridge at Emaar South by Emaar — golf-front townhouses and apartments from AED 1.2M with championship course views, family amenities, and strong investment potential." />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/grove-ridge" />
-      </Helmet>
+      <SeoHead
+        title="Grove Ridge at Emaar South by Emaar | Golf Townhouses in Dubai"
+        description="Explore Grove Ridge at Emaar South by Emaar — golf-front townhouses and apartments from AED 1.2M with championship course views, family amenities, and strong investment potential."
+        canonicalPath="/projects/emaar/grove-ridge"
+      />
+
 
       <Header />
 

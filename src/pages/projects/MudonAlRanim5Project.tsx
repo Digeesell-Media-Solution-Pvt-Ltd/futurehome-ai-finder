@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLeadCapture } from "@/contexts/LeadCaptureContext";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 import heroImage from "@/assets/projects/mudon-al-ranim-5-hero.jpg";
 import interiorImage from "@/assets/projects/mudon-al-ranim-5-interior.jpg";
@@ -60,11 +60,12 @@ const MudonAlRanim5Project = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Mudon Al Ranim 5 by Dubai Properties | Townhouses in Mudon Dubai</title>
-        <meta name="description" content="Explore Mudon Al Ranim 5 offering 3 & 4 bedroom townhouses in Mudon, Dubailand, Dubai. Family-focused living in a green gated community. Handover Q2 2026." />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/dubai-properties/mudon-al-ranim-5" />
-      </Helmet>
+      <SeoHead
+        title="Mudon Al Ranim 5 by Dubai Properties | Townhouses in Mudon Dubai"
+        description="Explore Mudon Al Ranim 5 offering 3 & 4 bedroom townhouses in Mudon, Dubailand, Dubai. Family-focused living in a green gated community. Handover Q2 2026."
+        canonicalPath="/projects/dubai-properties/mudon-al-ranim-5"
+      />
+
 
       <Header />
 

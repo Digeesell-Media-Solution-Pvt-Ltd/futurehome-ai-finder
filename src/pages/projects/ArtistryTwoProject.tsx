@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -56,11 +56,12 @@ const ArtistryTwoProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Artistry Two Residences by Select Group | Dubai Design District d3</title>
-        <meta name="description" content="Discover Artistry Two Residences by Select Group in Dubai Design District — 1–3BR apartments and 4BR duplex penthouses with Burj Khalifa views, padel courts, 22nd-floor infinity pool, and 50/50 payment plan. Handover 2029." />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/select-group/artistry-two-residences" />
-      </Helmet>
+      <SeoHead
+        title="Artistry Two Residences by Select Group | Dubai Design District d3"
+        description="Discover Artistry Two Residences by Select Group in Dubai Design District — 1–3BR apartments and 4BR duplex penthouses with Burj Khalifa views, padel courts, 22nd-floor infinity pool, and 50/50 payment plan. Handover 2029."
+        canonicalPath="/projects/select-group/artistry-two-residences"
+      />
+
 
       <Header />
 

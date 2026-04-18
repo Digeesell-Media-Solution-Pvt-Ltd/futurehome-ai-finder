@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -64,14 +64,12 @@ const GrandPoloChevaliaEstate2Project = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Grand Polo - Chevalia Estate 2 by Emaar | 4 & 5 Bedroom Luxury Villas</title>
-        <meta
-          name="description"
-          content="Discover Grand Polo - Chevalia Estate 2 by Emaar at Grand Polo Club & Resort — a premium community of 4 and 5-bedroom luxury villas inspired by equestrian heritage."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/grand-polo-chevalia-estate-2" />
-      </Helmet>
+      <SeoHead
+        title="Grand Polo - Chevalia Estate 2 by Emaar | 4 & 5 Bedroom Luxury Villas"
+        description="Discover Grand Polo - Chevalia Estate 2 by Emaar at Grand Polo Club & Resort — a premium community of 4 and 5-bedroom luxury villas inspired by equestrian heritage."
+        canonicalPath="/projects/emaar/grand-polo-chevalia-estate-2"
+      />
+
 
       <Header />
 

@@ -27,6 +27,7 @@ import heroImage from "@/assets/projects/r-hills-hero.jpg";
 import interiorImage from "@/assets/projects/r-hills-interior.jpg";
 import poolImage from "@/assets/projects/r-hills-pool.jpg";
 import gymImage from "@/assets/projects/r-hills-gym.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "R. Hills",
@@ -86,7 +87,12 @@ export default function RHillsProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="R. Hills by Reportage | Off-Plan Dubai"
+        description="R. Hills by Reportage Properties — off-plan villas and townhouses in Dubai set amid lush green landscapes with modern living standards."
+        canonicalPath="/projects/reportage/r-hills"
+      />
+
       <Header />
       
       <main>

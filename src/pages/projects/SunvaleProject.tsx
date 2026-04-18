@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -54,14 +54,12 @@ const SunvaleProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Sunvale by PRYSM Real Estate in International City, Dubai</title>
-        <meta
-          name="description"
-          content="Sunvale by PRYSM Real Estate is an off-plan residential project in International City, Dubai with contemporary apartments, lifestyle amenities and neighbourhood connectivity."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/prysm/sunvale" />
-      </Helmet>
+      <SeoHead
+        title="Sunvale by PRYSM Real Estate in International City, Dubai"
+        description="Sunvale by PRYSM Real Estate is an off-plan residential project in International City, Dubai with contemporary apartments, lifestyle amenities and neighbourhood connectivity."
+        canonicalPath="/projects/prysm/sunvale"
+      />
+
 
       <Header />
 

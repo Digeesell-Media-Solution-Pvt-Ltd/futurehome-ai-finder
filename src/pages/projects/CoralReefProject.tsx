@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { 
   ArrowRight, 
   Building2, 
@@ -84,13 +84,12 @@ export default function CoralReefProject() {
   const { openLeadCapture } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Coral Reef by DAMAC | Waterfront Luxury in Dubai Maritime City</title>
-        <meta
-          name="description"
-          content="Discover Coral Reef by DAMAC – ocean-inspired luxury 1-3 BR apartments in Dubai Maritime City with cascading pools, floating cinema, and endless sea views."
-        />
-      </Helmet>
+      <SeoHead
+        title="Coral Reef by DAMAC | Waterfront Luxury in Dubai Maritime City"
+        description="Discover Coral Reef by DAMAC – ocean-inspired luxury 1-3 BR apartments in Dubai Maritime City with cascading pools, floating cinema, and endless sea views."
+        canonicalPath="/projects/damac/coral-reef"
+      />
+
 
       <Header />
       

@@ -13,6 +13,7 @@ import heroImage from "@/assets/projects/aura-hero.jpg";
 import interiorImage from "@/assets/projects/aura-interior.jpg";
 import poolImage from "@/assets/projects/aura-pool.jpg";
 import gymImage from "@/assets/projects/aura-gym.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Aura",
@@ -72,7 +73,12 @@ export default function AuraProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Aura by Azizi | Off-Plan Dubai Apartments"
+        description="Aura by Azizi Developments — off-plan residential community in Dubai. Explore unit types, amenities, and payment plans."
+        canonicalPath="/projects/azizi/aura"
+      />
+
       <Header />
       
       <main>

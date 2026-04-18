@@ -13,6 +13,7 @@ import heroImage from "@/assets/projects/sun-city-hero.jpg";
 import fountainImage from "@/assets/projects/sun-city-fountain.jpg";
 import gymImage from "@/assets/projects/sun-city-gym.jpg";
 import interiorImage from "@/assets/projects/sun-city-interior.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "DAMAC Sun City",
@@ -73,7 +74,12 @@ export default function SunCityProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Sun City by DAMAC | Off-Plan Dubai"
+        description="Sun City by DAMAC Properties — sun-drenched off-plan community in Dubai with resort-style living, family amenities, and flexible payment."
+        canonicalPath="/projects/damac/sun-city"
+      />
+
       <Header />
       
       <main>

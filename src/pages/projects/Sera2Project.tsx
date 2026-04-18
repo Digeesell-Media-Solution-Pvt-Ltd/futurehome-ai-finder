@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -68,14 +68,12 @@ const Sera2Project = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Sera 2 at Rashid Yachts & Marina by Emaar | 1-3BR Luxury Apartments & 3BR Townhouses</title>
-        <meta
-          name="description"
-          content="Discover Sera 2 at Rashid Yachts & Marina by Emaar — a resort-themed residential escape with 1 to 3-bedroom luxury apartments, 3-bedroom townhouses, and vibrant marina-side living."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/sera-2" />
-      </Helmet>
+      <SeoHead
+        title="Sera 2 at Rashid Yachts & Marina by Emaar | 1-3BR Luxury Apartments & 3BR Townhouses"
+        description="Discover Sera 2 at Rashid Yachts & Marina by Emaar — a resort-themed residential escape with 1 to 3-bedroom luxury apartments, 3-bedroom townhouses, and vibrant marina-side living."
+        canonicalPath="/projects/emaar/sera-2"
+      />
+
 
       <Header />
 

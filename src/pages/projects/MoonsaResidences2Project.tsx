@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -68,15 +68,12 @@ export default function MoonsaResidences2Project() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>
-          Moonsa Residences 2 by Dugasta Properties | Apartments in Warsan 4 Dubai
-        </title>
-        <meta
-          name="description"
-          content="Discover Moonsa Residences 2 by Dugasta Properties in Warsan 4, Dubai International City. Explore official images, investor benefits, and project highlights on OffPlanProjects."
-        />
-      </Helmet>
+      <SeoHead
+        title="Moonsa Residences 2 by Dugasta | Apartments in Warsan 4 Dubai"
+        description="Discover Moonsa Residences 2 by Dugasta Properties in Warsan 4, Dubai International City. Explore official images, investor benefits, and project highlights."
+        canonicalPath="/projects/dugasta-properties/moonsa-residences-2"
+      />
+
 
       <Header />
 

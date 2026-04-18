@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -57,14 +57,12 @@ const AziziDavidProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Azizi David at Al Jaddaf, Dubai | Studios, 1 & 2BR Apartments</title>
-        <meta
-          name="description"
-          content="Azizi David offers waterfront-inspired living in Al Jaddaf, Dubai with studios, 1 and 2-bedroom apartments and luxury penthouses, a resort-style pool, gym and retail promenade."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/azizi/azizi-david" />
-      </Helmet>
+      <SeoHead
+        title="Azizi David at Al Jaddaf, Dubai | Studios, 1 & 2BR Apartments"
+        description="Azizi David offers waterfront-inspired living in Al Jaddaf, Dubai with studios, 1 and 2-bedroom apartments and luxury penthouses, a resort-style pool, gym and retail promenade."
+        canonicalPath="/projects/azizi/azizi-david"
+      />
+
 
       <Header />
 

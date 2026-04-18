@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -49,17 +49,12 @@ const OvelleTheValleyProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Ovelle at The Valley by Emaar | 4 &amp; 5-Bedroom Villas in Dubai</title>
-        <meta
-          name="description"
-          content="Ovelle at The Valley by Emaar offers 4 and 5-bedroom luxury villas inspired by the contours of Emirati valleys, with serene trails, lush landscapes and mindful family living along Dubai–Al Ain Road."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/emaar/ovelle-at-the-valley"
-        />
-      </Helmet>
+      <SeoHead
+        title="Ovelle at The Valley by Emaar | 4 &amp; 5-Bedroom Villas in Dubai"
+        description="Ovelle at The Valley by Emaar offers 4 and 5-bedroom luxury villas inspired by the contours of Emirati valleys, with serene trails, lush landscapes and mindful family living along Dubai–Al Ain Road."
+        canonicalPath="/projects/emaar/ovelle-at-the-valley"
+      />
+
 
       <Header />
 

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -43,11 +43,12 @@ const OrlaDorchesterProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>ORLA Dorchester Collection by Omniyat | Luxury Residences on Palm Jumeirah</title>
-        <meta name="description" content="Discover ORLA Dorchester Collection by Omniyat — a Foster + Partners-designed masterpiece on Palm Jumeirah with 89 ultra-luxury residences, Super Penthouses, and Dorchester Collection management." />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/omniyat/orla-dorchester-collection" />
-      </Helmet>
+      <SeoHead
+        title="ORLA Dorchester Collection by Omniyat | Luxury Residences on Palm Jumeirah"
+        description="Discover ORLA Dorchester Collection by Omniyat — a Foster + Partners-designed masterpiece on Palm Jumeirah with 89 ultra-luxury residences, Super Penthouses, and Dorchester Collection management."
+        canonicalPath="/projects/omniyat/orla-dorchester-collection"
+      />
+
 
       <Header />
 

@@ -14,6 +14,7 @@ import aspirzHero from "@/assets/projects/aspirz-hero.jpg";
 import aspirzPool from "@/assets/projects/aspirz-pool.jpg";
 import aspirzLobby from "@/assets/projects/aspirz-lobby.jpg";
 import aspirzGym from "@/assets/projects/aspirz-gym.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const quickStats = [
   { label: "Starting From", value: "AED 850K", icon: TrendingUp },
@@ -86,7 +87,12 @@ const unitTypes = [
 export default function AspirzProject() {
   const { openLeadCapture } = useLeadCapture();
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Aspirz by Danube | Off-Plan Dubai Sports City"
+        description="Aspirz by Danube in Dubai Sports City — off-plan 1–3 BR apartments from AED 1.1M with 40+ world-class amenities."
+        canonicalPath="/projects/danube/aspirz"
+      />
+
       <Header />
       
       {/* Hero Section */}

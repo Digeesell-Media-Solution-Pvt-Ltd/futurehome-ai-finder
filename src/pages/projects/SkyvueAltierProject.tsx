@@ -14,6 +14,7 @@ import heroImage from "@/assets/projects/skyvue-altier-hero.jpg";
 import interiorImage from "@/assets/projects/skyvue-altier-interior.jpg";
 import lagoonImage from "@/assets/projects/skyvue-altier-lagoon.jpg";
 import rooftopImage from "@/assets/projects/skyvue-altier-rooftop.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const SkyvueAltierProject = () => {
   const { openLeadCapture } = useLeadCapture();
@@ -67,7 +68,12 @@ const SkyvueAltierProject = () => {
 
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Skyvue Altier by Sobha | Off-Plan Dubai"
+        description="Skyvue Altier by Sobha Realty — premium off-plan high-rise in Dubai offering panoramic city views and world-class residential amenities."
+        canonicalPath="/projects/sobha/skyvue-altier"
+      />
+
       <Header />
       
       {/* SEO Meta */}

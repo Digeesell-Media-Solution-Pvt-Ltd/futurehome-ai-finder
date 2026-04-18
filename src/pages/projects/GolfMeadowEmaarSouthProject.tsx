@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -65,14 +65,12 @@ const GolfMeadowEmaarSouthProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Golf Meadow at Emaar South by Emaar | Golf Lifestyle Apartments & Townhouses</title>
-        <meta
-          name="description"
-          content="Discover Golf Meadow at Emaar South by Emaar — 1 to 3-bedroom luxury apartments and 3-bedroom townhouses with golf-estate living and prices from AED 1.12M."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/golf-meadow-at-emaar-south" />
-      </Helmet>
+      <SeoHead
+        title="Golf Meadow at Emaar South by Emaar | Golf Lifestyle Apartments & Townhouses"
+        description="Discover Golf Meadow at Emaar South by Emaar — 1 to 3-bedroom luxury apartments and 3-bedroom townhouses with golf-estate living and prices from AED 1.12M."
+        canonicalPath="/projects/emaar/golf-meadow-at-emaar-south"
+      />
+
 
       <Header />
 

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -69,14 +69,12 @@ const SymphonyByChaimaaProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Symphony by Chaimaa | Wellness-Inspired 1 & 2 Bedroom Residences in Majan</title>
-        <meta
-          name="description"
-          content="Discover Symphony by Chaimaa in Majan, Dubai — a wellness-inspired residential project with refined 1 and 2 bedroom apartments, premium amenities, and community-focused living."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/chaimaa/symphony-by-chaimaa" />
-      </Helmet>
+      <SeoHead
+        title="Symphony by Chaimaa | Wellness-Inspired 1 & 2 Bedroom Residences in Majan"
+        description="Discover Symphony by Chaimaa in Majan, Dubai — a wellness-inspired residential project with refined 1 and 2 bedroom apartments, premium amenities, and community-focused living."
+        canonicalPath="/projects/chaimaa/symphony-by-chaimaa"
+      />
+
 
       <Header />
 

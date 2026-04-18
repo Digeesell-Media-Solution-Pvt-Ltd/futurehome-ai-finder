@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -56,17 +56,12 @@ const WindsorHouseIIProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Windsor House II by Ellington Properties | Apartments in Dubai South</title>
-        <meta
-          name="description"
-          content="Windsor House II in Dubai South by Ellington Properties offers smart-home studios to 3BR apartments, resort amenities, and prime Expo City and Al Maktoum International Airport access."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/ellington/windsor-house-ii"
-        />
-      </Helmet>
+      <SeoHead
+        title="Windsor House II by Ellington Properties | Apartments in Dubai South"
+        description="Windsor House II in Dubai South by Ellington Properties offers smart-home studios to 3BR apartments, resort amenities, and prime Expo City and Al Maktoum International Airport access."
+        canonicalPath="/projects/ellington/windsor-house-ii"
+      />
+
 
       <Header />
 

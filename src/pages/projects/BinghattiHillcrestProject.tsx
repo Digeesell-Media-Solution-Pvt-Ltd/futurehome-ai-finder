@@ -13,6 +13,7 @@ import heroImage from "@/assets/projects/binghatti-hillcrest-hero.jpg";
 import interiorImage from "@/assets/projects/binghatti-hillcrest-interior.jpg";
 import playgroundImage from "@/assets/projects/binghatti-hillcrest-playground.jpg";
 import poolImage from "@/assets/projects/binghatti-hillcrest-pool.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Binghatti Hillcrest",
@@ -70,7 +71,12 @@ export default function BinghattiHillcrestProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Binghatti Hillcrest | Off-Plan Dubai"
+        description="Binghatti Hillcrest by Binghatti Developers — off-plan contemporary apartments in Dubai with premium design and world-class facilities."
+        canonicalPath="/projects/binghatti/binghatti-hillcrest"
+      />
+
       <Header />
       
       <main>

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -61,17 +61,12 @@ const SeaCliffByImtiazProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Sea Cliff by Imtiaz | 1–4 BR Sea-View Apartments in Dubai Islands</title>
-        <meta
-          name="description"
-          content="Sea Cliff by Imtiaz at Dubai Islands offers modern 1–4 BR sea-view apartments with a flexible 50/50 payment plan, resort-style amenities and coastal living moments from the city."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/imtiaz/sea-cliff-by-imtiaz"
-        />
-      </Helmet>
+      <SeoHead
+        title="Sea Cliff by Imtiaz | 1–4 BR Sea-View Apartments in Dubai Islands"
+        description="Sea Cliff by Imtiaz at Dubai Islands offers modern 1–4 BR sea-view apartments with a flexible 50/50 payment plan, resort-style amenities and coastal living moments from the city."
+        canonicalPath="/projects/imtiaz/sea-cliff-by-imtiaz"
+      />
+
 
       <Header />
 

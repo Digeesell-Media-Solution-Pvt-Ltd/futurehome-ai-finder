@@ -14,6 +14,7 @@ import bayz102Hero from "@/assets/projects/bayz102-hero.jpg";
 import bayz102Pool from "@/assets/projects/bayz102-pool.jpg";
 import bayz102Lobby from "@/assets/projects/bayz102-lobby.jpg";
 import bayz102Interior from "@/assets/projects/bayz102-interior.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const quickStats = [
   { label: "Starting From", value: "AED 1.38M", icon: TrendingUp },
@@ -87,7 +88,12 @@ const distances = [
 export default function Bayz102Project() {
   const { openLeadCapture } = useLeadCapture();
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Bayz 102 by Danube | Off-Plan Business Bay"
+        description="Bayz 102 by Danube Properties in Business Bay, Dubai — off-plan 1–4 BR residences with top-tier amenities and a flexible payment plan."
+        canonicalPath="/projects/danube/bayz102"
+      />
+
       <Header />
       
       {/* Hero Section */}

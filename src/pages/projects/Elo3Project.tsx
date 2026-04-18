@@ -27,6 +27,7 @@ import heroImage from "@/assets/projects/elo3-hero.jpg";
 import poolImage from "@/assets/projects/elo3-pool.jpg";
 import interiorImage from "@/assets/projects/elo3-interior.jpg";
 import gymImage from "@/assets/projects/elo3-gym.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "ELO 3",
@@ -83,7 +84,12 @@ export default function Elo3Project() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="ELO 3 by DAMAC | Off-Plan Dubai Apartments"
+        description="ELO 3 by DAMAC Properties — off-plan residences in Dubai with contemporary design and a competitive payment plan."
+        canonicalPath="/projects/damac/elo-3"
+      />
+
       <Header />
       
       <main>

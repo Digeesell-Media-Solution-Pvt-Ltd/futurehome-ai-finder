@@ -14,6 +14,7 @@ import heroImage from "@/assets/projects/nad-al-sheba-gardens-hero.jpg";
 import interiorImage from "@/assets/projects/nad-al-sheba-gardens-interior.jpg";
 import parkImage from "@/assets/projects/nad-al-sheba-gardens-park.jpg";
 import poolImage from "@/assets/projects/nad-al-sheba-gardens-pool.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const NadAlShebaGardensProject = () => {
   const { openLeadCapture } = useLeadCapture();
@@ -65,7 +66,12 @@ const NadAlShebaGardensProject = () => {
 
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Nad Al Sheba Gardens by Meraas | Off-Plan"
+        description="Nad Al Sheba Gardens by Meraas — off-plan villas and townhouses in a lush Dubai community with green open spaces and top amenities."
+        canonicalPath="/projects/meraas/nad-al-sheba-gardens"
+      />
+
       <Header />
       
       {/* SEO Meta */}

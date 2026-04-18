@@ -13,6 +13,7 @@ import heroImage from "@/assets/projects/binghatti-luxuria-hero.jpg";
 import interiorImage from "@/assets/projects/binghatti-luxuria-interior.jpg";
 import poolImage from "@/assets/projects/binghatti-luxuria-pool.jpg";
 import lobbyImage from "@/assets/projects/binghatti-luxuria-lobby.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Binghatti Luxuria",
@@ -69,7 +70,12 @@ export default function BinghattiLuxuriaProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Binghatti Luxuria | Off-Plan Dubai"
+        description="Binghatti Luxuria by Binghatti Developers — luxury off-plan residences in Dubai. Explore unit types, pricing, and payment plans."
+        canonicalPath="/projects/binghatti/binghatti-luxuria"
+      />
+
       <Header />
       
       <main>

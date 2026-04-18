@@ -28,6 +28,7 @@ import heroImage from "@/assets/projects/samana-skyviews-hero.jpg";
 import interiorImage from "@/assets/projects/samana-skyviews-interior.jpg";
 import rooftopImage from "@/assets/projects/samana-skyviews-rooftop.jpg";
 import coworkImage from "@/assets/projects/samana-skyviews-cowork.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Samana Sky Views",
@@ -85,7 +86,12 @@ export default function SamanaSkyViewsProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Samana Sky Views | Off-Plan Dubai"
+        description="Samana Sky Views by Samana Developers — off-plan high-rise apartments in Dubai with breathtaking skyline views and resort-style facilities."
+        canonicalPath="/projects/samana/samana-sky-views"
+      />
+
       <Header />
       
       <main>
