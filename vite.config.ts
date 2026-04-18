@@ -228,6 +228,31 @@ export default defineConfig(({ mode }) => ({
     // operators.  Production users on modern browsers are unaffected — the transpiled
     // output is functionally identical and only marginally larger.
     target: "chrome79",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom", "react-router-dom"],
+          "vendor-ui": [
+            "@radix-ui/react-accordion",
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-select",
+            "@radix-ui/react-tabs",
+            "@radix-ui/react-tooltip",
+            "@radix-ui/react-popover",
+            "@radix-ui/react-label",
+            "@radix-ui/react-separator",
+            "@radix-ui/react-slot",
+          ],
+          "vendor-query": ["@tanstack/react-query"],
+          "vendor-supabase": ["@supabase/supabase-js"],
+          "vendor-motion": ["framer-motion"],
+          "vendor-icons": ["lucide-react"],
+          "vendor-charts": ["recharts"],
+          "vendor-utils": ["clsx", "tailwind-merge", "class-variance-authority"],
+        },
+      },
+    },
   },
   plugins: [
     react(),

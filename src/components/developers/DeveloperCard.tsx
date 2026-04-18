@@ -37,10 +37,11 @@ export function DeveloperCard({ developer, index = 0, variant = "default" }: Dev
             "shadow-inner"
           )}>
             {developer.logoUrl ? (
-              <img 
-                src={developer.logoUrl} 
+              <img
+                src={developer.logoUrl}
                 alt={developer.nameEn}
                 className="w-14 h-14 object-contain"
+                loading="lazy"
               />
             ) : (
               <span className="font-display text-2xl font-bold text-muted-foreground group-hover:text-primary transition-colors">
