@@ -1,0 +1,13 @@
+[build]
+  # Install Puppeteer system deps then run the prerender build
+  command = "sudo apt-get install -y --no-install-recommends libxss1 libnss3 libatk-bridge2.0-0 libgtk-3-0 libgbm1 libasound2 fonts-liberation libappindicator3-1 xdg-utils && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback — serves index.html for any path not found as a static file
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
