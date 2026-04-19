@@ -52,13 +52,16 @@ jobs:
           VITE_SUPABASE_PROJECT_ID: ${{ secrets.VITE_SUPABASE_PROJECT_ID }}
           VITE_SITE_URL: https://off-plan-projects.com
 
-      # ── 7. Vercel: pull project settings ────────────────────────────────────
-      # Writes .vercel/project.json so --prebuilt deploy knows the target project.
-      - name: Pull Vercel project settings
-        run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      # ── 7. Write .vercel/project.json from secrets ───────────────────────────
+      # vercel pull requires a pre-linked local project; we skip it and write
+      # project.json directly so --prebuilt deploy knows the target project.
+      - name: Link Vercel project
+        run: |
+          mkdir -p .vercel
+          printf '{"orgId":"%s","projectId":"%s"}\n' \
+            "${{ secrets.VERCEL_ORG_ID }}" \
+            "${{ secrets.VERCEL_PROJECT_ID }}" \
+            > .vercel/project.json
 
       # ── 8. Assemble Vercel prebuilt output ───────────────────────────────────
       # Vercel's prebuilt deploy expects .vercel/output/static/ + config.json.
@@ -68,13 +71,8 @@ jobs:
         run: |
           mkdir -p .vercel/output/static
           cp -r dist/. .vercel/output/static/
-          printf '%s\n' '{
-            "version": 3,
-            "routes": [
-              { "handle": "filesystem" },
-              { "src": "/(.*)", "dest": "/index.html" }
-            ]
-          }' > .vercel/output/config.json
+          printf '{"version":3,"routes":[{"handle":"filesystem"},{"src":"/(.*)","dest":"/index.html"}]}\n' \
+            > .vercel/output/config.json
 
       # ── 9. Deploy ────────────────────────────────────────────────────────────
       - name: Deploy to Vercel (production)
