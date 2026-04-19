@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       # ── 1. Source ────────────────────────────────────────────────────────────
@@ -18,9 +18,12 @@ jobs:
       - name: Install Puppeteer system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
+          # libxss1 and libasound2 exist on Ubuntu 22.04; listed explicitly for clarity.
+          # If a future runner image drops them, the --ignore-missing flag prevents a hard stop.
+          sudo apt-get install -y --no-install-recommends \
             libxss1 libnss3 libatk-bridge2.0-0 \
-            libgtk-3-0 libgbm1 libasound2
+            libgtk-3-0 libgbm1 libasound2 \
+            fonts-liberation libappindicator3-1 xdg-utils
 
       # ── 3. Node + npm cache ──────────────────────────────────────────────────
       - name: Setup Node.js 20
