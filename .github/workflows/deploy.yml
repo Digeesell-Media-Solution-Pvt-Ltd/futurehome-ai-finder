@@ -52,18 +52,45 @@ jobs:
           VITE_SUPABASE_PROJECT_ID: ${{ secrets.VITE_SUPABASE_PROJECT_ID }}
           VITE_SITE_URL: https://off-plan-projects.com
 
-      # ── 7. Write .vercel/project.json from secrets ───────────────────────────
+      # ── 7. Verify all required secrets are present ──────────────────────────
+      # Fail immediately with an actionable message instead of a cryptic
+      # "no credentials found" error buried in the Vercel CLI output.
+      - name: Check required secrets
+        run: |
+          missing=""
+          [ -z "$VERCEL_TOKEN" ]      && missing="$missing VERCEL_TOKEN"
+          [ -z "$VERCEL_ORG_ID" ]     && missing="$missing VERCEL_ORG_ID"
+          [ -z "$VERCEL_PROJECT_ID" ] && missing="$missing VERCEL_PROJECT_ID"
+          if [ -n "$missing" ]; then
+            echo "::error title=Missing GitHub secrets::The following secrets are not set:$missing"
+            echo ""
+            echo "Add them at: GitHub → repo Settings → Secrets and variables → Actions → New repository secret"
+            echo "  VERCEL_TOKEN      → vercel.com → Settings → Tokens → Create Token"
+            echo "  VERCEL_ORG_ID     → vercel.com → team Settings → General → Team ID"
+            echo "  VERCEL_PROJECT_ID → vercel.com → project Settings → General → Project ID"
+            exit 1
+          fi
+          echo "All required secrets are set."
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      # ── 8. Write .vercel/project.json from secrets ───────────────────────────
       # vercel pull requires a pre-linked local project; we skip it and write
       # project.json directly so --prebuilt deploy knows the target project.
       - name: Link Vercel project
         run: |
           mkdir -p .vercel
           printf '{"orgId":"%s","projectId":"%s"}\n' \
-            "${{ secrets.VERCEL_ORG_ID }}" \
-            "${{ secrets.VERCEL_PROJECT_ID }}" \
+            "$VERCEL_ORG_ID" \
+            "$VERCEL_PROJECT_ID" \
             > .vercel/project.json
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
-      # ── 8. Assemble Vercel prebuilt output ───────────────────────────────────
+      # ── 9. Assemble Vercel prebuilt output ───────────────────────────────────
       # Vercel's prebuilt deploy expects .vercel/output/static/ + config.json.
       # We copy dist/ (already fully prerendered) so Vercel just serves it;
       # no second build happens on Vercel's side.
@@ -74,9 +101,13 @@ jobs:
           printf '{"version":3,"routes":[{"handle":"filesystem"},{"src":"/(.*)","dest":"/index.html"}]}\n' \
             > .vercel/output/config.json
 
-      # ── 9. Deploy ────────────────────────────────────────────────────────────
+      # ── 10. Deploy ───────────────────────────────────────────────────────────
+      # Pass token via VERCEL_TOKEN env var (Vercel CLI reads it automatically).
+      # Using an env var instead of --token=... prevents the empty-token case
+      # from silently passing an empty string to the CLI.
       - name: Deploy to Vercel (production)
-        run: npx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel deploy --prebuilt --prod
         env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
