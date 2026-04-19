@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { 
   ArrowRight, 
   Building2, 
@@ -81,13 +81,12 @@ export default function EleganceTowerProject() {
   const { openLeadCapture } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Elegance Tower by DAMAC | Luxury Residences in Downtown Dubai</title>
-        <meta
-          name="description"
-          content="Discover Elegance Tower by DAMAC – a 26-storey masterpiece co-designed with Zuhair Murad in Downtown Dubai. 1 & 2 BR couture-inspired residences with Burj Khalifa views."
-        />
-      </Helmet>
+      <SeoHead
+        title="Elegance Tower by DAMAC | Luxury Residences in Downtown Dubai"
+        description="Discover Elegance Tower by DAMAC – a 26-storey masterpiece co-designed with Zuhair Murad in Downtown Dubai. 1 & 2 BR couture-inspired residences with Burj Khalifa views."
+        canonicalPath="/projects/damac/elegance-tower"
+      />
+
 
       <Header />
       

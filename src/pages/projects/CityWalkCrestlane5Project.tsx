@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -47,17 +47,12 @@ const CityWalkCrestlane5Project = () => {
 
   return (
     <>
-      <Helmet>
-        <title>City Walk Crestlane 5 by Meraas | Apartments &amp; Duplexes in City Walk</title>
-        <meta
-          name="description"
-          content="City Walk Crestlane 5 by Meraas brings a new phase of design-led apartments and duplexes to City Walk (Al Wasl), combining water-inspired landscapes with walkable urban living in Dubai."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/meraas/city-walk-crestlane-5"
-        />
-      </Helmet>
+      <SeoHead
+        title="City Walk Crestlane 5 by Meraas | Apartments &amp; Duplexes in City Walk"
+        description="City Walk Crestlane 5 by Meraas brings a new phase of design-led apartments and duplexes to City Walk (Al Wasl), combining water-inspired landscapes with walkable urban living in Dubai."
+        canonicalPath="/projects/meraas/city-walk-crestlane-5"
+      />
+
 
       <Header />
 

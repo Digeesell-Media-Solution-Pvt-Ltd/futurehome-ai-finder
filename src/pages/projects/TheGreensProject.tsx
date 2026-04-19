@@ -13,6 +13,7 @@ import heroImage from "@/assets/projects/the-greens-hero.jpg";
 import interiorImage from "@/assets/projects/the-greens-interior.jpg";
 import poolImage from "@/assets/projects/the-greens-pool.jpg";
 import parkImage from "@/assets/projects/the-greens-park.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const TheGreensProject = () => {
   const { openLeadCapture } = useLeadCapture();
@@ -61,7 +62,12 @@ const TheGreensProject = () => {
 
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="The Greens by Sobha | Off-Plan Dubai"
+        description="The Greens by Sobha Realty — off-plan green-living community in Dubai surrounded by lush landscaping and premium residential facilities."
+        canonicalPath="/projects/sobha/the-greens"
+      />
+
       <Header />
       
       {/* Hero Section */}

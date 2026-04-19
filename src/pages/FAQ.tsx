@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { SeoHead } from "@/components/seo/SeoHead";
+import { ProgrammaticJsonLd } from "@/components/programmatic/ProgrammaticJsonLd";
+import { faqPageSchema } from "@/lib/seo/schema-jsonld";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import {
@@ -49,6 +51,9 @@ export default function FAQPage() {
         title="UAE Off-Plan Property FAQ | Common Buyer Questions Answered"
         description="Answers to the most common questions about buying off-plan property in the UAE — payment plans, developer trust, DLD registration, Golden Visa and more."
         canonicalPath="/faq"
+      />
+      <ProgrammaticJsonLd
+        data={[faqPageSchema(faqs.map(({ question, answer }) => ({ question, answer })))].filter(Boolean) as Record<string, unknown>[]}
       />
 
       <Header />

@@ -14,6 +14,7 @@ import shahrukhzLobby from "@/assets/projects/shahrukhz-lobby.jpg";
 import shahrukhzSkypool from "@/assets/projects/shahrukhz-skypool.jpg";
 import shahrukhzHelipad from "@/assets/projects/shahrukhz-helipad.jpg";
 import shahrukhzLounge from "@/assets/projects/shahrukhz-lounge.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const quickStats = [
   { label: "Starting From", value: "AED 1.9M", icon: TrendingUp },
@@ -76,7 +77,12 @@ const distances = [
 export default function ShahrukhzProject() {
   const { openLeadCapture } = useLeadCapture();
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Shahrukhz by Danube | Off-Plan Dubai"
+        description="Shahrukhz by Danube Properties — a celebrity-inspired off-plan development in Dubai featuring unique themed residences and premium amenities."
+        canonicalPath="/projects/danube/shahrukhz"
+      />
+
       <Header />
       
       {/* Hero Section */}

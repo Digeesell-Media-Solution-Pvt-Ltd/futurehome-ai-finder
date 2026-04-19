@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, TreePine, Home, Award, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { ProgrammaticJsonLd } from "@/components/programmatic/ProgrammaticJsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/schema-jsonld";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -30,10 +32,18 @@ const fadeUp = {
 export default function DamacHillsArea() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>DAMAC Hills Area Guide - Off-Plan Projects & Investments</title>
-        <meta name="description" content="Explore off-plan projects in DAMAC Hills. Luxury villas, golf course views, branded residences, and strong investment potential in a master-planned community." />
-      </Helmet>
+      <SeoHead
+        title="DAMAC Hills Area Guide - Off-Plan Projects & Investments"
+        description="Explore off-plan projects in DAMAC Hills. Luxury villas, golf course views, branded residences, and strong investment potential in a master-planned community."
+        canonicalPath="/areas/damac-hills"
+      />
+      <ProgrammaticJsonLd
+        data={[breadcrumbListSchema([
+          { name: "Home", path: "/" },
+          { name: "Areas", path: "/areas" },
+          { name: "DAMAC Hills", path: "/areas/damac-hills" },
+        ])]}
+      />
 
       <Header />
 

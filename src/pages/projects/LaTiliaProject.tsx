@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLeadCapture } from "@/contexts/LeadCaptureContext";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 import heroImage from "@/assets/projects/la-tilia-hero.jpg";
 import interiorImage from "@/assets/projects/la-tilia-interior.jpg";
@@ -55,12 +55,13 @@ const LaTiliaProject = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <SeoHead
+        title="La Tilia at Villanova | Townhouses in Dubailand Dubai"
+        description="Explore La Tilia at Villanova by Dubai Properties — family-focused 3 & 4 BR townhouses in a gated, nature-rich community in Dubailand, Dubai."
+        canonicalPath="/projects/dubai-properties/la-tilia"
+      />
 
-      <Helmet>
-        <title>La Tilia at Villanova | Dubai Properties | Townhouses in Dubailand</title>
-        <meta name="description" content="Explore La Tilia at Villanova by Dubai Properties — family-focused 3 & 4 BR townhouses in a gated, nature-rich community in Dubailand, Dubai." />
-      </Helmet>
+      <Header />
 
       {/* Hero Section */}
       <section className="relative h-[70vh] overflow-hidden">

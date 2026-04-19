@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { 
   ArrowRight, 
   Building2, 
@@ -87,13 +87,12 @@ export default function VoltaProject() {
   const { openLeadCapture } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Volta by DAMAC | Fitness-Inspired Luxury on Sheikh Zayed Road</title>
-        <meta
-          name="description"
-          content="Discover Volta by DAMAC – wellness-focused luxury 1-4 BR apartments on Sheikh Zayed Road with climbing wall, boxing ring, pools, and 1% monthly payment plan."
-        />
-      </Helmet>
+      <SeoHead
+        title="Volta by DAMAC | Fitness-Inspired Luxury on Sheikh Zayed Road"
+        description="Discover Volta by DAMAC – wellness-focused luxury 1-4 BR apartments on Sheikh Zayed Road with climbing wall, boxing ring, pools, and 1% monthly payment plan."
+        canonicalPath="/projects/damac/volta"
+      />
+
 
       <Header />
       

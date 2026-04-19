@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -40,17 +40,12 @@ const ZyraHillsProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Zyra Hills by Laraix Developers | Off-plan Apartments in Dubai</title>
-        <meta
-          name="description"
-          content="Zyra Hills by Laraix Developers is an off-plan residential concept in Dubai, combining modern architecture, nature-inspired surroundings and investment-focused positioning."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/laraix/zyra-hills"
-        />
-      </Helmet>
+      <SeoHead
+        title="Zyra Hills by Laraix Developers | Off-plan Apartments in Dubai"
+        description="Zyra Hills by Laraix Developers is an off-plan residential concept in Dubai, combining modern architecture, nature-inspired surroundings and investment-focused positioning."
+        canonicalPath="/projects/laraix/zyra-hills"
+      />
+
 
       <Header />
 

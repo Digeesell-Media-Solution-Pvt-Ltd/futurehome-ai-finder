@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -58,17 +58,12 @@ const SixSensesResidencesDubaiMarinaProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Six Senses Residences Dubai Marina by Select Group | Branded Residences</title>
-        <meta
-          name="description"
-          content="Discover Six Senses Residences Dubai Marina by Select Group — ultra-luxury branded residences with a wellness-led lifestyle concept in Dubai Marina."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/select-group/six-senses-residences-dubai-marina"
-        />
-      </Helmet>
+      <SeoHead
+        title="Six Senses Residences Dubai Marina by Select Group | Branded Residences"
+        description="Discover Six Senses Residences Dubai Marina by Select Group — ultra-luxury branded residences with a wellness-led lifestyle concept in Dubai Marina."
+        canonicalPath="/projects/select-group/six-senses-residences-dubai-marina"
+      />
+
 
       <Header />
 

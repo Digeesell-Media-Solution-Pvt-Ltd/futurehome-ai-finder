@@ -14,6 +14,7 @@ import heroImage from "@/assets/projects/the-brooks-hero.jpg";
 import interiorImage from "@/assets/projects/the-brooks-interior.jpg";
 import parkImage from "@/assets/projects/the-brooks-park.jpg";
 import clubhouseImage from "@/assets/projects/the-brooks-clubhouse.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const TheBrooksProject = () => {
   const { openLeadCapture } = useLeadCapture();
@@ -69,7 +70,12 @@ const TheBrooksProject = () => {
 
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="The Brooks by Sobha | Off-Plan Dubai"
+        description="The Brooks by Sobha Realty — off-plan residences in Dubai blending natural landscapes with luxury living and top-tier community facilities."
+        canonicalPath="/projects/sobha/the-brooks"
+      />
+
       <Header />
       
       {/* Hero Section */}

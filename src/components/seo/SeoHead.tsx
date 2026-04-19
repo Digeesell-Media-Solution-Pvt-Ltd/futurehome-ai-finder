@@ -26,10 +26,13 @@ export function SeoHead({
       <title>{safeTitle}</title>
       {safeDescription ? <meta name="description" content={safeDescription} /> : null}
       {canonical ? <link rel="canonical" href={canonical} /> : null}
-      {safeDescription ? <meta property="og:description" content={safeDescription} /> : null}
+      <meta property="og:site_name" content="Off Plan Projects" />
       <meta property="og:title" content={safeTitle} />
       <meta property="og:type" content={ogType} />
+      {safeDescription ? <meta property="og:description" content={safeDescription} /> : null}
       {canonical ? <meta property="og:url" content={canonical} /> : null}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@offplanprojects" />
       {noindex ? <meta name="robots" content="noindex,nofollow" /> : null}
     </Helmet>
   );

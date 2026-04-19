@@ -14,6 +14,7 @@ import sparklzInterior from "@/assets/projects/sparklz-interior.jpg";
 import sparklzPool from "@/assets/projects/sparklz-pool.jpg";
 import sparklzLobby from "@/assets/projects/sparklz-lobby.jpg";
 import sparklzGym from "@/assets/projects/sparklz-gym.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const quickStats = [
   { label: "Starting From", value: "AED 900K", icon: TrendingUp },
@@ -78,7 +79,12 @@ const distances = [
 export default function SparklzProject() {
   const { openLeadCapture } = useLeadCapture();
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Sparklz by Danube | Off-Plan Al Furjan Dubai"
+        description="Sparklz by Danube in Al Furjan, Dubai — off-plan apartments with 30+ amenities, a rooftop pool, and a flexible payment plan."
+        canonicalPath="/projects/danube/sparklz"
+      />
+
       <Header />
       
       {/* Hero Section */}

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -67,14 +67,12 @@ const PalmCentralPrivateResidencesProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Palm Central Private Residences by Nakheel | Palm Jumeirah Luxury Living</title>
-        <meta
-          name="description"
-          content="Discover Palm Central Private Residences by Nakheel — a premium Palm Jumeirah residential address with curated amenities, elegant layouts, and strong long-term investment appeal."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/nakheel/palm-central-private-residences" />
-      </Helmet>
+      <SeoHead
+        title="Palm Central Private Residences by Nakheel | Palm Jumeirah Luxury Living"
+        description="Discover Palm Central Private Residences by Nakheel — a premium Palm Jumeirah residential address with curated amenities, elegant layouts, and strong long-term investment appeal."
+        canonicalPath="/projects/nakheel/palm-central-private-residences"
+      />
+
 
       <Header />
 

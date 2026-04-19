@@ -23,7 +23,7 @@ import {
   Shield,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLeadCapture } from "@/contexts/LeadCaptureContext";
@@ -114,10 +114,12 @@ export default function HayatDubaiSouthProject() {
   const { openLeadCapture, requestBrochureDownload } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>HAYAT by Dubai South | Townhouses in Dubai South</title>
-        <meta name="description" content="Discover HAYAT by Dubai South Properties — a wellness-oriented master-planned townhouse community featuring 3, 4 and 5-bedroom homes near Al Maktoum International Airport." />
-      </Helmet>
+      <SeoHead
+        title="HAYAT by Dubai South | Townhouses in Dubai South"
+        description="Discover HAYAT by Dubai South Properties — a wellness-oriented townhouse community featuring 3-5 bedroom homes near Al Maktoum International Airport."
+        canonicalPath="/projects/dubai-south-properties/hayat-dubai-south"
+      />
+
       <Header />
 
       {/* Hero Section */}

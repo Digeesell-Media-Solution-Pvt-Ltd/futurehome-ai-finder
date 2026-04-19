@@ -26,6 +26,7 @@ import heroImage from "@/assets/projects/aliyah-hero.jpg";
 import poolImage from "@/assets/projects/aliyah-pool.jpg";
 import interiorImage from "@/assets/projects/aliyah-interior.jpg";
 import lobbyImage from "@/assets/projects/aliyah-lobby.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Aliyah Residences",
@@ -85,7 +86,12 @@ export default function AliyahProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Aliyah by Azizi | Off-Plan Dubai Apartments"
+        description="Aliyah Residences by Azizi Developments — off-plan apartments in Dubai. Discover unit types, floor plans, and flexible payment plans."
+        canonicalPath="/projects/azizi/aliyah"
+      />
+
       <Header />
       
       <main>

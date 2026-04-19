@@ -33,6 +33,7 @@ import oasiz2Hero from "@/assets/projects/oasiz2-hero.jpg";
 import oasiz2Pool from "@/assets/projects/oasiz2-pool.jpg";
 import oasiz2Lobby from "@/assets/projects/oasiz2-lobby.jpg";
 import oasiz2Interior from "@/assets/projects/oasiz2-interior.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const quickStats = [
   { label: "Starting Price", value: "AED 699K", icon: TrendingUp },
@@ -87,7 +88,12 @@ const relatedProjects = [
 
 export default function Oasiz2Project() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Oasiz 2 by Danube | Off-Plan Dubai"
+        description="Oasiz 2 by Danube Properties — off-plan 1–3 BR apartments in Dubai from AED 950K with resort-style facilities and a 1% payment plan."
+        canonicalPath="/projects/danube/oasiz2"
+      />
+
       <Header />
       
       {/* Hero Section */}

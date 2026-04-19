@@ -28,6 +28,7 @@ import heroImage from "@/assets/projects/damac-islands-hero.jpg";
 import lagoonImage from "@/assets/projects/damac-islands-lagoon.jpg";
 import interiorImage from "@/assets/projects/damac-islands-interior.jpg";
 import beachImage from "@/assets/projects/damac-islands-beach.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "DAMAC Islands",
@@ -87,7 +88,12 @@ export default function DamacIslandsProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="DAMAC Islands | Off-Plan Tropical Dubai"
+        description="DAMAC Islands by DAMAC Properties — a tropical-themed off-plan community in Dubai. Explore villas, townhouses, and investment opportunities."
+        canonicalPath="/projects/damac/damac-islands"
+      />
+
       <Header />
       
       <main>

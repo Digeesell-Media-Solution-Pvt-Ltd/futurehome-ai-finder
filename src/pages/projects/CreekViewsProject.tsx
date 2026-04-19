@@ -27,6 +27,7 @@ import heroImage from "@/assets/projects/creek-views-hero.jpg";
 import rooftopImage from "@/assets/projects/creek-views-rooftop.jpg";
 import interiorImage from "@/assets/projects/creek-views-interior.jpg";
 import poolImage from "@/assets/projects/creek-views-pool.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Creek Views",
@@ -84,7 +85,12 @@ export default function CreekViewsProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Creek Views by Azizi | Off-Plan Dubai Creek"
+        description="Creek Views by Azizi Developments — off-plan apartments with panoramic Dubai Creek views. Discover unit types and investment details."
+        canonicalPath="/projects/azizi/creek-views"
+      />
+
       <Header />
       
       <main>

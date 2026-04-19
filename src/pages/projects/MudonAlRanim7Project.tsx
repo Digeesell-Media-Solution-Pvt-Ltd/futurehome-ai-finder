@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useLeadCapture } from "@/contexts/LeadCaptureContext";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 import heroImage from "@/assets/projects/mudon-al-ranim-7-hero.jpg";
 import interiorImage from "@/assets/projects/mudon-al-ranim-7-interior.jpg";
@@ -55,12 +55,13 @@ const MudonAlRanim7Project = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <SeoHead
+        title="Mudon Al Ranim 7 by Dubai Properties | Townhouses Dubai"
+        description="Explore Mudon Al Ranim 7 offering 3 & 4 bedroom townhouses in Mudon, Dubai. Family-focused living in a green gated community."
+        canonicalPath="/projects/dubai-properties/mudon-al-ranim-7"
+      />
 
-      <Helmet>
-        <title>Mudon Al Ranim 7 by Dubai Properties | Townhouses in Mudon Dubai</title>
-        <meta name="description" content="Explore Mudon Al Ranim 7 offering 3 & 4 bedroom townhouses in Mudon, Dubai. Family-focused living in a green gated community." />
-      </Helmet>
+      <Header />
 
       {/* Hero Section */}
       <section className="relative h-[70vh] overflow-hidden">

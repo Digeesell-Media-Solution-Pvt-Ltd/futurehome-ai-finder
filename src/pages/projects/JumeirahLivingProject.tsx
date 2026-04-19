@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -46,14 +46,12 @@ const JumeirahLivingProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Jumeirah Living Business Bay | Select Group | Dubai Canal Branded Residences</title>
-        <meta
-          name="description"
-          content="Discover Jumeirah Living Business Bay by Select Group — the only Jumeirah-managed branded residence on Dubai Water Canal. 2–5BR apartments and full-floor penthouse. Under construction, Q4 2025 handover."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/select-group/jumeirah-living-business-bay" />
-      </Helmet>
+      <SeoHead
+        title="Jumeirah Living Business Bay | Select Group | Dubai Canal Branded Residences"
+        description="Discover Jumeirah Living Business Bay by Select Group — the only Jumeirah-managed branded residence on Dubai Water Canal. 2–5BR apartments and full-floor penthouse. Under construction, Q4 2025 handover."
+        canonicalPath="/projects/select-group/jumeirah-living-business-bay"
+      />
+
 
       <Header />
 

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -43,11 +43,12 @@ const PeninsulaFourProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Peninsula Four The Plaza by Select Group | Waterfront Residences Business Bay Dubai</title>
-        <meta name="description" content="Discover Peninsula Four, The Plaza by Select Group — luxury waterfront studios to 4BR penthouses and duplex lofts in Business Bay, steps from Downtown Dubai and Burj Khalifa." />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/select-group/peninsula-four-the-plaza" />
-      </Helmet>
+      <SeoHead
+        title="Peninsula Four The Plaza by Select Group | Waterfront Residences Business Bay Dubai"
+        description="Discover Peninsula Four, The Plaza by Select Group — luxury waterfront studios to 4BR penthouses and duplex lofts in Business Bay, steps from Downtown Dubai and Burj Khalifa."
+        canonicalPath="/projects/select-group/peninsula-four-the-plaza"
+      />
+
 
       <Header />
 

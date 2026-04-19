@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -60,14 +60,12 @@ const ParkwoodDubaiHillsEstateProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Parkwood at Dubai Hills Estate by Emaar | 1-3BR Apartments & Townhouses</title>
-        <meta
-          name="description"
-          content="Explore Parkwood at Dubai Hills Estate by Emaar — 1, 2, and 3-bedroom apartments plus 3-bedroom townhouses from AED 1.75M in Dubai's green heart."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/parkwood-at-dubai-hills-estate" />
-      </Helmet>
+      <SeoHead
+        title="Parkwood at Dubai Hills Estate by Emaar | 1-3BR Apartments & Townhouses"
+        description="Explore Parkwood at Dubai Hills Estate by Emaar — 1, 2, and 3-bedroom apartments plus 3-bedroom townhouses from AED 1.75M in Dubai's green heart."
+        canonicalPath="/projects/emaar/parkwood-at-dubai-hills-estate"
+      />
+
 
       <Header />
 

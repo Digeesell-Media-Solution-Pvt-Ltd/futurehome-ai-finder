@@ -35,6 +35,7 @@ import damacDistrictHero from "@/assets/projects/damac-district-hero.jpg";
 import damacDistrictPool from "@/assets/projects/damac-district-pool.jpg";
 import damacDistrictGym from "@/assets/projects/damac-district-gym.jpg";
 import damacDistrictLifestyle from "@/assets/projects/damac-district-lifestyle.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const quickStats = [
   { label: "Starting Price", value: "AED 1.59M", icon: TrendingUp },
@@ -92,7 +93,12 @@ const galleryImages = [
 export default function DamacDistrictProject() {
   const { openLeadCapture } = useLeadCapture();
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="DAMAC District | Off-Plan Community Dubai"
+        description="DAMAC District by DAMAC Properties — off-plan mixed-use community in Dubai with modern residences, retail, and premium amenities."
+        canonicalPath="/projects/damac/damac-district"
+      />
+
       <Header />
       
       {/* Hero Section */}

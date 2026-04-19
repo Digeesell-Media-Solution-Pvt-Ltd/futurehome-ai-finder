@@ -34,6 +34,7 @@ import damacIslands2Hero from "@/assets/projects/damac-islands2-hero.jpg";
 import damacIslands2Pool from "@/assets/projects/damac-islands2-pool.jpg";
 import damacIslands2Interior from "@/assets/projects/damac-islands2-interior.jpg";
 import damacIslands2Gardens from "@/assets/projects/damac-islands2-gardens.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const quickStats = [
   { label: "Starting Price", value: "AED 2.75M", icon: TrendingUp },
@@ -97,7 +98,12 @@ const galleryImages = [
 export default function DamacIslands2Project() {
   const { openLeadCapture } = useLeadCapture();
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="DAMAC Islands 2 | Off-Plan Dubai"
+        description="DAMAC Islands 2 by DAMAC Properties — off-plan island-inspired residences in Dubai with resort-style amenities and tropical living."
+        canonicalPath="/projects/damac/damac-islands-2"
+      />
+
       <Header />
       
       {/* Hero Section */}

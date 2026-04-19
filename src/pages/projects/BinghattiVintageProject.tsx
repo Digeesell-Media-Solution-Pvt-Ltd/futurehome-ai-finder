@@ -13,6 +13,7 @@ import heroImage from "@/assets/projects/binghatti-vintage-hero.jpg";
 import interiorImage from "@/assets/projects/binghatti-vintage-interior.jpg";
 import bbqImage from "@/assets/projects/binghatti-vintage-bbq.jpg";
 import gymImage from "@/assets/projects/binghatti-vintage-gym.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Binghatti Vintage",
@@ -70,7 +71,12 @@ export default function BinghattiVintageProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Binghatti Vintage | Off-Plan Dubai"
+        description="Binghatti Vintage by Binghatti Developers — off-plan Dubai residences with timeless design, premium finishes, and attractive payment plans."
+        canonicalPath="/projects/binghatti/binghatti-vintage"
+      />
+
       <Header />
       
       <main>

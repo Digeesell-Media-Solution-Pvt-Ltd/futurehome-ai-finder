@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -50,17 +50,12 @@ const ArtHousePrivateResidencesProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Art House Private Residences by VIVA | Apartments in Meydan District 11</title>
-        <meta
-          name="description"
-          content="Art House Private Residences by VIVA Real Estate Development is positioned in Meydan District 11 as a design-led apartment project with a focus on curated living and proximity to key Dubai destinations."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/viva/art-house-private-residences"
-        />
-      </Helmet>
+      <SeoHead
+        title="Art House Private Residences by VIVA | Apartments in Meydan District 11"
+        description="Art House Private Residences by VIVA Real Estate Development is positioned in Meydan District 11 as a design-led apartment project with a focus on curated living and proximity to key Dubai destinations."
+        canonicalPath="/projects/viva/art-house-private-residences"
+      />
+
 
       <Header />
 

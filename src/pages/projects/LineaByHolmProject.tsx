@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -60,17 +60,12 @@ const LineaByHolmProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Linea by HOLM | Apartments in Jumeirah Garden City, Dubai</title>
-        <meta
-          name="description"
-          content="Linea by HOLM in Jumeirah Garden City offers fully furnished apartments with smart home technology, low-rise living and premium amenities. Completion Q4 2027."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/holm/linea-by-holm"
-        />
-      </Helmet>
+      <SeoHead
+        title="Linea by HOLM | Apartments in Jumeirah Garden City, Dubai"
+        description="Linea by HOLM in Jumeirah Garden City offers fully furnished apartments with smart home technology, low-rise living and premium amenities. Completion Q4 2027."
+        canonicalPath="/projects/holm/linea-by-holm"
+      />
+
 
       <Header />
 

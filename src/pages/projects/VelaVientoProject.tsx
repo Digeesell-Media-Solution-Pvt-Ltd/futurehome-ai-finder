@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -43,11 +43,12 @@ const VelaVientoProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>VELA Viento by Omniyat | Dorchester Collection Residences Business Bay</title>
-        <meta name="description" content="Explore VELA Viento at Dubai Water Canal by Omniyat, ultra-luxury branded residences managed by Dorchester Collection in Business Bay, Dubai." />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/omniyat/vela-viento-dorchester-collection" />
-      </Helmet>
+      <SeoHead
+        title="VELA Viento by Omniyat | Dorchester Collection Residences Business Bay"
+        description="Explore VELA Viento at Dubai Water Canal by Omniyat, ultra-luxury branded residences managed by Dorchester Collection in Business Bay, Dubai."
+        canonicalPath="/projects/omniyat/vela-viento-dorchester-collection"
+      />
+
 
       <Header />
 

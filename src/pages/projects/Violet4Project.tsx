@@ -27,6 +27,7 @@ import heroImage from "@/assets/projects/violet4-hero.jpg";
 import parkImage from "@/assets/projects/violet4-park.jpg";
 import interiorImage from "@/assets/projects/violet4-interior.jpg";
 import amenitiesImage from "@/assets/projects/violet4-amenities.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Violet 4",
@@ -81,7 +82,12 @@ export default function Violet4Project() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Violet 4 by DAMAC | Off-Plan DAMAC Hills 2"
+        description="Violet 4 by DAMAC Properties — off-plan townhouses in DAMAC Hills 2 featuring green surroundings and a vibrant community lifestyle."
+        canonicalPath="/projects/damac/violet-4"
+      />
+
       <Header />
       
       <main>

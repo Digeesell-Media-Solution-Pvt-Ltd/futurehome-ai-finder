@@ -14,6 +14,7 @@ import heroImage from "@/assets/projects/city-walk-crestlane-hero.jpg";
 import interiorImage from "@/assets/projects/city-walk-crestlane-interior.jpg";
 import poolImage from "@/assets/projects/city-walk-crestlane-pool.jpg";
 import retailImage from "@/assets/projects/city-walk-crestlane-retail.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const CityWalkCrestlaneProject = () => {
   const { openLeadCapture } = useLeadCapture();
@@ -65,7 +66,12 @@ const CityWalkCrestlaneProject = () => {
 
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="City Walk Crestlane by Meraas | Off-Plan Dubai"
+        description="City Walk Crestlane by Meraas — off-plan residences in Dubai's vibrant City Walk lifestyle district. Explore units and payment options."
+        canonicalPath="/projects/meraas/city-walk-crestlane"
+      />
+
       <Header />
       
       {/* SEO Meta */}

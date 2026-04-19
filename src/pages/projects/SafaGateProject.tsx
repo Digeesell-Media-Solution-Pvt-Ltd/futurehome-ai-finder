@@ -10,6 +10,7 @@ import heroImage from "@/assets/projects/safa-gate-hero.jpg";
 import poolImage from "@/assets/projects/safa-gate-pool.jpg";
 import interiorImage from "@/assets/projects/safa-gate-interior.jpg";
 import gymImage from "@/assets/projects/safa-gate-gym.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const quickStats = [
   { label: "Starting Price", value: "AED 1.41M" },
@@ -51,7 +52,12 @@ const paymentPlan = [
 
 export default function SafaGateProject() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Safa Gate by DAMAC | Off-Plan Dubai"
+        description="Safa Gate by DAMAC Properties — off-plan luxury residences adjacent to Safa Park with panoramic city and park views."
+        canonicalPath="/projects/damac/safa-gate"
+      />
+
       <Header />
       
       <main>

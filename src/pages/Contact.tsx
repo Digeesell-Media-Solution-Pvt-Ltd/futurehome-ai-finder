@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Send, CheckCircle } from "lucide-react";
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
@@ -31,13 +31,11 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Contact | Get Info on UAE Off-Plan Projects</title>
-        <meta
-          name="description"
-          content="Have a question about a project in Dubai or the UAE? Use our form to get connected to official developers or agents — no brokers involved."
-        />
-      </Helmet>
+      <SeoHead
+        title="Contact | Get Info on UAE Off-Plan Projects"
+        description="Have a question about a project in Dubai or the UAE? Use our form to get connected to official developers or agents — no brokers involved."
+        canonicalPath="/contact"
+      />
 
       <Header />
 

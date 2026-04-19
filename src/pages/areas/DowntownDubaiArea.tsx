@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, Train, Building, Landmark, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { ProgrammaticJsonLd } from "@/components/programmatic/ProgrammaticJsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/schema-jsonld";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -30,10 +32,18 @@ const fadeUp = {
 export default function DowntownDubaiArea() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Downtown Dubai Area Guide - Off-Plan Projects & Investments</title>
-        <meta name="description" content="Explore luxury off-plan projects and investment opportunities in Downtown Dubai. Home to Burj Khalifa and Dubai Mall — browse verified listings and developer insights." />
-      </Helmet>
+      <SeoHead
+        title="Downtown Dubai Area Guide - Off-Plan Projects & Investments"
+        description="Explore luxury off-plan projects and investment opportunities in Downtown Dubai. Home to Burj Khalifa and Dubai Mall — browse verified listings and developer insights."
+        canonicalPath="/areas/downtown-dubai"
+      />
+      <ProgrammaticJsonLd
+        data={[breadcrumbListSchema([
+          { name: "Home", path: "/" },
+          { name: "Areas", path: "/areas" },
+          { name: "Downtown Dubai", path: "/areas/downtown-dubai" },
+        ])]}
+      />
 
       <Header />
 

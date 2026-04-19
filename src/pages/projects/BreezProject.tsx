@@ -14,6 +14,7 @@ import { useLeadCapture } from "@/contexts/LeadCaptureContext";
 import breezHero from "@/assets/projects/breez-hero.jpg";
 import breezAmenities from "@/assets/projects/breez-amenities.jpg";
 import breezRooftop from "@/assets/projects/breez-rooftop.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const amenitiesGroups = [
   {
@@ -70,7 +71,12 @@ export default function BreezProjectPage() {
   const [isSaved, setIsSaved] = useState(false);
   const { openLeadCapture } = useLeadCapture();
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Breez by Danube | Off-Plan Dubai Apartments"
+        description="Breez by Danube Properties — off-plan 1–3 BR apartments in Dubai with 45+ amenities including a rooftop pool and flexible payment plan."
+        canonicalPath="/projects/danube/breez"
+      />
+
       <Header />
       
       <main>

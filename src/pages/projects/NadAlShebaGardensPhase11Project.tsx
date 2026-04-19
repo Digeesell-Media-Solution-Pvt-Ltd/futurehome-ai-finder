@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -41,17 +41,12 @@ const NadAlShebaGardensPhase11Project = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Nad Al Sheba Gardens Phase 11 by Meraas | Villas &amp; Townhouses</title>
-        <meta
-          name="description"
-          content="Nad Al Sheba Gardens Phase 11 by Meraas extends the popular gated villa community in Nad Al Sheba, Dubai with new low-rise villas and townhouses surrounded by landscaped gardens."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/meraas/nad-al-sheba-gardens-phase-11"
-        />
-      </Helmet>
+      <SeoHead
+        title="Nad Al Sheba Gardens Phase 11 by Meraas | Villas &amp; Townhouses"
+        description="Nad Al Sheba Gardens Phase 11 by Meraas extends the popular gated villa community in Nad Al Sheba, Dubai with new low-rise villas and townhouses surrounded by landscaped gardens."
+        canonicalPath="/projects/meraas/nad-al-sheba-gardens-phase-11"
+      />
+
 
       <Header />
 

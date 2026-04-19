@@ -1,38 +1,196 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://off-plan-projects.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://off-plan-projects.com/projects</loc><changefreq>daily</changefreq><priority>0.95</priority></url>
-  <url><loc>https://off-plan-projects.com/developers</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://off-plan-projects.com/areas</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://off-plan-projects.com/blog</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://off-plan-projects.com/ai-search</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://off-plan-projects.com/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://off-plan-projects.com/contact</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
-  <url><loc>https://off-plan-projects.com/off-plan-projects/dubai-marina</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://off-plan-projects.com/off-plan-projects/downtown-dubai</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://off-plan-projects.com/off-plan-projects/palm-jumeirah</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://off-plan-projects.com/off-plan-by-developer/emaar</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://off-plan-projects.com/off-plan-by-developer/damac</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://off-plan-projects.com/off-plan-by-developer/sobha</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- ===== Core hub pages ===== -->
+  <url><loc>https://off-plan-projects.com/</loc><lastmod>2026-04-17</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://off-plan-projects.com/projects</loc><lastmod>2026-04-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://off-plan-projects.com/areas</loc><lastmod>2026-04-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://off-plan-projects.com/developers</loc><lastmod>2026-04-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://off-plan-projects.com/ai-search</loc><lastmod>2026-04-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://off-plan-projects.com/insights</loc><lastmod>2026-04-17</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://off-plan-projects.com/blog</loc><lastmod>2026-04-17</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://off-plan-projects.com/faq</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://off-plan-projects.com/about</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://off-plan-projects.com/contact</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://off-plan-projects.com/blog/dubai-off-plan-payment-plans-guide</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/blog/best-areas-invest-dubai</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/blog/off-plan-vs-ready-dubai</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/blog/is-off-plan-worth-it-dubai</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/blog/why-invest-off-plan-dubai-2026</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/blog/off-plan-projects-jvc-dubai</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <!-- ===== Policy pages ===== -->
+  <url><loc>https://off-plan-projects.com/privacy-policy</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://off-plan-projects.com/terms-of-use</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://off-plan-projects.com/cookie-policy</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://off-plan-projects.com/disclaimer</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://off-plan-projects.com/advertising-policy</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
 
-  <url><loc>https://off-plan-projects.com/projects/danube/breez</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/projects/danube/timez</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/projects/damac/damac-islands</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/projects/damac/safa-gate</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/projects/sobha/the-pinnacle</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/projects/sobha/the-grove</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/projects/emaar/vista-ridge</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/projects/emaar/golf-dale-at-emaar-south</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/projects/nakheel/tilal-al-furjan</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/projects/omniyat/alba-residences</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/projects/select-group/six-senses-residences-dubai-marina</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://off-plan-projects.com/projects/ellington/eltiera-views</loc><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <!-- ===== Area detail pages (15) ===== -->
+  <url><loc>https://off-plan-projects.com/areas/dubai-marina</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/downtown-dubai</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/palm-jumeirah</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/business-bay</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/dubai-hills</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/jvc</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/dubai-creek-harbour</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/meydan</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/al-marjan-island</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/dubai-south</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/dubai-sports-city</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/al-furjan</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/dubai-silicon-oasis</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/damac-hills</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/areas/sheikh-zayed-road</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ===== Developer detail pages (1) ===== -->
+  <url><loc>https://off-plan-projects.com/developers/select-group</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ===== Blog posts (7) ===== -->
+  <url><loc>https://off-plan-projects.com/blog/dubai-off-plan-payment-plans-guide</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/blog/why-invest-off-plan-dubai-2026</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/blog/is-off-plan-worth-it-dubai</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/blog/best-areas-invest-dubai</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/blog/off-plan-vs-ready-dubai</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/blog/off-plan-projects-jvc-dubai</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://off-plan-projects.com/blog/best-off-plan-projects-dubai-marina</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- ===== Programmatic SEO pages (6) ===== -->
+  <url><loc>https://off-plan-projects.com/off-plan-projects/dubai-marina</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://off-plan-projects.com/off-plan-projects/downtown-dubai</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://off-plan-projects.com/off-plan-projects/palm-jumeirah</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://off-plan-projects.com/off-plan-by-developer/emaar</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://off-plan-projects.com/off-plan-by-developer/damac</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://off-plan-projects.com/off-plan-by-developer/sobha</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+
+  <!-- ===== Project detail pages (100) ===== -->
+
+  <!-- Danube (8) -->
+  <url><loc>https://off-plan-projects.com/projects/danube/breez</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/danube/timez</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/danube/sparklz</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/danube/shahrukhz</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/danube/aspirz</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/danube/bayz102</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/danube/oasiz</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/danube/oasiz2</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- DAMAC (15) -->
+  <url><loc>https://off-plan-projects.com/projects/damac/damac-islands-2</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/damac-district</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/chelsea-residences</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/safa-gate</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/riverside-views</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/violet-4</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/sun-city</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/damac-islands</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/shoreline</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/elo-3</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/damac-casa</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/volta</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/coral-reef</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/elegance-tower</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/damac/canal-heights</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Azizi (5) -->
+  <url><loc>https://off-plan-projects.com/projects/azizi/burj-azizi</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/azizi/aliyah</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/azizi/creek-views</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/azizi/aura</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/azizi/azizi-david</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Single-project developers (5) -->
+  <url><loc>https://off-plan-projects.com/projects/prestige-one/prestige-one-residences</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/prysm/sunvale</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/tranquil/blossom-40</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/adaan/art-house-hills</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/dugasta-properties/moonsa-residences-2</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Binghatti (5) -->
+  <url><loc>https://off-plan-projects.com/projects/binghatti/binghatti-luxuria</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/binghatti/binghatti-cullinan</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/binghatti/binghatti-hillcrest</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/binghatti/binghatti-titania</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/binghatti/binghatti-vintage</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Samana (5) -->
+  <url><loc>https://off-plan-projects.com/projects/samana/samana-boulevard</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/samana/samana-hills-south-3</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/samana/samana-hills-south-2</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/samana/samana-imperial</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/samana/samana-sky-views</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Reportage (4) -->
+  <url><loc>https://off-plan-projects.com/projects/reportage/rukan-tower</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/reportage/perla-prime</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/reportage/r-hills</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/reportage/via</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Sobha (5) -->
+  <url><loc>https://off-plan-projects.com/projects/sobha/the-grove</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/sobha/the-greens</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/sobha/the-brooks</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/sobha/the-pinnacle</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/sobha/skyvue-altier</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Meraas (8) -->
+  <url><loc>https://off-plan-projects.com/projects/meraas/city-walk-crestlane</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/meraas/city-walk-crestlane-4</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/meraas/city-walk-crestlane-5</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/meraas/the-edit-d3</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/meraas/nad-al-sheba-gardens</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/meraas/nad-al-sheba-gardens-phase-11</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/meraas/mjl-nourelle</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/meraas/jumeirah-emirates-tower</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Green Horizon + Dubai Properties (4) -->
+  <url><loc>https://off-plan-projects.com/projects/green-horizon/meriden-beach</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/dubai-properties/la-tilia</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/dubai-properties/mudon-al-ranim-5</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/dubai-properties/mudon-al-ranim-7</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Ellington (3) -->
+  <url><loc>https://off-plan-projects.com/projects/ellington/eltiera-views</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/ellington/meriva-collection</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/ellington/windsor-house-ii</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Emaar (14) -->
+  <url><loc>https://off-plan-projects.com/projects/emaar/salva</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/grove-ridge</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/vista-ridge</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/albero-at-dubai-creek-harbour</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/golf-meadow-at-emaar-south</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/golf-verge-at-emaar-south</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/golf-dale-at-emaar-south</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/parkwood-at-dubai-hills-estate</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/sera-1</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/sera-2</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/grand-polo-chevalia-estate-2</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/grand-polo-equiterra-2</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/ovelle-at-the-valley</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/emaar/palace-residences-hillside-b</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Chaimaa + Laraix (2) -->
+  <url><loc>https://off-plan-projects.com/projects/chaimaa/symphony-by-chaimaa</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/laraix/zyra-hills</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Nakheel (4) -->
+  <url><loc>https://off-plan-projects.com/projects/nakheel/palm-central-private-residences</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/nakheel/tilal-al-furjan</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/nakheel/canal-front-residences</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/nakheel/murooj-al-furjan</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Omniyat (3) -->
+  <url><loc>https://off-plan-projects.com/projects/omniyat/alba-residences</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/omniyat/orla-dorchester-collection</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/omniyat/vela-viento-dorchester-collection</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Select Group (5) -->
+  <url><loc>https://off-plan-projects.com/projects/select-group/peninsula-four-the-plaza</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/select-group/artistry-one-residences</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/select-group/artistry-two-residences</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/select-group/jumeirah-living-business-bay</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/select-group/six-senses-residences-dubai-marina</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Other developers (5) -->
+  <url><loc>https://off-plan-projects.com/projects/amis/derby-heights</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/viva/art-house-private-residences</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/imtiaz/sea-cliff-by-imtiaz</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/holm/linea-by-holm</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://off-plan-projects.com/projects/dubai-south-properties/hayat-dubai-south</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
 </urlset>

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -44,11 +44,12 @@ const EltieraViewsProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Eltiera Views by Ellington | Luxury Residences in Jumeirah Islands</title>
-        <meta name="description" content="Explore Eltiera Views at Jumeirah Islands by Ellington Properties offering premium waterfront apartments in Dubai." />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/ellington/eltiera-views" />
-      </Helmet>
+      <SeoHead
+        title="Eltiera Views by Ellington | Luxury Residences in Jumeirah Islands"
+        description="Explore Eltiera Views at Jumeirah Islands by Ellington Properties offering premium waterfront apartments in Dubai."
+        canonicalPath="/projects/ellington/eltiera-views"
+      />
+
 
       <Header />
 

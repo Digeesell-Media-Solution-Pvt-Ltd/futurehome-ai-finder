@@ -131,6 +131,7 @@ export function Testimonials() {
                     src={testimonials[current].image}
                     alt={testimonials[current].name}
                     className="w-14 h-14 rounded-2xl object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-primary rounded-full flex items-center justify-center">
                     <svg className="w-3 h-3 text-charcoal" fill="currentColor" viewBox="0 0 20 20">

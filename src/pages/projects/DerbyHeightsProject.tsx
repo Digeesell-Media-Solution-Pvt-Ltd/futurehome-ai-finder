@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -54,14 +54,12 @@ const DerbyHeightsProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Derby Heights by AMIS in Dubai South | Contemporary Apartments</title>
-        <meta
-          name="description"
-          content="Derby Heights by AMIS in Dubai South offers contemporary apartments with refined interiors, lifestyle amenities and strong investment credentials in a fast-growing district."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/amis/derby-heights" />
-      </Helmet>
+      <SeoHead
+        title="Derby Heights by AMIS in Dubai South | Contemporary Apartments"
+        description="Derby Heights by AMIS in Dubai South offers contemporary apartments with refined interiors, lifestyle amenities and strong investment credentials in a fast-growing district."
+        canonicalPath="/projects/amis/derby-heights"
+      />
+
 
       <Header />
 

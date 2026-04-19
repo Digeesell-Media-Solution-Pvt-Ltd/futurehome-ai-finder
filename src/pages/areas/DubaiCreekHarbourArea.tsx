@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, Building2, Waves, Compass, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { ProgrammaticJsonLd } from "@/components/programmatic/ProgrammaticJsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/schema-jsonld";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -30,10 +32,18 @@ const fadeUp = {
 export default function DubaiCreekHarbourArea() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Dubai Creek Harbour Area Guide | Off-Plan Waterfront Projects</title>
-        <meta name="description" content="Explore luxury off-plan waterfront properties in Dubai Creek Harbour. Discover new towers and investment opportunities." />
-      </Helmet>
+      <SeoHead
+        title="Dubai Creek Harbour Area Guide | Off-Plan Waterfront Projects"
+        description="Explore luxury off-plan waterfront properties in Dubai Creek Harbour. Discover new towers and investment opportunities."
+        canonicalPath="/areas/dubai-creek-harbour"
+      />
+      <ProgrammaticJsonLd
+        data={[breadcrumbListSchema([
+          { name: "Home", path: "/" },
+          { name: "Areas", path: "/areas" },
+          { name: "Dubai Creek Harbour", path: "/areas/dubai-creek-harbour" },
+        ])]}
+      />
 
       <Header />
 

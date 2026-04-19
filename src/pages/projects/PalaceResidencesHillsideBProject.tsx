@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -49,17 +49,12 @@ const PalaceResidencesHillsideBProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Palace Residences Hillside B by Emaar | Dubai Hills Estate</title>
-        <meta
-          name="description"
-          content="Palace Residences Hillside B by Emaar is positioned within Dubai Hills Estate as part of the Palace Residences Hillside concept, bringing resort-style apartments and townhouses with wellness-focused amenities and access to Dubai Hills Park and Mall."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/emaar/palace-residences-hillside-b"
-        />
-      </Helmet>
+      <SeoHead
+        title="Palace Residences Hillside B by Emaar | Dubai Hills Estate"
+        description="Palace Residences Hillside B by Emaar is positioned within Dubai Hills Estate as part of the Palace Residences Hillside concept, bringing resort-style apartments and townhouses with wellness-focused amenities and access to Dubai Hills Park and Mall."
+        canonicalPath="/projects/emaar/palace-residences-hillside-b"
+      />
+
 
       <Header />
 

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -45,11 +45,12 @@ const VistaRidgeProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Vista Ridge at Emaar South by Emaar | Golf Apartments in Dubai</title>
-        <meta name="description" content="Explore Vista Ridge at Emaar South by Emaar — golf-front apartments from AED 2.5M with championship course views, resort-style amenities, and exceptional investment potential." />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/vista-ridge" />
-      </Helmet>
+      <SeoHead
+        title="Vista Ridge at Emaar South by Emaar | Golf Apartments in Dubai"
+        description="Explore Vista Ridge at Emaar South by Emaar — golf-front apartments from AED 2.5M with championship course views, resort-style amenities, and exceptional investment potential."
+        canonicalPath="/projects/emaar/vista-ridge"
+      />
+
 
       <Header />
 

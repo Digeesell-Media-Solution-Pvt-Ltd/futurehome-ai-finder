@@ -27,6 +27,7 @@ import heroImage from "@/assets/projects/samana-hills-south3-hero.jpg";
 import interiorImage from "@/assets/projects/samana-hills-south3-interior.jpg";
 import poolImage from "@/assets/projects/samana-hills-south3-pool.jpg";
 import gardenImage from "@/assets/projects/samana-hills-south3-garden.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Samana Hills South 3",
@@ -84,7 +85,12 @@ export default function SamanaHillsSouth3Project() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Samana Hills South 3 | Off-Plan Dubai"
+        description="Samana Hills South 3 by Samana Developers — off-plan apartments in Dubai featuring private pools and a flexible 1% monthly payment plan."
+        canonicalPath="/projects/samana/samana-hills-south-3"
+      />
+
       <Header />
       
       <main>

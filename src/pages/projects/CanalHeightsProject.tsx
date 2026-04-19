@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { 
   ArrowRight, 
   Building2, 
@@ -83,13 +83,12 @@ const galleryImages = [
 export default function CanalHeightsProject() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Canal Heights de Grisogono | Luxury Waterfront in Business Bay</title>
-        <meta
-          name="description"
-          content="Discover Canal Heights de Grisogono by DAMAC – pearl-inspired luxury studios & 1-2 BR apartments in Business Bay from AED 3.54M. Shell pools, yoga domes & canal views."
-        />
-      </Helmet>
+      <SeoHead
+        title="Canal Heights de Grisogono | Luxury Waterfront in Business Bay"
+        description="Discover Canal Heights de Grisogono by DAMAC – pearl-inspired luxury studios & 1-2 BR apartments in Business Bay from AED 3.54M. Shell pools, yoga domes & canal views."
+        canonicalPath="/projects/damac/canal-heights"
+      />
+
 
       <Header />
       

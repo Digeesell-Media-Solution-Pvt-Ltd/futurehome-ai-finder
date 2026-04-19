@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { MapPin, TrendingUp, Plane, Building2, DollarSign, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { ProgrammaticJsonLd } from "@/components/programmatic/ProgrammaticJsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/schema-jsonld";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -30,10 +32,18 @@ const fadeUp = {
 export default function DubaiSouthArea() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Dubai South Area Guide - Off-Plan Projects & Investments</title>
-        <meta name="description" content="Explore affordable off-plan projects in Dubai South. Strategic location near Al Maktoum Airport and Expo City with strong growth potential for investors." />
-      </Helmet>
+      <SeoHead
+        title="Dubai South Area Guide - Off-Plan Projects & Investments"
+        description="Explore affordable off-plan projects in Dubai South. Strategic location near Al Maktoum Airport and Expo City with strong growth potential for investors."
+        canonicalPath="/areas/dubai-south"
+      />
+      <ProgrammaticJsonLd
+        data={[breadcrumbListSchema([
+          { name: "Home", path: "/" },
+          { name: "Areas", path: "/areas" },
+          { name: "Dubai South", path: "/areas/dubai-south" },
+        ])]}
+      />
 
       <Header />
 

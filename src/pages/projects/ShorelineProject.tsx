@@ -28,6 +28,7 @@ import heroImage from "@/assets/projects/shoreline-hero.jpg";
 import poolImage from "@/assets/projects/shoreline-pool.jpg";
 import interiorImage from "@/assets/projects/shoreline-interior.jpg";
 import beachImage from "@/assets/projects/shoreline-beach.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Shoreline by DAMAC",
@@ -85,7 +86,12 @@ export default function ShorelineProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Shoreline by DAMAC | Off-Plan Beachfront Dubai"
+        description="Shoreline by DAMAC Properties — off-plan beachfront residences in Dubai with direct beach access, sea views, and resort-style living."
+        canonicalPath="/projects/damac/shoreline"
+      />
+
       <Header />
       
       <main>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -76,14 +76,12 @@ const JumeirahEmiratesTowerProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Jumeirah Emirates Tower Residences | Luxury Meraas Homes</title>
-        <meta 
-          name="description" 
-          content="Premium branded residences by Meraas at Emirates Tower. Exclusive 1-4 BR apartments with Jumeirah Signature Services starting from AED 3.51M."
-        />
-        <meta name="keywords" content="Jumeirah Emirates Tower, Meraas, branded residences Dubai, luxury apartments Trade Centre, Jumeirah Signature Services" />
-      </Helmet>
+      <SeoHead
+        title="Jumeirah Emirates Tower Residences | Luxury Meraas Homes"
+        description="Premium branded residences by Meraas at Emirates Tower. Exclusive 1-4 BR apartments with Jumeirah Signature Services starting from AED 3.51M."
+        canonicalPath="/projects/meraas/jumeirah-emirates-tower"
+      />
+
 
       <Header />
       

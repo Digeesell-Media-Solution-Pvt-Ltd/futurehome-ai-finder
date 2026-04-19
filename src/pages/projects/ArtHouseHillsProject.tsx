@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -41,17 +41,12 @@ const ArtHouseHillsProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Art House Hills by Adaan Developments | Apartments in Arjan, Dubai</title>
-        <meta
-          name="description"
-          content="Art House Hills by Adaan Developments is an off-plan apartment project in Arjan, Dubai, positioned as a contemporary community with lifestyle-led amenities and city connectivity."
-        />
-        <link
-          rel="canonical"
-          href="https://off-plan-projects.com/projects/adaan/art-house-hills"
-        />
-      </Helmet>
+      <SeoHead
+        title="Art House Hills by Adaan Developments | Apartments in Arjan, Dubai"
+        description="Art House Hills by Adaan Developments is an off-plan apartment project in Arjan, Dubai, positioned as a contemporary community with lifestyle-led amenities and city connectivity."
+        canonicalPath="/projects/adaan/art-house-hills"
+      />
+
 
       <Header />
 

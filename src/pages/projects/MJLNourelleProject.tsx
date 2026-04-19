@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -73,14 +73,12 @@ const MJLNourelleProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>MJL Nourelle | Meraas Luxury Residences</title>
-        <meta 
-          name="description" 
-          content="Discover MJL Nourelle by Meraas with premium facilities and elegant design at Madinat Jumeirah Living, Umm Suqeim."
-        />
-        <meta name="keywords" content="MJL Nourelle, Meraas, Madinat Jumeirah Living, luxury apartments Dubai, Umm Suqeim residences" />
-      </Helmet>
+      <SeoHead
+        title="MJL Nourelle | Meraas Luxury Residences Madinat Jumeirah"
+        description="Discover MJL Nourelle by Meraas with premium facilities and elegant design at Madinat Jumeirah Living, Umm Suqeim."
+        canonicalPath="/projects/meraas/mjl-nourelle"
+      />
+
 
       <Header />
       

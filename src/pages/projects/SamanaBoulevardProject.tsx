@@ -27,6 +27,7 @@ import heroImage from "@/assets/projects/samana-boulevard-hero.jpg";
 import interiorImage from "@/assets/projects/samana-boulevard-interior.jpg";
 import poolImage from "@/assets/projects/samana-boulevard-pool.jpg";
 import spaImage from "@/assets/projects/samana-boulevard-spa.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Samana Boulevard Heights",
@@ -84,7 +85,12 @@ export default function SamanaBoulevardProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Samana Boulevard | Off-Plan Dubai Apartments"
+        description="Samana Boulevard by Samana Developers — off-plan apartments in Dubai with private pool units and a 1% monthly payment plan."
+        canonicalPath="/projects/samana/samana-boulevard"
+      />
+
       <Header />
       
       <main>

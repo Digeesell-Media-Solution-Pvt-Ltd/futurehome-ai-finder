@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -66,14 +66,12 @@ const AlberoDubaiCreekHarbourProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Albero - Dubai Creek Harbour by Emaar | Luxury Apartments</title>
-        <meta
-          name="description"
-          content="Discover Albero at Dubai Creek Harbour by Emaar, featuring 1 to 3-bedroom apartments and 3-bedroom townhouses from AED 1.81M in a premium waterfront master community."
-        />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/emaar/albero-at-dubai-creek-harbour" />
-      </Helmet>
+      <SeoHead
+        title="Albero - Dubai Creek Harbour by Emaar | Luxury Apartments"
+        description="Discover Albero at Dubai Creek Harbour by Emaar, featuring 1 to 3-bedroom apartments and 3-bedroom townhouses from AED 1.81M in a premium waterfront master community."
+        canonicalPath="/projects/emaar/albero-at-dubai-creek-harbour"
+      />
+
 
       <Header />
 

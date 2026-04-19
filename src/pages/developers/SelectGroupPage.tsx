@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -109,11 +109,11 @@ export default function SelectGroupPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Select Group | Premium UAE Real Estate Developer | Dubai Projects</title>
-        <meta name="description" content="Explore Select Group's portfolio of premium Dubai developments — Peninsula Four The Plaza, Artistry One & Two in d3, and Jumeirah Living Business Bay. AED 20B+ GDV." />
-        <link rel="canonical" href="https://off-plan-projects.com/developers/select-group" />
-      </Helmet>
+      <SeoHead
+        title="Select Group | Premium UAE Real Estate Developer | Dubai"
+        description="Explore Select Group's portfolio of premium Dubai developments — Peninsula Four The Plaza, Artistry One & Two in d3, and Jumeirah Living Business Bay. AED 20B+ GDV."
+        canonicalPath="/developers/select-group"
+      />
 
       <div className="min-h-screen bg-background">
         <Header />

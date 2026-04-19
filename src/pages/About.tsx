@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Search, BarChart3, Users, Megaphone, Target, Shield, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
@@ -26,14 +26,11 @@ const disclaimerPoints = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>About Us | OffPlanProjects – UAE Off-Plan Property Discovery Platform</title>
-        <meta
-          name="description"
-          content="OffPlanProjects is a digital property discovery platform showcasing upcoming off-plan developments and investment opportunities across the UAE."
-        />
-        <meta name="keywords" content="About off-plan Dubai portal, property marketing UAE, off-plan project platform, digital property listing site, real estate tech platform UAE" />
-      </Helmet>
+      <SeoHead
+        title="About Us | OffPlanProjects – UAE Off-Plan Property Discovery"
+        description="OffPlanProjects is a digital property discovery platform showcasing upcoming off-plan developments and investment opportunities across the UAE."
+        canonicalPath="/about"
+      />
 
       <Header />
 

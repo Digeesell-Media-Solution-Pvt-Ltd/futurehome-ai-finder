@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -44,11 +44,12 @@ const MuroojAlFurjanProject = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Murooj Al Furjan by Nakheel | Ready Villas in Dubai</title>
-        <meta name="description" content="Explore Murooj Al Furjan by Nakheel offering ready luxury villas in Al Furjan, Dubai with premium community amenities." />
-        <link rel="canonical" href="https://off-plan-projects.com/projects/nakheel/murooj-al-furjan" />
-      </Helmet>
+      <SeoHead
+        title="Murooj Al Furjan by Nakheel | Ready Villas in Dubai"
+        description="Explore Murooj Al Furjan by Nakheel offering ready luxury villas in Al Furjan, Dubai with premium community amenities."
+        canonicalPath="/projects/nakheel/murooj-al-furjan"
+      />
+
 
       <Header />
 

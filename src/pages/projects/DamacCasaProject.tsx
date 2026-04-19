@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import { SeoHead } from "@/components/seo/SeoHead";
 import { 
   ArrowRight, 
   Building2, 
@@ -89,13 +89,12 @@ export default function DamacCasaProject() {
   const { openLeadCapture } = useLeadCapture();
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>DAMAC Casa | Luxury Apartments in Al Sufouh, Dubai</title>
-        <meta
-          name="description"
-          content="Discover DAMAC Casa – luxury 1-5 BR apartments and townhouses in Al Sufouh with sea views, Palm Jumeirah vistas, and 1% monthly payment plan. Starting AED 2.99M."
-        />
-      </Helmet>
+      <SeoHead
+        title="DAMAC Casa | Luxury Apartments in Al Sufouh Dubai"
+        description="Discover DAMAC Casa – luxury 1-5 BR apartments and townhouses in Al Sufouh with sea views, Palm Jumeirah vistas, and 1% monthly payment plan."
+        canonicalPath="/projects/damac/damac-casa"
+      />
+
 
       <Header />
       

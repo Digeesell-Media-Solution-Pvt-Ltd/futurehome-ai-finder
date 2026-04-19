@@ -13,6 +13,7 @@ import heroImage from "@/assets/projects/burj-azizi-hero.jpg";
 import loungeImage from "@/assets/projects/burj-azizi-lounge.jpg";
 import interiorImage from "@/assets/projects/burj-azizi-interior.jpg";
 import lobbyImage from "@/assets/projects/burj-azizi-lobby.jpg";
+import { SeoHead } from "@/components/seo/SeoHead";
 
 const projectData = {
   name: "Burj Azizi",
@@ -51,7 +52,12 @@ export default function BurjAziziProject() {
   const { openLeadCapture } = useLeadCapture();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">      <SeoHead
+        title="Burj Azizi | Off-Plan Luxury Tower Dubai"
+        description="Burj Azizi by Azizi Developments — iconic luxury off-plan tower in Dubai featuring sky gardens, an infinity pool, and premium residences."
+        canonicalPath="/projects/azizi/burj-azizi"
+      />
+
       <Header />
 
       <main>
