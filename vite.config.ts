@@ -177,8 +177,21 @@ const AREA_ROUTES = [
   "/areas/sheikh-zayed-road",
 ];
 
-// Developer hub pages (only select-group has its own static component)
-const DEVELOPER_ROUTES = ["/developers/select-group"];
+// Developer hub pages — slugs must match src/data/developers.ts
+const DEVELOPER_ROUTES = [
+  "/developers/select-group",
+  "/developers/danube",
+  "/developers/emaar",
+  "/developers/damac",
+  "/developers/nakheel",
+  "/developers/meraas",
+  "/developers/sobha",
+  "/developers/dubai-properties",
+  "/developers/azizi",
+  "/developers/ellington",
+  "/developers/binghatti",
+  "/developers/omniyat",
+];
 
 // Programmatic SEO pages — slugs sourced from src/data/programmatic/*.seed.ts
 const PROGRAMMATIC_ROUTES = [
